@@ -1,0 +1,1 @@
+export function recommendNext(lesson,summary,screen){if(summary.wrong>1)return"Recommended next: review the visual gap before moving on.";return screen.nextRecommendation||"Recommended next: continue to the next lesson."}
