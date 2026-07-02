@@ -1,5 +1,8 @@
-# Atlas GO1 Working Engine v1
+# Atlas GO1 Working Engine v1.1
 
-Run with `python -m http.server 8000`, then open `http://localhost:8000/`.
+Fixes:
+- Removed duplicate intro sentence/callout.
+- Made completion recommendation clickable.
+- Completion recommendation now loads the next lesson from the dropdown when available.
 
-For GitHub Pages, upload the full folder structure to the repo root.
+Upload the full folder structure to GitHub Pages.
