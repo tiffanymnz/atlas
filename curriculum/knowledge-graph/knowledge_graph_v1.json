@@ -1,0 +1,53 @@
+{
+  "concepts": [
+    {
+      "id": "comparison.more",
+      "title": "How many more?",
+      "prerequisites": [
+        "counting",
+        "one_to_one_matching"
+      ],
+      "successors": [
+        "comparison.fewer",
+        "difference"
+      ]
+    },
+    {
+      "id": "comparison.fewer",
+      "title": "How many fewer?",
+      "prerequisites": [
+        "comparison.more",
+        "gap.visual"
+      ],
+      "successors": [
+        "difference"
+      ]
+    },
+    {
+      "id": "difference",
+      "title": "Difference",
+      "prerequisites": [
+        "comparison.more",
+        "comparison.fewer"
+      ],
+      "successors": [
+        "compare_unknown"
+      ]
+    },
+    {
+      "id": "subtraction_as_comparison",
+      "title": "Subtraction as comparison",
+      "prerequisites": [
+        "difference"
+      ],
+      "successors": [
+        "mixed_comparison_word_problems"
+      ]
+    }
+  ],
+  "misconceptions": {
+    "combine_instead_of_compare": "Learner adds both groups when the task asks for a gap.",
+    "reversed_subtraction": "Learner subtracts in the wrong order.",
+    "object_instead_of_relationship": "Learner chooses a group instead of the relationship."
+  }
+}
