@@ -1,7 +1,7 @@
-import { renderComparisonBlocks, renderChoiceScreen, renderLanguage, renderEquation, renderComplete } from "../../sdk/components/lessonComponents.js";
-import { createAnalytics, showAnalytics } from "../analytics-engine/analyticsEngine.js";
-import { recommendNext } from "../recommendation-engine/recommendationEngine.js";
-import { getPreferences, savePreferences, ensureLessonRecord, saveLessonRecord, getAllLessonRecords, archiveCompletedAttempt, newLessonAttempt } from "../state-store/stateStore.js";
+import { renderComparisonBlocks, renderChoiceScreen, renderLanguage, renderEquation, renderComplete } from "../sdk/components/lessonComponents.js";
+import { createAnalytics, showAnalytics } from "./analytics-engine/analyticsEngine.js";
+import { recommendNext } from "./recommendation-engine/recommendationEngine.js";
+import { getPreferences, savePreferences, ensureLessonRecord, saveLessonRecord, getAllLessonRecords, archiveCompletedAttempt, newLessonAttempt, getLastLessonPath, saveLastLessonPath } from "./state-store/stateStore.js";
 
 let lesson = null, lessonPath = null, index = 0, selected = null, hintIndex = 0;
 let dark = false, big = false, reduce = false;
@@ -59,6 +59,7 @@ async function loadLesson(path){
   const res = await fetch(path);
   lesson = await res.json();
   lessonPath = path;
+  saveLastLessonPath(path);
   lessonRecord = ensureLessonRecord(lesson, path);
   index = Math.min(Math.max(Number(lessonRecord.index)||0,0), lesson.screens.length-1);
   analytics = createAnalytics(lessonRecord.currentAttempt?.events || []);
@@ -231,5 +232,10 @@ el("textBtn").onclick = function(){ big=!big; applyPreferences(); persistPrefere
 el("motionBtn").onclick = function(){ reduce=!reduce; applyPreferences(); persistPreferences(); };
 lessonSelect.onchange = () => loadLesson(lessonSelect.value);
 
+window.addEventListener("beforeunload", persist);
+document.addEventListener("visibilitychange", () => { if(document.visibilityState === "hidden") persist(); });
+
 loadPreferences();
+const savedLessonPath = getLastLessonPath();
+if(savedLessonPath && [...lessonSelect.options].some(option => option.value === savedLessonPath)) lessonSelect.value = savedLessonPath;
 loadLesson(lessonSelect.value);
