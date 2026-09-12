@@ -1,0 +1,8 @@
+{
+  "name": "atlas-go1",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test tests/*.test.js && python3 tools/qa/validate_lessons.py"
+  }
+}
