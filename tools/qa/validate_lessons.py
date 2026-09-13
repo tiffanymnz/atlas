@@ -1,7 +1,8 @@
 import json
 from pathlib import Path
 errors=[]
-for path in Path("../../curriculum/lessons").glob("*.json"):
+lesson_dir=Path(__file__).resolve().parents[2] / "curriculum" / "lessons"
+for path in lesson_dir.glob("*.json"):
     data=json.loads(path.read_text(encoding="utf-8"))
     for key in ["schema_version","metadata","learning","concepts","screens"]:
         if key not in data: errors.append(f"{path.name}: missing {key}")

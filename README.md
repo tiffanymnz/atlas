@@ -8,3 +8,12 @@ Fixes:
 - Retains JSON-driven lesson engine structure.
 
 Upload the full folder structure to GitHub Pages.
+
+## Sprint 1
+
+- Per-lesson screen, answer, hint, feedback, and current-attempt state persist in local storage.
+- The last selected lesson and accessibility preferences persist across refreshes and reopen.
+- Completion status and cumulative completed-attempt history persist.
+- Restarting a lesson archives the completed attempt before creating a separate fresh attempt.
+
+Run the checks with `npm test`.
