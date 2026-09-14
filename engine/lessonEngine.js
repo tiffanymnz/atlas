@@ -10,6 +10,7 @@ let lessonRecord = null;
 
 const root = document.getElementById("lessonRoot");
 const lessonSelect = document.getElementById("lessonSelect");
+const lessonOptionLabels = new Map([...lessonSelect.options].map(option=>[option.value,option.textContent]));
 function el(id){ return document.getElementById(id); }
 function pct(){ return Math.round(index/(lesson.screens.length-1)*100); }
 function current(){ return lesson.screens[index]; }
@@ -29,6 +30,14 @@ function persist(){
 }
 function emit(type,payload={}){ analytics.record({type, screen:index, component:current()?.type, payload}); syncAttemptEvents(); persist(); }
 function hasNextLesson(){ return lessonSelect.selectedIndex < lessonSelect.options.length - 1; }
+function refreshLessonOptions(){
+  const records=new Map(getAllLessonRecords().map(record=>[record.path,record]));
+  for(const option of lessonSelect.options){
+    const baseLabel=lessonOptionLabels.get(option.value) || option.textContent;
+    const status=records.get(option.value)?.status;
+    option.textContent=baseLabel+(status==="completed"?" — Completed":status==="in_progress"?" — In progress":"");
+  }
+}
 function goToNextLesson(){ if(hasNextLesson()){ persist(); lessonSelect.selectedIndex += 1; loadLesson(lessonSelect.value); } }
 function reviewVisualGap(){
   const target = lesson.screens.findIndex(screen => screen.visual && screen.visual.revealGap === true);
@@ -64,7 +73,16 @@ async function loadLesson(path){
   index = Math.min(Math.max(Number(lessonRecord.index)||0,0), lesson.screens.length-1);
   analytics = createAnalytics(lessonRecord.currentAttempt?.events || []);
   selected = null; hintIndex = 0;
+  refreshLessonOptions();
   render();
+}
+
+function setCorrectControls(){
+  const submit=el("submit"), hint=el("hintBtn");
+  submit.textContent="Continue";
+  submit.disabled=false;
+  submit.onclick=next;
+  hint.disabled=true;
 }
 
 function restoreChoiceState(screen){
@@ -90,7 +108,7 @@ function restoreChoiceState(screen){
       if(screen.choices[i].correct) btn.classList.add("correct");
       btn.classList.remove("selected");
     });
-    el("submit").disabled=true;
+    setCorrectControls();
   }
 }
 
@@ -106,6 +124,7 @@ function markCompleted(){
     lessonRecord.status="completed";
     persist();
   }
+  refreshLessonOptions();
 }
 
 function render(){
@@ -184,8 +203,7 @@ function submitChoice(screen){
     fb.style.display = "block"; fb.className = "feedback success";
     fb.innerHTML = `<strong>Correct.</strong>${choice.feedback ? "<br>"+choice.feedback : ""}`;
     state.feedback={className:fb.className,html:fb.innerHTML};
-    lessonRecord.screenStates[index]=state; persist();
-    setTimeout(next,900);
+    lessonRecord.screenStates[index]=state; persist(); setCorrectControls();
   } else {
     const h = screen.hints?.[Math.min(hintIndex, screen.hints.length-1)] || "Look at what the problem is asking you to find.";
     hintIndex++;
@@ -213,7 +231,7 @@ function hint(screen){
 function next(){
   if(index < lesson.screens.length-1){
     if(index===0 && lessonRecord.status!=="completed") lessonRecord.status="in_progress";
-    index++; lessonRecord.index=index; persist(); render();
+    index++; lessonRecord.index=index; persist(); refreshLessonOptions(); render();
   }
 }
 function back(){ if(index > 0){ index--; lessonRecord.index=index; persist(); render(); } }
@@ -221,7 +239,7 @@ function restart(){
   lessonRecord = newLessonAttempt(lessonRecord);
   analytics = createAnalytics();
   index = 0; selected=null; hintIndex=0;
-  persist(); render();
+  persist(); refreshLessonOptions(); render();
 }
 
 el("analyticsBtn").onclick = () => { persist(); showAnalytics(lesson, analytics, index, pct(), getAllLessonRecords(), lessonSelect.options.length); };

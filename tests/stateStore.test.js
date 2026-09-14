@@ -28,6 +28,11 @@ test("accessibility preferences survive a reload",()=>{
   assert.deepEqual(getPreferences(),{dark:true,big:true,reduce:true});
 });
 
+test("malformed preferences cannot accidentally enable accessibility modes",()=>{
+  localStorage.setItem("atlas.preferences.v1",JSON.stringify({dark:"false",big:1,reduce:null}));
+  assert.deepEqual(getPreferences(),{dark:false,big:false,reduce:false});
+});
+
 test("each lesson restores its own screen and attempt state",()=>{
   const first=ensureLessonRecord(lesson("one"),"one.json");
   first.index=3;
@@ -69,4 +74,25 @@ test("completed attempts remain separate from a fresh current attempt",()=>{
 test("the selected lesson survives reopen",()=>{
   saveLastLessonPath("lesson002.json");
   assert.equal(getLastLessonPath(),"lesson002.json");
+});
+
+test("malformed saved lesson data is repaired without losing the lesson",()=>{
+  localStorage.setItem("atlas.learning.v1",JSON.stringify({
+    version:1,
+    lessons:{one:{status:"unexpected",index:"3.9",screenStates:{0:"bad",1:{selected:2}},currentAttempt:{events:null},priorCompletedAttempts:"bad"}}
+  }));
+  const record=ensureLessonRecord(lesson("one"),"one.json");
+  assert.equal(record.status,"not_started");
+  assert.equal(record.index,3);
+  assert.deepEqual(record.screenStates,{1:{selected:2}});
+  assert.deepEqual(record.currentAttempt.events,[]);
+  assert.deepEqual(record.priorCompletedAttempts,[]);
+});
+
+test("a completed attempt repairs a stale status to completed",()=>{
+  localStorage.setItem("atlas.learning.v1",JSON.stringify({
+    version:1,
+    lessons:{one:{status:"in_progress",currentAttempt:{id:"done",completed:true,events:[]}}}
+  }));
+  assert.equal(ensureLessonRecord(lesson("one"),"one.json").status,"completed");
 });

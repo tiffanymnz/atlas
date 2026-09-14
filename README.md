@@ -15,5 +15,7 @@ Upload the full folder structure to GitHub Pages.
 - The last selected lesson and accessibility preferences persist across refreshes and reopen.
 - Completion status and cumulative completed-attempt history persist.
 - Restarting a lesson archives the completed attempt before creating a separate fresh attempt.
+- Correct-answer feedback restores with a Continue action, so refreshing cannot strand the learner.
+- Malformed saved records are repaired safely, and the learning summary reports cumulative completed-attempt metrics.
 
 Run the checks with `npm test`.

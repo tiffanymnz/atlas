@@ -1,5 +1,5 @@
 export function createAnalytics(initialEvents=[]){
-  const events=[...initialEvents];
+  const events=Array.isArray(initialEvents)?[...initialEvents]:[];
   return {
     record(event){ events.push({...event,time:new Date().toISOString()}); },
     events(){ return [...events]; },
@@ -13,19 +13,34 @@ export function createAnalytics(initialEvents=[]){
   };
 }
 
+export function summarizeLearningHistory(lessonRecords=[]){
+  const completedAttempts=[];
+  for(const record of lessonRecords){
+    if(Array.isArray(record?.priorCompletedAttempts)) completedAttempts.push(...record.priorCompletedAttempts.filter(attempt=>attempt?.completed));
+    if(record?.currentAttempt?.completed) completedAttempts.push(record.currentAttempt);
+  }
+  const events=completedAttempts.flatMap(attempt=>Array.isArray(attempt.events)?attempt.events:[]);
+  const correct=events.filter(event=>event.type==="submit"&&event.payload?.correct===true).length;
+  const wrong=events.filter(event=>event.type==="submit"&&event.payload?.correct===false).length;
+  const hints=events.filter(event=>event.type==="hint"||event.type==="guided_retry").length;
+  const answers=correct+wrong;
+  return {completedAttempts:completedAttempts.length,correct,wrong,hints,accuracy:answers?Math.round(correct/answers*100):0};
+}
+
 export function showAnalytics(lesson,analytics,index,progress,lessonRecords=[]){
   const s=analytics.summary();
-  const completedAttempts=lessonRecords.reduce((total,record)=>total+(record.priorCompletedAttempts?.length||0)+(record.currentAttempt?.completed?1:0),0);
+  const history=summarizeLearningHistory(lessonRecords);
   document.getElementById("analyticsSummary").innerHTML=
     `<div class="analyticsMetric"><strong>${progress}%</strong><span>Lesson complete</span></div>`+
-    `<div class="analyticsMetric"><strong>${completedAttempts}</strong><span>Completed attempts</span></div>`+
-    `<div class="analyticsMetric"><strong>${s.correct}</strong><span>Correct answers</span></div>`+
-    `<div class="analyticsMetric"><strong>${s.wrong}</strong><span>Retries</span></div>`+
-    `<div class="analyticsMetric"><strong>${s.hints}</strong><span>Hints used</span></div>`+
-    `<div class="analyticsMetric"><strong>${s.accuracy}%</strong><span>Accuracy</span></div>`;
+    `<div class="analyticsMetric"><strong>${history.completedAttempts}</strong><span>Completed attempts</span></div>`+
+    `<div class="analyticsMetric"><strong>${history.correct}</strong><span>History correct</span></div>`+
+    `<div class="analyticsMetric"><strong>${history.wrong}</strong><span>History retries</span></div>`+
+    `<div class="analyticsMetric"><strong>${history.hints}</strong><span>History hints</span></div>`+
+    `<div class="analyticsMetric"><strong>${history.accuracy}%</strong><span>History accuracy</span></div>`;
   const identifiedGap=s.events.some(e=>e.payload?.evidence==="identified_gap");
   const choseEquation=s.events.some(e=>e.payload?.evidence==="subtraction_as_comparison");
   const lines=[`Lesson: ${lesson.metadata.title}`,"","Understanding"];
+  lines.push(`Current attempt: ${s.correct} correct, ${s.wrong} retries, ${s.hints} hints`);
   lines.push((index>=1?"✓":"□")+" Compared the two groups visually");
   lines.push((identifiedGap?"✓":"□")+" Identified the gap");
   lines.push((choseEquation?"✓":"□")+" Connected the gap to subtraction");
