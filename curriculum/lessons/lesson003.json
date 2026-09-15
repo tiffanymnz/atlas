@@ -1,0 +1,176 @@
+{
+  "schema_version": "2.0",
+  "metadata": {
+    "id": "MATH-NS-COMP-0003",
+    "title": "Difference",
+    "domain": "Mathematics",
+    "subject": "Arithmetic",
+    "course": "Number Sense",
+    "unit": "Comparison"
+  },
+  "learning": {
+    "learning_goal": "Understand that difference names the gap between two amounts.",
+    "big_idea": "The difference is the amount between two values, not either value by itself."
+  },
+  "concepts": {
+    "primary_concept": "difference",
+    "supporting_concepts": [
+      "comparison.more",
+      "comparison.fewer",
+      "gap.visual",
+      "subtraction_as_comparison"
+    ]
+  },
+  "screens": [
+    {
+      "type": "intro",
+      "label": "Lesson 003",
+      "title": "Difference",
+      "body": "Difference is the name for the gap between two amounts."
+    },
+    {
+      "type": "observe",
+      "label": "Observe",
+      "title": "Where is the difference?",
+      "visual": {
+        "topCount": 13,
+        "bottomCount": 8,
+        "revealGap": false,
+        "message": "Match the blocks in both rows. What remains unmatched?"
+      },
+      "nextLabel": "Show the difference"
+    },
+    {
+      "type": "discover",
+      "label": "Discover",
+      "title": "What does the highlighted part represent?",
+      "visual": {
+        "topCount": 13,
+        "bottomCount": 8,
+        "revealGap": true,
+        "message": "The unmatched blocks are the difference between 13 and 8."
+      },
+      "choices": [
+        {
+          "text": "The difference",
+          "correct": true,
+          "evidence": "identified_gap",
+          "feedback": "The difference is the unmatched part between the amounts."
+        },
+        {
+          "text": "The total of both rows",
+          "correct": false,
+          "misconception": "combine_instead_of_compare"
+        },
+        {
+          "text": "The smaller amount",
+          "correct": false,
+          "misconception": "object_instead_of_relationship"
+        }
+      ],
+      "hints": [
+        "Match one block in the top row with one in the bottom row.",
+        "Focus on the blocks without a partner.",
+        "The unmatched part is the gap, or difference."
+      ]
+    },
+    {
+      "type": "language",
+      "label": "Language",
+      "title": "Several questions ask for a difference.",
+      "visual": {
+        "topCount": 13,
+        "bottomCount": 8,
+        "revealGap": true,
+        "message": "Each phrase asks about the same gap."
+      },
+      "phrases": [
+        "What is the difference?",
+        "How many more?",
+        "How many fewer?",
+        "How far apart?"
+      ],
+      "phraseMeaning": "Find the gap",
+      "guidance": "Do not use the word more by itself to choose an operation. Decide whether the question asks you to combine or compare."
+    },
+    {
+      "type": "symbol",
+      "label": "Symbol",
+      "title": "Which equation finds the difference?",
+      "visual": {
+        "topCount": 13,
+        "bottomCount": 8,
+        "revealGap": true,
+        "message": "Measure the unmatched part from the larger amount to the smaller amount."
+      },
+      "choices": [
+        {
+          "text": "13 - 8",
+          "correct": true,
+          "evidence": "subtraction_as_comparison",
+          "feedback": "Subtracting the smaller amount from the larger amount measures the difference."
+        },
+        {
+          "text": "13 + 8",
+          "correct": false,
+          "misconception": "combine_instead_of_compare"
+        },
+        {
+          "text": "8 - 13",
+          "correct": false,
+          "misconception": "reversed_subtraction"
+        }
+      ],
+      "hints": [
+        "The question asks for the gap, not the combined total.",
+        "Start with the larger amount and subtract the smaller amount."
+      ]
+    },
+    {
+      "type": "equationReveal",
+      "label": "Reveal",
+      "title": "Subtraction finds the difference.",
+      "visual": {
+        "topCount": 13,
+        "bottomCount": 8,
+        "revealGap": true,
+        "message": "Five blocks are unmatched, so the difference is 5."
+      },
+      "equation": "13 - 8 = 5"
+    },
+    {
+      "type": "reflection",
+      "label": "Reflect",
+      "title": "What does difference mean?",
+      "prompt": "Choose the statement that explains the idea.",
+      "choices": [
+        {
+          "text": "Difference means the larger amount.",
+          "correct": false,
+          "misconception": "object_instead_of_relationship"
+        },
+        {
+          "text": "Difference means the gap between two amounts.",
+          "correct": true,
+          "evidence": "identified_gap",
+          "feedback": "The difference describes how far apart the amounts are."
+        },
+        {
+          "text": "Difference means add the amounts together.",
+          "correct": false,
+          "misconception": "combine_instead_of_compare"
+        }
+      ],
+      "hints": [
+        "Think about the highlighted unmatched blocks.",
+        "Difference describes a relationship between two amounts."
+      ]
+    },
+    {
+      "type": "complete",
+      "title": "You found the difference.",
+      "body": "You connected comparison language, the visual gap, and subtraction.",
+      "nextRecommendation": "Next: use the difference when the compared amount is unknown."
+    }
+  ]
+}
