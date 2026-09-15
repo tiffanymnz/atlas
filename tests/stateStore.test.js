@@ -7,6 +7,7 @@ import {
   getLastLessonPath,
   getPreferences,
   newLessonAttempt,
+  resolveLessonPosition,
   saveLastLessonPath,
   saveLessonRecord,
   savePreferences
@@ -95,4 +96,37 @@ test("a completed attempt repairs a stale status to completed",()=>{
     lessons:{one:{status:"in_progress",currentAttempt:{id:"done",completed:true,events:[]}}}
   }));
   assert.equal(ensureLessonRecord(lesson("one"),"one.json").status,"completed");
+});
+
+test("stable screen ids preserve position when curriculum screens are inserted",()=>{
+  const record={index:2,screenId:"practice",screenStates:{practice:{selected:1}}};
+  const revised={screens:[{id:"intro"},{id:"hook"},{id:"model"},{id:"practice"}]};
+  assert.equal(resolveLessonPosition(record,revised),3);
+  assert.equal(record.screenId,"practice");
+  assert.deepEqual(record.screenStates.practice,{selected:1});
+});
+
+test("legacy numeric positions migrate through explicit legacy indexes",()=>{
+  const record={index:1,screenId:null,screenStates:{1:{hintIndex:2}}};
+  const revised={screens:[{id:"intro",legacyIndex:0},{id:"new"},{id:"observe",legacyIndex:1}]};
+  assert.equal(resolveLessonPosition(record,revised),2);
+  assert.equal(record.screenId,"observe");
+  assert.deepEqual(record.screenStates.observe,{hintIndex:2});
+});
+
+test("legacy state for every visited screen migrates without index collisions",()=>{
+  const record={index:2,screenId:null,screenStates:{1:{hintIndex:1},2:{selected:2},3:{feedback:{html:"saved"}}}};
+  const revised={screens:[
+    {id:"intro",legacyIndex:0},
+    {id:"misconception"},
+    {id:"observe",legacyIndex:1},
+    {id:"discover",legacyIndex:2},
+    {id:"language",legacyIndex:3}
+  ]};
+  assert.equal(resolveLessonPosition(record,revised),3);
+  assert.deepEqual(record.screenStates,{
+    observe:{hintIndex:1},
+    discover:{selected:2},
+    language:{feedback:{html:"saved"}}
+  });
 });

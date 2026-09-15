@@ -19,3 +19,14 @@ Upload the full folder structure to GitHub Pages.
 - Malformed saved records are repaired safely, and the learning summary reports cumulative completed-attempt metrics.
 
 Run the checks with `npm test`.
+
+## Sprint 2
+
+- Lessons 003 and 004 extend the comparison sequence through `difference` and `compare_unknown`.
+- Automated checks enforce curriculum-to-knowledge-graph integrity.
+
+## Sprint 3
+
+- Lessons 001–004 and the learner interface have complete English/Spanish parity.
+- Every lesson follows the validated memory-first sequence: misconception, visual model, explanation, memory hook, guided practice, independent practice, recall, transfer, and reflection.
+- Stable screen IDs migrate existing numeric progress safely when curriculum stages are inserted.

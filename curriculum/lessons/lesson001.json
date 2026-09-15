@@ -1,5 +1,5 @@
 {
-  "schema_version": "2.0",
+  "schema_version": "3.0",
   "metadata": {
     "id": "MATH-NS-COMP-0001",
     "title": "How many more?",
@@ -23,12 +23,29 @@
   },
   "screens": [
     {
+      "id": "intro",
+      "legacyIndex": 0,
       "type": "intro",
       "label": "Lesson 001",
       "title": "How many more?",
       "body": "Comparison means finding the gap between two amounts."
     },
     {
+      "id": "misconception",
+      "type": "misconception",
+      "label": "Misconception",
+      "title": "Does more always mean add?",
+      "prompt": "Ava has 14 stickers. Luis has 8. How many more stickers does Ava have?",
+      "choices": [
+        {"text": "22, because more means add", "correct": false, "misconception": "combine_instead_of_compare"},
+        {"text": "14, because Ava has more", "correct": false, "misconception": "object_instead_of_relationship"},
+        {"text": "6, because the question asks for the gap", "correct": true, "evidence": "identified_gap", "feedback": "The word more describes a comparison here, so find the gap."}
+      ],
+      "hints": ["The question does not ask how many stickers they have altogether.", "Compare 14 with 8 and find what is unmatched."]
+    },
+    {
+      "id": "visual-model",
+      "legacyIndex": 1,
       "type": "observe",
       "label": "Observe",
       "title": "Which group has extra blocks?",
@@ -41,6 +58,8 @@
       "nextLabel": "Reveal the gap"
     },
     {
+      "id": "discover-gap",
+      "legacyIndex": 2,
       "type": "discover",
       "label": "Discover",
       "title": "What do the glowing blocks show?",
@@ -75,6 +94,8 @@
       ]
     },
     {
+      "id": "language-explanation",
+      "legacyIndex": 3,
       "type": "language",
       "label": "Language",
       "title": "Different words. Same gap.",
@@ -94,6 +115,16 @@
       "guidance": "Some words can be tricky. First ask: are we putting groups together, or comparing them?"
     },
     {
+      "id": "memory-hook",
+      "type": "memoryHook",
+      "label": "Remember",
+      "title": "Compare? Find the gap.",
+      "hook": "Larger amount − smaller amount = difference",
+      "body": "When two amounts are being compared, more tells you which amount is larger—not automatically to add."
+    },
+    {
+      "id": "choose-equation",
+      "legacyIndex": 4,
       "type": "symbol",
       "label": "Symbol",
       "title": "What equation measures the gap?",
@@ -127,6 +158,8 @@
       ]
     },
     {
+      "id": "equation-explanation",
+      "legacyIndex": 5,
       "type": "equationReveal",
       "label": "Reveal",
       "title": "Subtraction measures the gap.",
@@ -139,6 +172,60 @@
       "equation": "15 - 9 = 6"
     },
     {
+      "id": "guided-practice",
+      "type": "guidedPractice",
+      "label": "Guided practice",
+      "title": "Find the unmatched shells.",
+      "visual": {"topCount": 11, "bottomCount": 7, "revealGap": true, "message": "Eleven shells are matched with seven. Count only the unmatched shells."},
+      "choices": [
+        {"text": "4", "correct": true, "evidence": "identified_gap", "feedback": "Four shells are unmatched, so 11 is 4 more than 7."},
+        {"text": "18", "correct": false, "misconception": "combine_instead_of_compare"},
+        {"text": "7", "correct": false, "misconception": "object_instead_of_relationship"}
+      ],
+      "hints": ["Match the first seven shells in each row.", "Use 11 − 7 to measure the gap."]
+    },
+    {
+      "id": "independent-practice",
+      "type": "independentPractice",
+      "label": "Independent practice",
+      "title": "Solve without the model.",
+      "prompt": "Nia read 16 pages. Theo read 9 pages. How many more pages did Nia read?",
+      "choices": [
+        {"text": "7", "correct": true, "evidence": "subtraction_as_comparison", "feedback": "16 − 9 = 7, so Nia read 7 more pages."},
+        {"text": "25", "correct": false, "misconception": "combine_instead_of_compare"},
+        {"text": "9", "correct": false, "misconception": "object_instead_of_relationship"}
+      ],
+      "hints": ["Decide whether the question asks for a total or a comparison.", "Subtract the smaller amount from the larger amount."]
+    },
+    {
+      "id": "recall",
+      "type": "recall",
+      "label": "Recall",
+      "title": "What should you remember?",
+      "prompt": "When a problem asks how many more one amount is than another, what should you find?",
+      "choices": [
+        {"text": "The combined total", "correct": false, "misconception": "combine_instead_of_compare"},
+        {"text": "The larger amount", "correct": false, "misconception": "object_instead_of_relationship"},
+        {"text": "The gap between the amounts", "correct": true, "evidence": "identified_gap", "feedback": "How many more asks for the gap between the amounts."}
+      ],
+      "hints": ["Recall the memory hook: Compare? Find the gap."]
+    },
+    {
+      "id": "transfer",
+      "type": "transfer",
+      "label": "Transfer",
+      "title": "Use the idea in a new setting.",
+      "prompt": "A blue notebook costs $18 and a red notebook costs $11. How much more does the blue notebook cost?",
+      "choices": [
+        {"text": "$7", "correct": true, "evidence": "subtraction_as_comparison", "feedback": "$18 − $11 = $7, so the blue notebook costs $7 more."},
+        {"text": "$29", "correct": false, "misconception": "combine_instead_of_compare"},
+        {"text": "$18", "correct": false, "misconception": "object_instead_of_relationship"}
+      ],
+      "hints": ["The context changed, but the question still asks for a gap.", "Subtract 11 from 18."]
+    },
+    {
+      "id": "reflection",
+      "legacyIndex": 6,
       "type": "reflection",
       "label": "Reflect",
       "title": "What did you discover?",
@@ -163,6 +250,8 @@
       ]
     },
     {
+      "id": "complete",
+      "legacyIndex": 7,
       "type": "complete",
       "title": "You measured the gap.",
       "body": "You connected the visual, the words, and the equation.",

@@ -25,7 +25,7 @@ def validate_translation(data,translation,path_name):
         return
     for index,(screen,translated) in enumerate(zip(base_screens,translated_screens)):
         location=f"{path_name} screen {index}"
-        for key in ["label","stage","title","body","nextLabel","prompt","guidance","phraseMeaning","nextRecommendation"]:
+        for key in ["label","stage","title","body","nextLabel","prompt","guidance","phraseMeaning","nextRecommendation","hook"]:
             require_translation(screen,translated,key,location)
         require_translation(screen.get("visual",{}),translated.get("visual",{}),"message",location)
         for key in ["hints","phrases"]:
@@ -62,13 +62,20 @@ for path in sorted(lesson_dir.glob("*.json")):
     elif primary_concept in primary_concepts: errors.append(f"{path.name}: duplicate primary concept {primary_concept}")
     primary_concepts.add(primary_concept)
     screens=data.get("screens",[])
+    required_types=["intro","misconception","observe","discover","language","memoryHook","symbol","equationReveal","guidedPractice","independentPractice","recall","transfer","reflection","complete"]
+    screen_types=[screen.get("type") for screen in screens]
+    screen_ids=[screen.get("id") for screen in screens]
+    if data.get("schema_version") != "3.0": errors.append(f"{path.name}: schema_version must be 3.0")
+    if screen_types != required_types: errors.append(f"{path.name}: memory-first screen sequence must be {' -> '.join(required_types)}")
+    if any(not isinstance(screen_id,str) or not screen_id for screen_id in screen_ids): errors.append(f"{path.name}: every screen needs a stable id")
+    if len(set(screen_ids)) != len(screen_ids): errors.append(f"{path.name}: screen ids must be unique")
     if not screens or screens[0].get("type") != "intro": errors.append(f"{path.name}: first screen must be intro")
     if not screens or screens[-1].get("type") != "complete": errors.append(f"{path.name}: last screen must be complete")
     for i,screen in enumerate(data.get("screens",[])):
-        if screen.get("type") in ["discover","symbol","reflection"]:
+        if screen.get("type") in ["misconception","discover","symbol","guidedPractice","independentPractice","recall","transfer","reflection"]:
             choices=screen.get("choices",[])
             if sum(choice.get("correct") is True for choice in choices) != 1: errors.append(f"{path.name} screen {i}: expected exactly one correct choice")
-        if screen.get("type") in ["discover","symbol"]:
+        if screen.get("type") in ["misconception","discover","symbol","guidedPractice","independentPractice","recall","transfer"]:
             choices=screen.get("choices",[])
             for c in choices:
                 if c.get("correct") is False and "misconception" not in c: errors.append(f"{path.name} screen {i}: wrong choice missing misconception")

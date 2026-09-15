@@ -1,5 +1,5 @@
 {
-  "schema_version": "2.0",
+  "schema_version": "3.0",
   "metadata": {
     "id": "MATH-NS-COMP-0002",
     "title": "How many fewer?",
@@ -23,12 +23,29 @@
   },
   "screens": [
     {
+      "id": "intro",
+      "legacyIndex": 0,
       "type": "intro",
       "label": "Lesson 002",
       "title": "How many fewer?",
       "body": "Fewer is another way to compare two groups."
     },
     {
+      "id": "misconception",
+      "type": "misconception",
+      "label": "Misconception",
+      "title": "Is the smaller amount the answer?",
+      "prompt": "There are 16 apples and 9 oranges. How many fewer oranges are there than apples?",
+      "choices": [
+        {"text": "9, because oranges are the smaller group", "correct": false, "misconception": "object_instead_of_relationship"},
+        {"text": "25, because both groups are mentioned", "correct": false, "misconception": "combine_instead_of_compare"},
+        {"text": "7, because fewer asks for the gap", "correct": true, "evidence": "identified_gap", "feedback": "Fewer asks how far apart the two amounts are."}
+      ],
+      "hints": ["The question does not ask how many oranges there are.", "Compare 16 and 9 by finding their gap."]
+    },
+    {
+      "id": "visual-model",
+      "legacyIndex": 1,
       "type": "observe",
       "label": "Observe",
       "title": "Which group has fewer blocks?",
@@ -41,6 +58,8 @@
       "nextLabel": "Show the gap"
     },
     {
+      "id": "discover-gap",
+      "legacyIndex": 2,
       "type": "discover",
       "label": "Discover",
       "title": "What does fewer ask us to find?",
@@ -75,6 +94,8 @@
       ]
     },
     {
+      "id": "language-explanation",
+      "legacyIndex": 3,
       "type": "language",
       "label": "Language",
       "title": "Fewer, less, difference.",
@@ -94,6 +115,16 @@
       "guidance": "Fewer does not mean guess smaller. It asks how far apart the groups are."
     },
     {
+      "id": "memory-hook",
+      "type": "memoryHook",
+      "label": "Remember",
+      "title": "Fewer still means find the gap.",
+      "hook": "Larger amount − smaller amount = how many fewer",
+      "body": "The direction of the comparison changes, but the size of the gap stays the same."
+    },
+    {
+      "id": "choose-equation",
+      "legacyIndex": 4,
       "type": "symbol",
       "label": "Symbol",
       "title": "Which equation measures fewer?",
@@ -127,6 +158,8 @@
       ]
     },
     {
+      "id": "equation-explanation",
+      "legacyIndex": 5,
       "type": "equationReveal",
       "label": "Reveal",
       "title": "Fewer uses the same gap.",
@@ -139,6 +172,60 @@
       "equation": "15 - 9 = 6"
     },
     {
+      "id": "guided-practice",
+      "type": "guidedPractice",
+      "label": "Guided practice",
+      "title": "How many fewer are in the shorter row?",
+      "visual": {"topCount": 14, "bottomCount": 8, "revealGap": true, "message": "Match eight blocks in each row. The unmatched blocks show how many fewer."},
+      "choices": [
+        {"text": "6", "correct": true, "evidence": "identified_gap", "feedback": "14 − 8 = 6, so the shorter row has 6 fewer blocks."},
+        {"text": "8", "correct": false, "misconception": "object_instead_of_relationship"},
+        {"text": "22", "correct": false, "misconception": "combine_instead_of_compare"}
+      ],
+      "hints": ["Count the blocks without a match.", "Subtract 8 from 14."]
+    },
+    {
+      "id": "independent-practice",
+      "type": "independentPractice",
+      "label": "Independent practice",
+      "title": "Solve without the model.",
+      "prompt": "A bus has 17 adults and 12 children. How many fewer children are there than adults?",
+      "choices": [
+        {"text": "5", "correct": true, "evidence": "subtraction_as_comparison", "feedback": "17 − 12 = 5, so there are 5 fewer children."},
+        {"text": "12", "correct": false, "misconception": "object_instead_of_relationship"},
+        {"text": "29", "correct": false, "misconception": "combine_instead_of_compare"}
+      ],
+      "hints": ["The question asks for the gap, not the number of children.", "Subtract the smaller amount from the larger amount."]
+    },
+    {
+      "id": "recall",
+      "type": "recall",
+      "label": "Recall",
+      "title": "What does fewer ask you to find?",
+      "prompt": "Choose the rule that works for a how-many-fewer comparison.",
+      "choices": [
+        {"text": "Choose the smaller amount", "correct": false, "misconception": "object_instead_of_relationship"},
+        {"text": "Add the two amounts", "correct": false, "misconception": "combine_instead_of_compare"},
+        {"text": "Find the gap from larger to smaller", "correct": true, "evidence": "identified_gap", "feedback": "Fewer compares the amounts by measuring their gap."}
+      ],
+      "hints": ["Recall the memory hook: fewer still means find the gap."]
+    },
+    {
+      "id": "transfer",
+      "type": "transfer",
+      "label": "Transfer",
+      "title": "Use the idea in a new setting.",
+      "prompt": "Jamal walked 23 blocks and Priya walked 15 blocks. How many fewer blocks did Priya walk?",
+      "choices": [
+        {"text": "8", "correct": true, "evidence": "subtraction_as_comparison", "feedback": "23 − 15 = 8, so Priya walked 8 fewer blocks."},
+        {"text": "15", "correct": false, "misconception": "object_instead_of_relationship"},
+        {"text": "38", "correct": false, "misconception": "combine_instead_of_compare"}
+      ],
+      "hints": ["Walking distance is a new context, but fewer still asks for the gap.", "Subtract 15 from 23."]
+    },
+    {
+      "id": "reflection",
+      "legacyIndex": 6,
       "type": "reflection",
       "label": "Reflect",
       "title": "What did you discover?",
@@ -163,6 +250,8 @@
       ]
     },
     {
+      "id": "complete",
+      "legacyIndex": 7,
       "type": "complete",
       "title": "You compared with fewer.",
       "body": "You used the same gap idea from a new direction.",

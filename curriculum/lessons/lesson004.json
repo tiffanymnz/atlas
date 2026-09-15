@@ -1,5 +1,5 @@
 {
-  "schema_version": "2.0",
+  "schema_version": "3.0",
   "metadata": {
     "id": "MATH-NS-COMP-0004",
     "title": "Find the compared amount",
@@ -22,12 +22,29 @@
   },
   "screens": [
     {
+      "id": "intro",
+      "legacyIndex": 0,
       "type": "intro",
       "label": "Lesson 004",
       "title": "Find the compared amount",
       "body": "Sometimes the gap is given and one of the compared amounts is missing."
     },
     {
+      "id": "misconception",
+      "type": "misconception",
+      "label": "Misconception",
+      "title": "Is the given difference the answer?",
+      "prompt": "Lena has 14 markers. Omar has 6 fewer. How many markers does Omar have?",
+      "choices": [
+        {"text": "6, because that number is stated", "correct": false, "misconception": "gap_as_unknown"},
+        {"text": "20, because fewer means add", "correct": false, "misconception": "combine_instead_of_compare"},
+        {"text": "8, because 14 − 6 finds Omar’s amount", "correct": true, "evidence": "identified_compared_unknown", "feedback": "Six is the known gap. Subtract it from 14 to find the missing amount."}
+      ],
+      "hints": ["The question asks for Omar’s amount, not the gap.", "Omar has fewer than 14, so subtract the known gap."]
+    },
+    {
+      "id": "visual-model",
+      "legacyIndex": 1,
       "type": "observe",
       "label": "Observe",
       "title": "Noah has 5 fewer blocks than Mia.",
@@ -40,6 +57,8 @@
       "nextLabel": "Reveal the comparison"
     },
     {
+      "id": "discover-unknown",
+      "legacyIndex": 2,
       "type": "discover",
       "label": "Discover",
       "title": "What information is still unknown?",
@@ -74,6 +93,8 @@
       ]
     },
     {
+      "id": "language-explanation",
+      "legacyIndex": 3,
       "type": "language",
       "label": "Language",
       "title": "Separate the amount from the gap.",
@@ -93,6 +114,16 @@
       "guidance": "Do not answer 5 just because it appears in the story. Five describes the gap; the question asks for Noah's amount."
     },
     {
+      "id": "memory-hook",
+      "type": "memoryHook",
+      "label": "Remember",
+      "title": "Separate the amount from the gap.",
+      "hook": "Known larger amount − known gap = missing smaller amount",
+      "body": "First identify what the question asks for. A number in the story may describe the relationship instead of the missing amount."
+    },
+    {
+      "id": "choose-equation",
+      "legacyIndex": 4,
       "type": "symbol",
       "label": "Symbol",
       "title": "Which equation finds Noah's amount?",
@@ -126,6 +157,8 @@
       ]
     },
     {
+      "id": "equation-explanation",
+      "legacyIndex": 5,
       "type": "equationReveal",
       "label": "Reveal",
       "title": "Subtract the gap from the larger amount.",
@@ -138,6 +171,60 @@
       "equation": "12 - 5 = 7"
     },
     {
+      "id": "guided-practice",
+      "type": "guidedPractice",
+      "label": "Guided practice",
+      "title": "Find the missing shorter amount.",
+      "visual": {"topCount": 15, "bottomCount": 11, "revealGap": true, "message": "The larger amount is 15 and the highlighted gap is 4. The shorter row is unknown in the story."},
+      "choices": [
+        {"text": "11", "correct": true, "evidence": "identified_compared_unknown", "feedback": "15 − 4 = 11, so the missing shorter amount is 11."},
+        {"text": "4", "correct": false, "misconception": "gap_as_unknown"},
+        {"text": "19", "correct": false, "misconception": "combine_instead_of_compare"}
+      ],
+      "hints": ["Four is the known gap, not the missing amount.", "Subtract the gap from 15."]
+    },
+    {
+      "id": "independent-practice",
+      "type": "independentPractice",
+      "label": "Independent practice",
+      "title": "Find the missing amount without the model.",
+      "prompt": "Kai has 19 tickets. Rosa has 7 fewer tickets than Kai. How many tickets does Rosa have?",
+      "choices": [
+        {"text": "12", "correct": true, "evidence": "identified_compared_unknown", "feedback": "19 − 7 = 12, so Rosa has 12 tickets."},
+        {"text": "7", "correct": false, "misconception": "gap_as_unknown"},
+        {"text": "26", "correct": false, "misconception": "combine_instead_of_compare"}
+      ],
+      "hints": ["Seven tells how far apart the amounts are.", "Rosa has fewer, so subtract 7 from 19."]
+    },
+    {
+      "id": "recall",
+      "type": "recall",
+      "label": "Recall",
+      "title": "Which rule finds the missing smaller amount?",
+      "prompt": "You know the larger amount and the gap. What should you do?",
+      "choices": [
+        {"text": "Use the gap as the answer", "correct": false, "misconception": "gap_as_unknown"},
+        {"text": "Add the gap to the larger amount", "correct": false, "misconception": "combine_instead_of_compare"},
+        {"text": "Subtract the gap from the larger amount", "correct": true, "evidence": "subtraction_as_comparison", "feedback": "Larger amount minus the gap gives the missing smaller amount."}
+      ],
+      "hints": ["The missing amount must be smaller than the known larger amount."]
+    },
+    {
+      "id": "transfer",
+      "type": "transfer",
+      "label": "Transfer",
+      "title": "Use the rule in a new setting.",
+      "prompt": "Maya read 24 pages. Eli read 9 fewer pages than Maya. How many pages did Eli read?",
+      "choices": [
+        {"text": "15", "correct": true, "evidence": "identified_compared_unknown", "feedback": "24 − 9 = 15, so Eli read 15 pages."},
+        {"text": "9", "correct": false, "misconception": "gap_as_unknown"},
+        {"text": "33", "correct": false, "misconception": "combine_instead_of_compare"}
+      ],
+      "hints": ["Nine is the known difference between their page counts.", "Subtract 9 from 24 to find Eli’s amount."]
+    },
+    {
+      "id": "reflection",
+      "legacyIndex": 6,
       "type": "reflection",
       "label": "Reflect",
       "title": "What did the subtraction find?",
@@ -166,6 +253,8 @@
       ]
     },
     {
+      "id": "complete",
+      "legacyIndex": 7,
       "type": "complete",
       "title": "You found the missing compared amount.",
       "body": "You separated the known amount, the known gap, and the unknown amount.",
