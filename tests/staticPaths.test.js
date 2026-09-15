@@ -19,7 +19,7 @@ test("learner entry point and lesson-engine imports resolve",()=>{
     const dependency=resolve(dirname(enginePath),specifier[1]);
     assert.ok(existsSync(dependency),`missing import: ${dependency}`);
   }
-  assert.match(engine,/submit\.textContent="Continue"/,"correct answers expose a persistent Continue action");
+  assert.match(engine,/submit\.textContent=copy\(\)\.continue/,"correct answers expose a localized persistent Continue action");
   assert.doesNotMatch(engine,/setTimeout\(next/,"progress does not depend on a transient timer");
 });
 
