@@ -1,5 +1,5 @@
 {
-  "schema_version": "2.0",
+  "schema_version": "3.0",
   "metadata": {
     "id": "MATH-NS-COMP-0003",
     "title": "Difference",
@@ -23,12 +23,29 @@
   },
   "screens": [
     {
+      "id": "intro",
+      "legacyIndex": 0,
       "type": "intro",
       "label": "Lesson 003",
       "title": "Difference",
       "body": "Difference is the name for the gap between two amounts."
     },
     {
+      "id": "misconception",
+      "type": "misconception",
+      "label": "Misconception",
+      "title": "Is either amount the difference?",
+      "prompt": "One team scored 18 points and another scored 11. What is the difference?",
+      "choices": [
+        {"text": "18, because it is the larger score", "correct": false, "misconception": "object_instead_of_relationship"},
+        {"text": "29, because both scores are used", "correct": false, "misconception": "combine_instead_of_compare"},
+        {"text": "7, because difference means the gap", "correct": true, "evidence": "identified_gap", "feedback": "The difference is the distance between 18 and 11."}
+      ],
+      "hints": ["Difference does not name either team’s score.", "Measure how far 11 is from 18."]
+    },
+    {
+      "id": "visual-model",
+      "legacyIndex": 1,
       "type": "observe",
       "label": "Observe",
       "title": "Where is the difference?",
@@ -41,6 +58,8 @@
       "nextLabel": "Show the difference"
     },
     {
+      "id": "discover-gap",
+      "legacyIndex": 2,
       "type": "discover",
       "label": "Discover",
       "title": "What does the highlighted part represent?",
@@ -75,6 +94,8 @@
       ]
     },
     {
+      "id": "language-explanation",
+      "legacyIndex": 3,
       "type": "language",
       "label": "Language",
       "title": "Several questions ask for a difference.",
@@ -94,6 +115,16 @@
       "guidance": "Do not use the word more by itself to choose an operation. Decide whether the question asks you to combine or compare."
     },
     {
+      "id": "memory-hook",
+      "type": "memoryHook",
+      "label": "Remember",
+      "title": "Difference means distance.",
+      "hook": "Difference = the gap between two amounts",
+      "body": "The difference is a relationship between the amounts, not either amount by itself."
+    },
+    {
+      "id": "choose-equation",
+      "legacyIndex": 4,
       "type": "symbol",
       "label": "Symbol",
       "title": "Which equation finds the difference?",
@@ -127,6 +158,8 @@
       ]
     },
     {
+      "id": "equation-explanation",
+      "legacyIndex": 5,
       "type": "equationReveal",
       "label": "Reveal",
       "title": "Subtraction finds the difference.",
@@ -139,6 +172,60 @@
       "equation": "13 - 8 = 5"
     },
     {
+      "id": "guided-practice",
+      "type": "guidedPractice",
+      "label": "Guided practice",
+      "title": "Measure the difference.",
+      "visual": {"topCount": 12, "bottomCount": 5, "revealGap": true, "message": "Match five blocks in each row. The unmatched part is the difference."},
+      "choices": [
+        {"text": "7", "correct": true, "evidence": "identified_gap", "feedback": "Seven blocks are unmatched, so the difference is 7."},
+        {"text": "5", "correct": false, "misconception": "object_instead_of_relationship"},
+        {"text": "17", "correct": false, "misconception": "combine_instead_of_compare"}
+      ],
+      "hints": ["Count the unmatched part.", "Use 12 − 5 to measure the difference."]
+    },
+    {
+      "id": "independent-practice",
+      "type": "independentPractice",
+      "label": "Independent practice",
+      "title": "Find the difference without the model.",
+      "prompt": "What is the difference between 20 and 13?",
+      "choices": [
+        {"text": "7", "correct": true, "evidence": "subtraction_as_comparison", "feedback": "20 − 13 = 7, so the difference is 7."},
+        {"text": "13", "correct": false, "misconception": "object_instead_of_relationship"},
+        {"text": "33", "correct": false, "misconception": "combine_instead_of_compare"}
+      ],
+      "hints": ["Difference asks how far apart the numbers are.", "Subtract 13 from 20."]
+    },
+    {
+      "id": "recall",
+      "type": "recall",
+      "label": "Recall",
+      "title": "Complete the memory rule.",
+      "prompt": "The difference between two amounts is...",
+      "choices": [
+        {"text": "the larger amount", "correct": false, "misconception": "object_instead_of_relationship"},
+        {"text": "their combined total", "correct": false, "misconception": "combine_instead_of_compare"},
+        {"text": "the gap between them", "correct": true, "evidence": "identified_gap", "feedback": "Difference names the gap, or distance, between the amounts."}
+      ],
+      "hints": ["Recall the memory hook: difference means distance."]
+    },
+    {
+      "id": "transfer",
+      "type": "transfer",
+      "label": "Transfer",
+      "title": "Use difference in a new setting.",
+      "prompt": "The high temperature was 72°F and the low was 64°F. What was the difference?",
+      "choices": [
+        {"text": "8°F", "correct": true, "evidence": "subtraction_as_comparison", "feedback": "72 − 64 = 8, so the temperatures differed by 8°F."},
+        {"text": "64°F", "correct": false, "misconception": "object_instead_of_relationship"},
+        {"text": "136°F", "correct": false, "misconception": "combine_instead_of_compare"}
+      ],
+      "hints": ["Temperature difference is still the distance between two values.", "Subtract 64 from 72."]
+    },
+    {
+      "id": "reflection",
+      "legacyIndex": 6,
       "type": "reflection",
       "label": "Reflect",
       "title": "What does difference mean?",
@@ -167,6 +254,8 @@
       ]
     },
     {
+      "id": "complete",
+      "legacyIndex": 7,
       "type": "complete",
       "title": "You found the difference.",
       "body": "You connected comparison language, the visual gap, and subtraction.",
