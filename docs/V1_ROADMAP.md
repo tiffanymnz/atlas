@@ -21,12 +21,12 @@ Atlas V1 is a focused, memory-first bilingual GED comparison-learning release. T
 - Complete Spanish parity for Lessons 001–004 and learner interface text.
 - Memory hooks, independent practice, recall, and transfer fields validated for every lesson.
 
-### Sprint 4 — Memory assets — Next
+### Sprint 4 — Memory assets — Complete
 
 - Generate bilingual flashcards, worksheet, and quiz from lesson JSON.
 - Keep generated outputs reproducible and traceable to lesson IDs.
 
-### Sprint 5 — Release hardening — Pending
+### Sprint 5 — Release hardening — Next
 
 - Keyboard, screen-reader, mobile, and cross-browser checks.
 - Recovery testing for malformed and versioned saved data.
