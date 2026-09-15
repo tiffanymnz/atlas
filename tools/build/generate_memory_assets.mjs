@@ -79,11 +79,11 @@ export async function buildMemoryAssets(){
   const base=await Promise.all(lessonNames.map(name=>readJson(`curriculum/lessons/${name}`)));
   const overlays=await Promise.all(lessonNames.map(name=>readJson(`curriculum/translations/es/${name}`)));
   const localized={en:base.map(modelLesson),es:base.map((lesson,index)=>modelLesson(applyTranslation(lesson,overlays[index])))};
-  const outputs={"index.html":hub(),"memory-assets.json":JSON.stringify({schemaVersion:1,locales:localized},null,2)+"\n"};
+  const outputs={"index.html":hub()+"\n","memory-assets.json":JSON.stringify({schemaVersion:1,locales:localized},null,2)+"\n"};
   for(const lang of ["en","es"]){
-    outputs[`${lang}/flashcards.html`]=flashcards(lang,localized[lang]);
-    outputs[`${lang}/worksheet.html`]=worksheet(lang,localized[lang]);
-    outputs[`${lang}/quiz.html`]=quiz(lang,localized[lang]);
+    outputs[`${lang}/flashcards.html`]=flashcards(lang,localized[lang])+"\n";
+    outputs[`${lang}/worksheet.html`]=worksheet(lang,localized[lang])+"\n";
+    outputs[`${lang}/quiz.html`]=quiz(lang,localized[lang])+"\n";
   }
   const sourceText=(await Promise.all(inputPaths.map(async path=>`${path}\n${await readFile(resolve(root,path),"utf8")}`))).join("\n");
   outputs["manifest.json"]=JSON.stringify({schemaVersion:1,generator:"tools/build/generate_memory_assets.mjs",sourceDigest:hash(sourceText),sources:inputPaths,lessonIds:base.map(lesson=>lesson.metadata.id),outputs:Object.fromEntries(Object.entries(outputs).map(([path,content])=>[path,hash(content)]))},null,2)+"\n";
