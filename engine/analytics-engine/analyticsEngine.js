@@ -27,6 +27,16 @@ export function summarizeLearningHistory(lessonRecords=[]){
   return {completedAttempts:completedAttempts.length,correct,wrong,hints,accuracy:answers?Math.round(correct/answers*100):0};
 }
 
+export function getUnderstandingSignals(lesson,events=[],index=0){
+  const evidence=new Set((Array.isArray(events)?events:[]).map(event=>event?.payload?.evidence).filter(Boolean));
+  const compared=index>=1;
+  const equation=evidence.has("subtraction_as_comparison");
+  if(lesson?.concepts?.primary_concept==="compare_unknown"){
+    return {compared,concept:evidence.has("identified_compared_unknown"),equation,conceptLabel:"Identified the unknown compared amount"};
+  }
+  return {compared,concept:evidence.has("identified_gap"),equation,conceptLabel:"Identified the gap"};
+}
+
 export function showAnalytics(lesson,analytics,index,progress,lessonRecords=[]){
   const s=analytics.summary();
   const history=summarizeLearningHistory(lessonRecords);
@@ -37,17 +47,16 @@ export function showAnalytics(lesson,analytics,index,progress,lessonRecords=[]){
     `<div class="analyticsMetric"><strong>${history.wrong}</strong><span>History retries</span></div>`+
     `<div class="analyticsMetric"><strong>${history.hints}</strong><span>History hints</span></div>`+
     `<div class="analyticsMetric"><strong>${history.accuracy}%</strong><span>History accuracy</span></div>`;
-  const identifiedGap=s.events.some(e=>e.payload?.evidence==="identified_gap");
-  const choseEquation=s.events.some(e=>e.payload?.evidence==="subtraction_as_comparison");
+  const signals=getUnderstandingSignals(lesson,s.events,index);
   const lines=[`Lesson: ${lesson.metadata.title}`,"","Understanding"];
   lines.push(`Current attempt: ${s.correct} correct, ${s.wrong} retries, ${s.hints} hints`);
-  lines.push((index>=1?"✓":"□")+" Compared the two groups visually");
-  lines.push((identifiedGap?"✓":"□")+" Identified the gap");
-  lines.push((choseEquation?"✓":"□")+" Connected the gap to subtraction");
+  lines.push((signals.compared?"✓":"□")+" Compared the two groups visually");
+  lines.push((signals.concept?"✓":"□")+` ${signals.conceptLabel}`);
+  lines.push((signals.equation?"✓":"□")+" Connected the comparison to subtraction");
   lines.push("","Strength");
-  lines.push(identifiedGap&&choseEquation?"You connected the visual model to the equation.":identifiedGap?"You identified the gap visually.":"Keep looking for what does not match.");
+  lines.push(signals.concept&&signals.equation?"You connected the visual model to the equation.":signals.concept?`You ${signals.conceptLabel.toLowerCase()}.`:"Keep comparing the known information with what the question asks you to find.");
   lines.push("","Next Focus");
-  lines.push(!identifiedGap?"Find the part of the longer row that does not have a match.":!choseEquation?"Practice choosing the equation that measures the gap.":"Move to the next comparison lesson.");
+  lines.push(!signals.concept?`Practice: ${signals.conceptLabel}.`:!signals.equation?"Practice choosing the subtraction equation that matches the comparison.":"Move to the next comparison lesson.");
   document.getElementById("analyticsDetails").textContent=lines.join("\n");
   document.getElementById("analyticsModal").style.display="flex";
   document.getElementById("analyticsModal").setAttribute("aria-hidden","false");
