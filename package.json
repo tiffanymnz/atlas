@@ -3,6 +3,8 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "test": "node --test tests/*.test.js && python3 tools/qa/validate_lessons.py"
+    "build:memory": "node tools/build/generate_memory_assets.mjs",
+    "check:memory": "node tools/build/generate_memory_assets.mjs --check",
+    "test": "node --test tests/*.test.js && python3 tools/qa/validate_lessons.py && npm run check:memory"
   }
 }
