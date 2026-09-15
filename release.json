@@ -1,0 +1,18 @@
+{
+  "version": "1.0.0-rc.1",
+  "status": "release-candidate",
+  "releaseDate": "2026-10-18",
+  "supportedLocales": ["en", "es"],
+  "lessonIds": [
+    "MATH-NS-COMP-0001",
+    "MATH-NS-COMP-0002",
+    "MATH-NS-COMP-0003",
+    "MATH-NS-COMP-0004"
+  ],
+  "entrypoints": [
+    "index.html",
+    "apps/learner/index.html",
+    "assets/memory/index.html"
+  ],
+  "releaseBranch": "release-v1-rc1"
+}
