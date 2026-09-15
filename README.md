@@ -35,3 +35,11 @@ Run the checks with `npm test`.
 
 - `npm run build:memory` generates bilingual flashcards, worksheets, quizzes, structured memory data, and a traceability manifest under `assets/memory/`.
 - `npm run check:memory` verifies that committed outputs exactly match the current lesson curriculum.
+
+## Sprint 5
+
+- Keyboard learners get skip navigation, arrow-key choice navigation, visible focus, semantic progress, and contained dialog focus.
+- Screen-reader status, visual-model labels, preference states, and English/Spanish control labels stay synchronized.
+- Mobile, reduced-motion, and forced-color safeguards are part of the shared component CSS.
+- Saved learning data recovers valid progress from malformed, legacy, and future-version containers.
+- Release acceptance tests complete and restart all four lessons in English and Spanish.
