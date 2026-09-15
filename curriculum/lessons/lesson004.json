@@ -1,0 +1,175 @@
+{
+  "schema_version": "2.0",
+  "metadata": {
+    "id": "MATH-NS-COMP-0004",
+    "title": "Find the compared amount",
+    "domain": "Mathematics",
+    "subject": "Arithmetic",
+    "course": "Number Sense",
+    "unit": "Comparison"
+  },
+  "learning": {
+    "learning_goal": "Use a known larger amount and known difference to find the unknown smaller amount.",
+    "big_idea": "When the larger amount and the gap are known, subtract the gap to find the smaller amount."
+  },
+  "concepts": {
+    "primary_concept": "compare_unknown",
+    "supporting_concepts": [
+      "difference",
+      "comparison.fewer",
+      "subtraction_as_comparison"
+    ]
+  },
+  "screens": [
+    {
+      "type": "intro",
+      "label": "Lesson 004",
+      "title": "Find the compared amount",
+      "body": "Sometimes the gap is given and one of the compared amounts is missing."
+    },
+    {
+      "type": "observe",
+      "label": "Observe",
+      "title": "Noah has 5 fewer blocks than Mia.",
+      "visual": {
+        "topCount": 12,
+        "bottomCount": 7,
+        "revealGap": false,
+        "message": "Mia has 12 blocks. Noah's row is hidden in the story. We know it must be 5 shorter."
+      },
+      "nextLabel": "Reveal the comparison"
+    },
+    {
+      "type": "discover",
+      "label": "Discover",
+      "title": "What information is still unknown?",
+      "visual": {
+        "topCount": 12,
+        "bottomCount": 7,
+        "revealGap": true,
+        "message": "The highlighted gap is 5. The shorter row is the amount we need to find."
+      },
+      "choices": [
+        {
+          "text": "How many blocks Noah has",
+          "correct": true,
+          "evidence": "identified_compared_unknown",
+          "feedback": "The story gives Mia's amount and the gap, but not Noah's amount."
+        },
+        {
+          "text": "How many blocks Mia has",
+          "correct": false,
+          "misconception": "object_instead_of_relationship"
+        },
+        {
+          "text": "The difference between them",
+          "correct": false,
+          "misconception": "gap_as_unknown"
+        }
+      ],
+      "hints": [
+        "List the numbers the story already gives you.",
+        "You already know Mia has 12 and the gap is 5.",
+        "The missing number belongs to Noah."
+      ]
+    },
+    {
+      "type": "language",
+      "label": "Language",
+      "title": "Separate the amount from the gap.",
+      "visual": {
+        "topCount": 12,
+        "bottomCount": 7,
+        "revealGap": true,
+        "message": "Twelve is an amount. Five is the relationship between the amounts."
+      },
+      "phrases": [
+        "Mia has 12",
+        "Noah has 5 fewer",
+        "The difference is 5",
+        "How many does Noah have?"
+      ],
+      "phraseMeaning": "Find the missing amount",
+      "guidance": "Do not answer 5 just because it appears in the story. Five describes the gap; the question asks for Noah's amount."
+    },
+    {
+      "type": "symbol",
+      "label": "Symbol",
+      "title": "Which equation finds Noah's amount?",
+      "visual": {
+        "topCount": 12,
+        "bottomCount": 7,
+        "revealGap": true,
+        "message": "Remove the known gap from the larger amount to find the smaller amount."
+      },
+      "choices": [
+        {
+          "text": "12 - 5",
+          "correct": true,
+          "evidence": "subtraction_as_comparison",
+          "feedback": "Twelve minus the five-block gap leaves Noah's seven blocks."
+        },
+        {
+          "text": "12 + 5",
+          "correct": false,
+          "misconception": "combine_instead_of_compare"
+        },
+        {
+          "text": "5 - 12",
+          "correct": false,
+          "misconception": "reversed_subtraction"
+        }
+      ],
+      "hints": [
+        "Noah has fewer, so his amount must be less than 12.",
+        "Subtract the known gap from the larger amount."
+      ]
+    },
+    {
+      "type": "equationReveal",
+      "label": "Reveal",
+      "title": "Subtract the gap from the larger amount.",
+      "visual": {
+        "topCount": 12,
+        "bottomCount": 7,
+        "revealGap": true,
+        "message": "Noah has 7 blocks, which is 5 fewer than Mia's 12."
+      },
+      "equation": "12 - 5 = 7"
+    },
+    {
+      "type": "reflection",
+      "label": "Reflect",
+      "title": "What did the subtraction find?",
+      "prompt": "Choose the statement that matches the story.",
+      "choices": [
+        {
+          "text": "It found Noah's unknown amount.",
+          "correct": true,
+          "evidence": "identified_compared_unknown",
+          "feedback": "Subtracting the gap from Mia's amount found Noah's amount."
+        },
+        {
+          "text": "It found the combined total.",
+          "correct": false,
+          "misconception": "combine_instead_of_compare"
+        },
+        {
+          "text": "It found Mia's amount.",
+          "correct": false,
+          "misconception": "object_instead_of_relationship"
+        }
+      ],
+      "hints": [
+        "The story already told you Mia's amount.",
+        "The missing amount belonged to Noah."
+      ]
+    },
+    {
+      "type": "complete",
+      "title": "You found the missing compared amount.",
+      "body": "You separated the known amount, the known gap, and the unknown amount.",
+      "nextRecommendation": "Next: choose what is unknown in mixed comparison problems."
+    }
+  ]
+}

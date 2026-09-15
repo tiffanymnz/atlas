@@ -1,6 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { createAnalytics, summarizeLearningHistory } from "../engine/analytics-engine/analyticsEngine.js";
+import { createAnalytics, getUnderstandingSignals, summarizeLearningHistory } from "../engine/analytics-engine/analyticsEngine.js";
 
 test("analytics resumes from persisted current-attempt events",()=>{
   const analytics=createAnalytics([{type:"submit",payload:{correct:false}}]);
@@ -35,5 +35,19 @@ test("learning history aggregates completed current and prior attempts",()=>{
     wrong:1,
     hints:2,
     accuracy:67
+  });
+});
+
+test("compare-unknown lessons report their own evidence instead of gap evidence",()=>{
+  const lesson={concepts:{primary_concept:"compare_unknown"}};
+  const events=[
+    {payload:{evidence:"identified_compared_unknown"}},
+    {payload:{evidence:"subtraction_as_comparison"}}
+  ];
+  assert.deepEqual(getUnderstandingSignals(lesson,events,2),{
+    compared:true,
+    concept:true,
+    equation:true,
+    conceptLabel:"Identified the unknown compared amount"
   });
 });
