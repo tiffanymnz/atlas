@@ -9,3 +9,5 @@ Sprint 2 scope: extend the existing comparison sequence through `difference` and
 Sprint 3 complete: persistent English/Spanish switching, complete bilingual parity for Lessons 001–004, and a validated memory-first sequence with misconception checks, memory hooks, guided practice, independent practice, recall, transfer, and reflection. Stable screen IDs preserve existing learner progress as the curriculum expands.
 
 Sprint 4 complete: deterministic English/Spanish flashcards, printable worksheets with answer keys, and quizzes are generated from the lesson curriculum. A structured data file and SHA-256 manifest trace every output to all four lesson IDs, and automated checks fail when generated assets are stale.
+
+Sprint 5 complete: keyboard and screen-reader semantics, responsive mobile safeguards, reduced-motion and forced-color support, dialog focus management, versioned-save recovery, and bilingual completion/restart acceptance coverage are enforced by the release suite.
