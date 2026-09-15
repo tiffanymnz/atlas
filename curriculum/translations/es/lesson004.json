@@ -1,0 +1,17 @@
+{
+  "metadata": {"title": "Encuentra la cantidad comparada"},
+  "learning": {
+    "learning_goal": "Usar una cantidad mayor conocida y una diferencia conocida para encontrar la cantidad menor desconocida.",
+    "big_idea": "Cuando conoces la cantidad mayor y la diferencia, resta la diferencia para encontrar la cantidad menor."
+  },
+  "screens": [
+    {"label":"Lección 004","title":"Encuentra la cantidad comparada","body":"A veces se conoce la diferencia, pero falta una de las cantidades comparadas."},
+    {"label":"Observa","title":"Noah tiene 5 bloques menos que Mia.","visual":{"message":"Mia tiene 12 bloques. La fila de Noah está oculta en el problema. Sabemos que debe ser 5 más corta."},"nextLabel":"Mostrar la comparación"},
+    {"label":"Descubre","title":"¿Qué información todavía es desconocida?","visual":{"message":"La diferencia iluminada es 5. La fila más corta es la cantidad que debemos encontrar."},"choices":[{"text":"Cuántos bloques tiene Noah","feedback":"El problema indica la cantidad de Mia y la diferencia, pero no la cantidad de Noah."},{"text":"Cuántos bloques tiene Mia"},{"text":"La diferencia entre ellos"}],"hints":["Enumera los números que el problema ya indica.","Ya sabes que Mia tiene 12 y que la diferencia es 5.","El número que falta pertenece a Noah."]},
+    {"label":"Lenguaje","title":"Separa la cantidad de la diferencia.","visual":{"message":"Doce es una cantidad. Cinco es la relación entre las cantidades."},"phrases":["Mia tiene 12","Noah tiene 5 menos","La diferencia es 5","¿Cuántos tiene Noah?"],"phraseMeaning":"Encuentra la cantidad que falta","guidance":"No respondas 5 solamente porque aparece en el problema. Cinco describe la diferencia; la pregunta pide la cantidad de Noah."},
+    {"label":"Símbolo","title":"¿Qué ecuación encuentra la cantidad de Noah?","visual":{"message":"Quita la diferencia conocida de la cantidad mayor para encontrar la cantidad menor."},"choices":[{"text":"12 - 5","feedback":"Doce menos la diferencia de cinco deja los siete bloques de Noah."},{"text":"12 + 5"},{"text":"5 - 12"}],"hints":["Noah tiene menos, así que su cantidad debe ser menor que 12.","Resta la diferencia conocida de la cantidad mayor."]},
+    {"label":"Resultado","title":"Resta la diferencia de la cantidad mayor.","visual":{"message":"Noah tiene 7 bloques, que son 5 menos que los 12 de Mia."}},
+    {"label":"Reflexiona","title":"¿Qué encontró la resta?","prompt":"Elige la afirmación que corresponde al problema.","choices":[{"text":"Encontró la cantidad desconocida de Noah.","feedback":"Restar la diferencia de la cantidad de Mia encontró la cantidad de Noah."},{"text":"Encontró el total combinado."},{"text":"Encontró la cantidad de Mia."}],"hints":["El problema ya indicaba la cantidad de Mia.","La cantidad que faltaba pertenecía a Noah."]},
+    {"title":"Encontraste la cantidad comparada que faltaba.","body":"Separaste la cantidad conocida, la diferencia conocida y la cantidad desconocida.","nextRecommendation":"Próximo: elige qué dato falta en problemas mixtos de comparación."}
+  ]
+}
