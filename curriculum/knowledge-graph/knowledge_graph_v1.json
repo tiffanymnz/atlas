@@ -43,11 +43,23 @@
       "successors": [
         "mixed_comparison_word_problems"
       ]
+    },
+    {
+      "id": "compare_unknown",
+      "title": "Unknown compared amount",
+      "prerequisites": [
+        "difference",
+        "subtraction_as_comparison"
+      ],
+      "successors": [
+        "mixed_comparison_word_problems"
+      ]
     }
   ],
   "misconceptions": {
     "combine_instead_of_compare": "Learner adds both groups when the task asks for a gap.",
     "reversed_subtraction": "Learner subtracts in the wrong order.",
-    "object_instead_of_relationship": "Learner chooses a group instead of the relationship."
+    "object_instead_of_relationship": "Learner chooses a group instead of the relationship.",
+    "gap_as_unknown": "Learner reports the known difference instead of finding the missing compared amount."
   }
 }
