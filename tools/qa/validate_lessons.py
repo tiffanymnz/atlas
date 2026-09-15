@@ -5,6 +5,7 @@ curriculum_dir=Path(__file__).resolve().parents[2] / "curriculum"
 lesson_dir=curriculum_dir / "lessons"
 knowledge_graph=json.loads((curriculum_dir / "knowledge-graph" / "knowledge_graph_v1.json").read_text(encoding="utf-8"))
 concept_ids={concept.get("id") for concept in knowledge_graph.get("concepts",[])}
+misconception_ids=set(knowledge_graph.get("misconceptions",{}))
 lesson_ids=set()
 primary_concepts=set()
 for path in sorted(lesson_dir.glob("*.json")):
@@ -32,6 +33,7 @@ for path in sorted(lesson_dir.glob("*.json")):
             choices=screen.get("choices",[])
             for c in choices:
                 if c.get("correct") is False and "misconception" not in c: errors.append(f"{path.name} screen {i}: wrong choice missing misconception")
+                elif c.get("correct") is False and c.get("misconception") not in misconception_ids: errors.append(f"{path.name} screen {i}: unknown misconception {c.get('misconception')}")
 if errors:
     print("\n".join(errors)); raise SystemExit(1)
 print("All lesson checks passed.")
