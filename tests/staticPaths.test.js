@@ -32,3 +32,11 @@ test("every learner lesson option resolves to a curriculum file",()=>{
     assert.ok(existsSync(resolve(dirname(learnerPath),option)),`missing lesson option: ${option}`);
   }
 });
+
+test("the learner links to the generated memory-practice hub",()=>{
+  const learnerPath=resolve(root,"apps/learner/index.html");
+  const html=readFileSync(learnerPath,"utf8");
+  const href=html.match(/id="memoryAssetsLink" href="([^"]+)"/)?.[1];
+  assert.ok(href,"memory-practice link is present");
+  assert.ok(existsSync(resolve(dirname(learnerPath),href,"index.html")),"memory-practice hub resolves");
+});
