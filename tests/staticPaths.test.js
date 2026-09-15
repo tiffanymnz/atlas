@@ -11,12 +11,12 @@ test("learner entry point and lesson-engine imports resolve",()=>{
   const html=readFileSync(learnerPath,"utf8");
   const source=html.match(/<script type="module" src="([^"]+)"/)?.[1];
   assert.ok(source,"module entry point is present");
-  const enginePath=resolve(dirname(learnerPath),source);
+  const enginePath=resolve(dirname(learnerPath),source.split("?")[0]);
   assert.ok(existsSync(enginePath),`missing entry point: ${enginePath}`);
 
   const engine=readFileSync(enginePath,"utf8");
   for(const specifier of engine.matchAll(/from\s+"([^"]+)"/g)){
-    const dependency=resolve(dirname(enginePath),specifier[1]);
+    const dependency=resolve(dirname(enginePath),specifier[1].split("?")[0]);
     assert.ok(existsSync(dependency),`missing import: ${dependency}`);
   }
   assert.match(engine,/submit\.textContent=copy\(\)\.continue/,"correct answers expose a localized persistent Continue action");
