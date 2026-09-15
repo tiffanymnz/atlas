@@ -39,8 +39,8 @@ function normalizeRecord(value,lesson,path){
   };
 }
 
-export function getPreferences(){ const saved=read(PREFERENCES_KEY,{}); return {dark:saved?.dark===true,big:saved?.big===true,reduce:saved?.reduce===true}; }
-export function savePreferences(p){ return write(PREFERENCES_KEY,{dark:!!p.dark,big:!!p.big,reduce:!!p.reduce}); }
+export function getPreferences(){ const saved=read(PREFERENCES_KEY,{}); return {dark:saved?.dark===true,big:saved?.big===true,reduce:saved?.reduce===true,language:saved?.language==="es"?"es":"en"}; }
+export function savePreferences(p){ return write(PREFERENCES_KEY,{dark:!!p.dark,big:!!p.big,reduce:!!p.reduce,language:p.language==="es"?"es":"en"}); }
 export function ensureLessonRecord(lesson,path){
   const state=learningState(), id=lesson.metadata.id, existing=state.lessons[id];
   if(existing){ const record=normalizeRecord(existing,lesson,path); state.lessons[id]=record; write(LEARNING_KEY,state); return record; }
