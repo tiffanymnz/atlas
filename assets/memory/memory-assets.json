@@ -1,0 +1,273 @@
+{
+  "schemaVersion": 1,
+  "locales": {
+    "en": [
+      {
+        "lessonId": "MATH-NS-COMP-0001",
+        "conceptId": "comparison.more",
+        "title": "How many more?",
+        "learningGoal": "Understand that 'how many more' asks for the gap between two amounts.",
+        "memoryHook": {
+          "title": "Compare? Find the gap.",
+          "hook": "Larger amount − smaller amount = difference",
+          "body": "When two amounts are being compared, more tells you which amount is larger—not automatically to add."
+        },
+        "independent": {
+          "prompt": "Nia read 16 pages. Theo read 9 pages. How many more pages did Nia read?",
+          "answer": "7"
+        },
+        "recall": {
+          "prompt": "When a problem asks how many more one amount is than another, what should you find?",
+          "choices": [
+            "The combined total",
+            "The larger amount",
+            "The gap between the amounts"
+          ],
+          "answer": "The gap between the amounts"
+        },
+        "transfer": {
+          "prompt": "A blue notebook costs $18 and a red notebook costs $11. How much more does the blue notebook cost?",
+          "choices": [
+            "$7",
+            "$29",
+            "$18"
+          ],
+          "answer": "$7"
+        }
+      },
+      {
+        "lessonId": "MATH-NS-COMP-0002",
+        "conceptId": "comparison.fewer",
+        "title": "How many fewer?",
+        "learningGoal": "Understand that 'how many fewer' asks for the same gap from the other direction.",
+        "memoryHook": {
+          "title": "Fewer still means find the gap.",
+          "hook": "Larger amount − smaller amount = how many fewer",
+          "body": "The direction of the comparison changes, but the size of the gap stays the same."
+        },
+        "independent": {
+          "prompt": "A bus has 17 adults and 12 children. How many fewer children are there than adults?",
+          "answer": "5"
+        },
+        "recall": {
+          "prompt": "Choose the rule that works for a how-many-fewer comparison.",
+          "choices": [
+            "Choose the smaller amount",
+            "Add the two amounts",
+            "Find the gap from larger to smaller"
+          ],
+          "answer": "Find the gap from larger to smaller"
+        },
+        "transfer": {
+          "prompt": "Jamal walked 23 blocks and Priya walked 15 blocks. How many fewer blocks did Priya walk?",
+          "choices": [
+            "8",
+            "15",
+            "38"
+          ],
+          "answer": "8"
+        }
+      },
+      {
+        "lessonId": "MATH-NS-COMP-0003",
+        "conceptId": "difference",
+        "title": "Difference",
+        "learningGoal": "Understand that difference names the gap between two amounts.",
+        "memoryHook": {
+          "title": "Difference means distance.",
+          "hook": "Difference = the gap between two amounts",
+          "body": "The difference is a relationship between the amounts, not either amount by itself."
+        },
+        "independent": {
+          "prompt": "What is the difference between 20 and 13?",
+          "answer": "7"
+        },
+        "recall": {
+          "prompt": "The difference between two amounts is...",
+          "choices": [
+            "the larger amount",
+            "their combined total",
+            "the gap between them"
+          ],
+          "answer": "the gap between them"
+        },
+        "transfer": {
+          "prompt": "The high temperature was 72°F and the low was 64°F. What was the difference?",
+          "choices": [
+            "8°F",
+            "64°F",
+            "136°F"
+          ],
+          "answer": "8°F"
+        }
+      },
+      {
+        "lessonId": "MATH-NS-COMP-0004",
+        "conceptId": "compare_unknown",
+        "title": "Find the compared amount",
+        "learningGoal": "Use a known larger amount and known difference to find the unknown smaller amount.",
+        "memoryHook": {
+          "title": "Separate the amount from the gap.",
+          "hook": "Known larger amount − known gap = missing smaller amount",
+          "body": "First identify what the question asks for. A number in the story may describe the relationship instead of the missing amount."
+        },
+        "independent": {
+          "prompt": "Kai has 19 tickets. Rosa has 7 fewer tickets than Kai. How many tickets does Rosa have?",
+          "answer": "12"
+        },
+        "recall": {
+          "prompt": "You know the larger amount and the gap. What should you do?",
+          "choices": [
+            "Use the gap as the answer",
+            "Add the gap to the larger amount",
+            "Subtract the gap from the larger amount"
+          ],
+          "answer": "Subtract the gap from the larger amount"
+        },
+        "transfer": {
+          "prompt": "Maya read 24 pages. Eli read 9 fewer pages than Maya. How many pages did Eli read?",
+          "choices": [
+            "15",
+            "9",
+            "33"
+          ],
+          "answer": "15"
+        }
+      }
+    ],
+    "es": [
+      {
+        "lessonId": "MATH-NS-COMP-0001",
+        "conceptId": "comparison.more",
+        "title": "¿Cuántos más?",
+        "learningGoal": "Comprender que «cuántos más» pide encontrar la diferencia entre dos cantidades.",
+        "memoryHook": {
+          "title": "¿Comparar? Encuentra la diferencia.",
+          "hook": "Cantidad mayor − cantidad menor = diferencia",
+          "body": "Cuando se comparan dos cantidades, más indica cuál es mayor; no significa automáticamente que debes sumar."
+        },
+        "independent": {
+          "prompt": "Nia leyó 16 páginas. Theo leyó 9 páginas. ¿Cuántas páginas más leyó Nia?",
+          "answer": "7"
+        },
+        "recall": {
+          "prompt": "Cuando un problema pregunta cuántos más tiene una cantidad que otra, ¿qué debes encontrar?",
+          "choices": [
+            "El total combinado",
+            "La cantidad mayor",
+            "La diferencia entre las cantidades"
+          ],
+          "answer": "La diferencia entre las cantidades"
+        },
+        "transfer": {
+          "prompt": "Un cuaderno azul cuesta $18 y uno rojo cuesta $11. ¿Cuánto más cuesta el cuaderno azul?",
+          "choices": [
+            "$7",
+            "$29",
+            "$18"
+          ],
+          "answer": "$7"
+        }
+      },
+      {
+        "lessonId": "MATH-NS-COMP-0002",
+        "conceptId": "comparison.fewer",
+        "title": "¿Cuántos menos?",
+        "learningGoal": "Comprender que «cuántos menos» pide la misma diferencia desde la otra dirección.",
+        "memoryHook": {
+          "title": "Menos todavía significa encontrar la diferencia.",
+          "hook": "Cantidad mayor − cantidad menor = cuántos menos",
+          "body": "La dirección de la comparación cambia, pero el tamaño de la diferencia permanece igual."
+        },
+        "independent": {
+          "prompt": "Un autobús lleva 17 adultos y 12 niños. ¿Cuántos niños menos hay que adultos?",
+          "answer": "5"
+        },
+        "recall": {
+          "prompt": "Elige la regla que funciona para una comparación de cuántos menos.",
+          "choices": [
+            "Elegir la cantidad menor",
+            "Sumar las dos cantidades",
+            "Encontrar la diferencia de la mayor a la menor"
+          ],
+          "answer": "Encontrar la diferencia de la mayor a la menor"
+        },
+        "transfer": {
+          "prompt": "Jamal caminó 23 cuadras y Priya caminó 15 cuadras. ¿Cuántas cuadras menos caminó Priya?",
+          "choices": [
+            "8",
+            "15",
+            "38"
+          ],
+          "answer": "8"
+        }
+      },
+      {
+        "lessonId": "MATH-NS-COMP-0003",
+        "conceptId": "difference",
+        "title": "Diferencia",
+        "learningGoal": "Comprender que la diferencia nombra el espacio entre dos cantidades.",
+        "memoryHook": {
+          "title": "Diferencia significa distancia.",
+          "hook": "Diferencia = la distancia entre dos cantidades",
+          "body": "La diferencia es una relación entre las cantidades, no una de las cantidades por sí sola."
+        },
+        "independent": {
+          "prompt": "¿Cuál es la diferencia entre 20 y 13?",
+          "answer": "7"
+        },
+        "recall": {
+          "prompt": "La diferencia entre dos cantidades es...",
+          "choices": [
+            "la cantidad mayor",
+            "el total combinado",
+            "la distancia entre ellas"
+          ],
+          "answer": "la distancia entre ellas"
+        },
+        "transfer": {
+          "prompt": "La temperatura máxima fue 72 °F y la mínima fue 64 °F. ¿Cuál fue la diferencia?",
+          "choices": [
+            "8 °F",
+            "64 °F",
+            "136 °F"
+          ],
+          "answer": "8 °F"
+        }
+      },
+      {
+        "lessonId": "MATH-NS-COMP-0004",
+        "conceptId": "compare_unknown",
+        "title": "Encuentra la cantidad comparada",
+        "learningGoal": "Usar una cantidad mayor conocida y una diferencia conocida para encontrar la cantidad menor desconocida.",
+        "memoryHook": {
+          "title": "Separa la cantidad de la diferencia.",
+          "hook": "Cantidad mayor conocida − diferencia conocida = cantidad menor desconocida",
+          "body": "Primero identifica qué pide la pregunta. Un número del problema puede describir la relación en vez de la cantidad que falta."
+        },
+        "independent": {
+          "prompt": "Kai tiene 19 boletos. Rosa tiene 7 boletos menos que Kai. ¿Cuántos boletos tiene Rosa?",
+          "answer": "12"
+        },
+        "recall": {
+          "prompt": "Conoces la cantidad mayor y la diferencia. ¿Qué debes hacer?",
+          "choices": [
+            "Usar la diferencia como respuesta",
+            "Sumar la diferencia a la cantidad mayor",
+            "Restar la diferencia de la cantidad mayor"
+          ],
+          "answer": "Restar la diferencia de la cantidad mayor"
+        },
+        "transfer": {
+          "prompt": "Maya leyó 24 páginas. Eli leyó 9 páginas menos que Maya. ¿Cuántas páginas leyó Eli?",
+          "choices": [
+            "15",
+            "9",
+            "33"
+          ],
+          "answer": "15"
+        }
+      }
+    ]
+  }
+}

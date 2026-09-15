@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "generator": "tools/build/generate_memory_assets.mjs",
+  "sourceDigest": "2c741c14b5b4054684942981dad6c9d7dd887e2505daa44639b2e342009e8fd0",
+  "sources": [
+    "curriculum/lessons/lesson001.json",
+    "curriculum/translations/es/lesson001.json",
+    "curriculum/lessons/lesson002.json",
+    "curriculum/translations/es/lesson002.json",
+    "curriculum/lessons/lesson003.json",
+    "curriculum/translations/es/lesson003.json",
+    "curriculum/lessons/lesson004.json",
+    "curriculum/translations/es/lesson004.json"
+  ],
+  "lessonIds": [
+    "MATH-NS-COMP-0001",
+    "MATH-NS-COMP-0002",
+    "MATH-NS-COMP-0003",
+    "MATH-NS-COMP-0004"
+  ],
+  "outputs": {
+    "index.html": "f3ff939071a198c73042c02850144a9f0f3b936861b61ff1bd1ebe9346231c08",
+    "memory-assets.json": "bd9b194ae06aff58c9dd7a441d830ceb4359bd6d1ca663370857bb3baaab8e2c",
+    "en/flashcards.html": "d913387b85baef3f6db5e6e5c61bf465217cd80a67a5354eafd5bee0da823b1d",
+    "en/worksheet.html": "9d315d501edc5ad1e8c050e6d4b7bd7f7e11b23399f0e09f574b257cb1acb67e",
+    "en/quiz.html": "46b0d6931ababc5daa79a073d6c92f3e7d8e47105b0c28237fec74e340802322",
+    "es/flashcards.html": "0f058e3bc5711a0fe68c7756baff124e94c45c6988d5dfe331d4342926dbcb52",
+    "es/worksheet.html": "db7dc59b331b74e93b9edb36b12595f3e3b248b09f878528bbb8656aa11cc7ce",
+    "es/quiz.html": "cb3829b5a305f1c8a972403d76a85111b0af9ea75f2d3cf0ccf38d53795658cf"
+  }
+}
