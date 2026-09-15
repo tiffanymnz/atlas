@@ -2,15 +2,20 @@ import { renderComparisonBlocks, renderChoiceScreen, renderLanguage, renderEquat
 import { createAnalytics, showAnalytics } from "./analytics-engine/analyticsEngine.js";
 import { recommendNext } from "./recommendation-engine/recommendationEngine.js";
 import { getPreferences, savePreferences, ensureLessonRecord, saveLessonRecord, getAllLessonRecords, archiveCompletedAttempt, newLessonAttempt, getLastLessonPath, saveLastLessonPath } from "./state-store/stateStore.js";
+import { loadLocalizedLesson } from "./i18n/lessonLocale.js";
 
 let lesson = null, lessonPath = null, index = 0, selected = null, hintIndex = 0;
-let dark = false, big = false, reduce = false;
+let dark = false, big = false, reduce = false, language = "en";
 let analytics = createAnalytics();
 let lessonRecord = null;
 
 const root = document.getElementById("lessonRoot");
 const lessonSelect = document.getElementById("lessonSelect");
-const lessonOptionLabels = new Map([...lessonSelect.options].map(option=>[option.value,option.textContent]));
+const COPY={
+  en:{language:"Español",dark:"Dark mode",light:"Light mode",bigger:"Bigger text",normal:"Normal text",reduce:"Reduce motion",allow:"Allow motion",summary:"Learning summary",progress:"Progress",close:"Close",lesson:"Lesson",continue:"Continue",back:"Back",next:"Next",reflect:"Reflect",hint:"Hint",checkAnswer:"Check answer",correct:"Correct.",lookAgain:"Look again.",fallbackHint:"Look at what the problem is asking you to find.",start:"Start lesson",resume:"Resume lesson",review:"Review lesson",complete:"Complete",nextLesson:"Next lesson",reviewVisualGap:"Review visual gap",restartLesson:"Restart lesson",completed:"Completed",inProgress:"In progress"},
+  es:{language:"English",dark:"Modo oscuro",light:"Modo claro",bigger:"Texto más grande",normal:"Texto normal",reduce:"Reducir movimiento",allow:"Permitir movimiento",summary:"Resumen de aprendizaje",progress:"Progreso",close:"Cerrar",lesson:"Lección",continue:"Continuar",back:"Atrás",next:"Siguiente",reflect:"Reflexionar",hint:"Pista",checkAnswer:"Comprobar respuesta",correct:"Correcto.",lookAgain:"Inténtalo de nuevo.",fallbackHint:"Observa lo que el problema te pide encontrar.",start:"Comenzar lección",resume:"Continuar lección",review:"Repasar lección",complete:"Completada",nextLesson:"Próxima lección",reviewVisualGap:"Repasar la diferencia visual",restartLesson:"Reiniciar lección",completed:"Completada",inProgress:"En progreso"}
+};
+function copy(){ return COPY[language]; }
 function el(id){ return document.getElementById(id); }
 function pct(){ return Math.round(index/(lesson.screens.length-1)*100); }
 function current(){ return lesson.screens[index]; }
@@ -33,9 +38,9 @@ function hasNextLesson(){ return lessonSelect.selectedIndex < lessonSelect.optio
 function refreshLessonOptions(){
   const records=new Map(getAllLessonRecords().map(record=>[record.path,record]));
   for(const option of lessonSelect.options){
-    const baseLabel=lessonOptionLabels.get(option.value) || option.textContent;
+    const baseLabel=option.dataset[language] || option.dataset.en || option.textContent;
     const status=records.get(option.value)?.status;
-    option.textContent=baseLabel+(status==="completed"?" — Completed":status==="in_progress"?" — In progress":"");
+    option.textContent=baseLabel+(status==="completed"?` — ${copy().completed}`:status==="in_progress"?` — ${copy().inProgress}`:"");
   }
 }
 function goToNextLesson(){ if(hasNextLesson()){ persist(); lessonSelect.selectedIndex += 1; loadLesson(lessonSelect.value); } }
@@ -46,27 +51,33 @@ function reviewVisualGap(){
   emit("review_visual_gap", {target:index});
   render();
 }
-function base(screen){ return `<span class="badge">${screen.label || screen.stage || "Lesson"}</span><div class="progress"><span style="width:${pct()}%"></span></div><h1>${screen.title}</h1>`; }
+function base(screen){ return `<span class="badge">${screen.label || screen.stage || copy().lesson}</span><div class="progress"><span style="width:${pct()}%"></span></div><h1>${screen.title}</h1>`; }
 
 function applyPreferences(){
   document.body.setAttribute("data-theme",dark?"dark":"light");
   document.documentElement.style.setProperty("--scale",big?"1.12":"1");
   document.body.classList.toggle("reduce",reduce);
-  el("themeBtn").innerHTML=dark?"Light mode":"Dark mode";
-  el("textBtn").innerHTML=big?"Normal text":"Bigger text";
-  el("motionBtn").innerHTML=reduce?"Allow motion":"Reduce motion";
+  document.documentElement.lang=language;
+  el("languageBtn").textContent=copy().language;
+  el("themeBtn").textContent=dark?copy().light:copy().dark;
+  el("textBtn").textContent=big?copy().normal:copy().bigger;
+  el("motionBtn").textContent=reduce?copy().allow:copy().reduce;
+  el("analyticsBtn").textContent=copy().summary;
+  el("analyticsTitle").textContent=copy().summary;
+  el("progressLabel").textContent=copy().progress;
+  el("closeAnalytics").textContent=copy().close;
+  refreshLessonOptions();
 }
 function loadPreferences(){
   const prefs=getPreferences();
-  dark=!!prefs.dark; big=!!prefs.big; reduce=!!prefs.reduce;
+  dark=!!prefs.dark; big=!!prefs.big; reduce=!!prefs.reduce; language=prefs.language;
   applyPreferences();
 }
-function persistPreferences(){ savePreferences({dark,big,reduce}); }
+function persistPreferences(){ savePreferences({dark,big,reduce,language}); }
 
 async function loadLesson(path){
   if(lesson && lessonRecord) persist();
-  const res = await fetch(path);
-  lesson = await res.json();
+  lesson = await loadLocalizedLesson(path,language);
   lessonPath = path;
   saveLastLessonPath(path);
   lessonRecord = ensureLessonRecord(lesson, path);
@@ -79,7 +90,7 @@ async function loadLesson(path){
 
 function setCorrectControls(){
   const submit=el("submit"), hint=el("hintBtn");
-  submit.textContent="Continue";
+  submit.textContent=copy().continue;
   submit.disabled=false;
   submit.onclick=next;
   hint.disabled=true;
@@ -138,31 +149,31 @@ function render(){
   if(screen.type==="intro"){
     const body = screen.body ? `<p>${screen.body}</p>` : "";
     const callout = screen.callout ? `<div class="coach" style="display:block">${screen.callout}</div>` : "";
-    const label = lessonRecord.status==="in_progress" ? "Resume lesson" : lessonRecord.status==="completed" ? "Review lesson" : "Start lesson";
+    const label = lessonRecord.status==="in_progress" ? copy().resume : lessonRecord.status==="completed" ? copy().review : copy().start;
     root.innerHTML = base(screen)+body+callout+`<button class="btn primary" id="nextBtn">${label}</button>`;
     el("nextBtn").onclick = next; return;
   }
   if(screen.type==="observe"){
-    root.innerHTML = base(screen)+renderComparisonBlocks(screen.visual)+`<div class="toolbar"><button class="btn secondary" id="backBtn">Back</button><button class="btn primary" id="nextBtn">${screen.nextLabel || "Next"}</button></div>`;
+    root.innerHTML = base(screen)+renderComparisonBlocks(screen.visual)+`<div class="toolbar"><button class="btn secondary" id="backBtn">${copy().back}</button><button class="btn primary" id="nextBtn">${screen.nextLabel || copy().next}</button></div>`;
     el("backBtn").onclick = back; el("nextBtn").onclick = next; return;
   }
   if(screen.type==="discover" || screen.type==="symbol" || screen.type==="reflection"){
     const visual = screen.visual ? renderComparisonBlocks(screen.visual) : `<p>${screen.prompt || ""}</p>`;
-    root.innerHTML = base(screen)+visual+renderChoiceScreen(screen);
+    root.innerHTML = base(screen)+visual+renderChoiceScreen(screen,copy());
     bindChoiceScreen(screen); restoreChoiceState(screen); return;
   }
   if(screen.type==="language"){
-    root.innerHTML = base(screen)+renderComparisonBlocks(screen.visual)+renderLanguage(screen)+`<div class="coach" style="display:block">${screen.guidance}</div><div class="toolbar"><button class="btn secondary" id="backBtn">Back</button><button class="btn primary" id="nextBtn">Next</button></div>`;
+    root.innerHTML = base(screen)+renderComparisonBlocks(screen.visual)+renderLanguage(screen)+`<div class="coach" style="display:block">${screen.guidance}</div><div class="toolbar"><button class="btn secondary" id="backBtn">${copy().back}</button><button class="btn primary" id="nextBtn">${copy().next}</button></div>`;
     el("backBtn").onclick = back; el("nextBtn").onclick = next; return;
   }
   if(screen.type==="equationReveal"){
-    root.innerHTML = base(screen)+renderComparisonBlocks(screen.visual)+renderEquation(screen)+`<div class="toolbar"><button class="btn secondary" id="backBtn">Back</button><button class="btn primary" id="nextBtn">Reflect</button></div>`;
+    root.innerHTML = base(screen)+renderComparisonBlocks(screen.visual)+renderEquation(screen)+`<div class="toolbar"><button class="btn secondary" id="backBtn">${copy().back}</button><button class="btn primary" id="nextBtn">${copy().reflect}</button></div>`;
     el("backBtn").onclick = back; el("nextBtn").onclick = next; return;
   }
   if(screen.type==="complete"){
     markCompleted();
     const hasNext = hasNextLesson();
-    root.innerHTML = renderComplete(screen, recommendNext(lesson, analytics.summary(), screen, hasNext), hasNext);
+    root.innerHTML = renderComplete(screen, recommendNext(lesson, analytics.summary(), screen, hasNext,language), hasNext,copy());
     el("restartBtn").onclick = restart;
     const reviewBtn = el("reviewBtn");
     if(reviewBtn) reviewBtn.onclick = reviewVisualGap;
@@ -201,15 +212,15 @@ function submitChoice(screen){
     state.selected=selected;
     document.querySelectorAll(".choice").forEach((btn,i)=>{ btn.disabled = true; if(screen.choices[i].correct) btn.classList.add("correct"); });
     fb.style.display = "block"; fb.className = "feedback success";
-    fb.innerHTML = `<strong>Correct.</strong>${choice.feedback ? "<br>"+choice.feedback : ""}`;
+    fb.innerHTML = `<strong>${copy().correct}</strong>${choice.feedback ? "<br>"+choice.feedback : ""}`;
     state.feedback={className:fb.className,html:fb.innerHTML};
     lessonRecord.screenStates[index]=state; persist(); setCorrectControls();
   } else {
-    const h = screen.hints?.[Math.min(hintIndex, screen.hints.length-1)] || "Look at what the problem is asking you to find.";
+    const h = screen.hints?.[Math.min(hintIndex, screen.hints.length-1)] || copy().fallbackHint;
     hintIndex++;
     state.hintIndex=hintIndex;
     fb.style.display = "block"; fb.className = "feedback warn";
-    fb.innerHTML = `<strong>Look again.</strong><br>${h}`;
+    fb.innerHTML = `<strong>${copy().lookAgain}</strong><br>${h}`;
     state.feedback={className:fb.className,html:fb.innerHTML};
     document.querySelectorAll(".choice").forEach(btn=>{ btn.disabled = false; btn.classList.remove("selected","correct"); });
     selected = null; state.selected=null; el("submit").disabled = true;
@@ -219,11 +230,11 @@ function submitChoice(screen){
 
 function hint(screen){
   const state=currentState();
-  const h = screen.hints?.[Math.min(hintIndex, screen.hints.length-1)] || "Look at what the problem is asking you to find.";
+  const h = screen.hints?.[Math.min(hintIndex, screen.hints.length-1)] || copy().fallbackHint;
   hintIndex++;
   state.hintIndex=hintIndex;
   const box = el("hintBox");
-  box.style.display = "block"; box.innerHTML = `<strong>Hint</strong><br>${h}`;
+  box.style.display = "block"; box.innerHTML = `<strong>${copy().hint}</strong><br>${h}`;
   state.hintHtml=box.innerHTML;
   lessonRecord.screenStates[index]=state; persist(); emit("hint",{hint:h});
 }
@@ -242,12 +253,13 @@ function restart(){
   persist(); refreshLessonOptions(); render();
 }
 
-el("analyticsBtn").onclick = () => { persist(); showAnalytics(lesson, analytics, index, pct(), getAllLessonRecords(), lessonSelect.options.length); };
+el("analyticsBtn").onclick = () => { persist(); showAnalytics(lesson, analytics, index, pct(), getAllLessonRecords(), language); };
 el("closeAnalytics").onclick = () => { el("analyticsModal").style.display = "none"; el("analyticsModal").setAttribute("aria-hidden","true"); };
 el("analyticsModal").onclick = e => { if(e.target.id==="analyticsModal"){ el("analyticsModal").style.display = "none"; el("analyticsModal").setAttribute("aria-hidden","true"); } };
 el("themeBtn").onclick = function(){ dark=!dark; applyPreferences(); persistPreferences(); };
 el("textBtn").onclick = function(){ big=!big; applyPreferences(); persistPreferences(); };
 el("motionBtn").onclick = function(){ reduce=!reduce; applyPreferences(); persistPreferences(); };
+el("languageBtn").onclick = async function(){ language=language==="en"?"es":"en"; persistPreferences(); applyPreferences(); await loadLesson(lessonPath||lessonSelect.value); };
 lessonSelect.onchange = () => loadLesson(lessonSelect.value);
 
 window.addEventListener("beforeunload", persist);
