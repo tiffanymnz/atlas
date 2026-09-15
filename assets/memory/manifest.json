@@ -19,13 +19,13 @@
     "MATH-NS-COMP-0004"
   ],
   "outputs": {
-    "index.html": "c00c83bafecf149aea323e1f0e257a5fdd87b7c9a2ed166ffb601e3c0336290d",
+    "index.html": "f3ff939071a198c73042c02850144a9f0f3b936861b61ff1bd1ebe9346231c08",
     "memory-assets.json": "bd9b194ae06aff58c9dd7a441d830ceb4359bd6d1ca663370857bb3baaab8e2c",
-    "en/flashcards.html": "b495a9b3d29d552cc2a8403dda8e328ad154df4f2c84c17e489128b480d0f9af",
-    "en/worksheet.html": "b6a5f51cd2707f1100b3d8d1d1160034ec8c8f4c84bd0cdb4412d1140f6a163a",
-    "en/quiz.html": "f12a9ee74121cedc453f0e9233219c1389b9220afc20f863597f0cee348681b0",
-    "es/flashcards.html": "aaed0fec0260b98e47f31a9f7ed76ee25898828b59140f427e146fe61bb5a561",
-    "es/worksheet.html": "bab81efb389fc84fb71c4e66306c0d45ccda7059d5b1498596c6a1730654f380",
-    "es/quiz.html": "316180ab3b713db618d6598c81386cd00f3069a16f5087dbf91d58f0aef2d5a6"
+    "en/flashcards.html": "d913387b85baef3f6db5e6e5c61bf465217cd80a67a5354eafd5bee0da823b1d",
+    "en/worksheet.html": "9d315d501edc5ad1e8c050e6d4b7bd7f7e11b23399f0e09f574b257cb1acb67e",
+    "en/quiz.html": "46b0d6931ababc5daa79a073d6c92f3e7d8e47105b0c28237fec74e340802322",
+    "es/flashcards.html": "0f058e3bc5711a0fe68c7756baff124e94c45c6988d5dfe331d4342926dbcb52",
+    "es/worksheet.html": "db7dc59b331b74e93b9edb36b12595f3e3b248b09f878528bbb8656aa11cc7ce",
+    "es/quiz.html": "cb3829b5a305f1c8a972403d76a85111b0af9ea75f2d3cf0ccf38d53795658cf"
   }
 }
