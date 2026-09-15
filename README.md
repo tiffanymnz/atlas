@@ -30,3 +30,8 @@ Run the checks with `npm test`.
 - Lessons 001–004 and the learner interface have complete English/Spanish parity.
 - Every lesson follows the validated memory-first sequence: misconception, visual model, explanation, memory hook, guided practice, independent practice, recall, transfer, and reflection.
 - Stable screen IDs migrate existing numeric progress safely when curriculum stages are inserted.
+
+## Sprint 4
+
+- `npm run build:memory` generates bilingual flashcards, worksheets, quizzes, structured memory data, and a traceability manifest under `assets/memory/`.
+- `npm run check:memory` verifies that committed outputs exactly match the current lesson curriculum.
