@@ -1,7 +1,7 @@
-import { renderComparisonBlocks, renderChoiceScreen, localizeChoiceState, renderLanguage, renderEquation, renderComplete } from "../sdk/components/lessonComponents.js";
+import { renderComparisonBlocks, renderChoiceScreen, localizeChoiceState, renderLanguage, renderEquation, renderComplete } from "../sdk/components/lessonComponents.js?v=1.4";
 import { createAnalytics, showAnalytics } from "./analytics-engine/analyticsEngine.js";
 import { recommendNext } from "./recommendation-engine/recommendationEngine.js";
-import { getPreferences, savePreferences, ensureLessonRecord, saveLessonRecord, getAllLessonRecords, archiveCompletedAttempt, newLessonAttempt, resolveLessonPosition, getLastLessonPath, saveLastLessonPath } from "./state-store/stateStore.js";
+import { getPreferences, savePreferences, ensureLessonRecord, saveLessonRecord, getAllLessonRecords, archiveCompletedAttempt, newLessonAttempt, resolveLessonPosition, getLastLessonPath, saveLastLessonPath } from "./state-store/stateStore.js?v=1.4";
 import { loadLocalizedLesson } from "./i18n/lessonLocale.js";
 
 let lesson = null, lessonPath = null, index = 0, selected = null, hintIndex = 0;
