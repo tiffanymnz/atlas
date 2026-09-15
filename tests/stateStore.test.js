@@ -7,6 +7,7 @@ import {
   getLastLessonPath,
   getPreferences,
   newLessonAttempt,
+  recoverLearningState,
   resolveLessonPosition,
   saveLastLessonPath,
   saveLessonRecord,
@@ -88,6 +89,44 @@ test("malformed saved lesson data is repaired without losing the lesson",()=>{
   assert.deepEqual(record.screenStates,{1:{selected:2}});
   assert.deepEqual(record.currentAttempt.events,[]);
   assert.deepEqual(record.priorCompletedAttempts,[]);
+});
+
+test("legacy array records migrate into the current version",()=>{
+  assert.deepEqual(recoverLearningState({version:0,records:[{lessonId:"one",index:2},{lessonId:"two",index:4}]}),{
+    version:1,
+    lessons:{one:{lessonId:"one",index:2},two:{lessonId:"two",index:4}}
+  });
+});
+
+test("future-version lesson records are recovered without discarding progress",()=>{
+  localStorage.setItem("atlas.learning.v1",JSON.stringify({
+    version:99,
+    lessons:{one:{status:"in_progress",index:5,screenId:"recall",currentAttempt:{id:"future",events:[{type:"hint"},null,"bad"]}}}
+  }));
+  const record=ensureLessonRecord(lesson("one"),"one.json");
+  assert.equal(record.index,5);
+  assert.equal(record.screenId,"recall");
+  assert.deepEqual(record.currentAttempt.events,[{type:"hint"}]);
+  assert.equal(JSON.parse(localStorage.getItem("atlas.learning.v1")).version,1);
+});
+
+test("duplicate and malformed completed attempts are removed during recovery",()=>{
+  localStorage.setItem("atlas.learning.v1",JSON.stringify({
+    version:1,
+    lessons:{one:{
+      currentAttempt:{id:"current",completed:true,events:[]},
+      priorCompletedAttempts:[
+        {id:"current",completed:true,events:[]},
+        {id:"prior",completed:true,events:[null,{type:"submit",payload:{correct:true}}]},
+        {id:"prior",completed:true,events:[]},
+        {id:"unfinished",completed:false,events:[]}
+      ]
+    }}
+  }));
+  const record=ensureLessonRecord(lesson("one"),"one.json");
+  assert.equal(record.priorCompletedAttempts.length,1);
+  assert.equal(record.priorCompletedAttempts[0].id,"prior");
+  assert.equal(record.priorCompletedAttempts[0].events.length,1);
 });
 
 test("a completed attempt repairs a stale status to completed",()=>{
