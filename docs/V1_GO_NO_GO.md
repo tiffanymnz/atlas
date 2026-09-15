@@ -22,7 +22,7 @@
 ## Manual device sign-off before `v1.0.0`
 
 - [ ] Firefox desktop: keyboard, persistence, print preview, and completion.
-- [ ] Safari/iPhone: portrait layout, text scaling, reduced motion, persistence, and completion.
+- [x] Safari/iPhone: portrait layout, text scaling, reduced motion, persistence, and completion. Verified on a physical iPhone on September 15, 2026.
 - [ ] Chrome/Android: portrait layout, text scaling, keyboard/accessibility controls where applicable, and completion.
 
 Create the `v1.0.0` tag only after every production gate passes and any unavailable manual device checks are explicitly accepted as release risk.
