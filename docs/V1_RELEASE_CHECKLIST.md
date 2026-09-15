@@ -12,6 +12,7 @@ Run `npm test`. A release candidate must pass:
 - English and Spanish completion/restart flows for Lessons 001–004;
 - malformed, legacy, and future-version saved-data recovery;
 - keyboard, focus, semantic progress, live-status, motion, contrast, mobile, and static-path contracts.
+- release metadata, required routes, internal references, module imports, and generated-output hashes.
 
 ## Browser coverage
 

@@ -1,4 +1,6 @@
-# Atlas GO1 Working Engine v1.3
+# Atlas GO1 V1
+
+Current release candidate: `1.0.0-rc.1`. Run the complete gate with `npm test` or the deterministic route/link/hash audit alone with `npm run audit:release`.
 
 Fixes:
 - Removed duplicate recommendation text from the completion screen.
