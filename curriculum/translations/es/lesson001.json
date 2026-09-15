@@ -1,0 +1,17 @@
+{
+  "metadata": {"title": "¿Cuántos más?"},
+  "learning": {
+    "learning_goal": "Comprender que «cuántos más» pide encontrar la diferencia entre dos cantidades.",
+    "big_idea": "Comparar significa encontrar la diferencia entre dos cantidades."
+  },
+  "screens": [
+    {"label":"Lección 001","title":"¿Cuántos más?","body":"Comparar significa encontrar la diferencia entre dos cantidades."},
+    {"label":"Observa","title":"¿Qué grupo tiene bloques adicionales?","visual":{"message":"Ambas filas comienzan en el mismo lugar. ¿Cuál llega más lejos?"},"nextLabel":"Mostrar la diferencia"},
+    {"label":"Descubre","title":"¿Qué muestran los bloques iluminados?","visual":{"message":"Los bloques adicionales muestran cuánto más avanza la fila superior."},"choices":[{"text":"El total"},{"text":"La diferencia","feedback":"Los bloques iluminados muestran la diferencia."},{"text":"El grupo más pequeño"}],"hints":["Observa las dos filas una al lado de la otra.","Busca los bloques que no tienen pareja.","Cuenta solamente los bloques que no tienen pareja."]},
+    {"label":"Lenguaje","title":"Palabras diferentes. La misma diferencia.","visual":{"message":"Todas estas frases señalan la misma relación."},"phrases":["¿Cuántos más?","Diferencia","Supera por","Comparado con"],"phraseMeaning":"Encuentra la diferencia","guidance":"Algunas palabras pueden confundir. Primero pregunta: ¿estamos juntando grupos o comparándolos?"},
+    {"label":"Símbolo","title":"¿Qué ecuación mide la diferencia?","visual":{"message":"La fila superior llega más lejos. ¿Qué ecuación mide esa diferencia?"},"choices":[{"text":"15 - 9","feedback":"Comienza con la cantidad mayor y resta la cantidad menor."},{"text":"15 + 9"},{"text":"9 - 15"}],"hints":["La ecuación debe medir lo que sobra.","Comienza con 15 porque es el grupo mayor."]},
+    {"label":"Resultado","title":"La resta mide la diferencia.","visual":{"message":"La ecuación confirma lo que mostró el modelo visual."}},
+    {"label":"Reflexiona","title":"¿Qué descubriste?","prompt":"Elige la afirmación que explica la idea.","choices":[{"text":"Restar siempre significa quitar."},{"text":"La resta puede medir la diferencia entre dos cantidades."},{"text":"La palabra más siempre significa sumar."}],"hints":["Piensa en lo que mostraron los bloques.","La ecuación midió la diferencia."]},
+    {"title":"Mediste la diferencia.","body":"Relacionaste el modelo visual, las palabras y la ecuación.","nextRecommendation":"Próxima lección: ¿Cuántos menos?"}
+  ]
+}

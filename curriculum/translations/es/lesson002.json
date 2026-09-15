@@ -1,0 +1,17 @@
+{
+  "metadata": {"title": "¿Cuántos menos?"},
+  "learning": {
+    "learning_goal": "Comprender que «cuántos menos» pide la misma diferencia desde la otra dirección.",
+    "big_idea": "Menos compara dos cantidades al encontrar la diferencia."
+  },
+  "screens": [
+    {"label":"Lección 002","title":"¿Cuántos menos?","body":"Menos es otra manera de comparar dos grupos."},
+    {"label":"Observa","title":"¿Qué grupo tiene menos bloques?","visual":{"message":"Ambas filas comienzan en el mismo lugar. ¿Cuál termina antes?"},"nextLabel":"Mostrar la diferencia"},
+    {"label":"Descubre","title":"¿Qué nos pide encontrar «menos»?","visual":{"message":"La diferencia muestra cuántos bloques menos tiene la fila inferior."},"choices":[{"text":"El total"},{"text":"La diferencia","feedback":"«Menos» pide la diferencia entre los dos grupos."},{"text":"Solamente el grupo mayor"}],"hints":["Compara las dos filas.","Busca la pareja que falta.","La diferencia indica cuántos menos."]},
+    {"label":"Lenguaje","title":"Menos, menor, diferencia.","visual":{"message":"Estas palabras comparan los dos grupos."},"phrases":["¿Cuántos menos?","¿Cuánto menor?","Diferencia","Comparado con"],"phraseMeaning":"Encuentra la diferencia","guidance":"«Menos» no significa adivinar el número menor. Pregunta qué tan separados están los grupos."},
+    {"label":"Símbolo","title":"¿Qué ecuación mide cuántos menos?","visual":{"message":"La diferencia todavía se mide de la cantidad mayor a la menor."},"choices":[{"text":"15 - 9","feedback":"La cantidad mayor menos la cantidad menor da la diferencia."},{"text":"15 + 9"},{"text":"9 - 15"}],"hints":["No juntes los grupos.","Mide la diferencia de la cantidad mayor a la menor."]},
+    {"label":"Resultado","title":"«Menos» usa la misma diferencia.","visual":{"message":"La fila inferior tiene 6 bloques menos."}},
+    {"label":"Reflexiona","title":"¿Qué descubriste?","prompt":"Elige la afirmación que explica la idea.","choices":[{"text":"«Menos» siempre significa que el número menor es la respuesta."},{"text":"«Menos» puede pedir la diferencia entre dos grupos."},{"text":"«Menos» significa sumar ambos grupos."}],"hints":["Piensa en lo que mostró la parte que faltaba.","«Menos» compara los dos grupos."]},
+    {"title":"Comparaste usando «menos».","body":"Usaste la misma idea de diferencia desde otra dirección.","nextRecommendation":"Próxima lección: Diferencia."}
+  ]
+}

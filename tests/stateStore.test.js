@@ -24,13 +24,13 @@ const lesson=id=>({metadata:{id,title:`Lesson ${id}`}});
 test.beforeEach(()=>{ globalThis.localStorage=new MemoryStorage(); });
 
 test("accessibility preferences survive a reload",()=>{
-  savePreferences({dark:true,big:true,reduce:true});
-  assert.deepEqual(getPreferences(),{dark:true,big:true,reduce:true});
+  savePreferences({dark:true,big:true,reduce:true,language:"es"});
+  assert.deepEqual(getPreferences(),{dark:true,big:true,reduce:true,language:"es"});
 });
 
 test("malformed preferences cannot accidentally enable accessibility modes",()=>{
   localStorage.setItem("atlas.preferences.v1",JSON.stringify({dark:"false",big:1,reduce:null}));
-  assert.deepEqual(getPreferences(),{dark:false,big:false,reduce:false});
+  assert.deepEqual(getPreferences(),{dark:false,big:false,reduce:false,language:"en"});
 });
 
 test("each lesson restores its own screen and attempt state",()=>{

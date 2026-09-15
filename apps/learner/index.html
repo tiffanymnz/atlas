@@ -12,6 +12,7 @@
     <header class="atlas-header">
       <div class="brand">✦ Atlas</div>
       <div class="toolbar">
+        <button class="btn secondary" id="languageBtn">Español</button>
         <button class="btn secondary" id="themeBtn">Dark mode</button>
         <button class="btn secondary" id="textBtn">Bigger text</button>
         <button class="btn secondary" id="motionBtn">Reduce motion</button>
@@ -20,17 +21,17 @@
     <main class="lesson-panel" id="lessonRoot"></main>
     <footer class="atlas-footer">
       <select id="lessonSelect" class="select">
-        <option value="../../curriculum/lessons/lesson001.json">Lesson 001 — How many more?</option>
-        <option value="../../curriculum/lessons/lesson002.json">Lesson 002 — How many fewer?</option>
-        <option value="../../curriculum/lessons/lesson003.json">Lesson 003 — Difference</option>
-        <option value="../../curriculum/lessons/lesson004.json">Lesson 004 — Find the compared amount</option>
+        <option value="../../curriculum/lessons/lesson001.json" data-en="Lesson 001 — How many more?" data-es="Lección 001 — ¿Cuántos más?">Lesson 001 — How many more?</option>
+        <option value="../../curriculum/lessons/lesson002.json" data-en="Lesson 002 — How many fewer?" data-es="Lección 002 — ¿Cuántos menos?">Lesson 002 — How many fewer?</option>
+        <option value="../../curriculum/lessons/lesson003.json" data-en="Lesson 003 — Difference" data-es="Lección 003 — Diferencia">Lesson 003 — Difference</option>
+        <option value="../../curriculum/lessons/lesson004.json" data-en="Lesson 004 — Find the compared amount" data-es="Lección 004 — Encuentra la cantidad comparada">Lesson 004 — Find the compared amount</option>
       </select>
       <button class="btn secondary" id="analyticsBtn">Learning summary</button>
     </footer>
   </div>
   <div class="modal" id="analyticsModal" aria-hidden="true">
     <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="analyticsTitle">
-      <span class="badge">Progress</span>
+      <span class="badge" id="progressLabel">Progress</span>
       <h1 id="analyticsTitle">Learning Summary</h1>
       <div class="analytics-grid" id="analyticsSummary"></div>
       <div class="analytics-list" id="analyticsDetails"></div>
