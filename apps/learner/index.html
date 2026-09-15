@@ -8,26 +8,27 @@
   <link rel="stylesheet" href="../../sdk/components/components.css">
 </head>
 <body>
+  <a class="skip-link" id="skipLink" href="#lessonRoot">Skip to lesson</a>
   <div class="atlas-shell">
     <header class="atlas-header">
       <div class="brand">✦ Atlas</div>
       <div class="toolbar">
-        <button class="btn secondary" id="languageBtn">Español</button>
-        <button class="btn secondary" id="themeBtn">Dark mode</button>
-        <button class="btn secondary" id="textBtn">Bigger text</button>
-        <button class="btn secondary" id="motionBtn">Reduce motion</button>
+        <button class="btn secondary" id="languageBtn" type="button">Español</button>
+        <button class="btn secondary" id="themeBtn" type="button" aria-pressed="false">Dark mode</button>
+        <button class="btn secondary" id="textBtn" type="button" aria-pressed="false">Bigger text</button>
+        <button class="btn secondary" id="motionBtn" type="button" aria-pressed="false">Reduce motion</button>
       </div>
     </header>
-    <main class="lesson-panel" id="lessonRoot"></main>
+    <main class="lesson-panel" id="lessonRoot" tabindex="-1" aria-busy="true"></main>
     <footer class="atlas-footer">
-      <select id="lessonSelect" class="select">
+      <label class="lesson-picker" for="lessonSelect"><span class="sr-only" id="lessonSelectLabel">Choose a lesson</span><select id="lessonSelect" class="select" aria-labelledby="lessonSelectLabel">
         <option value="../../curriculum/lessons/lesson001.json" data-en="Lesson 001 — How many more?" data-es="Lección 001 — ¿Cuántos más?">Lesson 001 — How many more?</option>
         <option value="../../curriculum/lessons/lesson002.json" data-en="Lesson 002 — How many fewer?" data-es="Lección 002 — ¿Cuántos menos?">Lesson 002 — How many fewer?</option>
         <option value="../../curriculum/lessons/lesson003.json" data-en="Lesson 003 — Difference" data-es="Lección 003 — Diferencia">Lesson 003 — Difference</option>
         <option value="../../curriculum/lessons/lesson004.json" data-en="Lesson 004 — Find the compared amount" data-es="Lección 004 — Encuentra la cantidad comparada">Lesson 004 — Find the compared amount</option>
-      </select>
+      </select></label>
       <a class="btn secondary" id="memoryAssetsLink" href="../../assets/memory/" style="display:inline-flex;align-items:center;text-decoration:none">Memory practice</a>
-      <button class="btn secondary" id="analyticsBtn">Learning summary</button>
+      <button class="btn secondary" id="analyticsBtn" type="button">Learning summary</button>
     </footer>
   </div>
   <div class="modal" id="analyticsModal" aria-hidden="true">
@@ -36,9 +37,9 @@
       <h1 id="analyticsTitle">Learning Summary</h1>
       <div class="analytics-grid" id="analyticsSummary"></div>
       <div class="analytics-list" id="analyticsDetails"></div>
-      <button class="btn primary" id="closeAnalytics">Close</button>
+      <button class="btn primary" id="closeAnalytics" type="button">Close</button>
     </div>
   </div>
-  <script type="module" src="../../engine/lessonEngine.js?v=1.6"></script>
+  <script type="module" src="../../engine/lessonEngine.js?v=1.7"></script>
 </body>
 </html>

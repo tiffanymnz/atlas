@@ -26,11 +26,13 @@ Atlas V1 is a focused, memory-first bilingual GED comparison-learning release. T
 - Generate bilingual flashcards, worksheet, and quiz from lesson JSON.
 - Keep generated outputs reproducible and traceable to lesson IDs.
 
-### Sprint 5 — Release hardening — Next
+### Sprint 5 — Release hardening — Complete
 
 - Keyboard, screen-reader, mobile, and cross-browser checks.
 - Recovery testing for malformed and versioned saved data.
 - Full end-to-end completion and restart checks in both languages.
+
+The automated release gate now covers 32 behavior, accessibility, persistence, bilingual, curriculum, asset, and static-path checks. Production deployment and smoke verification remain required for each release commit.
 
 ## V1 acceptance criteria
 

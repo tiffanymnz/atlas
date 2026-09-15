@@ -7,9 +7,19 @@ function storage() { try { return globalThis.localStorage; } catch { return null
 function read(key, fallback) { try { const value=storage()?.getItem(key); return value?JSON.parse(value):fallback; } catch { return fallback; } }
 function write(key, value) { try { storage()?.setItem(key,JSON.stringify(value)); return true; } catch { return false; } }
 function attempt(){ return {id:globalThis.crypto?.randomUUID?.()||`attempt-${Date.now()}-${Math.random().toString(16).slice(2)}`,startedAt:new Date().toISOString(),completedAt:null,completed:false,events:[],summary:null}; }
-function learningState(){ const state=read(LEARNING_KEY,null); return state?.version===STORAGE_VERSION&&state.lessons?state:{version:STORAGE_VERSION,lessons:{}}; }
 function object(value){ return value&&typeof value==="object"&&!Array.isArray(value); }
 function clone(value){ try { return structuredClone(value); } catch { return JSON.parse(JSON.stringify(value)); } }
+export function recoverLearningState(value){
+  const saved=object(value)?value:{};
+  let lessons={};
+  if(object(saved.lessons)) lessons=saved.lessons;
+  else{
+    const records=Array.isArray(saved.lessons)?saved.lessons:Array.isArray(saved.records)?saved.records:[];
+    lessons=Object.fromEntries(records.filter(object).map((record,index)=>[typeof record.lessonId==="string"&&record.lessonId?record.lessonId:`legacy-${index}`,record]));
+  }
+  return {version:STORAGE_VERSION,lessons:Object.fromEntries(Object.entries(lessons).filter(([,record])=>object(record)))};
+}
+function learningState(){ return recoverLearningState(read(LEARNING_KEY,null)); }
 function normalizeAttempt(value){
   const fallback=attempt(), saved=object(value)?value:{};
   return {
@@ -17,7 +27,7 @@ function normalizeAttempt(value){
     startedAt:typeof saved.startedAt==="string"?saved.startedAt:fallback.startedAt,
     completedAt:typeof saved.completedAt==="string"?saved.completedAt:null,
     completed:saved.completed===true,
-    events:Array.isArray(saved.events)?saved.events:[],
+    events:Array.isArray(saved.events)?saved.events.filter(object):[],
     summary:object(saved.summary)?saved.summary:null
   };
 }
@@ -26,16 +36,18 @@ function normalizeRecord(value,lesson,path){
   const statuses=new Set(["not_started","in_progress","completed"]);
   const currentAttempt=normalizeAttempt(saved.currentAttempt);
   const screenStates=object(saved.screenStates)?Object.fromEntries(Object.entries(saved.screenStates).filter(([,state])=>object(state))):{};
+  const priorCompletedAttempts=Array.isArray(saved.priorCompletedAttempts)?saved.priorCompletedAttempts.map(normalizeAttempt).filter(item=>item.completed):[];
+  const seen=new Set();
   return {
     lessonId:lesson.metadata.id,
-    path,
+    path:typeof path==="string"?path:"",
     title:lesson.metadata.title,
     status:currentAttempt.completed?"completed":statuses.has(saved.status)?saved.status:"not_started",
     index:Number.isFinite(Number(saved.index))?Math.max(0,Math.floor(Number(saved.index))):0,
     screenId:typeof saved.screenId==="string"&&saved.screenId?saved.screenId:null,
     screenStates,
     currentAttempt,
-    priorCompletedAttempts:Array.isArray(saved.priorCompletedAttempts)?saved.priorCompletedAttempts.map(normalizeAttempt).filter(item=>item.completed):[],
+    priorCompletedAttempts:priorCompletedAttempts.filter(item=>item.id!==currentAttempt.id&&!seen.has(item.id)&&seen.add(item.id)),
     lastAccessedAt:typeof saved.lastAccessedAt==="string"?saved.lastAccessedAt:new Date().toISOString()
   };
 }
@@ -49,7 +61,7 @@ export function ensureLessonRecord(lesson,path){
   state.lessons[id]=record; write(LEARNING_KEY,state); return record;
 }
 export function saveLessonRecord(id,record){ const state=learningState(); record.lastAccessedAt=new Date().toISOString(); state.lessons[id]=record; return write(LEARNING_KEY,state); }
-export function getAllLessonRecords(){ return Object.values(learningState().lessons); }
+export function getAllLessonRecords(){ return Object.values(learningState().lessons).filter(object); }
 export function archiveCompletedAttempt(record,summary){ record.currentAttempt=normalizeAttempt(record.currentAttempt); record.currentAttempt.completed=true; record.currentAttempt.completedAt||=new Date().toISOString(); record.currentAttempt.summary=summary; return record; }
 export function newLessonAttempt(record){
   const completed=normalizeAttempt(record.currentAttempt);
