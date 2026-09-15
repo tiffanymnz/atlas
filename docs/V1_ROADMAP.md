@@ -32,7 +32,13 @@ Atlas V1 is a focused, memory-first bilingual GED comparison-learning release. T
 - Recovery testing for malformed and versioned saved data.
 - Full end-to-end completion and restart checks in both languages.
 
-The automated release gate now covers 32 behavior, accessibility, persistence, bilingual, curriculum, asset, and static-path checks. Production deployment and smoke verification remain required for each release commit.
+The automated release gate now covers 33 behavior, accessibility, persistence, bilingual, curriculum, asset, route, reference, and static-path checks. Production deployment and smoke verification remain required for each release commit.
+
+### V1 RC1 — In validation
+
+- Deterministic release metadata and route/link/import/hash auditing.
+- Release notes, known limitations, go/no-go gates, and rollback instructions.
+- Final production and manual browser/device sign-off before the `v1.0.0` tag.
 
 ## V1 acceptance criteria
 
