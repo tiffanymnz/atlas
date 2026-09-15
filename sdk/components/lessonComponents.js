@@ -22,6 +22,24 @@ export function renderChoiceScreen(screen,copy={hint:"Hint",checkAnswer:"Check a
   screen.choices.forEach((c,i)=> html += `<button class="choice" data-i="${i}"><span>${c.text}</span><span></span></button>`);
   return html + `</div><div class="toolbar"><button class="btn secondary" id="hintBtn">${copy.hint}</button><button class="btn primary" id="submit" disabled>${copy.checkAnswer}</button></div><div class="hint" id="hintBox"></div><div class="feedback" id="feedback"></div>`;
 }
+export function localizeChoiceState(screen,state,copy){
+  const hintAt=index=>screen.hints?.[Math.min(Math.max(index,0),screen.hints.length-1)] || copy.fallbackHint;
+  const result={hintHtml:null,feedback:null};
+  if(state.hintShown||state.hintHtml){
+    const index=Number.isInteger(state.hintStep)?state.hintStep:Math.max((Number(state.hintIndex)||1)-1,0);
+    result.hintHtml=`<strong>${copy.hint}</strong><br>${hintAt(index)}`;
+  }
+  if(state.feedback){
+    if(state.submittedCorrect){
+      const detail=screen.choices?.[state.selected]?.feedback;
+      result.feedback={className:"feedback success",html:`<strong>${copy.correct}</strong>${detail?"<br>"+detail:""}`};
+    }else{
+      const index=Number.isInteger(state.feedbackHintIndex)?state.feedbackHintIndex:Math.max((Number(state.hintIndex)||1)-1,0);
+      result.feedback={className:"feedback warn",html:`<strong>${copy.lookAgain}</strong><br>${hintAt(index)}`};
+    }
+  }
+  return result;
+}
 export function renderLanguage(screen){
   let html = `<div class="phraseGrid">`;
   screen.phrases.forEach(p => html += `<div class="phrase">${p}<span>${screen.phraseMeaning || "Same idea"}</span></div>`);

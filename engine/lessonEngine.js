@@ -1,4 +1,4 @@
-import { renderComparisonBlocks, renderChoiceScreen, renderLanguage, renderEquation, renderComplete } from "../sdk/components/lessonComponents.js";
+import { renderComparisonBlocks, renderChoiceScreen, localizeChoiceState, renderLanguage, renderEquation, renderComplete } from "../sdk/components/lessonComponents.js";
 import { createAnalytics, showAnalytics } from "./analytics-engine/analyticsEngine.js";
 import { recommendNext } from "./recommendation-engine/recommendationEngine.js";
 import { getPreferences, savePreferences, ensureLessonRecord, saveLessonRecord, getAllLessonRecords, archiveCompletedAttempt, newLessonAttempt, resolveLessonPosition, getLastLessonPath, saveLastLessonPath } from "./state-store/stateStore.js";
@@ -101,6 +101,7 @@ function setCorrectControls(){
 
 function restoreChoiceState(screen){
   const state=currentState();
+  const localized=localizeChoiceState(screen,state,copy());
   selected=state.selected;
   hintIndex=state.hintIndex || 0;
   if(selected !== null && selected !== undefined){
@@ -109,12 +110,12 @@ function restoreChoiceState(screen){
     el("submit").disabled=false;
   }
   const hintBox=el("hintBox");
-  if(state.hintHtml){ hintBox.style.display="block"; hintBox.innerHTML=state.hintHtml; }
+  if(localized.hintHtml){ hintBox.style.display="block"; hintBox.innerHTML=localized.hintHtml; }
   const fb=el("feedback");
-  if(state.feedback){
+  if(localized.feedback){
     fb.style.display="block";
-    fb.className=state.feedback.className || "feedback";
-    fb.innerHTML=state.feedback.html || "";
+    fb.className=localized.feedback.className;
+    fb.innerHTML=localized.feedback.html;
   }
   if(state.submittedCorrect){
     document.querySelectorAll(".choice").forEach((btn,i)=>{
@@ -220,7 +221,7 @@ function submitChoice(screen){
     document.querySelectorAll(".choice").forEach((btn,i)=>{ btn.disabled = true; if(screen.choices[i].correct) btn.classList.add("correct"); });
     fb.style.display = "block"; fb.className = "feedback success";
     fb.innerHTML = `<strong>${copy().correct}</strong>${choice.feedback ? "<br>"+choice.feedback : ""}`;
-    state.feedback={className:fb.className,html:fb.innerHTML};
+    state.feedback={kind:"success"};
     lessonRecord.screenStates[screenStateKey()]=state; persist(); setCorrectControls();
   } else {
     const h = screen.hints?.[Math.min(hintIndex, screen.hints.length-1)] || copy().fallbackHint;
@@ -228,7 +229,8 @@ function submitChoice(screen){
     state.hintIndex=hintIndex;
     fb.style.display = "block"; fb.className = "feedback warn";
     fb.innerHTML = `<strong>${copy().lookAgain}</strong><br>${h}`;
-    state.feedback={className:fb.className,html:fb.innerHTML};
+    state.feedbackHintIndex=Math.max(hintIndex-1,0);
+    state.feedback={kind:"warning"};
     document.querySelectorAll(".choice").forEach(btn=>{ btn.disabled = false; btn.classList.remove("selected","correct"); });
     selected = null; state.selected=null; el("submit").disabled = true;
     lessonRecord.screenStates[screenStateKey()]=state; persist(); emit("guided_retry",{hint:h});
@@ -237,12 +239,15 @@ function submitChoice(screen){
 
 function hint(screen){
   const state=currentState();
-  const h = screen.hints?.[Math.min(hintIndex, screen.hints.length-1)] || copy().fallbackHint;
+  const usedIndex=hintIndex;
+  const h = screen.hints?.[Math.min(usedIndex, screen.hints.length-1)] || copy().fallbackHint;
   hintIndex++;
   state.hintIndex=hintIndex;
   const box = el("hintBox");
   box.style.display = "block"; box.innerHTML = `<strong>${copy().hint}</strong><br>${h}`;
-  state.hintHtml=box.innerHTML;
+  state.hintShown=true;
+  state.hintStep=usedIndex;
+  state.hintHtml="";
   lessonRecord.screenStates[screenStateKey()]=state; persist(); emit("hint",{hint:h});
 }
 
