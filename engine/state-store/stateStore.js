@@ -32,6 +32,7 @@ function normalizeRecord(value,lesson,path){
     title:lesson.metadata.title,
     status:currentAttempt.completed?"completed":statuses.has(saved.status)?saved.status:"not_started",
     index:Number.isFinite(Number(saved.index))?Math.max(0,Math.floor(Number(saved.index))):0,
+    screenId:typeof saved.screenId==="string"&&saved.screenId?saved.screenId:null,
     screenStates,
     currentAttempt,
     priorCompletedAttempts:Array.isArray(saved.priorCompletedAttempts)?saved.priorCompletedAttempts.map(normalizeAttempt).filter(item=>item.completed):[],
@@ -54,7 +55,29 @@ export function newLessonAttempt(record){
   const completed=normalizeAttempt(record.currentAttempt);
   record.priorCompletedAttempts=Array.isArray(record.priorCompletedAttempts)?record.priorCompletedAttempts:[];
   if(completed.completed&&!record.priorCompletedAttempts.some(item=>item.id===completed.id)) record.priorCompletedAttempts.push(clone(completed));
-  record.currentAttempt=attempt(); record.screenStates={}; record.index=0; record.status="not_started"; return record;
+  record.currentAttempt=attempt(); record.screenStates={}; record.index=0; record.screenId=null; record.status="not_started"; return record;
+}
+export function resolveLessonPosition(record,lesson){
+  const screens=Array.isArray(lesson?.screens)?lesson.screens:[];
+  if(!screens.length){ record.index=0; record.screenId=null; return 0; }
+  const savedIndex=Math.min(Math.max(Number(record.index)||0,0),screens.length-1);
+  const hadStableId=typeof record.screenId==="string";
+  let resolved=hadStableId?screens.findIndex(screen=>screen.id===record.screenId):-1;
+  if(!hadStableId){
+    const migrated={};
+    for(const [key,state] of Object.entries(object(record.screenStates)?record.screenStates:{})){
+      const legacyIndex=Number(key);
+      const screen=Number.isInteger(legacyIndex)?screens.find(item=>item.legacyIndex===legacyIndex):null;
+      migrated[screen?.id || key]=clone(state);
+    }
+    record.screenStates=migrated;
+    resolved=screens.findIndex(screen=>Number.isInteger(screen.legacyIndex)&&screen.legacyIndex===savedIndex);
+  }
+  if(resolved<0) resolved=savedIndex;
+  record.screenStates=object(record.screenStates)?record.screenStates:{};
+  record.index=resolved;
+  record.screenId=typeof screens[resolved]?.id==="string"?screens[resolved].id:null;
+  return resolved;
 }
 export function saveLastLessonPath(path){ try { storage()?.setItem(LAST_LESSON_KEY,path); return true; } catch { return false; } }
 export function getLastLessonPath(){ try { return storage()?.getItem(LAST_LESSON_KEY); } catch { return null; } }
