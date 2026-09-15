@@ -1,7 +1,7 @@
 import { renderComparisonBlocks, renderChoiceScreen, renderLanguage, renderEquation, renderComplete } from "../sdk/components/lessonComponents.js";
 import { createAnalytics, showAnalytics } from "./analytics-engine/analyticsEngine.js";
 import { recommendNext } from "./recommendation-engine/recommendationEngine.js";
-import { getPreferences, savePreferences, ensureLessonRecord, saveLessonRecord, getAllLessonRecords, archiveCompletedAttempt, newLessonAttempt, getLastLessonPath, saveLastLessonPath } from "./state-store/stateStore.js";
+import { getPreferences, savePreferences, ensureLessonRecord, saveLessonRecord, getAllLessonRecords, archiveCompletedAttempt, newLessonAttempt, resolveLessonPosition, getLastLessonPath, saveLastLessonPath } from "./state-store/stateStore.js";
 import { loadLocalizedLesson } from "./i18n/lessonLocale.js";
 
 let lesson = null, lessonPath = null, index = 0, selected = null, hintIndex = 0;
@@ -19,10 +19,12 @@ function copy(){ return COPY[language]; }
 function el(id){ return document.getElementById(id); }
 function pct(){ return Math.round(index/(lesson.screens.length-1)*100); }
 function current(){ return lesson.screens[index]; }
+function screenStateKey(){ return current()?.id || String(index); }
 function currentState(){
   lessonRecord.screenStates ||= {};
-  lessonRecord.screenStates[index] ||= { selected:null, hintIndex:0, hintHtml:"", feedback:null, submittedCorrect:false };
-  return lessonRecord.screenStates[index];
+  const key=screenStateKey();
+  lessonRecord.screenStates[key] ||= { selected:null, hintIndex:0, hintHtml:"", feedback:null, submittedCorrect:false };
+  return lessonRecord.screenStates[key];
 }
 function syncAttemptEvents(){
   if(lessonRecord?.currentAttempt) lessonRecord.currentAttempt.events = analytics.events();
@@ -30,6 +32,7 @@ function syncAttemptEvents(){
 function persist(){
   if(!lesson || !lessonRecord) return;
   lessonRecord.index = index;
+  lessonRecord.screenId = current()?.id || null;
   syncAttemptEvents();
   saveLessonRecord(lesson.metadata.id, lessonRecord);
 }
@@ -81,7 +84,7 @@ async function loadLesson(path){
   lessonPath = path;
   saveLastLessonPath(path);
   lessonRecord = ensureLessonRecord(lesson, path);
-  index = Math.min(Math.max(Number(lessonRecord.index)||0,0), lesson.screens.length-1);
+  index = resolveLessonPosition(lessonRecord,lesson);
   analytics = createAnalytics(lessonRecord.currentAttempt?.events || []);
   selected = null; hintIndex = 0;
   refreshLessonOptions();
@@ -157,13 +160,17 @@ function render(){
     root.innerHTML = base(screen)+renderComparisonBlocks(screen.visual)+`<div class="toolbar"><button class="btn secondary" id="backBtn">${copy().back}</button><button class="btn primary" id="nextBtn">${screen.nextLabel || copy().next}</button></div>`;
     el("backBtn").onclick = back; el("nextBtn").onclick = next; return;
   }
-  if(screen.type==="discover" || screen.type==="symbol" || screen.type==="reflection"){
+  if(["misconception","discover","symbol","guidedPractice","independentPractice","recall","transfer","reflection"].includes(screen.type)){
     const visual = screen.visual ? renderComparisonBlocks(screen.visual) : `<p>${screen.prompt || ""}</p>`;
     root.innerHTML = base(screen)+visual+renderChoiceScreen(screen,copy());
     bindChoiceScreen(screen); restoreChoiceState(screen); return;
   }
   if(screen.type==="language"){
     root.innerHTML = base(screen)+renderComparisonBlocks(screen.visual)+renderLanguage(screen)+`<div class="coach" style="display:block">${screen.guidance}</div><div class="toolbar"><button class="btn secondary" id="backBtn">${copy().back}</button><button class="btn primary" id="nextBtn">${copy().next}</button></div>`;
+    el("backBtn").onclick = back; el("nextBtn").onclick = next; return;
+  }
+  if(screen.type==="memoryHook"){
+    root.innerHTML = base(screen)+`<div class="coach" style="display:block"><strong>${screen.hook}</strong><br>${screen.body}</div><div class="toolbar"><button class="btn secondary" id="backBtn">${copy().back}</button><button class="btn primary" id="nextBtn">${copy().next}</button></div>`;
     el("backBtn").onclick = back; el("nextBtn").onclick = next; return;
   }
   if(screen.type==="equationReveal"){
@@ -192,7 +199,7 @@ function bindChoiceScreen(screen){
       document.querySelectorAll(".choice").forEach(b=>b.classList.remove("selected"));
       btn.classList.add("selected");
       el("submit").disabled = false;
-      lessonRecord.screenStates[index]=state;
+      lessonRecord.screenStates[screenStateKey()]=state;
       emit("select",{value:selected});
     };
   });
@@ -214,7 +221,7 @@ function submitChoice(screen){
     fb.style.display = "block"; fb.className = "feedback success";
     fb.innerHTML = `<strong>${copy().correct}</strong>${choice.feedback ? "<br>"+choice.feedback : ""}`;
     state.feedback={className:fb.className,html:fb.innerHTML};
-    lessonRecord.screenStates[index]=state; persist(); setCorrectControls();
+    lessonRecord.screenStates[screenStateKey()]=state; persist(); setCorrectControls();
   } else {
     const h = screen.hints?.[Math.min(hintIndex, screen.hints.length-1)] || copy().fallbackHint;
     hintIndex++;
@@ -224,7 +231,7 @@ function submitChoice(screen){
     state.feedback={className:fb.className,html:fb.innerHTML};
     document.querySelectorAll(".choice").forEach(btn=>{ btn.disabled = false; btn.classList.remove("selected","correct"); });
     selected = null; state.selected=null; el("submit").disabled = true;
-    lessonRecord.screenStates[index]=state; persist(); emit("guided_retry",{hint:h});
+    lessonRecord.screenStates[screenStateKey()]=state; persist(); emit("guided_retry",{hint:h});
   }
 }
 
@@ -236,7 +243,7 @@ function hint(screen){
   const box = el("hintBox");
   box.style.display = "block"; box.innerHTML = `<strong>${copy().hint}</strong><br>${h}`;
   state.hintHtml=box.innerHTML;
-  lessonRecord.screenStates[index]=state; persist(); emit("hint",{hint:h});
+  lessonRecord.screenStates[screenStateKey()]=state; persist(); emit("hint",{hint:h});
 }
 
 function next(){
