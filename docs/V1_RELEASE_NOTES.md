@@ -1,8 +1,8 @@
-# Atlas V1 RC1 Release Notes
+# Atlas V1 Release Notes
 
-Version: `1.0.0-rc.1`
+Version: `1.0.0`
 
-Target release: October 18, 2026
+Released: September 16, 2026, ahead of the October 18 target
 
 Atlas V1 is a focused, memory-first English/Spanish GED comparison-learning release. Learners can complete four connected lessons, leave and return without losing their place, switch languages without losing their attempt, and review printable memory practice generated from the same curriculum source.
 
@@ -22,4 +22,4 @@ Atlas V1 is a focused, memory-first English/Spanish GED comparison-learning rele
 
 ## Quality gate
 
-`npm test` runs the complete behavior and release gate. RC1 passes 33 Node tests, lesson/knowledge-graph validation, memory-asset freshness, and the release route/reference/hash audit.
+`npm test` runs the complete behavior and release gate. V1 passes 33 Node tests, lesson/knowledge-graph validation, memory-asset freshness, and the release route/reference/hash audit. Production Chromium and physical iPhone/Safari acceptance checks passed. Firefox desktop and Chrome/Android physical checks were unavailable and explicitly accepted as release risks.
