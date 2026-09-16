@@ -1,0 +1,87 @@
+{
+  "schema_version": "1.0.0",
+  "source_graph": "atlas.core_math_p0.v1",
+  "application_graph": "knowledge_graph_v1.json",
+  "mappings": [
+    {
+      "source_concept_id": "C_MATH_001",
+      "atlas_concept_ids": ["comparison.more", "comparison.fewer"],
+      "lesson_ids": ["MATH-NS-COMP-0001", "MATH-NS-COMP-0002"],
+      "implementation_status": "implemented",
+      "research_queue_id": "RQ001",
+      "research_status": "open"
+    },
+    {
+      "source_concept_id": "C_MATH_002",
+      "atlas_concept_ids": ["difference", "subtraction_as_comparison", "compare_unknown"],
+      "lesson_ids": ["MATH-NS-COMP-0003", "MATH-NS-COMP-0004"],
+      "implementation_status": "implemented",
+      "research_queue_id": "RQ002",
+      "research_status": "open"
+    },
+    {
+      "source_concept_id": "C_MATH_003",
+      "atlas_concept_ids": ["percent.basics"],
+      "lesson_ids": [],
+      "implementation_status": "planned",
+      "research_queue_id": "RQ003",
+      "research_status": "open"
+    },
+    {
+      "source_concept_id": "C_MATH_004",
+      "atlas_concept_ids": ["fractions.numerator_denominator"],
+      "lesson_ids": [],
+      "implementation_status": "planned",
+      "research_queue_id": "RQ004",
+      "research_status": "open"
+    },
+    {
+      "source_concept_id": "C_MATH_005",
+      "atlas_concept_ids": ["equations.one_step"],
+      "lesson_ids": [],
+      "implementation_status": "planned",
+      "research_queue_id": "RQ005",
+      "research_status": "open"
+    },
+    {
+      "source_concept_id": "C_MATH_006",
+      "atlas_concept_ids": ["geometry.area"],
+      "lesson_ids": [],
+      "implementation_status": "planned",
+      "research_queue_id": "RQ006",
+      "research_status": "open"
+    },
+    {
+      "source_concept_id": "C_MATH_007",
+      "atlas_concept_ids": ["geometry.perimeter"],
+      "lesson_ids": [],
+      "implementation_status": "planned",
+      "research_queue_id": "RQ006",
+      "research_status": "open"
+    },
+    {
+      "source_concept_id": "C_MATH_008",
+      "atlas_concept_ids": ["inequalities.at_least"],
+      "lesson_ids": [],
+      "implementation_status": "planned",
+      "research_queue_id": "RQ007",
+      "research_status": "open"
+    },
+    {
+      "source_concept_id": "C_MATH_009",
+      "atlas_concept_ids": ["inequalities.no_more_than"],
+      "lesson_ids": [],
+      "implementation_status": "planned",
+      "research_queue_id": "RQ007",
+      "research_status": "open"
+    },
+    {
+      "source_concept_id": "C_MATH_010",
+      "atlas_concept_ids": ["division.shared_equally"],
+      "lesson_ids": [],
+      "implementation_status": "planned",
+      "research_queue_id": null,
+      "research_status": "not_started"
+    }
+  ]
+}

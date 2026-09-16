@@ -1,5 +1,15 @@
 # Changelog
 
+## Unreleased
+
+### Added
+
+- Imported the approved ten-concept Math P0 starter knowledge graph as an additive post-V1 curriculum source.
+- Added an explicit crosswalk between source concepts, implemented V1 concepts, and planned post-V1 concepts.
+- Added automated integrity checks for graph nodes, edges, bilingual hooks, assessments, adaptive rules, and crosswalk coverage.
+- Added a post-V1 roadmap that gates new lessons behind research review.
+- Defined a meaning-first learning standard so memory anchors reinforce understanding, recall, and transfer instead of replacing instruction.
+
 ## 1.0.0 — 2026-09-16
 
 Atlas V1 completed ahead of the October 18, 2026 target.

@@ -45,3 +45,11 @@ Run the checks with `npm test`.
 - Mobile, reduced-motion, and forced-color safeguards are part of the shared component CSS.
 - Saved learning data recovers valid progress from malformed, legacy, and future-version containers.
 - Release acceptance tests complete and restart all four lessons in English and Spanish.
+
+## Sprint 6
+
+- The approved ten-concept Math P0 starter graph is stored under `curriculum/knowledge-graph/` without changing the V1 learner architecture.
+- A crosswalk separates implemented Atlas lesson concepts from planned concepts, so future curriculum is not exposed as finished work.
+- `npm run check:knowledge` validates node uniqueness, edge references, bilingual hooks, diagnostic references, adaptive rules, and crosswalk coverage.
+- Post-V1 sequencing is documented in `docs/POST_V1_ROADMAP.md`.
+- Meaning-first memory anchors and future research-card requirements are defined in `docs/ATLAS_LEARNING_STANDARD.md`.
