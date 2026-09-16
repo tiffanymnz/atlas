@@ -12,4 +12,4 @@ Sprint 4 complete: deterministic English/Spanish flashcards, printable worksheet
 
 Sprint 5 complete: keyboard and screen-reader semantics, responsive mobile safeguards, reduced-motion and forced-color support, dialog focus management, versioned-save recovery, and bilingual completion/restart acceptance coverage are enforced by the release suite.
 
-V1 RC1 in validation: release metadata, route/link/import/hash auditing, release notes, known limitations, go/no-go gates, and a non-destructive rollback procedure are included for the October 18 release target.
+V1 release ready: version `1.0.0` metadata, route/link/import/hash auditing, release notes, known limitations, resolved go/no-go gates, and a non-destructive rollback procedure are complete ahead of the October 18 target.

@@ -11,4 +11,4 @@ Use a normal Git revert so history and every retained branch remain intact. Do n
 7. Verify `/atlas/`, `/atlas/apps/learner/`, and `/atlas/assets/memory/`.
 8. Record the failure, reverted merge SHA, rollback PR, and follow-up issue in the release notes.
 
-The last verified pre-RC1 production checkpoint is Sprint 5 merge `08dd721c2092dff45e58b7d18912676351c00615`.
+The last verified pre-V1 production checkpoint is RC1 merge `97fac464a36cf5a6fba09a1bff281b6ed7cc4268`.

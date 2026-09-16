@@ -1,5 +1,15 @@
 # Changelog
 
+## 1.0.0 — 2026-09-16
+
+Atlas V1 completed ahead of the October 18, 2026 target.
+
+### Release decision
+
+- All automated, repository, production, and physical iPhone/Safari gates passed.
+- Firefox desktop and Chrome/Android were unavailable for physical testing and were explicitly accepted as release risks on September 16, 2026.
+- The V1 feature boundary remains unchanged from RC1.
+
 ## 1.0.0-rc.1 — 2026-09-15
 
 Atlas V1 release candidate for the October 18, 2026 target.

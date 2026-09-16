@@ -5,4 +5,4 @@
 - The learner requires JavaScript and a network connection; offline installation is not included.
 - V1 includes Lessons 001–004 only. The broader curriculum, teacher dashboard, Atlas Studio, and native mobile apps remain outside this release.
 - Printable assets use the browser print dialog, so pagination can vary slightly by browser and printer settings.
-- Automated and production Chromium checks are available. Final Firefox desktop and Safari/iPhone sign-off requires access to those browser/device environments before the `v1.0.0` tag.
+- Automated and production Chromium checks passed, and Safari/iPhone passed on a physical device. Firefox desktop and Chrome/Android physical checks were unavailable and explicitly accepted as V1 release risks on September 16, 2026.
