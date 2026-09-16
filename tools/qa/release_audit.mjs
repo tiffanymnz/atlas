@@ -45,9 +45,10 @@ export async function auditRelease(root=projectRoot){
   }
 
   const release=JSON.parse(await readFile(resolve(root,"release.json"),"utf8"));
-  if(!/^1\.0\.0-rc\.\d+$/.test(release.version||"")) errors.push("release.json must identify an RC version");
-  if(release.status!=="release-candidate") errors.push("release.json status must be release-candidate");
-  if(release.releaseDate!=="2026-10-18") errors.push("release.json must retain the V1 target date");
+  if(release.version!=="1.0.0") errors.push("release.json must identify V1");
+  if(release.status!=="stable") errors.push("release.json status must be stable");
+  if(release.releaseDate!=="2026-09-16") errors.push("release.json must identify the V1 release date");
+  if(release.targetDate!=="2026-10-18") errors.push("release.json must retain the V1 target date");
   if(!Array.isArray(release.lessonIds)||release.lessonIds.length!==4) errors.push("release.json must list all four lesson IDs");
 
   const htmlFiles=(await walk(root)).filter(path=>extname(path)===".html"&&!(path.includes("/.git/")||path.includes("/node_modules/")));
