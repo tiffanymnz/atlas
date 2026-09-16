@@ -1,0 +1,52 @@
+{
+  "schema_version": "1.0.0",
+  "reviewed_on": "2026-09-16",
+  "sources": [
+    {
+      "id": "SRC_GED_MATH_GUIDE",
+      "title": "Assessment Guide for Educators: Mathematical Reasoning",
+      "publisher": "GED Testing Service",
+      "type": "official_assessment_guide",
+      "url": "https://www.ged.com/content/dam/websites/ged/resources/en/assessment-guide-for-educators-math.pdf",
+      "use": "GED scope, depth, reasoning, and assessment targets",
+      "evidence_level": "A"
+    },
+    {
+      "id": "SRC_GED_MATH_PAGE",
+      "title": "Mathematical Reasoning",
+      "publisher": "GED Testing Service",
+      "type": "official_test_page",
+      "url": "https://www.ged.com/about-test/test-subjects/math.html",
+      "use": "Current public description of GED mathematical reasoning",
+      "evidence_level": "A"
+    },
+    {
+      "id": "SRC_IES_FRACTIONS",
+      "title": "Developing Effective Fractions Instruction for Kindergarten Through 8th Grade",
+      "publisher": "Institute of Education Sciences, What Works Clearinghouse",
+      "type": "practice_guide",
+      "url": "https://ies.ed.gov/ncee/wwc/practiceguide/15",
+      "use": "Fraction magnitude, representations, number lines, and progression",
+      "evidence_level": "A"
+    },
+    {
+      "id": "SRC_IES_ALGEBRA",
+      "title": "Teaching Strategies for Improving Algebra Knowledge in Middle and High School Students",
+      "publisher": "Institute of Education Sciences, What Works Clearinghouse",
+      "type": "practice_guide",
+      "url": "https://ies.ed.gov/ncee/wwc/practiceguide/20",
+      "use": "Solved problems, algebraic structure, and strategy selection",
+      "evidence_level": "A"
+    },
+    {
+      "id": "SRC_IES_MATH_INTERVENTION",
+      "title": "Assisting Students Struggling with Mathematics: Intervention in the Elementary Grades",
+      "publisher": "Institute of Education Sciences, What Works Clearinghouse",
+      "type": "practice_guide",
+      "url": "https://ies.ed.gov/ncee/wwc/practiceguide/26",
+      "use": "Systematic instruction, mathematical language, representations, number lines, and word problems",
+      "evidence_level": "A"
+    }
+  ],
+  "scope_warning": "IES recommendations synthesize school-age evidence. Applying them to adult GED learners is a reasoned adaptation that still requires adult learner testing."
+}
