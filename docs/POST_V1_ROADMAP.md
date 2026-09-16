@@ -16,6 +16,8 @@ This sprint is data foundation only. It does not add unreviewed lessons or chang
 
 ## Sprint 7 — Research cards and lesson selection
 
+Status: research package complete; adult-facing prototype review required before production lessons.
+
 - Apply the meaning-first requirements in `ATLAS_LEARNING_STANDARD.md`.
 - Complete evidence cards for the next Math P0 concepts.
 - Keep evidence level, unresolved decisions, bilingual terminology, misconception targets, and visual choices explicit.
@@ -23,6 +25,8 @@ This sprint is data foundation only. It does not add unreviewed lessons or chang
 - Do not treat a plausible teaching idea as an Atlas default without evidence review or learner testing.
 
 Initial candidates are percent basics, numerator/denominator, one-step equations, area versus perimeter, inequality language, and shared-equally division. Candidate order is not a release commitment.
+
+The recorded prototype decision is shared-equally division → fraction meaning → percent basics. See `SPRINT7_RESEARCH_DECISION.md` and the machine-readable cards under `curriculum/research/`.
 
 ## Sprint 8 — First post-V1 lesson cluster
 

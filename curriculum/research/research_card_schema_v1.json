@@ -1,0 +1,64 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://tiffanymnz.github.io/atlas/curriculum/research/research_card_schema_v1.json",
+  "title": "Atlas Meaning-First Research Card",
+  "type": "object",
+  "required": [
+    "id",
+    "source_concept_id",
+    "atlas_concept_id",
+    "title",
+    "concept_meaning",
+    "concept_purpose",
+    "memory_mechanism",
+    "reconstruction_steps",
+    "common_misuse",
+    "visual_or_physical_anchor",
+    "recall_prompt",
+    "transfer_check",
+    "bilingual_notes",
+    "source_ids",
+    "evidence_level",
+    "adult_evidence_limit",
+    "unresolved_questions",
+    "review_status"
+  ],
+  "properties": {
+    "id": {"type": "string", "pattern": "^RC_MATH_[0-9]{3}$"},
+    "source_concept_id": {"type": "string", "pattern": "^C_MATH_[0-9]{3}$"},
+    "atlas_concept_id": {"type": "string", "minLength": 3},
+    "title": {"type": "string", "minLength": 3},
+    "concept_meaning": {"type": "string", "minLength": 20},
+    "concept_purpose": {"type": "string", "minLength": 20},
+    "memory_mechanism": {"type": "string", "minLength": 20},
+    "reconstruction_steps": {"type": "array", "minItems": 3, "items": {"type": "string", "minLength": 5}},
+    "common_misuse": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 5}},
+    "visual_or_physical_anchor": {"type": "string", "minLength": 10},
+    "recall_prompt": {"type": "string", "minLength": 10},
+    "transfer_check": {
+      "type": "object",
+      "required": ["prompt", "expected_evidence"],
+      "properties": {
+        "prompt": {"type": "string", "minLength": 10},
+        "expected_evidence": {"type": "string", "minLength": 10}
+      },
+      "additionalProperties": false
+    },
+    "bilingual_notes": {
+      "type": "object",
+      "required": ["english_term", "spanish_term", "translation_note"],
+      "properties": {
+        "english_term": {"type": "string", "minLength": 1},
+        "spanish_term": {"type": "string", "minLength": 1},
+        "translation_note": {"type": "string", "minLength": 10}
+      },
+      "additionalProperties": false
+    },
+    "source_ids": {"type": "array", "minItems": 1, "items": {"type": "string"}},
+    "evidence_level": {"enum": ["A", "B", "C", "D"]},
+    "adult_evidence_limit": {"type": "string", "minLength": 10},
+    "unresolved_questions": {"type": "array", "items": {"type": "string"}},
+    "review_status": {"enum": ["draft", "reviewed", "approved", "rejected"]}
+  },
+  "additionalProperties": false
+}
