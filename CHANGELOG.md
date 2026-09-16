@@ -9,6 +9,9 @@
 - Added automated integrity checks for graph nodes, edges, bilingual hooks, assessments, adaptive rules, and crosswalk coverage.
 - Added a post-V1 roadmap that gates new lessons behind research review.
 - Defined a meaning-first learning standard so memory anchors reinforce understanding, recall, and transfer instead of replacing instruction.
+- Added evidence-controlled research cards for all eight planned Math P0 starter concepts.
+- Selected shared-equally division → fraction meaning → percent basics as the next prototype cluster while keeping adult-evidence limits and unresolved decisions explicit.
+- Added automated research-card, evidence-source, crosswalk, and cluster-decision validation.
 
 ## 1.0.0 — 2026-09-16
 
