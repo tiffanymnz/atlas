@@ -1,0 +1,328 @@
+{
+  "schema_version": "1.0.0",
+  "learning_standard": "docs/ATLAS_LEARNING_STANDARD.md",
+  "reviewed_on": "2026-09-16",
+  "cards": [
+    {
+      "id": "RC_MATH_003",
+      "source_concept_id": "C_MATH_003",
+      "atlas_concept_id": "percent.basics",
+      "title": "Percent basics",
+      "concept_meaning": "A percent is a rate measured per one hundred; it describes a part relative to a whole standardized as 100.",
+      "concept_purpose": "Percents make proportional quantities comparable and support real-world reasoning about tax, discounts, interest, increases, and decreases.",
+      "memory_mechanism": "Rebuild percent through equivalence: name the whole, treat it as 100 equal parts, then connect the shaded or counted parts to a fraction over 100 and a decimal.",
+      "reconstruction_steps": [
+        "Identify the whole whose value represents 100 percent.",
+        "Represent or imagine that whole as 100 equal parts.",
+        "Count or calculate how many of those parts are being described.",
+        "Connect the same value across percent, fraction, and decimal forms."
+      ],
+      "common_misuse": [
+        "Treating 40% as the whole number 40 instead of 40 per 100.",
+        "Calculating a percent without identifying the base whole.",
+        "Memorizing conversion moves without checking whether the forms are equivalent."
+      ],
+      "visual_or_physical_anchor": "A hundred grid tied to one explicitly named whole, followed by a number-line location so percent is not confined to shaded boxes.",
+      "recall_prompt": "Without using a conversion rule, explain what 37% says about one whole.",
+      "transfer_check": {
+        "prompt": "A price changes from $80 to $60. Explain why the decrease is 25% of the original price.",
+        "expected_evidence": "The learner identifies $80 as the whole, finds the $20 change, and explains that 20/80 equals 25/100."
+      },
+      "bilingual_notes": {
+        "english_term": "percent",
+        "spanish_term": "por ciento",
+        "translation_note": "Use 'por cada cien' to expose the per-hundred relationship; do not rely only on the symbol or a literal conversion instruction."
+      },
+      "source_ids": ["SRC_GED_MATH_GUIDE", "SRC_GED_MATH_PAGE", "SRC_IES_MATH_INTERVENTION"],
+      "evidence_level": "B",
+      "adult_evidence_limit": "The representation principles are evidence-based, but the proposed wording and sequence require testing with adult GED learners.",
+      "unresolved_questions": [
+        "Should the first Atlas percent lesson begin with a hundred grid or a double number line for adult learners?"
+      ],
+      "review_status": "draft"
+    },
+    {
+      "id": "RC_MATH_004",
+      "source_concept_id": "C_MATH_004",
+      "atlas_concept_id": "fractions.numerator_denominator",
+      "title": "Numerator and denominator",
+      "concept_meaning": "A fraction is a number defined relative to a chosen whole; the denominator names the equal-part size and the numerator counts how many of those parts are present.",
+      "concept_purpose": "Fraction notation expresses quantities between and beyond whole numbers and supports comparison, measurement, division, ratios, and later percent reasoning.",
+      "memory_mechanism": "Always reconstruct from the unit: name the whole, use the denominator to determine equal-part size, then use the numerator to locate how many parts on a bar and number line.",
+      "reconstruction_steps": [
+        "Name the whole or unit before interpreting the fraction.",
+        "Use the denominator to divide that whole into equal-size parts.",
+        "Use the numerator to count the selected part sizes.",
+        "Place the resulting number on a number line to verify its magnitude."
+      ],
+      "common_misuse": [
+        "Treating the numerator and denominator as unrelated whole numbers.",
+        "Using unequal pieces while calling them fractional parts.",
+        "Assuming 'bottom splits, top counts' is sufficient without naming the whole or understanding magnitude.",
+        "Assuming every fraction must be less than one."
+      ],
+      "visual_or_physical_anchor": "Linked fraction bars and number lines that preserve the same whole and show equal partitions, magnitude, and values greater than one.",
+      "recall_prompt": "Explain what the 5 and the 4 each mean in 5/4, including why the value is greater than one.",
+      "transfer_check": {
+        "prompt": "Two diagrams both shade three pieces, but one shows 3/4 and the other 3/8. Explain why the amounts are different.",
+        "expected_evidence": "The learner refers to equal-part size and the same-sized whole, not merely the number of shaded pieces."
+      },
+      "bilingual_notes": {
+        "english_term": "numerator / denominator",
+        "spanish_term": "numerador / denominador",
+        "translation_note": "Teach 'partes iguales' and identify the whole explicitly; the cognates alone do not communicate the fraction relationship."
+      },
+      "source_ids": ["SRC_GED_MATH_GUIDE", "SRC_GED_MATH_PAGE", "SRC_IES_FRACTIONS", "SRC_IES_MATH_INTERVENTION"],
+      "evidence_level": "B",
+      "adult_evidence_limit": "The fraction progression is evidence-based for school-age learners; its pacing, examples, and tone must be validated with adult GED learners.",
+      "unresolved_questions": [
+        "Which adult-relevant context best establishes the whole without making the lesson feel elementary?"
+      ],
+      "review_status": "draft"
+    },
+    {
+      "id": "RC_MATH_005",
+      "source_concept_id": "C_MATH_005",
+      "atlas_concept_id": "equations.one_step",
+      "title": "One-step equations",
+      "concept_meaning": "An equation states that two expressions have the same value; solving finds values that preserve that equality.",
+      "concept_purpose": "Equations represent unknown quantities and relationships so learners can reason from known information to a missing value.",
+      "memory_mechanism": "Reconstruct each move from equality: identify the operation attached to the unknown, choose its inverse, and apply the same valid transformation to both sides.",
+      "reconstruction_steps": [
+        "Read the equal sign as 'has the same value as.'",
+        "Identify the operation connecting the unknown to the known quantity.",
+        "Use an inverse operation to isolate the unknown.",
+        "Apply the same transformation to both sides and check the solution in the original equation."
+      ],
+      "common_misuse": [
+        "Changing only one side of the equation.",
+        "Treating the equal sign as a signal to calculate rather than a relationship.",
+        "Following a move-the-number shortcut without preserving the operation or checking the result."
+      ],
+      "visual_or_physical_anchor": "A balance model paired immediately with symbolic equations, with explicit discussion of where the balance analogy stops being sufficient.",
+      "recall_prompt": "Why must the same valid operation be applied to both sides of an equation?",
+      "transfer_check": {
+        "prompt": "A phone plan costs $18 after a $7 discount. Write and solve an equation for the original price, then verify it.",
+        "expected_evidence": "The learner represents the relationship, preserves equality during the inverse operation, and checks the solution in context."
+      },
+      "bilingual_notes": {
+        "english_term": "equation / equal",
+        "spanish_term": "ecuación / igual",
+        "translation_note": "Emphasize 'tiene el mismo valor que' rather than using 'igual' as only an instruction to produce an answer."
+      },
+      "source_ids": ["SRC_GED_MATH_GUIDE", "SRC_GED_MATH_PAGE", "SRC_IES_ALGEBRA", "SRC_IES_MATH_INTERVENTION"],
+      "evidence_level": "C",
+      "adult_evidence_limit": "Algebraic structure and strategy comparison are supported, but using the balance model as the primary adult entry point has limited direct evidence.",
+      "unresolved_questions": [
+        "Does a balance model clarify equality for adult learners or feel juvenile?",
+        "When should Atlas transition from the model to structural symbolic reasoning?"
+      ],
+      "review_status": "draft"
+    },
+    {
+      "id": "RC_MATH_006",
+      "source_concept_id": "C_MATH_006",
+      "atlas_concept_id": "geometry.area",
+      "title": "Area",
+      "concept_meaning": "Area measures the amount of two-dimensional region inside a boundary using equal square units.",
+      "concept_purpose": "Area answers coverage questions such as flooring, paintable surface, land, fabric, and the space contained by a flat figure.",
+      "memory_mechanism": "Reconstruct area by covering the interior with equal squares, organizing the squares into rows and columns, and connecting that count to multiplication and square units.",
+      "reconstruction_steps": [
+        "Identify the two-dimensional region being measured.",
+        "Choose an equal square unit appropriate to the context.",
+        "Cover or partition the interior without gaps or overlaps.",
+        "Count efficiently with rows and columns and label the result in square units."
+      ],
+      "common_misuse": [
+        "Counting the border instead of the interior.",
+        "Using linear units instead of square units.",
+        "Reciting length times width without understanding why multiplication counts square units."
+      ],
+      "visual_or_physical_anchor": "An area grid that can be tiled, regrouped, and connected to rows-by-columns multiplication while the boundary remains visible for contrast.",
+      "recall_prompt": "Explain why the area of a 3-by-5 rectangle is 15 square units rather than 16 units.",
+      "transfer_check": {
+        "prompt": "A rectangular room has the same perimeter as another room but a different shape. Must their areas match? Use a model or example.",
+        "expected_evidence": "The learner distinguishes coverage from boundary length and supplies two rectangles with equal perimeters but different areas."
+      },
+      "bilingual_notes": {
+        "english_term": "area / square units",
+        "spanish_term": "área / unidades cuadradas",
+        "translation_note": "Use 'espacio de adentro' only as an entry cue, then establish the precise idea of surface measured with equal square units."
+      },
+      "source_ids": ["SRC_GED_MATH_GUIDE", "SRC_IES_MATH_INTERVENTION"],
+      "evidence_level": "B",
+      "adult_evidence_limit": "Concrete and visual representation principles are supported, but the proposed contrast sequence needs adult GED testing.",
+      "unresolved_questions": [
+        "Should area and perimeter first appear separately and then contrast, or be contrasted from the first screen?"
+      ],
+      "review_status": "draft"
+    },
+    {
+      "id": "RC_MATH_007",
+      "source_concept_id": "C_MATH_007",
+      "atlas_concept_id": "geometry.perimeter",
+      "title": "Perimeter",
+      "concept_meaning": "Perimeter measures the total one-dimensional distance around the boundary of a two-dimensional figure.",
+      "concept_purpose": "Perimeter answers boundary questions such as fencing, edging, framing, trim, and the distance required to travel once around a shape.",
+      "memory_mechanism": "Reconstruct perimeter by choosing a start point, tracing every outside edge exactly once, totaling the lengths, and labeling the result in linear units.",
+      "reconstruction_steps": [
+        "Identify the boundary rather than the region inside it.",
+        "Choose a start point and trace each outside segment exactly once.",
+        "Find any missing side lengths from the figure's structure when needed.",
+        "Add the boundary lengths and label the result in linear units."
+      ],
+      "common_misuse": [
+        "Counting interior squares instead of boundary distance.",
+        "Multiplying length and width and reporting area.",
+        "Skipping or double-counting a side on an irregular figure."
+      ],
+      "visual_or_physical_anchor": "A traceable boundary path with a visible start point, direction, and segment tally, paired with an area grid for deliberate contrast.",
+      "recall_prompt": "Describe how you could measure the perimeter of an irregular polygon without missing or repeating a side.",
+      "transfer_check": {
+        "prompt": "Two gardens both cover 24 square feet. Explain how they can require different amounts of fencing.",
+        "expected_evidence": "The learner distinguishes equal area from boundary distance and gives or models shapes with different perimeters."
+      },
+      "bilingual_notes": {
+        "english_term": "perimeter",
+        "spanish_term": "perímetro",
+        "translation_note": "Pair the cognate with 'distancia alrededor del borde'; the similar word alone does not prevent area confusion."
+      },
+      "source_ids": ["SRC_GED_MATH_GUIDE", "SRC_IES_MATH_INTERVENTION"],
+      "evidence_level": "B",
+      "adult_evidence_limit": "Representation principles are supported, but the boundary-tracing interaction and area contrast require adult learner validation.",
+      "unresolved_questions": [
+        "Which irregular-shape interaction best tests boundary reasoning without adding unnecessary visual load?"
+      ],
+      "review_status": "draft"
+    },
+    {
+      "id": "RC_MATH_008",
+      "source_concept_id": "C_MATH_008",
+      "atlas_concept_id": "inequalities.at_least",
+      "title": "At least",
+      "concept_meaning": "At least sets an inclusive lower bound: the boundary value is allowed and every valid value is greater than or equal to it.",
+      "concept_purpose": "Inclusive lower bounds represent minimum requirements in contexts such as age, income, quantity, score, time, and capacity.",
+      "memory_mechanism": "Reconstruct the inequality from context: identify the minimum boundary, decide whether equality is included, mark a closed point, and extend toward greater values.",
+      "reconstruction_steps": [
+        "Identify the boundary value described as the minimum.",
+        "Test whether the exact boundary value satisfies the statement.",
+        "Use a closed point because the boundary is included.",
+        "Extend the solution toward values greater than the boundary and then select the matching symbol."
+      ],
+      "common_misuse": [
+        "Reading only the word 'least' and choosing less than.",
+        "Using a strict greater-than symbol and excluding the boundary.",
+        "Memorizing the symbol without checking the context or number-line direction."
+      ],
+      "visual_or_physical_anchor": "A number-line floor: the minimum is a closed boundary and valid values extend upward or rightward from it.",
+      "recall_prompt": "Does exactly 18 satisfy 'at least 18'? Explain how that determines the point and symbol.",
+      "transfer_check": {
+        "prompt": "A job requires at least 30 hours of training. Represent the requirement and decide whether 30, 29.5, and 42 hours qualify.",
+        "expected_evidence": "The learner includes the boundary, excludes smaller values, includes larger values, and writes an equivalent inequality."
+      },
+      "bilingual_notes": {
+        "english_term": "at least",
+        "spanish_term": "por lo menos / como mínimo",
+        "translation_note": "Prefer 'como mínimo' when introducing the lower-bound relationship, then connect it to common 'por lo menos' wording."
+      },
+      "source_ids": ["SRC_GED_MATH_GUIDE", "SRC_IES_ALGEBRA", "SRC_IES_MATH_INTERVENTION"],
+      "evidence_level": "C",
+      "adult_evidence_limit": "Number lines and precise mathematical language are supported, but the floor metaphor and bilingual wording need adult learner testing.",
+      "unresolved_questions": [
+        "Does the floor metaphor improve reconstruction more than a minimum-value table?"
+      ],
+      "review_status": "draft"
+    },
+    {
+      "id": "RC_MATH_009",
+      "source_concept_id": "C_MATH_009",
+      "atlas_concept_id": "inequalities.no_more_than",
+      "title": "No more than",
+      "concept_meaning": "No more than sets an inclusive upper bound: the boundary value is allowed and every valid value is less than or equal to it.",
+      "concept_purpose": "Inclusive upper bounds represent maximum limits in contexts such as budgets, capacity, quantity, time, speed, and eligibility.",
+      "memory_mechanism": "Reconstruct the inequality from context: identify the maximum boundary, decide whether equality is included, mark a closed point, and extend toward smaller values.",
+      "reconstruction_steps": [
+        "Identify the boundary value described as the maximum.",
+        "Test whether the exact boundary value satisfies the statement.",
+        "Use a closed point because the boundary is included.",
+        "Extend the solution toward values less than the boundary and then select the matching symbol."
+      ],
+      "common_misuse": [
+        "Reacting to the word 'more' and choosing greater than.",
+        "Using a strict less-than symbol and excluding the boundary.",
+        "Flipping a memorized symbol without reasoning from the context."
+      ],
+      "visual_or_physical_anchor": "A number-line ceiling: the maximum is a closed boundary and valid values extend downward or leftward from it.",
+      "recall_prompt": "Does exactly $50 satisfy 'spend no more than $50'? Explain how that determines the point and symbol.",
+      "transfer_check": {
+        "prompt": "An elevator holds no more than 2,000 pounds. Represent the limit and evaluate loads of 2,000, 2,001, and 1,850 pounds.",
+        "expected_evidence": "The learner includes the boundary, excludes larger values, includes smaller values, and writes an equivalent inequality."
+      },
+      "bilingual_notes": {
+        "english_term": "no more than",
+        "spanish_term": "no más de / como máximo",
+        "translation_note": "Prefer 'como máximo' when establishing the upper-bound relationship, then connect it to common 'no más de' wording."
+      },
+      "source_ids": ["SRC_GED_MATH_GUIDE", "SRC_IES_ALGEBRA", "SRC_IES_MATH_INTERVENTION"],
+      "evidence_level": "C",
+      "adult_evidence_limit": "Number lines and precise language are supported, but the ceiling metaphor and bilingual wording need adult learner testing.",
+      "unresolved_questions": [
+        "Should the paired inequality lesson teach both phrases together only after each boundary is understood separately?"
+      ],
+      "review_status": "draft"
+    },
+    {
+      "id": "RC_MATH_010",
+      "source_concept_id": "C_MATH_010",
+      "atlas_concept_id": "division.shared_equally",
+      "title": "Shared equally",
+      "concept_meaning": "Shared-equally division starts with a total and a known number of equal groups, then determines the size of each group.",
+      "concept_purpose": "Equal sharing supports fair-allocation problems and builds the unit-partition meaning needed for fractions, rates, ratios, and percent.",
+      "memory_mechanism": "Reconstruct the operation by naming the total, the number of equal groups, and the unknown share; distribute one unit to each group repeatedly and verify equal group size.",
+      "reconstruction_steps": [
+        "Identify the total quantity being shared.",
+        "Identify the known number of groups or recipients.",
+        "Distribute the total so every group receives the same amount.",
+        "State the size of one group and verify that equal groups recombine to the original total."
+      ],
+      "common_misuse": [
+        "Multiplying because the problem mentions groups.",
+        "Creating unequal groups while treating the result as division.",
+        "Confusing finding group size with finding how many groups can be made."
+      ],
+      "visual_or_physical_anchor": "Moveable counters distributed round by round into labeled recipients, then connected to a division equation and multiplication check.",
+      "recall_prompt": "In 24 shared equally among 6 people, what does each number describe and what quantity is unknown?",
+      "transfer_check": {
+        "prompt": "A 12-foot board is cut into 8 equal sections. Explain the size of each section and how this connects to a fraction of the whole board.",
+        "expected_evidence": "The learner divides the total by the number of equal parts, obtains 1.5 feet, and connects each section to one eighth of the whole."
+      },
+      "bilingual_notes": {
+        "english_term": "shared equally",
+        "spanish_term": "repartido por igual",
+        "translation_note": "Use 'cada grupo recibe la misma cantidad' to make equality explicit and distinguish sharing from merely seeing groups."
+      },
+      "source_ids": ["SRC_GED_MATH_GUIDE", "SRC_IES_MATH_INTERVENTION"],
+      "evidence_level": "B",
+      "adult_evidence_limit": "Systematic word-problem and representation guidance is supported, but the interaction and transition to fractional shares need adult GED testing.",
+      "unresolved_questions": [
+        "When should the lesson introduce non-whole-number shares so the model does not imply division always produces whole numbers?"
+      ],
+      "review_status": "draft"
+    }
+  ],
+  "cluster_decision": {
+    "id": "CLUSTER_MATH_FRACTION_PERCENT_FOUNDATIONS",
+    "title": "Equal shares to fractions to percent",
+    "source_concept_ids": ["C_MATH_010", "C_MATH_004", "C_MATH_003"],
+    "atlas_concept_ids": ["division.shared_equally", "fractions.numerator_denominator", "percent.basics"],
+    "recommended_order": ["division.shared_equally", "fractions.numerator_denominator", "percent.basics"],
+    "status": "prototype_next",
+    "rationale": [
+      "Equal sharing establishes equal parts and the unit whole needed for fraction meaning.",
+      "Fraction magnitude and equivalence support percent as a per-hundred rate.",
+      "GED quantitative reasoning explicitly includes rational-number operations and real-world percent problems.",
+      "The cluster can reuse linked representations while testing transfer across division, fractions, decimals, and percent."
+    ],
+    "release_gate": "Each card must be reviewed, adult-facing examples must be tested, and unresolved anchor decisions must be closed before production lessons are published."
+  }
+}
