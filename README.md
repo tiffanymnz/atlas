@@ -53,3 +53,10 @@ Run the checks with `npm test`.
 - `npm run check:knowledge` validates node uniqueness, edge references, bilingual hooks, diagnostic references, adaptive rules, and crosswalk coverage.
 - Post-V1 sequencing is documented in `docs/POST_V1_ROADMAP.md`.
 - Meaning-first memory anchors and future research-card requirements are defined in `docs/ATLAS_LEARNING_STANDARD.md`.
+
+## Sprint 7
+
+- Eight machine-readable research cards cover every planned Math P0 starter-graph concept.
+- Each card records meaning, purpose, reconstruction steps, misuse boundaries, bilingual notes, recall, transfer, evidence, adult-evidence limits, and unresolved questions.
+- `npm run check:research` prevents missing concepts, broken sources, unsupported approval, or drift from the knowledge-graph crosswalk.
+- The next prototype cluster is shared-equally division → fraction meaning → percent basics; it is not production-approved until the adult-facing review gate closes.
