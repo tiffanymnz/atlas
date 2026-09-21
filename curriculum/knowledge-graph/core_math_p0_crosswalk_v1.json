@@ -23,6 +23,7 @@
       "source_concept_id": "C_MATH_003",
       "atlas_concept_ids": ["percent.basics"],
       "lesson_ids": [],
+      "prototype_lesson_ids": ["MATH-NS-PCT-0007"],
       "implementation_status": "planned",
       "research_queue_id": "RQ003",
       "research_status": "open"
@@ -31,6 +32,7 @@
       "source_concept_id": "C_MATH_004",
       "atlas_concept_ids": ["fractions.numerator_denominator"],
       "lesson_ids": [],
+      "prototype_lesson_ids": ["MATH-NS-FRAC-0006"],
       "implementation_status": "planned",
       "research_queue_id": "RQ004",
       "research_status": "open"
@@ -79,6 +81,7 @@
       "source_concept_id": "C_MATH_010",
       "atlas_concept_ids": ["division.shared_equally"],
       "lesson_ids": [],
+      "prototype_lesson_ids": ["MATH-NS-DIV-0005"],
       "implementation_status": "planned",
       "research_queue_id": null,
       "research_status": "not_started"

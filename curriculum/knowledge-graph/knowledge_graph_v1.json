@@ -54,12 +54,39 @@
       "successors": [
         "mixed_comparison_word_problems"
       ]
+    },
+    {
+      "id": "division.shared_equally",
+      "title": "Shared-equally division",
+      "prerequisites": ["counting", "equal_groups"],
+      "successors": ["fractions.numerator_denominator"]
+    },
+    {
+      "id": "fractions.numerator_denominator",
+      "title": "Numerator and denominator meaning",
+      "prerequisites": ["division.shared_equally", "equal_parts"],
+      "successors": ["percent.basics"]
+    },
+    {
+      "id": "percent.basics",
+      "title": "Percent as a rate per hundred",
+      "prerequisites": ["fractions.numerator_denominator"],
+      "successors": ["percent.change", "proportional_reasoning"]
     }
   ],
   "misconceptions": {
     "combine_instead_of_compare": "Learner adds both groups when the task asks for a gap.",
     "reversed_subtraction": "Learner subtracts in the wrong order.",
     "object_instead_of_relationship": "Learner chooses a group instead of the relationship.",
-    "gap_as_unknown": "Learner reports the known difference instead of finding the missing compared amount."
+    "gap_as_unknown": "Learner reports the known difference instead of finding the missing compared amount.",
+    "division_multiply_groups": "Learner multiplies because groups are mentioned even though a fixed total is being shared.",
+    "division_group_count": "Learner confuses the known number of groups with the unknown size of one group.",
+    "division_unequal_groups": "Learner assumes equal shares must be whole numbers or permits unequal group sizes.",
+    "fraction_counts_only": "Learner treats numerator and denominator as unrelated counts or compares digits instead of fraction magnitude.",
+    "fraction_unequal_parts": "Learner counts pieces without preserving one named whole and equal part sizes.",
+    "fraction_less_than_one": "Learner assumes every fraction must be less than one.",
+    "percent_whole_number": "Learner treats a percent as a detached whole number instead of a rate per hundred.",
+    "percent_wrong_whole": "Learner does not identify the base whole represented by 100 percent.",
+    "percent_conversion_only": "Learner applies a conversion procedure without preserving the part-to-whole relationship."
   }
 }
