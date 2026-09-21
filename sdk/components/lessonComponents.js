@@ -17,6 +17,30 @@ export function renderComparisonBlocks(visual,label="Comparison model"){
   }
   return `<div class="stage" role="img" aria-label="${label}">${row(top,false)}${row(bottom,true)}<div class="visualMsg">${msg}</div></div>`;
 }
+function renderEqualGroups(visual,label){
+  const groups=Math.max(1,Number(visual?.groups)||1),items=Math.max(0,Number(visual?.itemsPerGroup)||0);
+  const boxes=Array.from({length:groups},()=>`<div class="equalGroup" aria-hidden="true"><span>${Array.from({length:items},()=>"<i></i>").join("")}</span><b>${items}</b></div>`).join("");
+  return `<div class="stage conceptStage" role="img" aria-label="${visual?.ariaLabel||label}"><div class="equalGroups">${boxes}</div><div class="visualMsg">${visual?.message||""}</div></div>`;
+}
+function renderFractionBar(visual,label){
+  const denominator=Math.max(1,Number(visual?.denominator)||1),numerator=Math.max(0,Number(visual?.numerator)||0);
+  const wholes=Math.max(1,Math.ceil(numerator/denominator));
+  const bars=Array.from({length:wholes},(_,whole)=>`<div class="fractionBar" style="--parts:${denominator}">${Array.from({length:denominator},(_,part)=>`<span class="fractionPart${whole*denominator+part<numerator?" filled":""}" aria-hidden="true"></span>`).join("")}</div>`).join("");
+  const caption=visual?.caption?`<div class="fractionLabel">${visual.caption}</div>`:"";
+  return `<div class="stage conceptStage" role="img" aria-label="${visual?.ariaLabel||label}"><div class="fractionBars">${bars}</div>${caption}<div class="visualMsg">${visual?.message||""}</div></div>`;
+}
+function renderHundredGrid(visual,label){
+  const shaded=Math.min(100,Math.max(0,Number(visual?.shaded)||0));
+  const cells=Array.from({length:100},(_,index)=>`<span class="hundredCell${index<shaded?" filled":""}" aria-hidden="true"></span>`).join("");
+  const caption=visual?.caption?`<div class="fractionLabel">${visual.caption}</div>`:"";
+  return `<div class="stage conceptStage" role="img" aria-label="${visual?.ariaLabel||label}"><div class="hundredGrid">${cells}</div>${caption}<div class="visualMsg">${visual?.message||""}</div></div>`;
+}
+export function renderConceptVisual(visual,label="Concept model"){
+  if(visual?.kind==="equalGroups") return renderEqualGroups(visual,label);
+  if(visual?.kind==="fractionBar") return renderFractionBar(visual,label);
+  if(visual?.kind==="hundredGrid") return renderHundredGrid(visual,label);
+  return renderComparisonBlocks(visual,label);
+}
 export function renderChoiceScreen(screen,copy={hint:"Hint",checkAnswer:"Check answer"}){
   let html = `<div class="choiceGrid" role="radiogroup" aria-label="${copy.choices || "Answer choices"}">`;
   screen.choices.forEach((c,i)=> html += `<button class="choice" type="button" role="radio" data-i="${i}" aria-checked="false" tabindex="${i===0?0:-1}"><span>${c.text}</span><span></span></button>`);
@@ -43,7 +67,9 @@ export function localizeChoiceState(screen,state,copy){
 export function renderLanguage(screen){
   let html = `<div class="phraseGrid">`;
   screen.phrases.forEach(p => html += `<div class="phrase">${p}<span>${screen.phraseMeaning || "Same idea"}</span></div>`);
-  return html + `</div>`;
+  html += `</div>`;
+  if(screen.definitions?.length) html += `<div class="definitionGrid">${screen.definitions.map(item=>`<div class="definition"><strong>${item.term}</strong><span>${item.meaning}</span></div>`).join("")}</div>`;
+  return html;
 }
 export function renderEquation(screen){ return `<div class="equation">${screen.equation}</div>`; }
 export function renderComplete(screen,recommendation,hasNext,copy={complete:"Complete",nextLesson:"Next lesson",reviewVisualGap:"Review visual gap",restartLesson:"Restart lesson"}){
