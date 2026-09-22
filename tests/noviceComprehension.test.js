@@ -34,6 +34,17 @@ for(const name of names){
       assert.ok(correct.feedback.length>=45,`${type} feedback must explain why`);
       for(const wrong of screen.choices.filter(choice=>!choice.correct)) assert.ok(wrong.misconception,`${type} wrong answers must be diagnostic`);
     }
+    const scored=lesson.screens.filter(screen=>screen.choices?.some(choice=>choice.correct));
+    const correctPositions=scored.map(screen=>screen.choices.findIndex(choice=>choice.correct));
+    const positionCounts=correctPositions.reduce((counts,position)=>counts.set(position,(counts.get(position)||0)+1),new Map());
+    assert.equal(new Set(correctPositions).size,3,"correct answers must use all three positions");
+    assert.ok(Math.max(...positionCounts.values())<=Math.ceil(scored.length/2),"one answer position must not dominate the lesson");
+    const uniquelyLongest=scored.filter(screen=>{
+      const lengths=screen.choices.map(choice=>choice.text.trim().split(/\s+/).length);
+      const correctIndex=screen.choices.findIndex(choice=>choice.correct);
+      return lengths[correctIndex]===Math.max(...lengths) && lengths.filter(length=>length===lengths[correctIndex]).length===1;
+    });
+    assert.ok(uniquelyLongest.length<=Math.floor(scored.length*0.4),"correct answers must not be identifiable by length");
     assert.notEqual(get(lesson,"recall").prompt,get(lesson,"transfer").prompt);
     assert.doesNotMatch(get(lesson,"transfer").prompt,new RegExp(hook.hook.replace(/[.*+?^${}()|[\]\\]/g,"\\$&"),"i"));
   });
@@ -48,6 +59,13 @@ for(const name of names){
       assert.notEqual(es.title,en.title,`${type} title remained English`);
     }
     assert.notEqual(get(spanish,"memoryHook").boundary,get(english,"memoryHook").boundary);
+    for(const screen of spanish.screens.filter(screen=>screen.choices?.some(choice=>choice.correct))){
+      const englishScreen=english.screens.find(item=>item.id===screen.id);
+      const correctIndex=screen.choices.findIndex(choice=>choice.correct);
+      const translatedText=screen.choices[correctIndex].text;
+      const englishText=englishScreen.choices[correctIndex].text;
+      assert.ok(translatedText!==englishText || !/[A-Za-z]/.test(englishText),`${screen.id} correct answer remained English`);
+    }
     assert.deepEqual(spanish.screens.map(screen=>screen.id),english.screens.map(screen=>screen.id));
   });
 }
