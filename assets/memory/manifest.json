@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "generator": "tools/build/generate_memory_assets.mjs",
-  "sourceDigest": "3915ab2fc5f5262d1aeaed09e68a4d621614708448a2abffefa9d098438fd382",
+  "sourceDigest": "19b95d19dd7ab0c83d0b06a2185362ac133d650acbae764e7715502aa1a0e96c",
   "sources": [
     "curriculum/lessons/lesson001.json",
     "curriculum/translations/es/lesson001.json",
@@ -16,7 +16,11 @@
     "curriculum/lessons/lesson006.json",
     "curriculum/translations/es/lesson006.json",
     "curriculum/lessons/lesson007.json",
-    "curriculum/translations/es/lesson007.json"
+    "curriculum/translations/es/lesson007.json",
+    "curriculum/lessons/lesson008.json",
+    "curriculum/translations/es/lesson008.json",
+    "curriculum/lessons/lesson009.json",
+    "curriculum/translations/es/lesson009.json"
   ],
   "lessonIds": [
     "MATH-NS-COMP-0001",
@@ -25,16 +29,18 @@
     "MATH-NS-COMP-0004",
     "MATH-NS-DIV-0005",
     "MATH-NS-FRAC-0006",
-    "MATH-NS-PCT-0007"
+    "MATH-NS-PCT-0007",
+    "MATH-GEO-AREA-0008",
+    "MATH-GEO-PERIM-0009"
   ],
   "outputs": {
     "index.html": "f3ff939071a198c73042c02850144a9f0f3b936861b61ff1bd1ebe9346231c08",
-    "memory-assets.json": "84c7c155ac105c3185c81aa576264b467aef91cb6ffcee11ae33c0eb7bbaed52",
-    "en/flashcards.html": "edecec36b171a7de816291781560fdf7ad8a54f53af0ea2c7288599cfd44b792",
-    "en/worksheet.html": "9283812888e260381c394afa49fa6cb6003483e88f40d4fc71eea6cead83323f",
-    "en/quiz.html": "2b3e21d42af110ddc2d27cbb00817bcec55e9b9292281f10233b9957d2ad446e",
-    "es/flashcards.html": "e7d45f1dda1345b3681917d4ba80cf9bc77455060933b7e1ee80ebdfbf1b87a7",
-    "es/worksheet.html": "bd59c0cd4a0c64e350ada84099433ac9686df3e997fba9a16ad265b9fb01545f",
-    "es/quiz.html": "2a9375f53796345f34b397b24ee968aae58db694659cdf426c51e8eb7bd4b94a"
+    "memory-assets.json": "2355a34644abf75a9648156886396d73e6c490467dcc160a4aec020b98a2d553",
+    "en/flashcards.html": "980c2f736b54fa2cba946f6581ce217b89e8ef87a6d88dc4ac0c20e6e0cd0af8",
+    "en/worksheet.html": "6927181fabf8ec3aa82915c1608be5a22577efdc710867805cbb83ed0d8a51ce",
+    "en/quiz.html": "e06f1ef454fc94da414133d0b7ee0a9ae16c83e3ce6de6661d0d4188b01c08fb",
+    "es/flashcards.html": "32ddfddcb7ce4c94d869a04cc2bce4cdfc754c1a509da293e42179508cc4f737",
+    "es/worksheet.html": "44496db3b8fbdc75d9d47694802a2f3f388f5ed891259c5bb50bfab6078e395e",
+    "es/quiz.html": "f3b8cee61ed53afed232521b5d6f491666c5cd62edc1d87bdd2f4041f5dffcab"
   }
 }
