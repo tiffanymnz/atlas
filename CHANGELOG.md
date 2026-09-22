@@ -12,6 +12,11 @@
 - Added evidence-controlled research cards for all eight planned Math P0 starter concepts.
 - Selected shared-equally division → fraction meaning → percent basics as the next prototype cluster while keeping adult-evidence limits and unresolved decisions explicit.
 - Added automated research-card, evidence-source, crosswalk, and cluster-decision validation.
+- Added three bilingual, meaning-first prototype lessons for shared-equally division, fraction-part meaning, and percent as a per-hundred relationship.
+- Added reusable equal-groups, multi-whole fraction-bar, and hundred-grid visual models without changing the existing lesson architecture.
+- Added novice-comprehension checks for minimal prerequisites, definitions, reconstruction, memory-hook limits, layered support, diagnostic misconceptions, recall, transfer, and Spanish parity.
+- Expanded persistence, accessibility, memory-asset, curriculum, and release-acceptance coverage from four lessons to seven.
+- Recorded the adult learner-review gate and kept all new lessons in prototype status.
 
 ## 1.0.0 — 2026-09-16
 

@@ -3,7 +3,7 @@ import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import { dirname,resolve } from "node:path";
 import { fileURLToPath } from "node:url";
-import { renderChoiceScreen,renderComparisonBlocks,renderComplete } from "../sdk/components/lessonComponents.js";
+import { renderChoiceScreen,renderComparisonBlocks,renderConceptVisual,renderComplete } from "../sdk/components/lessonComponents.js";
 
 const root=resolve(dirname(fileURLToPath(import.meta.url)),"..");
 const read=path=>readFileSync(resolve(root,path),"utf8");
@@ -30,9 +30,21 @@ test("dynamic lesson controls expose progress, live feedback, and localized visu
   assert.match(renderComplete({title:"Done",body:"Complete"},null,false),/<h1 id="screenTitle">/);
 });
 
+test("new concept models expose meaningful image labels and hide decorative parts",()=>{
+  for(const visual of [
+    {kind:"equalGroups",groups:3,itemsPerGroup:4,ariaLabel:"Three equal groups of four"},
+    {kind:"fractionBar",numerator:5,denominator:4,ariaLabel:"Five fourth-size parts"},
+    {kind:"hundredGrid",shaded:25,ariaLabel:"Twenty-five of one hundred cells"}
+  ]){
+    const html=renderConceptVisual(visual,"fallback");
+    assert.match(html,new RegExp(`role="img" aria-label="${visual.ariaLabel}"`));
+    assert.match(html,/aria-hidden="true"/);
+  }
+});
+
 test("keyboard, focus, motion, contrast, and mobile safeguards remain wired",()=>{
   const engine=read("engine/lessonEngine.js");
-  const css=read("sdk/components/components.css");
+  const css=read("sdk/components/components.css")+read("sdk/components/concept-visuals.css");
   assert.match(engine,/role="progressbar"/);
   assert.match(engine,/aria-valuenow/);
   assert.match(engine,/\["ArrowDown","ArrowRight","ArrowUp","ArrowLeft","Home","End"\]/);

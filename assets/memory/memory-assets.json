@@ -133,6 +133,105 @@
           ],
           "answer": "15"
         }
+      },
+      {
+        "lessonId": "MATH-NS-DIV-0005",
+        "conceptId": "division.shared_equally",
+        "title": "Share equally",
+        "learningGoal": "Understand shared-equally division as finding the size of each equal group.",
+        "memoryHook": {
+          "title": "Total shared into groups gives one share.",
+          "hook": "Total ÷ number of groups = amount in each group",
+          "body": "Rebuild the division from the story instead of reacting to a keyword."
+        },
+        "independent": {
+          "prompt": "Twenty-four feet of board is cut into 8 equal sections. How long is each section?",
+          "answer": "3 feet"
+        },
+        "recall": {
+          "prompt": "When a total is shared equally and the number of groups is known, what does division find?",
+          "choices": [
+            "The amount in one group",
+            "A larger total",
+            "Whether the groups may be unequal"
+          ],
+          "answer": "The amount in one group"
+        },
+        "transfer": {
+          "prompt": "A cyclist travels 42 miles over 6 days, the same distance each day. Which statement is correct?",
+          "choices": [
+            "The cyclist travels 36 miles each day because 42 − 6 = 36",
+            "The cyclist travels 252 miles each day because 42 × 6 = 252",
+            "The cyclist travels 7 miles each day because 6 × 7 = 42"
+          ],
+          "answer": "The cyclist travels 7 miles each day because 6 × 7 = 42"
+        }
+      },
+      {
+        "lessonId": "MATH-NS-FRAC-0006",
+        "conceptId": "fractions.numerator_denominator",
+        "title": "Name equal parts",
+        "learningGoal": "Understand a fraction by naming the whole, the equal-part size, and how many parts are present.",
+        "memoryHook": {
+          "title": "Name the whole. Size the parts. Count the parts.",
+          "hook": "Denominator defines the part size; numerator counts copies of that part.",
+          "body": "The two numbers work together to name one value."
+        },
+        "independent": {
+          "prompt": "Two same-size containers are filled to 3/4 and 3/8. Which contains more, and why?",
+          "answer": "3/4, because fourths are larger than eighths"
+        },
+        "recall": {
+          "prompt": "What must you know to explain the denominator and numerator of a fraction?",
+          "choices": [
+            "The whole, equal-part size, and number of parts counted",
+            "Which digit is larger",
+            "Only how many pieces are shaded"
+          ],
+          "answer": "The whole, equal-part size, and number of parts counted"
+        },
+        "transfer": {
+          "prompt": "A recipe uses 5 quarter-cup scoops of oats. Which amount is that?",
+          "choices": [
+            "5/1 cups because there are 5 scoops",
+            "5/4 cups, or one cup plus one fourth",
+            "4/5 cup because the smaller number goes on top"
+          ],
+          "answer": "5/4 cups, or one cup plus one fourth"
+        }
+      },
+      {
+        "lessonId": "MATH-NS-PCT-0007",
+        "conceptId": "percent.basics",
+        "title": "Percent means per hundred",
+        "learningGoal": "Understand percent as a rate per one hundred relative to a named whole.",
+        "memoryHook": {
+          "title": "Name the whole; then read per hundred.",
+          "hook": "Percent = how many per 100 of a named whole.",
+          "body": "Use the part-to-whole relationship to rebuild the value instead of relying on an unexplained rule."
+        },
+        "independent": {
+          "prompt": "A $60 jacket is discounted by 20%. How much is the discount?",
+          "answer": "$12, because 20/100 of $60 is one fifth of $60"
+        },
+        "recall": {
+          "prompt": "What two ideas must be identified before interpreting 37%?",
+          "choices": [
+            "The named whole and 37 parts per 100 of that whole",
+            "Only the whole number 37",
+            "A fixed amount of 37 no matter what the whole is"
+          ],
+          "answer": "The named whole and 37 parts per 100 of that whole"
+        },
+        "transfer": {
+          "prompt": "A price falls from $80 to $60. Why is the decrease 25% of the original price?",
+          "choices": [
+            "The decrease is 20% because the dollar change is 20",
+            "$20 is 25/100 of the original $80",
+            "The decrease is 25% because $60 is the whole"
+          ],
+          "answer": "$20 is 25/100 of the original $80"
+        }
       }
     ],
     "es": [
@@ -266,6 +365,105 @@
             "33"
           ],
           "answer": "15"
+        }
+      },
+      {
+        "lessonId": "MATH-NS-DIV-0005",
+        "conceptId": "division.shared_equally",
+        "title": "Repartir por igual",
+        "learningGoal": "Comprender la división por reparto equitativo como la búsqueda del tamaño de cada grupo igual.",
+        "memoryHook": {
+          "title": "El total repartido entre grupos da una parte.",
+          "hook": "Total ÷ número de grupos = cantidad de cada grupo",
+          "body": "Reconstruye la división desde la situación en vez de reaccionar a una palabra clave."
+        },
+        "independent": {
+          "prompt": "Una tabla de 24 pies se corta en 8 secciones iguales. ¿Cuánto mide cada sección?",
+          "answer": "3 pies"
+        },
+        "recall": {
+          "prompt": "Cuando un total se reparte por igual y se conoce el número de grupos, ¿qué encuentra la división?",
+          "choices": [
+            "La cantidad de un grupo",
+            "Un total mayor",
+            "Si los grupos pueden ser desiguales"
+          ],
+          "answer": "La cantidad de un grupo"
+        },
+        "transfer": {
+          "prompt": "Una ciclista recorre 42 millas durante 6 días, la misma distancia cada día. ¿Qué afirmación es correcta?",
+          "choices": [
+            "La ciclista recorre 36 millas cada día porque 42 − 6 = 36",
+            "La ciclista recorre 252 millas cada día porque 42 × 6 = 252",
+            "La ciclista recorre 7 millas cada día porque 6 × 7 = 42"
+          ],
+          "answer": "La ciclista recorre 7 millas cada día porque 6 × 7 = 42"
+        }
+      },
+      {
+        "lessonId": "MATH-NS-FRAC-0006",
+        "conceptId": "fractions.numerator_denominator",
+        "title": "Nombrar partes iguales",
+        "learningGoal": "Comprender una fracción nombrando el entero, el tamaño de las partes iguales y cuántas partes hay.",
+        "memoryHook": {
+          "title": "Nombra el entero. Define el tamaño. Cuenta las partes.",
+          "hook": "El denominador define el tamaño de la parte; el numerador cuenta copias de esa parte.",
+          "body": "Los dos números trabajan juntos para nombrar un solo valor."
+        },
+        "independent": {
+          "prompt": "Dos recipientes del mismo tamaño están llenos a 3/4 y 3/8. ¿Cuál contiene más y por qué?",
+          "answer": "3/4, porque los cuartos son mayores que los octavos"
+        },
+        "recall": {
+          "prompt": "¿Qué debes saber para explicar el denominador y el numerador de una fracción?",
+          "choices": [
+            "El entero, el tamaño de las partes iguales y el número de partes contadas",
+            "Cuál dígito es mayor",
+            "Solamente cuántas piezas están coloreadas"
+          ],
+          "answer": "El entero, el tamaño de las partes iguales y el número de partes contadas"
+        },
+        "transfer": {
+          "prompt": "Una receta usa 5 medidas de un cuarto de taza de avena. ¿Qué cantidad es?",
+          "choices": [
+            "5/1 tazas porque hay 5 medidas",
+            "5/4 de taza, o una taza más un cuarto",
+            "4/5 de taza porque el número menor va arriba"
+          ],
+          "answer": "5/4 de taza, o una taza más un cuarto"
+        }
+      },
+      {
+        "lessonId": "MATH-NS-PCT-0007",
+        "conceptId": "percent.basics",
+        "title": "Porcentaje significa por cada cien",
+        "learningGoal": "Comprender el porcentaje como una tasa por cada cien con relación a un entero nombrado.",
+        "memoryHook": {
+          "title": "Nombra el entero; después lee por cada cien.",
+          "hook": "Porcentaje = cuántas partes por cada 100 de un entero nombrado.",
+          "body": "Usa la relación entre la parte y el entero para reconstruir el valor en vez de depender de una regla sin explicación."
+        },
+        "independent": {
+          "prompt": "Una chaqueta de $60 tiene un descuento de 20%. ¿Cuánto es el descuento?",
+          "answer": "$12, porque 20/100 de $60 es un quinto de $60"
+        },
+        "recall": {
+          "prompt": "¿Qué dos ideas debes identificar antes de interpretar 37%?",
+          "choices": [
+            "El entero nombrado y 37 partes por cada 100 de ese entero",
+            "Solamente el número entero 37",
+            "Una cantidad fija de 37 sin importar cuál sea el entero"
+          ],
+          "answer": "El entero nombrado y 37 partes por cada 100 de ese entero"
+        },
+        "transfer": {
+          "prompt": "Un precio baja de $80 a $60. ¿Por qué la disminución es 25% del precio original?",
+          "choices": [
+            "La disminución es 20% porque el cambio en dólares es 20",
+            "$20 es 25/100 de los $80 originales",
+            "La disminución es 25% porque $60 es el entero"
+          ],
+          "answer": "$20 es 25/100 de los $80 originales"
         }
       }
     ]

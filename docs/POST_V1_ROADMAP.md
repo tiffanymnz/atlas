@@ -30,10 +30,14 @@ The recorded prototype decision is shared-equally division → fraction meaning 
 
 ## Sprint 8 — First post-V1 lesson cluster
 
+Status: prototype implementation complete; adult learner review still required before production approval.
+
 - Build the selected lesson cluster using the existing JSON-driven lesson architecture.
 - Generate bilingual memory assets from the same curriculum source.
 - Preserve V1 persistence, accessibility, recovery, and cumulative-history contracts.
 - Add new behavior to the automated gate before publishing.
+
+Lessons 005–007 implement the selected division → fraction meaning → percent basics cluster in English and Spanish. The automated novice gate and full V1 regression suite pass, but this is evidence that the implementation satisfies its declared contracts—not proof that an unfamiliar learner understands it. Use `SPRINT8_NOVICE_REVIEW.md` for the remaining observation gate.
 
 ## Deferred
 

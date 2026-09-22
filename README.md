@@ -60,3 +60,11 @@ Run the checks with `npm test`.
 - Each card records meaning, purpose, reconstruction steps, misuse boundaries, bilingual notes, recall, transfer, evidence, adult-evidence limits, and unresolved questions.
 - `npm run check:research` prevents missing concepts, broken sources, unsupported approval, or drift from the knowledge-graph crosswalk.
 - The next prototype cluster is shared-equally division → fraction meaning → percent basics; it is not production-approved until the adult-facing review gate closes.
+
+## Sprint 8
+
+- Lessons 005–007 prototype shared-equally division, numerator/denominator meaning, and percent as a per-hundred relationship in the existing JSON lesson engine.
+- Reusable equal-group, fraction-bar, and hundred-grid models connect concrete meaning to language and symbols in English and Spanish.
+- A novice-comprehension gate checks declared prerequisites, plain-language definitions, reconstructable memory anchors, boundaries, layered hints, diagnostic errors, recall, transfer, and bilingual parity.
+- The release suite now exercises all seven lessons while preserving V1 persistence, history, recovery, accessibility, and generated-memory contracts.
+- These three lessons remain explicitly marked `adult_review_required`; automated checks cannot substitute for observation with first-time adult learners.

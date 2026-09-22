@@ -15,12 +15,12 @@ test("memory assets are deterministic, bilingual, and traceable",async()=>{
     "index.html","manifest.json","memory-assets.json"
   ]);
   const data=JSON.parse(first["memory-assets.json"]);
-  assert.equal(data.locales.en.length,4);
-  assert.equal(data.locales.es.length,4);
+  assert.equal(data.locales.en.length,7);
+  assert.equal(data.locales.es.length,7);
   assert.notEqual(data.locales.en[0].title,data.locales.es[0].title);
   for(const locale of ["en","es"]){
     for(const lesson of data.locales[locale]){
-      assert.match(lesson.lessonId,/^MATH-NS-COMP-000[1-4]$/);
+      assert.match(lesson.lessonId,/^MATH-(?:NS-COMP-000[1-4]|NS-DIV-0005|NS-FRAC-0006|NS-PCT-0007)$/);
       assert.ok(lesson.conceptId);
       assert.ok(lesson.memoryHook.hook);
       assert.ok(lesson.independent.answer);
@@ -29,8 +29,8 @@ test("memory assets are deterministic, bilingual, and traceable",async()=>{
     }
   }
   const manifest=JSON.parse(first["manifest.json"]);
-  assert.equal(manifest.sources.length,8);
-  assert.equal(manifest.lessonIds.length,4);
+  assert.equal(manifest.sources.length,14);
+  assert.equal(manifest.lessonIds.length,7);
   for(const [path,hash] of Object.entries(manifest.outputs)) assert.equal(hash,digest(first[path]));
 });
 
@@ -39,7 +39,7 @@ test("printable assets contain every lesson and no unresolved values",async()=>{
   for(const locale of ["en","es"]){
     for(const type of ["flashcards","worksheet","quiz"]){
       const html=outputs[`${locale}/${type}.html`];
-      for(let lesson=1;lesson<=4;lesson++) assert.match(html,new RegExp(`MATH-NS-COMP-000${lesson}`));
+      for(const id of ["MATH-NS-COMP-0001","MATH-NS-COMP-0002","MATH-NS-COMP-0003","MATH-NS-COMP-0004","MATH-NS-DIV-0005","MATH-NS-FRAC-0006","MATH-NS-PCT-0007"]) assert.match(html,new RegExp(id));
       assert.doesNotMatch(html,/undefined|null/);
     }
   }

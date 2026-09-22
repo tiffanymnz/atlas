@@ -16,8 +16,14 @@ def require_translation(base,translated,key,path_name):
 
 def validate_translation(data,translation,path_name):
     require_translation(data.get("metadata",{}),translation.get("metadata",{}),"title",path_name)
+    require_translation(data.get("metadata",{}),translation.get("metadata",{}),"review_status",path_name)
     for key in ["learning_goal","big_idea"]:
         require_translation(data.get("learning",{}),translation.get("learning",{}),key,path_name)
+    for key in ["assumed_prior_knowledge","novice_success_criteria"]:
+        if key in data.get("learning",{}):
+            values=translation.get("learning",{}).get(key,[])
+            if len(values) != len(data["learning"][key]) or any(not isinstance(value,str) or not value.strip() for value in values):
+                errors.append(f"{path_name}: Spanish learning.{key} must match source entries")
     base_screens=data.get("screens",[])
     translated_screens=translation.get("screens",[])
     if len(translated_screens) != len(base_screens):
@@ -25,14 +31,22 @@ def validate_translation(data,translation,path_name):
         return
     for index,(screen,translated) in enumerate(zip(base_screens,translated_screens)):
         location=f"{path_name} screen {index}"
-        for key in ["label","stage","title","body","nextLabel","prompt","guidance","phraseMeaning","nextRecommendation","hook"]:
+        for key in ["label","stage","title","body","callout","nextLabel","prompt","guidance","phraseMeaning","nextRecommendation","hook","boundary","boundaryLabel"]:
             require_translation(screen,translated,key,location)
         require_translation(screen.get("visual",{}),translated.get("visual",{}),"message",location)
-        for key in ["hints","phrases"]:
+        require_translation(screen.get("visual",{}),translated.get("visual",{}),"ariaLabel",location)
+        for key in ["hints","phrases","rebuildSteps"]:
             if key in screen:
                 values=translated.get(key,[])
                 if len(values) != len(screen[key]) or any(not isinstance(value,str) or not value.strip() for value in values):
                     errors.append(f"{location}: Spanish {key} must match source entries")
+        if "definitions" in screen:
+            definitions=translated.get("definitions",[])
+            if len(definitions) != len(screen["definitions"]): errors.append(f"{location}: Spanish definitions must match source entries")
+            else:
+                for definition_index,(definition,translated_definition) in enumerate(zip(screen["definitions"],definitions)):
+                    require_translation(definition,translated_definition,"term",f"{location} definition {definition_index}")
+                    require_translation(definition,translated_definition,"meaning",f"{location} definition {definition_index}")
         if "choices" in screen:
             choices=translated.get("choices",[])
             if len(choices) != len(screen["choices"]):

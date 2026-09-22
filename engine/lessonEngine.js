@@ -1,4 +1,4 @@
-import { renderComparisonBlocks, renderChoiceScreen, localizeChoiceState, renderLanguage, renderEquation, renderComplete } from "../sdk/components/lessonComponents.js?v=1.5";
+import { renderConceptVisual, renderChoiceScreen, localizeChoiceState, renderLanguage, renderEquation, renderComplete } from "../sdk/components/lessonComponents.js?v=1.8";
 import { createAnalytics, showAnalytics } from "./analytics-engine/analyticsEngine.js";
 import { recommendNext } from "./recommendation-engine/recommendationEngine.js";
 import { getPreferences, savePreferences, ensureLessonRecord, saveLessonRecord, getAllLessonRecords, archiveCompletedAttempt, newLessonAttempt, resolveLessonPosition, getLastLessonPath, saveLastLessonPath } from "./state-store/stateStore.js?v=1.5";
@@ -13,8 +13,8 @@ let modalReturnFocus = null;
 const root = document.getElementById("lessonRoot");
 const lessonSelect = document.getElementById("lessonSelect");
 const COPY={
-  en:{language:"Español",dark:"Dark mode",light:"Light mode",bigger:"Bigger text",normal:"Normal text",reduce:"Reduce motion",allow:"Allow motion",summary:"Learning summary",memoryAssets:"Memory practice",progress:"Progress",progressBar:"Lesson progress",skip:"Skip to lesson",chooseLesson:"Choose a lesson",choices:"Answer choices",close:"Close",lesson:"Lesson",continue:"Continue",back:"Back",next:"Next",reflect:"Reflect",hint:"Hint",checkAnswer:"Check answer",correct:"Correct.",lookAgain:"Look again.",fallbackHint:"Look at what the problem is asking you to find.",start:"Start lesson",resume:"Resume lesson",review:"Review lesson",complete:"Complete",nextLesson:"Next lesson",reviewVisualGap:"Review visual gap",restartLesson:"Restart lesson",completed:"Completed",inProgress:"In progress"},
-  es:{language:"English",dark:"Modo oscuro",light:"Modo claro",bigger:"Texto más grande",normal:"Texto normal",reduce:"Reducir movimiento",allow:"Permitir movimiento",summary:"Resumen de aprendizaje",memoryAssets:"Práctica de memoria",progress:"Progreso",progressBar:"Progreso de la lección",skip:"Saltar a la lección",chooseLesson:"Elige una lección",choices:"Opciones de respuesta",close:"Cerrar",lesson:"Lección",continue:"Continuar",back:"Atrás",next:"Siguiente",reflect:"Reflexionar",hint:"Pista",checkAnswer:"Comprobar respuesta",correct:"Correcto.",lookAgain:"Inténtalo de nuevo.",fallbackHint:"Observa lo que el problema te pide encontrar.",start:"Comenzar lección",resume:"Continuar lección",review:"Repasar lección",complete:"Completada",nextLesson:"Próxima lección",reviewVisualGap:"Repasar la diferencia visual",restartLesson:"Reiniciar lección",completed:"Completada",inProgress:"En progreso"}
+  en:{language:"Español",dark:"Dark mode",light:"Light mode",bigger:"Bigger text",normal:"Normal text",reduce:"Reduce motion",allow:"Allow motion",summary:"Learning summary",memoryAssets:"Memory practice",progress:"Progress",progressBar:"Lesson progress",skip:"Skip to lesson",chooseLesson:"Choose a lesson",choices:"Answer choices",close:"Close",lesson:"Lesson",continue:"Continue",back:"Back",next:"Next",reflect:"Reflect",hint:"Hint",checkAnswer:"Check answer",correct:"Correct.",lookAgain:"Look again.",fallbackHint:"Look at what the problem is asking you to find.",start:"Start lesson",resume:"Resume lesson",review:"Review lesson",complete:"Complete",nextLesson:"Next lesson",reviewVisualGap:"Review visual gap",reviewModel:"Review the model",restartLesson:"Restart lesson",completed:"Completed",inProgress:"In progress"},
+  es:{language:"English",dark:"Modo oscuro",light:"Modo claro",bigger:"Texto más grande",normal:"Texto normal",reduce:"Reducir movimiento",allow:"Permitir movimiento",summary:"Resumen de aprendizaje",memoryAssets:"Práctica de memoria",progress:"Progreso",progressBar:"Progreso de la lección",skip:"Saltar a la lección",chooseLesson:"Elige una lección",choices:"Opciones de respuesta",close:"Cerrar",lesson:"Lección",continue:"Continuar",back:"Atrás",next:"Siguiente",reflect:"Reflexionar",hint:"Pista",checkAnswer:"Comprobar respuesta",correct:"Correcto.",lookAgain:"Inténtalo de nuevo.",fallbackHint:"Observa lo que el problema te pide encontrar.",start:"Comenzar lección",resume:"Continuar lección",review:"Repasar lección",complete:"Completada",nextLesson:"Próxima lección",reviewVisualGap:"Repasar la diferencia visual",reviewModel:"Repasar el modelo",restartLesson:"Reiniciar lección",completed:"Completada",inProgress:"En progreso"}
 };
 function copy(){ return COPY[language]; }
 function el(id){ return document.getElementById(id); }
@@ -49,7 +49,8 @@ function refreshLessonOptions(){
 }
 function goToNextLesson(){ if(hasNextLesson()){ persist(); lessonSelect.selectedIndex += 1; loadLesson(lessonSelect.value); } }
 function reviewVisualGap(){
-  const target = lesson.screens.findIndex(screen => screen.visual && screen.visual.revealGap === true);
+  let target = lesson.screens.findIndex(screen => screen.visual && screen.visual.revealGap === true);
+  if(target < 0) target = lesson.screens.findIndex(screen => screen.type === "observe" && screen.visual);
   index = target >= 0 ? target : Math.max(0, lesson.screens.length - 2);
   lessonRecord.index = index;
   emit("review_visual_gap", {target:index});
@@ -177,30 +178,34 @@ function render(){
     el("nextBtn").onclick = next; return;
   }
   if(screen.type==="observe"){
-    root.innerHTML = base(screen)+renderComparisonBlocks(screen.visual,screen.title)+`<div class="toolbar"><button class="btn secondary" type="button" id="backBtn">${copy().back}</button><button class="btn primary" type="button" id="nextBtn">${screen.nextLabel || copy().next}</button></div>`;
+    root.innerHTML = base(screen)+renderConceptVisual(screen.visual,screen.title)+`<div class="toolbar"><button class="btn secondary" type="button" id="backBtn">${copy().back}</button><button class="btn primary" type="button" id="nextBtn">${screen.nextLabel || copy().next}</button></div>`;
     el("backBtn").onclick = back; el("nextBtn").onclick = next; return;
   }
   if(["misconception","discover","symbol","guidedPractice","independentPractice","recall","transfer","reflection"].includes(screen.type)){
-    const visual = screen.visual ? renderComparisonBlocks(screen.visual,screen.title) : `<p>${screen.prompt || ""}</p>`;
+    const visual = screen.visual ? renderConceptVisual(screen.visual,screen.title) : `<p>${screen.prompt || ""}</p>`;
     root.innerHTML = base(screen)+visual+renderChoiceScreen(screen,copy());
     bindChoiceScreen(screen); restoreChoiceState(screen); return;
   }
   if(screen.type==="language"){
-    root.innerHTML = base(screen)+renderComparisonBlocks(screen.visual,screen.title)+renderLanguage(screen)+`<div class="coach" style="display:block">${screen.guidance}</div><div class="toolbar"><button class="btn secondary" type="button" id="backBtn">${copy().back}</button><button class="btn primary" type="button" id="nextBtn">${copy().next}</button></div>`;
+    root.innerHTML = base(screen)+renderConceptVisual(screen.visual,screen.title)+renderLanguage(screen)+`<div class="coach" style="display:block">${screen.guidance}</div><div class="toolbar"><button class="btn secondary" type="button" id="backBtn">${copy().back}</button><button class="btn primary" type="button" id="nextBtn">${copy().next}</button></div>`;
     el("backBtn").onclick = back; el("nextBtn").onclick = next; return;
   }
   if(screen.type==="memoryHook"){
-    root.innerHTML = base(screen)+`<div class="coach" style="display:block"><strong>${screen.hook}</strong><br>${screen.body}</div><div class="toolbar"><button class="btn secondary" type="button" id="backBtn">${copy().back}</button><button class="btn primary" type="button" id="nextBtn">${copy().next}</button></div>`;
+    const steps=screen.rebuildSteps?.length?`<ol>${screen.rebuildSteps.map(step=>`<li>${step}</li>`).join("")}</ol>`:"";
+    const boundary=screen.boundary?`<p class="boundary"><strong>${screen.boundaryLabel||"Boundary"}:</strong> ${screen.boundary}</p>`:"";
+    root.innerHTML = base(screen)+`<div class="coach" style="display:block"><strong>${screen.hook}</strong><br>${screen.body}${steps}${boundary}</div><div class="toolbar"><button class="btn secondary" type="button" id="backBtn">${copy().back}</button><button class="btn primary" type="button" id="nextBtn">${copy().next}</button></div>`;
     el("backBtn").onclick = back; el("nextBtn").onclick = next; return;
   }
   if(screen.type==="equationReveal"){
-    root.innerHTML = base(screen)+renderComparisonBlocks(screen.visual,screen.title)+renderEquation(screen)+`<div class="toolbar"><button class="btn secondary" type="button" id="backBtn">${copy().back}</button><button class="btn primary" type="button" id="nextBtn">${copy().reflect}</button></div>`;
+    root.innerHTML = base(screen)+renderConceptVisual(screen.visual,screen.title)+renderEquation(screen)+`<div class="toolbar"><button class="btn secondary" type="button" id="backBtn">${copy().back}</button><button class="btn primary" type="button" id="nextBtn">${copy().reflect}</button></div>`;
     el("backBtn").onclick = back; el("nextBtn").onclick = next; return;
   }
   if(screen.type==="complete"){
     markCompleted();
     const hasNext = hasNextLesson();
-    root.innerHTML = renderComplete(screen, recommendNext(lesson, analytics.summary(), screen, hasNext,language), hasNext,copy());
+    const completionCopy={...copy()};
+    if(!lesson.screens.some(item=>item.visual?.revealGap === true)) completionCopy.reviewVisualGap=copy().reviewModel;
+    root.innerHTML = renderComplete(screen, recommendNext(lesson, analytics.summary(), screen, hasNext,language), hasNext,completionCopy);
     el("restartBtn").onclick = restart;
     const reviewBtn = el("reviewBtn");
     if(reviewBtn) reviewBtn.onclick = reviewVisualGap;

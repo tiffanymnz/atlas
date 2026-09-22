@@ -6,14 +6,14 @@ import { applyTranslation } from "../../engine/i18n/lessonLocale.js";
 
 const root=resolve(dirname(fileURLToPath(import.meta.url)),"../..");
 const outputRoot=resolve(root,"assets/memory");
-const lessonNames=["lesson001.json","lesson002.json","lesson003.json","lesson004.json"];
+const lessonNames=["lesson001.json","lesson002.json","lesson003.json","lesson004.json","lesson005.json","lesson006.json","lesson007.json"];
 const inputPaths=lessonNames.flatMap(name=>[
   `curriculum/lessons/${name}`,
   `curriculum/translations/es/${name}`
 ]);
 const text={
-  en:{language:"English",other:"Español",title:"Atlas memory practice",subtitle:"Printable practice generated from Lessons 001–004.",flashcards:"Flashcards",worksheet:"Worksheet",quiz:"Quiz",print:"Print or save as PDF",instructions:"Solve each problem. Show the subtraction you used.",answerKey:"Answer key",independent:"Independent practice",transfer:"Transfer",recall:"Recall",goal:"Learning goal",remember:"Remember",answer:"Answer",question:"Question"},
-  es:{language:"Español",other:"English",title:"Práctica de memoria de Atlas",subtitle:"Práctica imprimible generada de las Lecciones 001–004.",flashcards:"Tarjetas de memoria",worksheet:"Hoja de práctica",quiz:"Prueba",print:"Imprime o guarda como PDF",instructions:"Resuelve cada problema. Muestra la resta que usaste.",answerKey:"Clave de respuestas",independent:"Práctica independiente",transfer:"Transferencia",recall:"Recuerdo",goal:"Objetivo de aprendizaje",remember:"Recuerda",answer:"Respuesta",question:"Pregunta"}
+  en:{language:"English",other:"Español",title:"Atlas memory practice",subtitle:"Printable practice generated from Lessons 001–007.",flashcards:"Flashcards",worksheet:"Worksheet",quiz:"Quiz",print:"Print or save as PDF",instructions:"Solve each problem. Show how you rebuilt your answer.",answerKey:"Answer key",independent:"Independent practice",transfer:"Transfer",recall:"Recall",goal:"Learning goal",remember:"Remember",answer:"Answer",question:"Question"},
+  es:{language:"Español",other:"English",title:"Práctica de memoria de Atlas",subtitle:"Práctica imprimible generada de las Lecciones 001–007.",flashcards:"Tarjetas de memoria",worksheet:"Hoja de práctica",quiz:"Prueba",print:"Imprime o guarda como PDF",instructions:"Resuelve cada problema. Muestra cómo reconstruiste tu respuesta.",answerKey:"Clave de respuestas",independent:"Práctica independiente",transfer:"Transferencia",recall:"Recuerdo",goal:"Objetivo de aprendizaje",remember:"Recuerda",answer:"Respuesta",question:"Pregunta"}
 };
 
 const hash=value=>createHash("sha256").update(value).digest("hex");
