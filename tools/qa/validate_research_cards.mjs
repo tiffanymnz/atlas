@@ -55,7 +55,7 @@ if(cards.length!==expectedPlannedIds.size) errors.push(`expected ${expectedPlann
 for(const id of expectedPlannedIds) if(!sourceConceptIds.has(id)) errors.push(`${id} is missing a research card`);
 
 const decision=cardsFile.cluster_decision||{};
-if(decision.status!=="prototype_next") errors.push("the selected cluster must remain prototype_next until research review closes");
+if(!["prototype_next","prototype_active"].includes(decision.status)) errors.push("the selected cluster must remain a prototype until research review closes");
 for(const id of decision.source_concept_ids||[]) if(!sourceConceptIds.has(id)) errors.push(`cluster cites unknown research concept ${id}`);
 const decisionAtlasIds=new Set((decision.source_concept_ids||[]).map(id=>mappingBySource.get(id)?.atlas_concept_ids?.[0]));
 for(const id of decision.recommended_order||[]) if(!decisionAtlasIds.has(id)) errors.push(`cluster order contains unmapped concept ${id}`);
@@ -68,4 +68,4 @@ if(errors.length){
   process.exit(1);
 }
 
-console.log(`Research cards valid: ${cards.length} planned concepts, ${registry.sources.length} evidence sources, next cluster ${decision.id}.`);
+console.log(`Research cards valid: ${cards.length} planned concepts, ${registry.sources.length} evidence sources, active cluster ${decision.id}.`);
