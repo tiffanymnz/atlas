@@ -68,3 +68,11 @@ Run the checks with `npm test`.
 - A novice-comprehension gate checks declared prerequisites, plain-language definitions, reconstructable memory anchors, boundaries, layered hints, diagnostic errors, recall, transfer, and bilingual parity.
 - The release suite now exercises all seven lessons while preserving V1 persistence, history, recovery, accessibility, and generated-memory contracts.
 - These three lessons remain explicitly marked `adult_review_required`; automated checks cannot substitute for observation with first-time adult learners.
+
+## Sprint 9
+
+- Lessons 008–009 prototype area as interior coverage and perimeter as boundary distance without changing the JSON lesson architecture.
+- Reusable area-grid and perimeter-path models make square units, linear units, arrays, and boundary tracing explicit in English and Spanish.
+- Transfer work tests the difficult distinction directly: rectangles can have equal area and different perimeters.
+- The release suite exercises all nine lessons while preserving persistence, history, recovery, accessibility, and generated-memory contracts.
+- The Sprint 8 and Sprint 9 prototype clusters retain separate `adult_review_required` gates.
