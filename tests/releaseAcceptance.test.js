@@ -8,7 +8,7 @@ import { applyTranslation } from "../engine/i18n/lessonLocale.js";
 import { archiveCompletedAttempt,ensureLessonRecord,newLessonAttempt,saveLessonRecord } from "../engine/state-store/stateStore.js";
 
 const root=resolve(dirname(fileURLToPath(import.meta.url)),"..");
-const lessonNames=["lesson001.json","lesson002.json","lesson003.json","lesson004.json","lesson005.json","lesson006.json","lesson007.json"];
+const lessonNames=["lesson001.json","lesson002.json","lesson003.json","lesson004.json","lesson005.json","lesson006.json","lesson007.json","lesson008.json","lesson009.json"];
 const readJson=async path=>JSON.parse(await readFile(resolve(root,path),"utf8"));
 
 class MemoryStorage{
@@ -18,7 +18,7 @@ class MemoryStorage{
 }
 
 for(const language of ["en","es"]){
-  test(`all seven lessons complete and restart end to end in ${language}`,async()=>{
+  test(`all nine lessons complete and restart end to end in ${language}`,async()=>{
     globalThis.localStorage=new MemoryStorage();
     const completed=[];
     for(const name of lessonNames){
@@ -57,7 +57,7 @@ for(const language of ["en","es"]){
       assert.notEqual(record.currentAttempt.id,completedId);
     }
     const history=summarizeLearningHistory(completed);
-    assert.equal(history.completedAttempts,7);
+    assert.equal(history.completedAttempts,9);
     assert.ok(history.correct>0);
     assert.equal(history.wrong,0);
     assert.equal(history.accuracy,100);

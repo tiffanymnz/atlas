@@ -3,7 +3,7 @@ import assert from "node:assert/strict";
 import fs from "node:fs";
 import {applyTranslation} from "../engine/i18n/lessonLocale.js";
 
-const names=["lesson005.json","lesson006.json","lesson007.json"];
+const names=["lesson005.json","lesson006.json","lesson007.json","lesson008.json","lesson009.json"];
 const read=path=>JSON.parse(fs.readFileSync(new URL(`../${path}`,import.meta.url)));
 const get=(lesson,type)=>lesson.screens.find(screen=>screen.type===type);
 

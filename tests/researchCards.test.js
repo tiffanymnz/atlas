@@ -48,13 +48,12 @@ test("adult evidence limits and unresolved decisions remain explicit",()=>{
   }
 });
 
-test("the next prototype cluster builds equal sharing into fractions and percent",()=>{
+test("the active prototype cluster builds area before perimeter contrast",()=>{
   const decision=research.cluster_decision;
-  assert.equal(decision.status,"prototype_next");
+  assert.equal(decision.status,"prototype_active");
   assert.deepEqual(decision.recommended_order,[
-    "division.shared_equally",
-    "fractions.numerator_denominator",
-    "percent.basics"
+    "geometry.area",
+    "geometry.perimeter"
   ]);
-  assert.ok(decision.release_gate.includes("adult-facing"));
+  assert.ok(decision.release_gate.includes("adult learner"));
 });
