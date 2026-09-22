@@ -160,9 +160,9 @@
         "transfer": {
           "prompt": "A cyclist travels 42 miles over 6 days, the same distance each day. Which statement is correct?",
           "choices": [
-            "The cyclist travels 7 miles each day because 6 × 7 = 42",
             "The cyclist travels 36 miles each day because 42 − 6 = 36",
-            "The cyclist travels 252 miles each day because 42 × 6 = 252"
+            "The cyclist travels 252 miles each day because 42 × 6 = 252",
+            "The cyclist travels 7 miles each day because 6 × 7 = 42"
           ],
           "answer": "The cyclist travels 7 miles each day because 6 × 7 = 42"
         }
@@ -179,7 +179,7 @@
         },
         "independent": {
           "prompt": "Two same-size containers are filled to 3/4 and 3/8. Which contains more, and why?",
-          "answer": "3/4, because fourth-size parts are larger than eighth-size parts when the whole is the same"
+          "answer": "3/4, because fourths are larger than eighths"
         },
         "recall": {
           "prompt": "What must you know to explain the denominator and numerator of a fraction?",
@@ -193,11 +193,11 @@
         "transfer": {
           "prompt": "A recipe uses 5 quarter-cup scoops of oats. Which amount is that?",
           "choices": [
-            "5/4 cups: one whole cup and one additional fourth of a cup",
             "5/1 cups because there are 5 scoops",
+            "5/4 cups, or one cup plus one fourth",
             "4/5 cup because the smaller number goes on top"
           ],
-          "answer": "5/4 cups: one whole cup and one additional fourth of a cup"
+          "answer": "5/4 cups, or one cup plus one fourth"
         }
       },
       {
@@ -226,11 +226,11 @@
         "transfer": {
           "prompt": "A price falls from $80 to $60. Why is the decrease 25% of the original price?",
           "choices": [
-            "The change is $20, and $20/$80 = 25/100, so it is 25% of the original $80",
             "The decrease is 20% because the dollar change is 20",
+            "$20 is 25/100 of the original $80",
             "The decrease is 25% because $60 is the whole"
           ],
-          "answer": "The change is $20, and $20/$80 = 25/100, so it is 25% of the original $80"
+          "answer": "$20 is 25/100 of the original $80"
         }
       }
     ],
@@ -393,9 +393,9 @@
         "transfer": {
           "prompt": "Una ciclista recorre 42 millas durante 6 días, la misma distancia cada día. ¿Qué afirmación es correcta?",
           "choices": [
-            "La ciclista recorre 7 millas cada día porque 6 × 7 = 42",
             "La ciclista recorre 36 millas cada día porque 42 − 6 = 36",
-            "La ciclista recorre 252 millas cada día porque 42 × 6 = 252"
+            "La ciclista recorre 252 millas cada día porque 42 × 6 = 252",
+            "La ciclista recorre 7 millas cada día porque 6 × 7 = 42"
           ],
           "answer": "La ciclista recorre 7 millas cada día porque 6 × 7 = 42"
         }
@@ -412,7 +412,7 @@
         },
         "independent": {
           "prompt": "Dos recipientes del mismo tamaño están llenos a 3/4 y 3/8. ¿Cuál contiene más y por qué?",
-          "answer": "3/4, porque las partes de un cuarto son mayores que las de un octavo cuando el entero es el mismo"
+          "answer": "3/4, porque los cuartos son mayores que los octavos"
         },
         "recall": {
           "prompt": "¿Qué debes saber para explicar el denominador y el numerador de una fracción?",
@@ -426,11 +426,11 @@
         "transfer": {
           "prompt": "Una receta usa 5 medidas de un cuarto de taza de avena. ¿Qué cantidad es?",
           "choices": [
-            "5/4 de taza: una taza entera y un cuarto de taza adicional",
             "5/1 tazas porque hay 5 medidas",
+            "5/4 de taza, o una taza más un cuarto",
             "4/5 de taza porque el número menor va arriba"
           ],
-          "answer": "5/4 de taza: una taza entera y un cuarto de taza adicional"
+          "answer": "5/4 de taza, o una taza más un cuarto"
         }
       },
       {
@@ -459,11 +459,11 @@
         "transfer": {
           "prompt": "Un precio baja de $80 a $60. ¿Por qué la disminución es 25% del precio original?",
           "choices": [
-            "El cambio es $20 y $20/$80 = 25/100, por lo que es 25% de los $80 originales",
             "La disminución es 20% porque el cambio en dólares es 20",
+            "$20 es 25/100 de los $80 originales",
             "La disminución es 25% porque $60 es el entero"
           ],
-          "answer": "El cambio es $20 y $20/$80 = 25/100, por lo que es 25% de los $80 originales"
+          "answer": "$20 es 25/100 de los $80 originales"
         }
       }
     ]
