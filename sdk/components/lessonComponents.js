@@ -35,10 +35,25 @@ function renderHundredGrid(visual,label){
   const caption=visual?.caption?`<div class="fractionLabel">${visual.caption}</div>`:"";
   return `<div class="stage conceptStage" role="img" aria-label="${visual?.ariaLabel||label}"><div class="hundredGrid">${cells}</div>${caption}<div class="visualMsg">${visual?.message||""}</div></div>`;
 }
+function renderAreaGrid(visual,label){
+  const rows=Math.min(10,Math.max(1,Number(visual?.rows)||1));
+  const columns=Math.min(12,Math.max(1,Number(visual?.columns)||1));
+  const cells=Array.from({length:rows*columns},()=>`<span class="areaCell" aria-hidden="true"></span>`).join("");
+  const caption=visual?.caption?`<div class="fractionLabel">${visual.caption}</div>`:"";
+  return `<div class="stage conceptStage" role="img" aria-label="${visual?.ariaLabel||label}"><div class="areaGrid" style="--area-columns:${columns};--area-rows:${rows}">${cells}</div>${caption}<div class="visualMsg">${visual?.message||""}</div></div>`;
+}
+function renderPerimeterPath(visual,label){
+  const width=Math.min(12,Math.max(1,Number(visual?.widthUnits)||1));
+  const height=Math.min(10,Math.max(1,Number(visual?.heightUnits)||1));
+  const caption=visual?.caption?`<div class="fractionLabel">${visual.caption}</div>`:"";
+  return `<div class="stage conceptStage" role="img" aria-label="${visual?.ariaLabel||label}"><div class="perimeterModel" style="--path-width:${width};--path-height:${height}" aria-hidden="true"><span class="perimeterStart">●</span><span class="perimeterTop">${width} units</span><span class="perimeterRight">${height} units</span><span class="perimeterBottom">${width} units</span><span class="perimeterLeft">${height} units</span></div>${caption}<div class="visualMsg">${visual?.message||""}</div></div>`;
+}
 export function renderConceptVisual(visual,label="Concept model"){
   if(visual?.kind==="equalGroups") return renderEqualGroups(visual,label);
   if(visual?.kind==="fractionBar") return renderFractionBar(visual,label);
   if(visual?.kind==="hundredGrid") return renderHundredGrid(visual,label);
+  if(visual?.kind==="areaGrid") return renderAreaGrid(visual,label);
+  if(visual?.kind==="perimeterPath") return renderPerimeterPath(visual,label);
   return renderComparisonBlocks(visual,label);
 }
 export function renderChoiceScreen(screen,copy={hint:"Hint",checkAnswer:"Check answer"}){
