@@ -39,6 +39,18 @@ Status: prototype implementation complete; adult learner review still required b
 
 Lessons 005–007 implement the selected division → fraction meaning → percent basics cluster in English and Spanish. The automated novice gate and full V1 regression suite pass, but this is evidence that the implementation satisfies its declared contracts—not proof that an unfamiliar learner understands it. Use `SPRINT8_NOVICE_REVIEW.md` for the remaining observation gate.
 
+## Sprint 9 — Area and perimeter meaning
+
+Status: prototype implementation complete; adult learner review required before production approval.
+
+- Teach area first as coverage with equal square units.
+- Teach perimeter second as a complete boundary path measured in linear units.
+- Contrast the concepts only after each meaning and unit is established independently.
+- Preserve the current learner architecture, persistence model, bilingual overlays, generated memory assets, and release gates.
+- Keep Sprint 8's learner-review gate open independently.
+
+See `SPRINT9_RESEARCH_DECISION.md` and `SPRINT9_NOVICE_REVIEW.md`.
+
 ## Deferred
 
 The Core 100 remains the graph expansion target. Approximately 150 math concept pages, accounts, cloud sync, teacher dashboards, native apps, and Atlas Studio remain outside the immediate post-V1 scope.
