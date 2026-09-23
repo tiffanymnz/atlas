@@ -15,6 +15,8 @@ test("area meaning precedes its formula and uses square-unit coverage",()=>{
   assert.match(screen(area,"memoryHook").hook,/covering the inside/i);
   assert.match(screen(area,"equationReveal").equation,/15 square units/);
   assert.doesNotMatch(screen(area,"intro").body,/length\s*[×x*]\s*width/i);
+  assert.match(screen(area,"intro").body,/tabletop.*tiles/i);
+  assert.match(screen(area,"language").definitions.find(item=>item.term==="square unit").meaning,/sides 1 unit long/i);
 });
 
 test("perimeter meaning precedes its shortcut and contrasts boundary with coverage",()=>{
@@ -24,6 +26,11 @@ test("perimeter meaning precedes its shortcut and contrasts boundary with covera
   assert.match(screen(perimeter,"memoryHook").hook,/trip around the outside/i);
   assert.match(screen(perimeter,"transfer").prompt,/area 24 square units/i);
   assert.match(screen(perimeter,"transfer").choices.find(item=>item.correct).text,/22 units.*20 units/i);
+  assert.match(screen(perimeter,"intro").body,/walking.*returning/i);
+  const irregular=screen(perimeter,"guidedPractice");
+  assert.equal(irregular.visual.shape,"step");
+  assert.deepEqual(irregular.visual.segments,[6,2,2,2,4,4]);
+  assert.match(irregular.choices.find(item=>item.correct).text,/20 units/);
 });
 
 test("Spanish geometry lessons preserve units, meaning, and sequence",()=>{
@@ -32,5 +39,7 @@ test("Spanish geometry lessons preserve units, meaning, and sequence",()=>{
   assert.match(screen(areaEs,"memoryHook").hook,/unidades cuadradas/i);
   assert.match(screen(perimeterEs,"memoryHook").hook,/vuelta completa/i);
   assert.match(screen(perimeterEs,"transfer").choices.find(item=>item.correct).text,/22 unidades.*20 unidades/i);
-  assert.equal(areaEs.screens.length,perimeterEs.screens.length);
+  assert.match(screen(perimeterEs,"guidedPractice").choices.find(item=>item.correct).text,/20 unidades/i);
+  assert.equal(areaEs.screens.length,area.screens.length);
+  assert.equal(perimeterEs.screens.length,perimeter.screens.length);
 });
