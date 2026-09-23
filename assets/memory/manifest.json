@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "generator": "tools/build/generate_memory_assets.mjs",
-  "sourceDigest": "19b95d19dd7ab0c83d0b06a2185362ac133d650acbae764e7715502aa1a0e96c",
+  "sourceDigest": "a38902f3e7352678851075424aa7b23ae5eaa16d451ca767f41a547446ab861e",
   "sources": [
     "curriculum/lessons/lesson001.json",
     "curriculum/translations/es/lesson001.json",
