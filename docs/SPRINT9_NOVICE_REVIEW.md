@@ -4,6 +4,15 @@
 
 Lessons 008–009 are working prototypes, not production-approved curriculum. They remain marked `adult_review_required` until first-time adult learners can distinguish coverage from boundary distance and transfer that distinction without coaching.
 
+## Internal novice audit
+
+The pre-observation audit found and corrected two avoidable barriers:
+
+- both lessons now explain the core idea with a familiar action before introducing technical vocabulary;
+- Lesson 009 now includes a stepped, non-rectangular boundary so the learner must trace every real segment rather than overgeneralize a rectangle shortcut.
+
+This audit reduces obvious instructional ambiguity. It does not satisfy the human observation gate below.
+
 ## Human observation gate
 
 Do not define area, perimeter, square unit, linear unit, boundary, or region for the learner during the attempt. Record hesitation and reasoning, not only selected answers.
