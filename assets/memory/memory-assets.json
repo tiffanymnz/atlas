@@ -298,6 +298,72 @@
           ],
           "answer": "The 3-by-8 rectangle: its perimeter is 22 units, compared with 20 units"
         }
+      },
+      {
+        "lessonId": "MATH-ALG-INEQ-0010",
+        "conceptId": "inequalities.at_least",
+        "title": "Understand at least",
+        "learningGoal": "Understand at least as an inclusive minimum and represent it with words, a number line, and a greater-than-or-equal-to inequality.",
+        "memoryHook": {
+          "title": "Minimum, included, then more.",
+          "hook": "At least = the minimum counts, and more counts.",
+          "body": "Rebuild the inequality from what the situation allows instead of reacting to the word least."
+        },
+        "independent": {
+          "prompt": "A bank account must keep at least $100. Which balance breaks the rule?",
+          "answer": "$99"
+        },
+        "recall": {
+          "prompt": "Why does “at least 25” use ≥ rather than >?",
+          "choices": [
+            "Because the word least always means greater",
+            "Because 25 itself is allowed, so equality must be included",
+            "Because every value below 25 is allowed"
+          ],
+          "answer": "Because 25 itself is allowed, so equality must be included"
+        },
+        "transfer": {
+          "prompt": "A delivery earns free shipping with an order of at least $50. Which orders receive free shipping?",
+          "choices": [
+            "Only the $50 order",
+            "The $49 and $50 orders",
+            "The $50 and $72 orders"
+          ],
+          "answer": "The $50 and $72 orders"
+        }
+      },
+      {
+        "lessonId": "MATH-ALG-INEQ-0011",
+        "conceptId": "inequalities.no_more_than",
+        "title": "Understand no more than",
+        "learningGoal": "Understand no more than as an inclusive maximum and represent it with words, a number line, and a less-than-or-equal-to inequality.",
+        "memoryHook": {
+          "title": "Maximum, included, then less.",
+          "hook": "No more than = the maximum counts, and less counts.",
+          "body": "Rebuild the inequality from what the situation allows instead of reacting to the word more."
+        },
+        "independent": {
+          "prompt": "A budget allows spending no more than $75. Which amount breaks the rule?",
+          "answer": "$76"
+        },
+        "recall": {
+          "prompt": "Why does “no more than 25” use ≤ rather than <?",
+          "choices": [
+            "Because every value above 25 is allowed",
+            "Because the word more always means less",
+            "Because 25 itself is allowed, so equality must be included"
+          ],
+          "answer": "Because 25 itself is allowed, so equality must be included"
+        },
+        "transfer": {
+          "prompt": "An elevator carries no more than 2,000 pounds. Which loads are allowed?",
+          "choices": [
+            "The 2,000-pound and 1,850-pound loads",
+            "Only the 2,000-pound load",
+            "The 2,000-pound and 2,001-pound loads"
+          ],
+          "answer": "The 2,000-pound and 1,850-pound loads"
+        }
       }
     ],
     "es": [
@@ -596,6 +662,72 @@
             "El de 4 por 6 porque 4 es mayor que 3"
           ],
           "answer": "El de 3 por 8: su perímetro es 22 unidades, comparado con 20 unidades"
+        }
+      },
+      {
+        "lessonId": "MATH-ALG-INEQ-0010",
+        "conceptId": "inequalities.at_least",
+        "title": "Comprender como mínimo",
+        "learningGoal": "Comprender como mínimo como un mínimo inclusivo y representarlo con palabras, una recta numérica y una desigualdad de mayor o igual que.",
+        "memoryHook": {
+          "title": "Mínimo, incluido y después más.",
+          "hook": "Como mínimo = el mínimo cuenta y más también cuenta.",
+          "body": "Reconstruye la desigualdad desde lo que la situación permite en lugar de reaccionar a la palabra mínimo."
+        },
+        "independent": {
+          "prompt": "Una cuenta bancaria debe mantener como mínimo $100. ¿Qué saldo rompe la regla?",
+          "answer": "$99"
+        },
+        "recall": {
+          "prompt": "¿Por qué “como mínimo 25” usa ≥ en lugar de >?",
+          "choices": [
+            "Porque la palabra mínimo siempre significa mayor",
+            "Porque el propio 25 está permitido y se debe incluir la igualdad",
+            "Porque cada valor debajo de 25 está permitido"
+          ],
+          "answer": "Porque el propio 25 está permitido y se debe incluir la igualdad"
+        },
+        "transfer": {
+          "prompt": "Un pedido recibe envío gratis con una compra de como mínimo $50. ¿Qué pedidos reciben envío gratis?",
+          "choices": [
+            "Solamente el pedido de $50",
+            "Los pedidos de $49 y $50",
+            "Los pedidos de $50 y $72"
+          ],
+          "answer": "Los pedidos de $50 y $72"
+        }
+      },
+      {
+        "lessonId": "MATH-ALG-INEQ-0011",
+        "conceptId": "inequalities.no_more_than",
+        "title": "Comprender no más de",
+        "learningGoal": "Comprender no más de como un máximo inclusivo y representarlo con palabras, una recta numérica y una desigualdad de menor o igual que.",
+        "memoryHook": {
+          "title": "Máximo, incluido y después menos.",
+          "hook": "No más de = el máximo cuenta y menos también cuenta.",
+          "body": "Reconstruye la desigualdad desde lo que la situación permite en lugar de reaccionar a la palabra más."
+        },
+        "independent": {
+          "prompt": "Un presupuesto permite gastar no más de $75. ¿Qué cantidad rompe la regla?",
+          "answer": "$76"
+        },
+        "recall": {
+          "prompt": "¿Por qué “no más de 25” usa ≤ en lugar de <?",
+          "choices": [
+            "Porque cada valor superior a 25 está permitido",
+            "Porque la palabra más siempre significa menor",
+            "Porque el propio 25 está permitido y se debe incluir la igualdad"
+          ],
+          "answer": "Porque el propio 25 está permitido y se debe incluir la igualdad"
+        },
+        "transfer": {
+          "prompt": "Un ascensor transporta no más de 2,000 libras. ¿Qué cargas están permitidas?",
+          "choices": [
+            "Las cargas de 2,000 y 1,850 libras",
+            "Solamente la carga de 2,000 libras",
+            "Las cargas de 2,000 y 2,001 libras"
+          ],
+          "answer": "Las cargas de 2,000 y 1,850 libras"
         }
       }
     ]
