@@ -48,12 +48,12 @@ test("adult evidence limits and unresolved decisions remain explicit",()=>{
   }
 });
 
-test("the active prototype cluster builds area before perimeter contrast",()=>{
+test("the active prototype cluster builds an inclusive minimum before maximum contrast",()=>{
   const decision=research.cluster_decision;
   assert.equal(decision.status,"prototype_active");
   assert.deepEqual(decision.recommended_order,[
-    "geometry.area",
-    "geometry.perimeter"
+    "inequalities.at_least",
+    "inequalities.no_more_than"
   ]);
   assert.ok(decision.release_gate.includes("adult learner"));
 });
