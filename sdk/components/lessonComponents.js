@@ -54,12 +54,22 @@ function renderPerimeterPath(visual,label){
   const caption=visual?.caption?`<div class="fractionLabel">${visual.caption}</div>`:"";
   return `<div class="stage conceptStage" role="img" aria-label="${visual?.ariaLabel||label}"><div class="perimeterModel" style="--path-width:${width};--path-height:${height}" aria-hidden="true"><span class="perimeterStart">●</span><span class="perimeterTop">${width} units</span><span class="perimeterRight">${height} units</span><span class="perimeterBottom">${width} units</span><span class="perimeterLeft">${height} units</span></div>${caption}<div class="visualMsg">${visual?.message||""}</div></div>`;
 }
+function renderInequalityLine(visual,label){
+  const boundary=Number.isFinite(Number(visual?.boundary))?Number(visual.boundary):0;
+  const direction=visual?.direction==="left"?"left":"right";
+  const inclusive=visual?.inclusive!==false;
+  const values=Array.from({length:7},(_,index)=>boundary+index-3);
+  const ticks=values.map(value=>`<span class="inequalityTick${value===boundary?" boundary":""}"><i aria-hidden="true"></i><b>${value}</b></span>`).join("");
+  const caption=visual?.caption?`<div class="fractionLabel">${visual.caption}</div>`:"";
+  return `<div class="stage conceptStage" role="img" aria-label="${visual?.ariaLabel||label}"><div class="inequalityLine ${direction}" aria-hidden="true"><div class="inequalityRay"></div><span class="inequalityArrow">${direction==="left"?"◀":"▶"}</span><span class="inequalityPoint${inclusive?" closed":" open"}"></span><div class="inequalityTicks">${ticks}</div></div>${caption}<div class="visualMsg">${visual?.message||""}</div></div>`;
+}
 export function renderConceptVisual(visual,label="Concept model"){
   if(visual?.kind==="equalGroups") return renderEqualGroups(visual,label);
   if(visual?.kind==="fractionBar") return renderFractionBar(visual,label);
   if(visual?.kind==="hundredGrid") return renderHundredGrid(visual,label);
   if(visual?.kind==="areaGrid") return renderAreaGrid(visual,label);
   if(visual?.kind==="perimeterPath") return renderPerimeterPath(visual,label);
+  if(visual?.kind==="inequalityLine") return renderInequalityLine(visual,label);
   return renderComparisonBlocks(visual,label);
 }
 export function renderChoiceScreen(screen,copy={hint:"Hint",checkAnswer:"Check answer"}){
