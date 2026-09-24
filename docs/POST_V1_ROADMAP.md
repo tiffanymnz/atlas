@@ -51,6 +51,17 @@ Status: prototype implementation complete; adult learner review required before 
 
 See `SPRINT9_RESEARCH_DECISION.md` and `SPRINT9_NOVICE_REVIEW.md`.
 
+## Sprint 10 — Inclusive inequality language
+
+Status: prototype implementation complete; adult learner review required before production approval.
+
+- Teach `at least` first as an included minimum, then connect the boundary test to a closed point, greater values, and `≥`.
+- Teach `no more than` second as an included maximum, then connect the boundary test to a closed point, smaller values, and `≤`.
+- Require learners to test the exact boundary and nearby values instead of choosing a symbol from the words `least` or `more`.
+- Preserve the learner architecture, browser persistence, bilingual overlays, generated memory assets, and release gates.
+
+See `SPRINT10_RESEARCH_DECISION.md` and `SPRINT10_NOVICE_REVIEW.md`.
+
 ## Deferred
 
 The Core 100 remains the graph expansion target. Approximately 150 math concept pages, accounts, cloud sync, teacher dashboards, native apps, and Atlas Studio remain outside the immediate post-V1 scope.
