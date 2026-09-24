@@ -17,6 +17,11 @@
 - Added novice-comprehension checks for minimal prerequisites, definitions, reconstruction, memory-hook limits, layered support, diagnostic misconceptions, recall, transfer, and Spanish parity.
 - Expanded persistence, accessibility, memory-asset, curriculum, and release-acceptance coverage from four lessons to seven.
 - Recorded the adult learner-review gate and kept all new lessons in prototype status.
+- Selected area → perimeter → direct contrast as the next evidence-supported prototype cluster.
+- Added bilingual Lessons 008–009 for area as square-unit coverage and perimeter as linear boundary distance.
+- Added reusable area-grid and perimeter-path visual models.
+- Expanded persistence, accessibility, memory-asset, curriculum, novice-comprehension, and release coverage from seven lessons to nine.
+- Preserved separate adult learner-review gates for Sprint 8 and Sprint 9 prototypes.
 
 ## 1.0.0 — 2026-09-16
 

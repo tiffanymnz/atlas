@@ -72,6 +72,18 @@
       "title": "Percent as a rate per hundred",
       "prerequisites": ["fractions.numerator_denominator"],
       "successors": ["percent.change", "proportional_reasoning"]
+    },
+    {
+      "id": "geometry.area",
+      "title": "Area as interior coverage",
+      "prerequisites": ["counting", "equal_groups", "rectangular_arrays"],
+      "successors": ["geometry.perimeter", "area_perimeter_contrast"]
+    },
+    {
+      "id": "geometry.perimeter",
+      "title": "Perimeter as boundary distance",
+      "prerequisites": ["whole_number_addition", "boundary_recognition"],
+      "successors": ["area_perimeter_contrast"]
     }
   ],
   "misconceptions": {
@@ -87,6 +99,16 @@
     "fraction_less_than_one": "Learner assumes every fraction must be less than one.",
     "percent_whole_number": "Learner treats a percent as a detached whole number instead of a rate per hundred.",
     "percent_wrong_whole": "Learner does not identify the base whole represented by 100 percent.",
-    "percent_conversion_only": "Learner applies a conversion procedure without preserving the part-to-whole relationship."
+    "percent_conversion_only": "Learner applies a conversion procedure without preserving the part-to-whole relationship.",
+    "area_boundary_confusion": "Learner measures or counts the outside boundary when the question asks for interior coverage.",
+    "area_corner_count": "Learner treats corner count as a measure of the region's coverage.",
+    "area_fixed_answer": "Learner generalizes one rectangular model's area to every rectangle.",
+    "area_add_sides": "Learner adds dimensions instead of counting the rectangular array of square units.",
+    "area_perimeter_confusion": "Learner uses a perimeter calculation or boundary claim to answer an area question.",
+    "area_dimension_match": "Learner assumes equal area requires identical side lengths.",
+    "perimeter_area_confusion": "Learner uses interior coverage or an area calculation to answer a boundary-distance question.",
+    "perimeter_partial_boundary": "Learner totals only part of the outside path and omits one or more sides.",
+    "perimeter_unit_rule": "Learner treats linear-unit labeling as a shape-specific rule rather than a consequence of measuring distance.",
+    "perimeter_single_dimension": "Learner compares one side length instead of totaling each complete boundary."
   }
 }

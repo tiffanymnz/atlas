@@ -34,7 +34,9 @@ test("new concept models expose meaningful image labels and hide decorative part
   for(const visual of [
     {kind:"equalGroups",groups:3,itemsPerGroup:4,ariaLabel:"Three equal groups of four"},
     {kind:"fractionBar",numerator:5,denominator:4,ariaLabel:"Five fourth-size parts"},
-    {kind:"hundredGrid",shaded:25,ariaLabel:"Twenty-five of one hundred cells"}
+    {kind:"hundredGrid",shaded:25,ariaLabel:"Twenty-five of one hundred cells"},
+    {kind:"areaGrid",rows:3,columns:4,ariaLabel:"Twelve equal square units"},
+    {kind:"perimeterPath",widthUnits:5,heightUnits:3,ariaLabel:"A five-by-three boundary"}
   ]){
     const html=renderConceptVisual(visual,"fallback");
     assert.match(html,new RegExp(`role="img" aria-label="${visual.ariaLabel}"`));

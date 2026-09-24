@@ -232,6 +232,72 @@
           ],
           "answer": "$20 is 25/100 of the original $80"
         }
+      },
+      {
+        "lessonId": "MATH-GEO-AREA-0008",
+        "conceptId": "geometry.area",
+        "title": "Measure the space inside",
+        "learningGoal": "Understand area as the amount of flat space inside a boundary, measured with equal square units.",
+        "memoryHook": {
+          "title": "Cover inside; count equal squares.",
+          "hook": "Area = equal square units covering the inside.",
+          "body": "The multiplication rule comes from counting a rectangular array, not from memorizing unexplained words."
+        },
+        "independent": {
+          "prompt": "A rectangular rug is 5 feet long and 4 feet wide. How much floor does it cover?",
+          "answer": "20 square feet, because 5 rows of 4 square feet cover the rug"
+        },
+        "recall": {
+          "prompt": "Why is area reported in square units?",
+          "choices": [
+            "Because equal squares cover a two-dimensional region",
+            "Because every shape has four square corners",
+            "Because square units measure only the outside edge"
+          ],
+          "answer": "Because equal squares cover a two-dimensional region"
+        },
+        "transfer": {
+          "prompt": "One rectangle is 3 by 8. Another is 4 by 6. Why do they cover the same amount of space?",
+          "choices": [
+            "Both products equal 24 square units",
+            "Both rectangles have the same side lengths",
+            "Both boundaries must have the same distance around them"
+          ],
+          "answer": "Both products equal 24 square units"
+        }
+      },
+      {
+        "lessonId": "MATH-GEO-PERIM-0009",
+        "conceptId": "geometry.perimeter",
+        "title": "Measure the distance around",
+        "learningGoal": "Understand perimeter as the total distance around a two-dimensional boundary, measured in linear units.",
+        "memoryHook": {
+          "title": "Start, trace once, return, total.",
+          "hook": "Perimeter = one complete trip around the outside.",
+          "body": "Rebuild the measurement from the boundary path instead of choosing a formula by keyword."
+        },
+        "independent": {
+          "prompt": "A rectangular picture frame is 8 inches wide and 5 inches high. How much trim goes around it?",
+          "answer": "26 inches, because 8 + 5 + 8 + 5 traces the frame"
+        },
+        "recall": {
+          "prompt": "Why is perimeter reported in ordinary units rather than square units?",
+          "choices": [
+            "Because it measures a one-dimensional distance along the boundary",
+            "Because perimeter counts all the equal square units covering the inside region",
+            "Because ordinary units are used only for rectangles"
+          ],
+          "answer": "Because it measures a one-dimensional distance along the boundary"
+        },
+        "transfer": {
+          "prompt": "A 3-by-8 rectangle and a 4-by-6 rectangle each have area 24 square units. Which needs more edging?",
+          "choices": [
+            "They need the same amount of edging because equal areas always create equal outside boundaries",
+            "The 3-by-8 rectangle: its perimeter is 22 units, compared with 20 units",
+            "The 4-by-6 rectangle because 4 is greater than 3"
+          ],
+          "answer": "The 3-by-8 rectangle: its perimeter is 22 units, compared with 20 units"
+        }
       }
     ],
     "es": [
@@ -464,6 +530,72 @@
             "La disminución es 25% porque $60 es el entero"
           ],
           "answer": "$20 es 25/100 de los $80 originales"
+        }
+      },
+      {
+        "lessonId": "MATH-GEO-AREA-0008",
+        "conceptId": "geometry.area",
+        "title": "Medir el espacio interior",
+        "learningGoal": "Comprender el área como la cantidad de espacio plano dentro de un borde, medida con unidades cuadradas iguales.",
+        "memoryHook": {
+          "title": "Cubre el interior; cuenta cuadrados iguales.",
+          "hook": "Área = unidades cuadradas iguales que cubren el interior.",
+          "body": "La regla de multiplicación proviene de contar un arreglo rectangular, no de memorizar palabras sin explicación."
+        },
+        "independent": {
+          "prompt": "Una alfombra rectangular mide 5 pies de largo y 4 pies de ancho. ¿Cuánto piso cubre?",
+          "answer": "20 pies cuadrados, porque 5 filas de 4 pies cuadrados cubren la alfombra"
+        },
+        "recall": {
+          "prompt": "¿Por qué el área se expresa en unidades cuadradas?",
+          "choices": [
+            "Porque cuadrados iguales cubren una región bidimensional",
+            "Porque toda figura tiene cuatro esquinas cuadradas",
+            "Porque las unidades cuadradas miden solamente el borde exterior"
+          ],
+          "answer": "Porque cuadrados iguales cubren una región bidimensional"
+        },
+        "transfer": {
+          "prompt": "Un rectángulo mide 3 por 8. Otro mide 4 por 6. ¿Por qué cubren la misma cantidad de espacio?",
+          "choices": [
+            "Ambos productos son 24 unidades cuadradas",
+            "Ambos rectángulos tienen las mismas longitudes de lado",
+            "Ambos bordes deben tener la misma distancia alrededor"
+          ],
+          "answer": "Ambos productos son 24 unidades cuadradas"
+        }
+      },
+      {
+        "lessonId": "MATH-GEO-PERIM-0009",
+        "conceptId": "geometry.perimeter",
+        "title": "Medir la distancia alrededor",
+        "learningGoal": "Comprender el perímetro como la distancia total alrededor de un borde bidimensional, medida en unidades lineales.",
+        "memoryHook": {
+          "title": "Empieza, traza una vez, regresa y suma.",
+          "hook": "Perímetro = una vuelta completa alrededor del exterior.",
+          "body": "Reconstruye la medida desde el recorrido del borde en vez de elegir una fórmula por una palabra clave."
+        },
+        "independent": {
+          "prompt": "Un marco rectangular mide 8 pulgadas de ancho y 5 pulgadas de alto. ¿Cuánta moldura va alrededor?",
+          "answer": "26 pulgadas, porque 8 + 5 + 8 + 5 traza el marco"
+        },
+        "recall": {
+          "prompt": "¿Por qué el perímetro se expresa en unidades comunes y no en unidades cuadradas?",
+          "choices": [
+            "Porque mide una distancia unidimensional a lo largo del borde",
+            "Porque el perímetro cuenta todas las unidades cuadradas iguales que cubren la región interior",
+            "Porque las unidades comunes se usan solamente con rectángulos"
+          ],
+          "answer": "Porque mide una distancia unidimensional a lo largo del borde"
+        },
+        "transfer": {
+          "prompt": "Un rectángulo de 3 por 8 y uno de 4 por 6 tienen un área de 24 unidades cuadradas. ¿Cuál necesita más borde?",
+          "choices": [
+            "Necesitan el mismo borde porque áreas iguales siempre producen bordes exteriores iguales",
+            "El de 3 por 8: su perímetro es 22 unidades, comparado con 20 unidades",
+            "El de 4 por 6 porque 4 es mayor que 3"
+          ],
+          "answer": "El de 3 por 8: su perímetro es 22 unidades, comparado con 20 unidades"
         }
       }
     ]

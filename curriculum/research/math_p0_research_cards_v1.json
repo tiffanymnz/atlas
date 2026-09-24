@@ -311,18 +311,18 @@
     }
   ],
   "cluster_decision": {
-    "id": "CLUSTER_MATH_FRACTION_PERCENT_FOUNDATIONS",
-    "title": "Equal shares to fractions to percent",
-    "source_concept_ids": ["C_MATH_010", "C_MATH_004", "C_MATH_003"],
-    "atlas_concept_ids": ["division.shared_equally", "fractions.numerator_denominator", "percent.basics"],
-    "recommended_order": ["division.shared_equally", "fractions.numerator_denominator", "percent.basics"],
-    "status": "prototype_next",
+    "id": "CLUSTER_MATH_AREA_PERIMETER",
+    "title": "Area coverage to perimeter boundary contrast",
+    "source_concept_ids": ["C_MATH_006", "C_MATH_007"],
+    "atlas_concept_ids": ["geometry.area", "geometry.perimeter"],
+    "recommended_order": ["geometry.area", "geometry.perimeter"],
+    "status": "prototype_active",
     "rationale": [
-      "Equal sharing establishes equal parts and the unit whole needed for fraction meaning.",
-      "Fraction magnitude and equivalence support percent as a per-hundred rate.",
-      "GED quantitative reasoning explicitly includes rational-number operations and real-world percent problems.",
-      "The cluster can reuse linked representations while testing transfer across division, fractions, decimals, and percent."
+      "Area and perimeter have stronger evidence cards than the remaining algebra and inequality candidates.",
+      "Area establishes coverage with equal square units before perimeter establishes boundary distance with linear units.",
+      "Separate meaning-first introductions support a direct contrast without relying on keyword memorization.",
+      "GED quantitative reasoning explicitly includes area and perimeter applications."
     ],
-    "release_gate": "Each card must be reviewed, adult-facing examples must be tested, and unresolved anchor decisions must be closed before production lessons are published."
+    "release_gate": "Area and perimeter prototypes require uncoached adult learner observation, bilingual terminology review, and correction of any coverage-versus-boundary confusion before production approval."
   }
 }

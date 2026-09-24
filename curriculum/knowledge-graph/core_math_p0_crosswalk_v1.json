@@ -49,6 +49,7 @@
       "source_concept_id": "C_MATH_006",
       "atlas_concept_ids": ["geometry.area"],
       "lesson_ids": [],
+      "prototype_lesson_ids": ["MATH-GEO-AREA-0008"],
       "implementation_status": "planned",
       "research_queue_id": "RQ006",
       "research_status": "open"
@@ -57,6 +58,7 @@
       "source_concept_id": "C_MATH_007",
       "atlas_concept_ids": ["geometry.perimeter"],
       "lesson_ids": [],
+      "prototype_lesson_ids": ["MATH-GEO-PERIM-0009"],
       "implementation_status": "planned",
       "research_queue_id": "RQ006",
       "research_status": "open"

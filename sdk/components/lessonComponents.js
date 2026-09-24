@@ -35,10 +35,31 @@ function renderHundredGrid(visual,label){
   const caption=visual?.caption?`<div class="fractionLabel">${visual.caption}</div>`:"";
   return `<div class="stage conceptStage" role="img" aria-label="${visual?.ariaLabel||label}"><div class="hundredGrid">${cells}</div>${caption}<div class="visualMsg">${visual?.message||""}</div></div>`;
 }
+function renderAreaGrid(visual,label){
+  const rows=Math.min(10,Math.max(1,Number(visual?.rows)||1));
+  const columns=Math.min(12,Math.max(1,Number(visual?.columns)||1));
+  const cells=Array.from({length:rows*columns},()=>`<span class="areaCell" aria-hidden="true"></span>`).join("");
+  const caption=visual?.caption?`<div class="fractionLabel">${visual.caption}</div>`:"";
+  return `<div class="stage conceptStage" role="img" aria-label="${visual?.ariaLabel||label}"><div class="areaGrid" style="--area-columns:${columns};--area-rows:${rows}">${cells}</div>${caption}<div class="visualMsg">${visual?.message||""}</div></div>`;
+}
+function renderPerimeterPath(visual,label){
+  if(visual?.shape==="step"){
+    const values=(Array.isArray(visual.segments)?visual.segments:[6,2,2,2,4,4]).slice(0,6);
+    const segment=index=>Number(values[index])||0;
+    const caption=visual?.caption?`<div class="fractionLabel">${visual.caption}</div>`:"";
+    return `<div class="stage conceptStage" role="img" aria-label="${visual?.ariaLabel||label}"><svg class="perimeterStep" viewBox="0 0 380 280" aria-hidden="true" focusable="false"><path d="M45 45 H335 V135 H240 V230 H45 Z"></path><circle cx="45" cy="45" r="9"></circle><text x="190" y="28">${segment(0)} units</text><text x="350" y="95">${segment(1)} units</text><text x="288" y="122">${segment(2)} units</text><text x="255" y="185">${segment(3)} units</text><text x="143" y="258">${segment(4)} units</text><text x="28" y="140">${segment(5)} units</text></svg>${caption}<div class="visualMsg">${visual?.message||""}</div></div>`;
+  }
+  const width=Math.min(12,Math.max(1,Number(visual?.widthUnits)||1));
+  const height=Math.min(10,Math.max(1,Number(visual?.heightUnits)||1));
+  const caption=visual?.caption?`<div class="fractionLabel">${visual.caption}</div>`:"";
+  return `<div class="stage conceptStage" role="img" aria-label="${visual?.ariaLabel||label}"><div class="perimeterModel" style="--path-width:${width};--path-height:${height}" aria-hidden="true"><span class="perimeterStart">●</span><span class="perimeterTop">${width} units</span><span class="perimeterRight">${height} units</span><span class="perimeterBottom">${width} units</span><span class="perimeterLeft">${height} units</span></div>${caption}<div class="visualMsg">${visual?.message||""}</div></div>`;
+}
 export function renderConceptVisual(visual,label="Concept model"){
   if(visual?.kind==="equalGroups") return renderEqualGroups(visual,label);
   if(visual?.kind==="fractionBar") return renderFractionBar(visual,label);
   if(visual?.kind==="hundredGrid") return renderHundredGrid(visual,label);
+  if(visual?.kind==="areaGrid") return renderAreaGrid(visual,label);
+  if(visual?.kind==="perimeterPath") return renderPerimeterPath(visual,label);
   return renderComparisonBlocks(visual,label);
 }
 export function renderChoiceScreen(screen,copy={hint:"Hint",checkAnswer:"Check answer"}){
