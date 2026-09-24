@@ -311,18 +311,18 @@
     }
   ],
   "cluster_decision": {
-    "id": "CLUSTER_MATH_AREA_PERIMETER",
-    "title": "Area coverage to perimeter boundary contrast",
-    "source_concept_ids": ["C_MATH_006", "C_MATH_007"],
-    "atlas_concept_ids": ["geometry.area", "geometry.perimeter"],
-    "recommended_order": ["geometry.area", "geometry.perimeter"],
+    "id": "CLUSTER_MATH_INCLUSIVE_INEQUALITIES",
+    "title": "Inclusive minimum to inclusive maximum contrast",
+    "source_concept_ids": ["C_MATH_008", "C_MATH_009"],
+    "atlas_concept_ids": ["inequalities.at_least", "inequalities.no_more_than"],
+    "recommended_order": ["inequalities.at_least", "inequalities.no_more_than"],
     "status": "prototype_active",
     "rationale": [
-      "Area and perimeter have stronger evidence cards than the remaining algebra and inequality candidates.",
-      "Area establishes coverage with equal square units before perimeter establishes boundary distance with linear units.",
-      "Separate meaning-first introductions support a direct contrast without relying on keyword memorization.",
-      "GED quantitative reasoning explicitly includes area and perimeter applications."
+      "At least and no more than form the remaining paired language cluster in the Math P0 starter graph.",
+      "Both concepts can be reconstructed by identifying the boundary, testing equality, and determining the allowed direction.",
+      "Separate meaning-first introductions support a direct contrast without relying on isolated keyword cues.",
+      "GED algebraic reasoning requires interpreting and representing inequalities in practical contexts."
     ],
-    "release_gate": "Area and perimeter prototypes require uncoached adult learner observation, bilingual terminology review, and correction of any coverage-versus-boundary confusion before production approval."
+    "release_gate": "Inclusive inequality prototypes require uncoached adult learner observation, bilingual terminology review, and correction of any boundary-inclusion or direction confusion before production approval."
   }
 }
