@@ -76,3 +76,11 @@ Run the checks with `npm test`.
 - Transfer work tests the difficult distinction directly: rectangles can have equal area and different perimeters.
 - The release suite exercises all nine lessons while preserving persistence, history, recovery, accessibility, and generated-memory contracts.
 - The Sprint 8 and Sprint 9 prototype clusters retain separate `adult_review_required` gates.
+
+## Sprint 10
+
+- Lessons 010–011 prototype `at least` as an included minimum and `no more than` as an included maximum.
+- A reusable accessible number-line model connects closed boundary points to direction and inequality symbols.
+- Examples require boundary testing before symbol selection, preventing unreliable keyword shortcuts.
+- English and Spanish lessons, generated memory practice, persistence, accessibility, and cumulative history share the existing architecture.
+- The inequality cluster remains `adult_review_required`; automated checks do not prove comprehension by unfamiliar learners.

@@ -22,6 +22,11 @@
 - Added reusable area-grid and perimeter-path visual models.
 - Expanded persistence, accessibility, memory-asset, curriculum, novice-comprehension, and release coverage from seven lessons to nine.
 - Preserved separate adult learner-review gates for Sprint 8 and Sprint 9 prototypes.
+- Selected at least → no more than → inclusive-boundary contrast as the next Math P0 prototype cluster.
+- Added bilingual Lessons 010–011 for inclusive minimum and maximum reasoning.
+- Added a reusable accessible number-line model with separate boundary, inclusion, and direction cues.
+- Expanded generated memory practice and the complete regression gate from nine lessons to eleven.
+- Kept the Sprint 10 inequality cluster behind its own uncoached adult learner-review gate.
 
 ## 1.0.0 — 2026-09-16
 
