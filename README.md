@@ -84,3 +84,10 @@ Run the checks with `npm test`.
 - Examples require boundary testing before symbol selection, preventing unreliable keyword shortcuts.
 - English and Spanish lessons, generated memory practice, persistence, accessibility, and cumulative history share the existing architecture.
 - The inequality cluster remains `adult_review_required`; automated checks do not prove comprehension by unfamiliar learners.
+
+## Sprint 11
+
+- A machine-readable internal novice audit covers Lessons 005–011 without treating automation as learner evidence.
+- Lesson 007 no longer assumes unexplained fraction simplification or fraction multiplication when teaching percent calculations.
+- Common percentages are reconstructed from equal shares of the named whole in English and Spanish.
+- Every prototype retains `adult_review_required`; three uncoached adult-observation clusters remain open.

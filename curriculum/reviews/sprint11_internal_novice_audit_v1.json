@@ -1,0 +1,18 @@
+{
+  "schema_version":"1.0",
+  "audit_id":"sprint11-internal-novice-audit-v1",
+  "scope":["lesson005","lesson006","lesson007","lesson008","lesson009","lesson010","lesson011"],
+  "review_mode":"internal_first_exposure_audit",
+  "review_limits":"This audit can identify hidden prerequisites and avoidable instructional barriers. It cannot establish comprehension, durability, transfer, or production approval without observation of unfamiliar adult learners.",
+  "decision":"retain_adult_review_required",
+  "human_observation":{"status":"pending","minimum_sessions_per_cluster":2,"clusters":["division_fraction_percent","area_perimeter","inclusive_inequalities"]},
+  "records":[
+    {"lesson_id":"lesson005","concept":"division.shared_equally","finding":"No blocking hidden prerequisite found. The lesson starts with physical sharing, distinguishes group size from group count, and verifies the result by rebuilding the total.","action":"retain_current_sequence","residual_risk":"Learners may still overgeneralize shared-equally division to every division situation."},
+    {"lesson_id":"lesson006","concept":"fractions.numerator_denominator","finding":"No blocking hidden prerequisite found. The whole and equal parts are established before numerator and denominator vocabulary, including values beyond one.","action":"retain_current_sequence","residual_risk":"The spoken and written connection for fractions greater than one still requires human observation."},
+    {"lesson_id":"lesson007","concept":"percent.basics","finding":"Blocking prerequisite found: calculation screens relied on simplifying fractions and fraction multiplication even though neither skill was declared or taught.","action":"replace_undeclared_fraction_operations_with_equal_share_reconstruction","resolved_issue_ids":["undefined_equivalent_term","undeclared_fraction_simplification","undeclared_fraction_multiplication"],"residual_risk":"The hundred-grid and the word rate may still add cognitive load on small screens or for first-time learners."},
+    {"lesson_id":"lesson008","concept":"geometry.area","finding":"No blocking hidden prerequisite found. Coverage and square units precede the rectangular multiplication rule, which is rebuilt from repeated rows.","action":"retain_current_sequence","residual_risk":"Learners may still repeat length times width without understanding why it counts square units."},
+    {"lesson_id":"lesson009","concept":"geometry.perimeter","finding":"No blocking hidden prerequisite found. A complete boundary trace precedes formulas and includes a non-rectangular path.","action":"retain_current_sequence","residual_risk":"A static stepped path may not reveal whether learners independently track every segment."},
+    {"lesson_id":"lesson010","concept":"inequalities.at_least","finding":"No blocking hidden prerequisite found. The boundary and nearby values are tested before the number line and greater-than-or-equal-to symbol.","action":"retain_current_sequence","residual_risk":"Learners may memorize rightward direction without reconstructing the allowed set from context."},
+    {"lesson_id":"lesson011","concept":"inequalities.no_more_than","finding":"No blocking hidden prerequisite found. The boundary and nearby values are tested before the number line and less-than-or-equal-to symbol.","action":"retain_current_sequence","residual_risk":"Learners may substitute the word maximum without understanding why smaller values remain allowed."}
+  ]
+}

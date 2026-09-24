@@ -1,5 +1,12 @@
 # Changelog
 
+## Sprint 11 — Novice hardening
+
+- Added a machine-readable first-exposure audit for Lessons 005–011 with explicit residual risks and pending human-observation gates.
+- Removed undeclared fraction simplification and multiplication from Lesson 007 percentage calculations.
+- Rebuilt 25%, 10%, and 20% from equal shares of the named whole in English and Spanish.
+- Added regression coverage that prevents internal review from being mistaken for adult learner approval.
+
 ## Unreleased
 
 ### Added

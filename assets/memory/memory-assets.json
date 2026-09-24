@@ -212,7 +212,7 @@
         },
         "independent": {
           "prompt": "A $60 jacket is discounted by 20%. How much is the discount?",
-          "answer": "$12, because 20/100 of $60 is one fifth of $60"
+          "answer": "$12, because five equal shares rebuild the $60 whole"
         },
         "recall": {
           "prompt": "What two ideas must be identified before interpreting 37%?",
@@ -227,10 +227,10 @@
           "prompt": "A price falls from $80 to $60. Why is the decrease 25% of the original price?",
           "choices": [
             "The decrease is 20% because the dollar change is 20",
-            "$20 is 25/100 of the original $80",
+            "$20 is one of four equal shares of $80",
             "The decrease is 25% because $60 is the whole"
           ],
-          "answer": "$20 is 25/100 of the original $80"
+          "answer": "$20 is one of four equal shares of $80"
         }
       },
       {
@@ -577,7 +577,7 @@
         },
         "independent": {
           "prompt": "Una chaqueta de $60 tiene un descuento de 20%. ¿Cuánto es el descuento?",
-          "answer": "$12, porque 20/100 de $60 es un quinto de $60"
+          "answer": "$12, porque cinco partes iguales reconstruyen el entero de $60"
         },
         "recall": {
           "prompt": "¿Qué dos ideas debes identificar antes de interpretar 37%?",
@@ -592,10 +592,10 @@
           "prompt": "Un precio baja de $80 a $60. ¿Por qué la disminución es 25% del precio original?",
           "choices": [
             "La disminución es 20% porque el cambio en dólares es 20",
-            "$20 es 25/100 de los $80 originales",
+            "$20 es una de cuatro partes iguales de $80",
             "La disminución es 25% porque $60 es el entero"
           ],
-          "answer": "$20 es 25/100 de los $80 originales"
+          "answer": "$20 es una de cuatro partes iguales de $80"
         }
       },
       {

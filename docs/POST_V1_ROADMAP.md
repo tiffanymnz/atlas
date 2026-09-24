@@ -62,6 +62,18 @@ Status: prototype implementation complete; adult learner review required before 
 
 See `SPRINT10_RESEARCH_DECISION.md` and `SPRINT10_NOVICE_REVIEW.md`.
 
+## Sprint 11 — Novice validation and instructional hardening
+
+Status: internal audit implemented; human observation remains required.
+
+- Audit Lessons 005–011 strictly from their declared prerequisites.
+- Correct demonstrated hidden prerequisites without changing the learner architecture.
+- Record findings, actions, and residual risks for every prototype lesson.
+- Keep automated compliance separate from evidence of learner comprehension.
+- Preserve `adult_review_required` until uncoached observation is documented for every cluster.
+
+The internal audit found one blocking sequence problem in Lesson 007: percentage calculation relied on undeclared fraction simplification and multiplication. The lesson now rebuilds 25%, 10%, and 20% through equal shares of the named whole in English and Spanish. See `SPRINT11_NOVICE_HARDENING.md` and `curriculum/reviews/sprint11_internal_novice_audit_v1.json`.
+
 ## Deferred
 
 The Core 100 remains the graph expansion target. Approximately 150 math concept pages, accounts, cloud sync, teacher dashboards, native apps, and Atlas Studio remain outside the immediate post-V1 scope.
