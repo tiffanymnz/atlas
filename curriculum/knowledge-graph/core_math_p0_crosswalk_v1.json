@@ -67,6 +67,7 @@
       "source_concept_id": "C_MATH_008",
       "atlas_concept_ids": ["inequalities.at_least"],
       "lesson_ids": [],
+      "prototype_lesson_ids": ["MATH-ALG-INEQ-0010"],
       "implementation_status": "planned",
       "research_queue_id": "RQ007",
       "research_status": "open"
@@ -75,6 +76,7 @@
       "source_concept_id": "C_MATH_009",
       "atlas_concept_ids": ["inequalities.no_more_than"],
       "lesson_ids": [],
+      "prototype_lesson_ids": ["MATH-ALG-INEQ-0011"],
       "implementation_status": "planned",
       "research_queue_id": "RQ007",
       "research_status": "open"

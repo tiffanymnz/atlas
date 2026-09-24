@@ -84,6 +84,18 @@
       "title": "Perimeter as boundary distance",
       "prerequisites": ["whole_number_addition", "boundary_recognition"],
       "successors": ["area_perimeter_contrast"]
+    },
+    {
+      "id": "inequalities.at_least",
+      "title": "At least as an inclusive minimum",
+      "prerequisites": ["whole_number_comparison", "number_line_direction"],
+      "successors": ["inequalities.no_more_than", "inequality_language_contrast"]
+    },
+    {
+      "id": "inequalities.no_more_than",
+      "title": "No more than as an inclusive maximum",
+      "prerequisites": ["whole_number_comparison", "number_line_direction"],
+      "successors": ["inequality_language_contrast"]
     }
   ],
   "misconceptions": {
@@ -109,6 +121,14 @@
     "perimeter_area_confusion": "Learner uses interior coverage or an area calculation to answer a boundary-distance question.",
     "perimeter_partial_boundary": "Learner totals only part of the outside path and omits one or more sides.",
     "perimeter_unit_rule": "Learner treats linear-unit labeling as a shape-specific rule rather than a consequence of measuring distance.",
-    "perimeter_single_dimension": "Learner compares one side length instead of totaling each complete boundary."
+    "perimeter_single_dimension": "Learner compares one side length instead of totaling each complete boundary.",
+    "at_least_reversed_direction": "Learner reads least as a cue for smaller values instead of reasoning from a minimum.",
+    "at_least_excludes_boundary": "Learner excludes the stated minimum even though at least includes equality.",
+    "at_least_boundary_only": "Learner includes the minimum but omits greater allowed values.",
+    "at_least_keyword_only": "Learner selects a symbol from one word without testing the boundary and direction.",
+    "no_more_than_reversed_direction": "Learner reads more as a cue for greater values instead of reasoning from a maximum.",
+    "no_more_than_excludes_boundary": "Learner excludes the stated maximum even though no more than includes equality.",
+    "no_more_than_boundary_only": "Learner includes the maximum but omits smaller allowed values.",
+    "no_more_than_keyword_only": "Learner selects a symbol from one word without testing the boundary and direction."
   }
 }
