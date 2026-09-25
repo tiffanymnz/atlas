@@ -91,3 +91,10 @@ Run the checks with `npm test`.
 - Lesson 007 no longer assumes unexplained fraction simplification or fraction multiplication when teaching percent calculations.
 - Common percentages are reconstructed from equal shares of the named whole in English and Spanish.
 - Every prototype retains `adult_review_required`; three uncoached adult-observation clusters remain open.
+
+## Sprint 12
+
+- A browser-based observation kit turns the three pending human-review protocols into structured, exportable records.
+- Eligibility, consent, uncoached conduct, reasoning, transfer, hesitations, interventions, and blocking issues are required evidence fields.
+- Two complete sessions from distinct participants are required per cluster before evidence is ready for human curriculum review.
+- The tool stores drafts locally, prohibits personal identifiers, and never grants curriculum approval or changes `adult_review_required`.

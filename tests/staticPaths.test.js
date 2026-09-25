@@ -40,3 +40,19 @@ test("the learner links to the generated memory-practice hub",()=>{
   assert.ok(href,"memory-practice link is present");
   assert.ok(existsSync(resolve(dirname(learnerPath),href,"index.html")),"memory-practice hub resolves");
 });
+
+test("the learner-observation entry point and imports resolve",()=>{
+  const reviewPath=resolve(root,"apps/review/index.html");
+  const html=readFileSync(reviewPath,"utf8");
+  const source=html.match(/<script type="module" src="([^"]+)"/)?.[1];
+  assert.ok(source,"review module entry point is present");
+  const scriptPath=resolve(dirname(reviewPath),source);
+  assert.ok(existsSync(scriptPath),`missing review entry point: ${scriptPath}`);
+  const script=readFileSync(scriptPath,"utf8");
+  for(const specifier of script.matchAll(/from\s+"([^"]+)"/g)){
+    const dependency=resolve(dirname(scriptPath),specifier[1]);
+    assert.ok(existsSync(dependency),`missing review import: ${dependency}`);
+  }
+  assert.match(html,/Evidence capture, not automatic approval/);
+  assert.match(script,/human curriculum review/i);
+});

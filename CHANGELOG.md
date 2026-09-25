@@ -1,5 +1,12 @@
 # Changelog
 
+## Sprint 12 — Learner observation kit
+
+- Added a versioned protocol for the three pending adult-observation clusters.
+- Added a local-first observation interface with structured evidence capture and JSON export.
+- Added validation and summaries that require distinct participants and preserve human curriculum review.
+- Added regression coverage that prevents session counts from becoming automatic curriculum approval.
+
 ## Sprint 11 — Novice hardening
 
 - Added a machine-readable first-exposure audit for Lessons 005–011 with explicit residual risks and pending human-observation gates.

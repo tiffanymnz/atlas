@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Atlas learner observation</title>
+  <link rel="stylesheet" href="../../sdk/themes/tokens.css">
+  <link rel="stylesheet" href="review.css">
+</head>
+<body>
+  <a class="skip-link" href="#recordForm">Skip to observation form</a>
+  <header class="site-header">
+    <div><strong>✦ Atlas</strong><span>Learner observation</span></div>
+    <a class="button secondary" href="../learner/" target="_blank" rel="noopener">Open learner app</a>
+  </header>
+  <main>
+    <section class="notice" aria-labelledby="boundaryTitle">
+      <h1 id="boundaryTitle">Evidence capture, not automatic approval</h1>
+      <p>This tool records uncoached adult observation. It cannot simulate a novice, approve curriculum, or remove <code>adult_review_required</code>.</p>
+      <p>Use participant codes only. Do not enter names, email addresses, recordings, medical information, or other identifying data.</p>
+    </section>
+
+    <form id="recordForm" novalidate>
+      <section class="card">
+        <h2>1. Session eligibility</h2>
+        <div class="grid">
+          <label>Cluster<select id="cluster" required></select></label>
+          <label>Participant code<input id="participantCode" required maxlength="40" autocomplete="off" placeholder="Example: P-001"></label>
+          <label>Observer code<input id="observerCode" required maxlength="40" autocomplete="off" placeholder="Initials or internal code"></label>
+          <label>Language<select id="language"><option value="en">English</option><option value="es">Spanish</option><option value="bilingual">Bilingual</option></select></label>
+          <label>Device and browser<input id="device" required maxlength="120" placeholder="Example: iPhone 14 · Safari"></label>
+        </div>
+        <div class="checks">
+          <label><input id="adultConfirmed" type="checkbox"> Participant is an adult.</label>
+          <label><input id="recentStudy" type="checkbox"> Participant recently studied this material.</label>
+          <label><input id="consentConfirmed" type="checkbox"> Participant consented to observation and note-taking.</label>
+          <label><input id="uncoachedConfirmed" type="checkbox"> Attempt stayed uncoached; no terms, prompts, or answers were explained.</label>
+        </div>
+      </section>
+
+      <section class="card" aria-live="polite">
+        <h2>2. Protocol</h2>
+        <div class="protocol-columns">
+          <div><h3>Required prompts</h3><ol id="requiredPrompts"></ol></div>
+          <div><h3>Watch for</h3><ul id="watchFor"></ul></div>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>3. Evidence</h2>
+        <p class="help">Record what the learner said or did. Do not replace evidence with “understood,” “good,” or a score alone.</p>
+        <label>Explanation in the learner’s own words<textarea id="ownWords" required></textarea></label>
+        <label>New example with different numbers or context<textarea id="newExample" required></textarea></label>
+        <label>Why a plausible wrong answer fails<textarea id="wrongAnswer" required></textarea></label>
+        <label>Transfer reasoning<textarea id="transfer" required></textarea></label>
+        <label>Anything undefined, abrupt, or dependent on prior schooling<textarea id="undefined" required></textarea></label>
+        <label>Hesitations, requested clarification, and answer changes<textarea id="hesitations" required></textarea></label>
+        <div class="grid">
+          <label>Facilitator interventions<input id="interventionCount" type="number" min="0" step="1" value="0"></label>
+          <label>Intervention details<textarea id="interventions" placeholder="Required when count is greater than zero"></textarea></label>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>4. Findings</h2>
+        <label class="critical"><input id="blockingIssue" type="checkbox"> A blocking prerequisite, accessibility problem, translation failure, or required facilitator teaching occurred.</label>
+        <fieldset><legend>Issue tags</legend><div id="issueTags" class="tag-grid"></div></fieldset>
+        <label>Finding notes<textarea id="findingNotes"></textarea></label>
+      </section>
+
+      <div id="errors" class="errors" role="alert" hidden></div>
+      <div class="actions">
+        <button class="button primary" type="submit">Validate and save locally</button>
+        <button class="button secondary" id="exportButton" type="button">Export saved records</button>
+        <button class="button secondary" id="newButton" type="button">Start a blank record</button>
+      </div>
+    </form>
+
+    <section class="card" aria-labelledby="summaryTitle">
+      <h2 id="summaryTitle">Local evidence summary</h2>
+      <p class="help">Counts are readiness signals only. Every cluster still requires human curriculum review.</p>
+      <div id="summary" class="summary-grid"></div>
+    </section>
+  </main>
+  <script type="module" src="review.js"></script>
+</body>
+</html>

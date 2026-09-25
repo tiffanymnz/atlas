@@ -1,0 +1,87 @@
+{
+  "schema_version": "1.0",
+  "protocol_id": "atlas-post-v1-adult-observation-v1",
+  "purpose": "Collect structured evidence from uncoached first-exposure adult learners without converting automated success into curriculum approval.",
+  "minimum_sessions_per_cluster": 2,
+  "participant_rules": {
+    "adult_required": true,
+    "recent_study_disqualifies": true,
+    "consent_required": true,
+    "personal_identifiers_prohibited": true
+  },
+  "facilitator_rules": [
+    "Do not define lesson vocabulary during the attempt.",
+    "Do not point to an answer or reinterpret a prompt.",
+    "Record every intervention, hesitation, requested clarification, and answer change.",
+    "Ask for reasoning after the learner commits to an answer.",
+    "Do not mark a cluster approved from this tool; route complete records to human curriculum review."
+  ],
+  "revision_rules": {
+    "immediate": [
+      "undeclared prerequisite knowledge is required",
+      "a safety, accessibility, or translation barrier blocks the attempt",
+      "the facilitator must teach or reinterpret content for the learner to continue"
+    ],
+    "repeated": [
+      "the same ambiguity appears in two independent sessions",
+      "the same visual cue misleads two independent learners",
+      "the same shortcut permits a correct answer without demonstrated understanding"
+    ]
+  },
+  "clusters": [
+    {
+      "id": "division_fraction_percent",
+      "title": "Division, fraction meaning, and percent",
+      "lesson_ids": ["lesson005", "lesson006", "lesson007"],
+      "required_prompts": [
+        "Explain each idea in your own words without repeating the displayed memory hook.",
+        "Rebuild an example with different numbers.",
+        "Explain why one plausible wrong answer fails.",
+        "Solve a new-context transfer item.",
+        "Name anything that felt undefined, abrupt, or dependent on prior schooling."
+      ],
+      "watch_for": [
+        "hundred-grid legibility on a small phone",
+        "rate vocabulary adding load before meaning",
+        "confusion between the original whole and a changed amount",
+        "Spanish terminology that does not sound natural"
+      ]
+    },
+    {
+      "id": "area_perimeter",
+      "title": "Area and perimeter",
+      "lesson_ids": ["lesson008", "lesson009"],
+      "required_prompts": [
+        "Explain what each measure means without beginning with a formula.",
+        "Explain why area uses square units and perimeter uses linear units.",
+        "Rebuild a rectangle from rows, columns, and boundary segments.",
+        "Trace an irregular boundary without omitting or repeating a side.",
+        "Compare equal-area shapes with different perimeters."
+      ],
+      "watch_for": [
+        "formula repetition without unit meaning",
+        "area and perimeter keyword shortcuts",
+        "boundary segments omitted or counted twice",
+        "Spanish geometry terms that do not sound natural"
+      ]
+    },
+    {
+      "id": "inclusive_inequalities",
+      "title": "Inclusive inequality language",
+      "lesson_ids": ["lesson010", "lesson011"],
+      "required_prompts": [
+        "Test the exact boundary and one value on each side.",
+        "Draw the allowed set before writing a symbol.",
+        "Explain why equality is included.",
+        "Contrast at least with no more than in a new context.",
+        "Explain what the closed point and arrow each communicate."
+      ],
+      "watch_for": [
+        "symbol reversal after the visual is removed",
+        "the arrow interpreted as movement instead of allowed values",
+        "minimum or maximum used as an unexplained keyword rule",
+        "Spanish boundary phrases that do not sound natural"
+      ]
+    }
+  ]
+}

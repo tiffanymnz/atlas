@@ -74,6 +74,18 @@ Status: internal audit implemented; human observation remains required.
 
 The internal audit found one blocking sequence problem in Lesson 007: percentage calculation relied on undeclared fraction simplification and multiplication. The lesson now rebuilds 25%, 10%, and 20% through equal shares of the named whole in English and Spanish. See `SPRINT11_NOVICE_HARDENING.md` and `curriculum/reviews/sprint11_internal_novice_audit_v1.json`.
 
+## Sprint 12 — Learner observation kit
+
+Status: protocol and evidence tooling implemented; real learner sessions remain pending.
+
+- Convert the three cluster-specific observation gates into one versioned protocol.
+- Capture eligibility, consent, uncoached conduct, reasoning, transfer, hesitation, intervention, and blocking-issue evidence.
+- Require two complete sessions from distinct participants per cluster before human curriculum review.
+- Store records locally until explicit export; prohibit personal identifiers.
+- Never promote a lesson or clear `adult_review_required` from counts or automated checks.
+
+See `SPRINT12_LEARNER_OBSERVATION.md` and `curriculum/reviews/learner_observation_protocol_v1.json`.
+
 ## Deferred
 
 The Core 100 remains the graph expansion target. Approximately 150 math concept pages, accounts, cloud sync, teacher dashboards, native apps, and Atlas Studio remain outside the immediate post-V1 scope.
