@@ -9,8 +9,8 @@
     "unit": "Comparison"
   },
   "learning": {
-    "learning_goal": "Understand that 'how many more' asks for the gap between two amounts.",
-    "big_idea": "Comparison means finding the gap between two amounts."
+    "learning_goal": "Understand that 'how many more' asks how many items are left after two groups are paired.",
+    "big_idea": "Pair one item from each group. Count what is left in the larger group."
   },
   "concepts": {
     "primary_concept": "comparison.more",
@@ -28,34 +28,34 @@
       "type": "intro",
       "label": "Lesson 001",
       "title": "How many more?",
-      "body": "Comparison means finding the gap between two amounts."
+      "body": "Put two groups side by side. Pair one item in the first group with one item in the second group. Count the items left without partners. That number tells how many more."
     },
     {
       "id": "misconception",
       "type": "misconception",
       "label": "Misconception",
-      "title": "Does more always mean add?",
+      "title": "What does “how many more” ask us to find?",
       "prompt": "Ava has 14 stickers. Luis has 8. How many more stickers does Ava have?",
       "choices": [
         {"text": "22, because more means add", "correct": false, "misconception": "combine_instead_of_compare"},
         {"text": "14, because Ava has more", "correct": false, "misconception": "object_instead_of_relationship"},
-        {"text": "6, because the question asks for the gap", "correct": true, "evidence": "identified_gap", "feedback": "The word more describes a comparison here, so find the gap."}
+        {"text": "6, because 6 of Ava’s stickers have no partner", "correct": true, "evidence": "identified_gap", "feedback": "Pair Luis’s 8 stickers with 8 of Ava’s 14 stickers. Ava has 6 stickers left, so she has 6 more."}
       ],
-      "hints": ["The question does not ask how many stickers they have altogether.", "Compare 14 with 8 and find what is unmatched."]
+      "hints": ["Pair Luis’s 8 stickers with 8 of Ava’s stickers. Do not put both groups into one total.", "After making 8 pairs, Ava has 6 stickers left without partners. Count those 6 stickers."]
     },
     {
       "id": "visual-model",
       "legacyIndex": 1,
       "type": "observe",
       "label": "Observe",
-      "title": "Which group has extra blocks?",
+      "title": "Pair the blocks in the two rows.",
       "visual": {
         "topCount": 15,
         "bottomCount": 9,
         "revealGap": false,
-        "message": "Both rows start in the same place. Which row goes farther?"
+        "message": "Each bottom block is directly below a top block. Those blocks are partners. The top row still has blocks left."
       },
-      "nextLabel": "Reveal the gap"
+      "nextLabel": "Show what is left"
     },
     {
       "id": "discover-gap",
@@ -67,7 +67,7 @@
         "topCount": 15,
         "bottomCount": 9,
         "revealGap": true,
-        "message": "The extra blocks show how much farther the top row goes."
+        "message": "The glowing blocks have no partner in the bottom row. Count them to find how many more blocks are in the top row."
       },
       "choices": [
         {
@@ -76,10 +76,10 @@
           "misconception": "combine_instead_of_compare"
         },
         {
-          "text": "The gap",
+          "text": "How many blocks are left after pairing",
           "correct": true,
           "evidence": "identified_gap",
-          "feedback": "The glowing blocks show the gap."
+          "feedback": "Correct. Pair the first 9 top blocks with the 9 bottom blocks. The 6 glowing blocks are left without partners, so the top row has 6 more."
         },
         {
           "text": "The smaller group",
@@ -88,9 +88,9 @@
         }
       ],
       "hints": [
-        "Look at the two rows side by side.",
-        "Look for the blocks that do not have a match.",
-        "Only count the blocks that do not have a match."
+        "Start at the left. Give each bottom block one partner from the top row.",
+        "Nine pairs can be made. The glowing top blocks do not have partners.",
+        "Count the 6 glowing blocks. They tell how many more are in the top row."
       ]
     },
     {
@@ -98,48 +98,45 @@
       "legacyIndex": 3,
       "type": "language",
       "label": "Language",
-      "title": "Different words. Same gap.",
+      "title": "What does “how many more” mean?",
       "visual": {
         "topCount": 15,
         "bottomCount": 9,
         "revealGap": true,
-        "message": "These phrases all point to the same relationship."
+        "message": "First pair the two groups. Then count what is left in the larger group."
       },
       "phrases": [
-        "How many more?",
-        "Difference",
-        "Exceeds by",
-        "Compared with"
+        "How many more?"
       ],
-      "phraseMeaning": "Find the gap",
-      "guidance": "Some words can be tricky. First ask: are we putting groups together, or comparing them?"
+      "phraseMeaning": "Pair the groups. Count what is left.",
+      "guidance": "“In all” or “altogether” asks you to join the groups. “How many more” asks you to pair the groups and count what is left in the larger group."
     },
     {
       "id": "memory-hook",
       "type": "memoryHook",
       "label": "Remember",
-      "title": "Compare? Find the gap.",
-      "hook": "Larger amount − smaller amount = difference",
-      "body": "When two amounts are being compared, more tells you which amount is larger—not automatically to add."
+      "title": "Pair. Count what is left.",
+      "hook": "Larger number − smaller number = how many are left",
+      "body": "The minus sign (−) means subtract. Here, subtraction counts the items left after the two groups are paired."
     },
     {
       "id": "choose-equation",
       "legacyIndex": 4,
       "type": "symbol",
       "label": "Symbol",
-      "title": "What equation measures the gap?",
+      "title": "Which number sentence counts what is left?",
       "visual": {
         "topCount": 15,
         "bottomCount": 9,
         "revealGap": true,
-        "message": "The top row goes farther. Which equation measures that gap?"
+        "message": "There are 15 top blocks and 9 bottom blocks. Pair 9 from each row. Which number sentence finds the top blocks left over?"
       },
       "choices": [
         {
           "text": "15 - 9",
           "correct": true,
           "evidence": "subtraction_as_comparison",
-          "feedback": "Start with the larger amount and subtract the smaller amount."
+          "feedback": "Correct. Start with the 15 top blocks. Subtract the 9 blocks that received partners. Six top blocks are left."
         },
         {
           "text": "15 + 9",
@@ -153,8 +150,8 @@
         }
       ],
       "hints": [
-        "The equation should measure what is extra.",
-        "Start with 15 because it is the larger group."
+        "Start with all 15 top blocks. Nine of them receive partners from the bottom row.",
+        "Subtract the 9 paired blocks from the 15 top blocks: 15 − 9."
       ]
     },
     {
@@ -162,12 +159,12 @@
       "legacyIndex": 5,
       "type": "equationReveal",
       "label": "Reveal",
-      "title": "Subtraction measures the gap.",
+      "title": "Subtraction counts what is left.",
       "visual": {
         "topCount": 15,
         "bottomCount": 9,
         "revealGap": true,
-        "message": "The equation confirms what the visual showed."
+        "message": "Fifteen top blocks minus the 9 paired blocks leaves 6 unpaired blocks."
       },
       "equation": "15 - 9 = 6"
     },
@@ -175,14 +172,14 @@
       "id": "guided-practice",
       "type": "guidedPractice",
       "label": "Guided practice",
-      "title": "Find the unmatched shells.",
-      "visual": {"topCount": 11, "bottomCount": 7, "revealGap": true, "message": "Eleven shells are matched with seven. Count only the unmatched shells."},
+      "title": "How many top shells are left without partners?",
+      "visual": {"topCount": 11, "bottomCount": 7, "revealGap": true, "message": "Pair 7 top shells with the 7 bottom shells. The glowing top shells are left without partners."},
       "choices": [
-        {"text": "4", "correct": true, "evidence": "identified_gap", "feedback": "Four shells are unmatched, so 11 is 4 more than 7."},
+        {"text": "4", "correct": true, "evidence": "identified_gap", "feedback": "Correct. Seven pairs use 7 of the 11 top shells. Four top shells are left, so 11 is 4 more than 7."},
         {"text": "18", "correct": false, "misconception": "combine_instead_of_compare"},
         {"text": "7", "correct": false, "misconception": "object_instead_of_relationship"}
       ],
-      "hints": ["Match the first seven shells in each row.", "Use 11 − 7 to measure the gap."]
+      "hints": ["Start on the left. Pair each of the 7 bottom shells with one top shell.", "Seven of the 11 top shells have partners. Count the 4 glowing shells that are left."]
     },
     {
       "id": "independent-practice",
@@ -195,20 +192,20 @@
         {"text": "25", "correct": false, "misconception": "combine_instead_of_compare"},
         {"text": "9", "correct": false, "misconception": "object_instead_of_relationship"}
       ],
-      "hints": ["Decide whether the question asks for a total or a comparison.", "Subtract the smaller amount from the larger amount."]
+      "hints": ["Imagine 16 marks for Nia’s pages and 9 marks for Theo’s pages. Pair 9 marks from each group.", "Seven of Nia’s marks are left without partners. You can also calculate 16 − 9 = 7."]
     },
     {
       "id": "recall",
       "type": "recall",
       "label": "Recall",
       "title": "What should you remember?",
-      "prompt": "When a problem asks how many more one amount is than another, what should you find?",
+      "prompt": "When a problem asks “how many more,” what should you do?",
       "choices": [
         {"text": "The combined total", "correct": false, "misconception": "combine_instead_of_compare"},
         {"text": "The larger amount", "correct": false, "misconception": "object_instead_of_relationship"},
-        {"text": "The gap between the amounts", "correct": true, "evidence": "identified_gap", "feedback": "How many more asks for the gap between the amounts."}
+        {"text": "Pair the groups and count what is left", "correct": true, "evidence": "identified_gap", "feedback": "Correct. Pair one item from each group. The items left in the larger group tell how many more."}
       ],
-      "hints": ["Recall the memory hook: Compare? Find the gap."]
+      "hints": ["Do not join both groups. Put them side by side and make pairs.", "After pairing, count the items left in the larger group." ]
     },
     {
       "id": "transfer",
@@ -221,7 +218,7 @@
         {"text": "$29", "correct": false, "misconception": "combine_instead_of_compare"},
         {"text": "$18", "correct": false, "misconception": "object_instead_of_relationship"}
       ],
-      "hints": ["The context changed, but the question still asks for a gap.", "Subtract 11 from 18."]
+      "hints": ["Pair $11 of the blue notebook’s $18 cost with the red notebook’s $11 cost.", "$7 of the blue notebook’s cost is left. You can calculate this as $18 − $11 = $7."]
     },
     {
       "id": "reflection",
@@ -236,7 +233,7 @@
           "correct": false
         },
         {
-          "text": "Subtraction can measure the gap between two amounts.",
+          "text": "Subtraction can count what is left after two groups are paired.",
           "correct": true
         },
         {
@@ -245,16 +242,16 @@
         }
       ],
       "hints": [
-        "Think about what the blocks showed.",
-        "The equation measured the gap."
+        "The blocks were paired one for one. The glowing blocks were left without partners.",
+        "The subtraction sentence counted the blocks left after pairing."
       ]
     },
     {
       "id": "complete",
       "legacyIndex": 7,
       "type": "complete",
-      "title": "You measured the gap.",
-      "body": "You connected the visual, the words, and the equation.",
+      "title": "You found how many more.",
+      "body": "You paired two groups, counted what was left, and used subtraction to show the same action.",
       "nextRecommendation": "Next lesson: How many fewer?"
     }
   ]

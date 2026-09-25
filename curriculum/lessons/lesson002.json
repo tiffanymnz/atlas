@@ -9,8 +9,8 @@
     "unit": "Comparison"
   },
   "learning": {
-    "learning_goal": "Understand that 'how many fewer' asks for the same gap from the other direction.",
-    "big_idea": "Fewer compares two amounts by finding the gap."
+    "learning_goal": "Understand that 'how many fewer' asks how many items the smaller group is missing compared with the larger group.",
+    "big_idea": "Pair the groups. Count the items in the larger group that have no partner. That is how many fewer are in the smaller group."
   },
   "concepts": {
     "primary_concept": "comparison.fewer",
@@ -28,7 +28,7 @@
       "type": "intro",
       "label": "Lesson 002",
       "title": "How many fewer?",
-      "body": "Fewer is another way to compare two groups."
+      "body": "Pair one item from each group. Some items in the larger group will have no partner. Count those items. The answer tells how many fewer are in the smaller group."
     },
     {
       "id": "misconception",
@@ -39,9 +39,9 @@
       "choices": [
         {"text": "9, because oranges are the smaller group", "correct": false, "misconception": "object_instead_of_relationship"},
         {"text": "25, because both groups are mentioned", "correct": false, "misconception": "combine_instead_of_compare"},
-        {"text": "7, because fewer asks for the gap", "correct": true, "evidence": "identified_gap", "feedback": "Fewer asks how far apart the two amounts are."}
+        {"text": "7, because 7 apples are left without orange partners", "correct": true, "evidence": "identified_gap", "feedback": "Pair the 9 oranges with 9 of the 16 apples. Seven apples are left without partners, so there are 7 fewer oranges."}
       ],
-      "hints": ["The question does not ask how many oranges there are.", "Compare 16 and 9 by finding their gap."]
+      "hints": ["Pair each of the 9 oranges with one of the 16 apples.", "After making 9 pairs, 7 apples are left without partners. That means there are 7 fewer oranges."]
     },
     {
       "id": "visual-model",
@@ -53,9 +53,9 @@
         "topCount": 15,
         "bottomCount": 9,
         "revealGap": false,
-        "message": "Both rows start in the same place. Which row stops sooner?"
+        "message": "Pair each bottom block with one top block. The shorter bottom row runs out of blocks first."
       },
-      "nextLabel": "Show the gap"
+      "nextLabel": "Show what is missing"
     },
     {
       "id": "discover-gap",
@@ -67,7 +67,7 @@
         "topCount": 15,
         "bottomCount": 9,
         "revealGap": true,
-        "message": "The gap shows how many fewer blocks the bottom row has."
+        "message": "Six top blocks have no bottom partner. The bottom row would need 6 more blocks to be the same size."
       },
       "choices": [
         {
@@ -76,10 +76,10 @@
           "misconception": "combine_instead_of_compare"
         },
         {
-          "text": "The gap",
+          "text": "How many blocks the shorter row is missing",
           "correct": true,
           "evidence": "identified_gap",
-          "feedback": "Fewer asks for the gap between the two groups."
+          "feedback": "Correct. Six top blocks have no bottom partner, so the bottom row has 6 fewer blocks."
         },
         {
           "text": "Only the bigger group",
@@ -88,9 +88,9 @@
         }
       ],
       "hints": [
-        "Compare the two rows.",
-        "Look for the missing match.",
-        "The gap tells how many fewer."
+        "Start at the left and pair one top block with one bottom block.",
+        "Nine pairs can be made. Six top blocks do not have bottom partners.",
+        "The bottom row is missing 6 blocks, so it has 6 fewer."
       ]
     },
     {
@@ -98,29 +98,26 @@
       "legacyIndex": 3,
       "type": "language",
       "label": "Language",
-      "title": "Fewer, less, difference.",
+      "title": "What does “how many fewer” mean?",
       "visual": {
         "topCount": 15,
         "bottomCount": 9,
         "revealGap": true,
-        "message": "These words compare the two groups."
+        "message": "Pair the groups. Count how many items the smaller group is missing."
       },
       "phrases": [
-        "How many fewer?",
-        "How many less?",
-        "Difference",
-        "Compared with"
+        "How many fewer?"
       ],
-      "phraseMeaning": "Find the gap",
-      "guidance": "Fewer does not mean guess smaller. It asks how far apart the groups are."
+      "phraseMeaning": "Pair the groups. Count what the smaller group is missing.",
+      "guidance": "The smaller group itself is not the answer. The answer is the number of partners it would need to become equal to the larger group."
     },
     {
       "id": "memory-hook",
       "type": "memoryHook",
       "label": "Remember",
-      "title": "Fewer still means find the gap.",
-      "hook": "Larger amount − smaller amount = how many fewer",
-      "body": "The direction of the comparison changes, but the size of the gap stays the same."
+      "title": "Pair. Count what is missing.",
+      "hook": "Larger number − smaller number = how many fewer",
+      "body": "Subtracting counts the items in the larger group that do not have partners in the smaller group."
     },
     {
       "id": "choose-equation",
@@ -139,7 +136,7 @@
           "text": "15 - 9",
           "correct": true,
           "evidence": "subtraction_as_comparison",
-          "feedback": "The larger amount minus the smaller amount gives the gap."
+          "feedback": "Correct. Pair 9 bottom blocks with 9 of the 15 top blocks. Subtracting 9 from 15 counts the 6 top blocks left without partners."
         },
         {
           "text": "15 + 9",
@@ -153,8 +150,8 @@
         }
       ],
       "hints": [
-        "Do not combine the groups.",
-        "Measure the gap from larger to smaller."
+        "Start with the 15 blocks in the larger row. Nine receive partners.",
+        "Subtract the 9 paired blocks from the 15 larger-row blocks: 15 − 9."
       ]
     },
     {
@@ -182,7 +179,7 @@
         {"text": "8", "correct": false, "misconception": "object_instead_of_relationship"},
         {"text": "22", "correct": false, "misconception": "combine_instead_of_compare"}
       ],
-      "hints": ["Count the blocks without a match.", "Subtract 8 from 14."]
+      "hints": ["Pair each of the 8 bottom blocks with one top block.", "Six top blocks are left without partners. You can calculate 14 − 8 = 6."]
     },
     {
       "id": "independent-practice",
@@ -195,7 +192,7 @@
         {"text": "12", "correct": false, "misconception": "object_instead_of_relationship"},
         {"text": "29", "correct": false, "misconception": "combine_instead_of_compare"}
       ],
-      "hints": ["The question asks for the gap, not the number of children.", "Subtract the smaller amount from the larger amount."]
+      "hints": ["Pair the 12 children with 12 of the 17 adults.", "Five adults are left without partners. You can calculate 17 − 12 = 5."]
     },
     {
       "id": "recall",
@@ -206,9 +203,9 @@
       "choices": [
         {"text": "Choose the smaller amount", "correct": false, "misconception": "object_instead_of_relationship"},
         {"text": "Add the two amounts", "correct": false, "misconception": "combine_instead_of_compare"},
-        {"text": "Find the gap from larger to smaller", "correct": true, "evidence": "identified_gap", "feedback": "Fewer compares the amounts by measuring their gap."}
+        {"text": "Pair the groups and count what the smaller group is missing", "correct": true, "evidence": "identified_gap", "feedback": "Correct. The unpaired items in the larger group show how many fewer are in the smaller group."}
       ],
-      "hints": ["Recall the memory hook: fewer still means find the gap."]
+      "hints": ["Do not choose the smaller group’s number. Pair the groups first.", "Count the items in the larger group that do not receive partners."]
     },
     {
       "id": "transfer",
@@ -221,7 +218,7 @@
         {"text": "15", "correct": false, "misconception": "object_instead_of_relationship"},
         {"text": "38", "correct": false, "misconception": "combine_instead_of_compare"}
       ],
-      "hints": ["Walking distance is a new context, but fewer still asks for the gap.", "Subtract 15 from 23."]
+      "hints": ["Pair Priya’s 15 blocks with 15 of Jamal’s 23 blocks.", "Eight of Jamal’s blocks are left. You can calculate 23 − 15 = 8."]
     },
     {
       "id": "reflection",
@@ -236,7 +233,7 @@
           "correct": false
         },
         {
-          "text": "Fewer can ask for the gap between two groups.",
+          "text": "Fewer asks how many items the smaller group is missing.",
           "correct": true
         },
         {
@@ -245,8 +242,8 @@
         }
       ],
       "hints": [
-        "Think about what the missing part showed.",
-        "Fewer compares the two groups."
+        "Pair one item from each group until the smaller group runs out.",
+        "Count the items left in the larger group. That is how many fewer are in the smaller group."
       ]
     },
     {
