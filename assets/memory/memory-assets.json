@@ -6,24 +6,24 @@
         "lessonId": "MATH-NS-COMP-0001",
         "conceptId": "comparison.more",
         "title": "How many more?",
-        "learningGoal": "Understand that 'how many more' asks for the gap between two amounts.",
+        "learningGoal": "Understand that 'how many more' asks how many items are left after two groups are paired.",
         "memoryHook": {
-          "title": "Compare? Find the gap.",
-          "hook": "Larger amount − smaller amount = difference",
-          "body": "When two amounts are being compared, more tells you which amount is larger—not automatically to add."
+          "title": "Pair. Count what is left.",
+          "hook": "Larger number − smaller number = how many are left",
+          "body": "The minus sign (−) means subtract. Here, subtraction counts the items left after the two groups are paired."
         },
         "independent": {
           "prompt": "Nia read 16 pages. Theo read 9 pages. How many more pages did Nia read?",
           "answer": "7"
         },
         "recall": {
-          "prompt": "When a problem asks how many more one amount is than another, what should you find?",
+          "prompt": "When a problem asks “how many more,” what should you do?",
           "choices": [
             "The combined total",
             "The larger amount",
-            "The gap between the amounts"
+            "Pair the groups and count what is left"
           ],
-          "answer": "The gap between the amounts"
+          "answer": "Pair the groups and count what is left"
         },
         "transfer": {
           "prompt": "A blue notebook costs $18 and a red notebook costs $11. How much more does the blue notebook cost?",
@@ -39,11 +39,11 @@
         "lessonId": "MATH-NS-COMP-0002",
         "conceptId": "comparison.fewer",
         "title": "How many fewer?",
-        "learningGoal": "Understand that 'how many fewer' asks for the same gap from the other direction.",
+        "learningGoal": "Understand that 'how many fewer' asks how many items the smaller group is missing compared with the larger group.",
         "memoryHook": {
-          "title": "Fewer still means find the gap.",
-          "hook": "Larger amount − smaller amount = how many fewer",
-          "body": "The direction of the comparison changes, but the size of the gap stays the same."
+          "title": "Pair. Count what is missing.",
+          "hook": "Larger number − smaller number = how many fewer",
+          "body": "Subtracting counts the items in the larger group that do not have partners in the smaller group."
         },
         "independent": {
           "prompt": "A bus has 17 adults and 12 children. How many fewer children are there than adults?",
@@ -54,9 +54,9 @@
           "choices": [
             "Choose the smaller amount",
             "Add the two amounts",
-            "Find the gap from larger to smaller"
+            "Pair the groups and count what the smaller group is missing"
           ],
-          "answer": "Find the gap from larger to smaller"
+          "answer": "Pair the groups and count what the smaller group is missing"
         },
         "transfer": {
           "prompt": "Jamal walked 23 blocks and Priya walked 15 blocks. How many fewer blocks did Priya walk?",
@@ -72,11 +72,11 @@
         "lessonId": "MATH-NS-COMP-0003",
         "conceptId": "difference",
         "title": "Difference",
-        "learningGoal": "Understand that difference names the gap between two amounts.",
+        "learningGoal": "Understand that difference names how many items are left after two groups are paired.",
         "memoryHook": {
-          "title": "Difference means distance.",
-          "hook": "Difference = the gap between two amounts",
-          "body": "The difference is a relationship between the amounts, not either amount by itself."
+          "title": "Difference is what is left after pairing.",
+          "hook": "Larger number − smaller number = difference",
+          "body": "The difference is not either starting number. It is the number left after the smaller group is paired with part of the larger group."
         },
         "independent": {
           "prompt": "What is the difference between 20 and 13?",
@@ -87,9 +87,9 @@
           "choices": [
             "the larger amount",
             "their combined total",
-            "the gap between them"
+            "the number left after the groups are paired"
           ],
-          "answer": "the gap between them"
+          "answer": "the number left after the groups are paired"
         },
         "transfer": {
           "prompt": "The high temperature was 72°F and the low was 64°F. What was the difference?",
@@ -105,11 +105,11 @@
         "lessonId": "MATH-NS-COMP-0004",
         "conceptId": "compare_unknown",
         "title": "Find the compared amount",
-        "learningGoal": "Use a known larger amount and known difference to find the unknown smaller amount.",
+        "learningGoal": "Find a missing smaller group when the larger group and the difference are known.",
         "memoryHook": {
-          "title": "Separate the amount from the gap.",
-          "hook": "Known larger amount − known gap = missing smaller amount",
-          "body": "First identify what the question asks for. A number in the story may describe the relationship instead of the missing amount."
+          "title": "Ask what each number tells you.",
+          "hook": "Larger number − how many fewer = missing smaller number",
+          "body": "The phrase “5 fewer” does not mean the smaller group has 5. It means the smaller group has 5 less than the larger group."
         },
         "independent": {
           "prompt": "Kai has 19 tickets. Rosa has 7 fewer tickets than Kai. How many tickets does Rosa have?",
@@ -371,24 +371,24 @@
         "lessonId": "MATH-NS-COMP-0001",
         "conceptId": "comparison.more",
         "title": "¿Cuántos más?",
-        "learningGoal": "Comprender que «cuántos más» pide encontrar la diferencia entre dos cantidades.",
+        "learningGoal": "Comprender que «cuántos más» pregunta cuántos elementos quedan después de formar parejas entre dos grupos.",
         "memoryHook": {
-          "title": "¿Comparar? Encuentra la diferencia.",
-          "hook": "Cantidad mayor − cantidad menor = diferencia",
-          "body": "Cuando se comparan dos cantidades, más indica cuál es mayor; no significa automáticamente que debes sumar."
+          "title": "Forma parejas. Cuenta lo que queda.",
+          "hook": "Número mayor − número menor = cuántos quedan",
+          "body": "El signo menos (−) significa restar. Aquí, restar cuenta los elementos que quedan después de formar parejas entre los dos grupos."
         },
         "independent": {
           "prompt": "Nia leyó 16 páginas. Theo leyó 9 páginas. ¿Cuántas páginas más leyó Nia?",
           "answer": "7"
         },
         "recall": {
-          "prompt": "Cuando un problema pregunta cuántos más tiene una cantidad que otra, ¿qué debes encontrar?",
+          "prompt": "Cuando un problema pregunta «cuántos más», ¿qué debes hacer?",
           "choices": [
-            "El total combinado",
-            "La cantidad mayor",
-            "La diferencia entre las cantidades"
+            "Juntar los dos grupos",
+            "Elegir el número mayor",
+            "Formar parejas y contar lo que queda"
           ],
-          "answer": "La diferencia entre las cantidades"
+          "answer": "Formar parejas y contar lo que queda"
         },
         "transfer": {
           "prompt": "Un cuaderno azul cuesta $18 y uno rojo cuesta $11. ¿Cuánto más cuesta el cuaderno azul?",
@@ -404,24 +404,24 @@
         "lessonId": "MATH-NS-COMP-0002",
         "conceptId": "comparison.fewer",
         "title": "¿Cuántos menos?",
-        "learningGoal": "Comprender que «cuántos menos» pide la misma diferencia desde la otra dirección.",
+        "learningGoal": "Comprender que «cuántos menos» pregunta cuántos elementos le faltan al grupo menor para igualar al mayor.",
         "memoryHook": {
-          "title": "Menos todavía significa encontrar la diferencia.",
-          "hook": "Cantidad mayor − cantidad menor = cuántos menos",
-          "body": "La dirección de la comparación cambia, pero el tamaño de la diferencia permanece igual."
+          "title": "Forma parejas. Cuenta lo que falta.",
+          "hook": "Número mayor − número menor = cuántos menos",
+          "body": "Restar cuenta los elementos del grupo mayor que no tienen pareja en el grupo menor."
         },
         "independent": {
           "prompt": "Un autobús lleva 17 adultos y 12 niños. ¿Cuántos niños menos hay que adultos?",
           "answer": "5"
         },
         "recall": {
-          "prompt": "Elige la regla que funciona para una comparación de cuántos menos.",
+          "prompt": "Elige la regla que funciona para una pregunta de cuántos menos.",
           "choices": [
-            "Elegir la cantidad menor",
-            "Sumar las dos cantidades",
-            "Encontrar la diferencia de la mayor a la menor"
+            "Elegir el número del grupo menor",
+            "Sumar los dos grupos",
+            "Formar parejas y contar lo que le falta al grupo menor"
           ],
-          "answer": "Encontrar la diferencia de la mayor a la menor"
+          "answer": "Formar parejas y contar lo que le falta al grupo menor"
         },
         "transfer": {
           "prompt": "Jamal caminó 23 cuadras y Priya caminó 15 cuadras. ¿Cuántas cuadras menos caminó Priya?",
@@ -437,24 +437,24 @@
         "lessonId": "MATH-NS-COMP-0003",
         "conceptId": "difference",
         "title": "Diferencia",
-        "learningGoal": "Comprender que la diferencia nombra el espacio entre dos cantidades.",
+        "learningGoal": "Comprender que diferencia es el nombre del número de elementos que quedan después de formar parejas entre dos grupos.",
         "memoryHook": {
-          "title": "Diferencia significa distancia.",
-          "hook": "Diferencia = la distancia entre dos cantidades",
-          "body": "La diferencia es una relación entre las cantidades, no una de las cantidades por sí sola."
+          "title": "La diferencia es lo que queda después de formar parejas.",
+          "hook": "Número mayor − número menor = diferencia",
+          "body": "La diferencia no es ninguno de los números iniciales. Es el número que queda después de emparejar el grupo menor con parte del grupo mayor."
         },
         "independent": {
           "prompt": "¿Cuál es la diferencia entre 20 y 13?",
           "answer": "7"
         },
         "recall": {
-          "prompt": "La diferencia entre dos cantidades es...",
+          "prompt": "La diferencia entre dos grupos es...",
           "choices": [
-            "la cantidad mayor",
-            "el total combinado",
-            "la distancia entre ellas"
+            "el número del grupo mayor",
+            "el total de los dos grupos",
+            "el número que queda después de formar parejas"
           ],
-          "answer": "la distancia entre ellas"
+          "answer": "el número que queda después de formar parejas"
         },
         "transfer": {
           "prompt": "La temperatura máxima fue 72 °F y la mínima fue 64 °F. ¿Cuál fue la diferencia?",
@@ -470,24 +470,24 @@
         "lessonId": "MATH-NS-COMP-0004",
         "conceptId": "compare_unknown",
         "title": "Encuentra la cantidad comparada",
-        "learningGoal": "Usar una cantidad mayor conocida y una diferencia conocida para encontrar la cantidad menor desconocida.",
+        "learningGoal": "Encontrar el número menor que falta cuando se conocen el número mayor y la diferencia.",
         "memoryHook": {
-          "title": "Separa la cantidad de la diferencia.",
-          "hook": "Cantidad mayor conocida − diferencia conocida = cantidad menor desconocida",
-          "body": "Primero identifica qué pide la pregunta. Un número del problema puede describir la relación en vez de la cantidad que falta."
+          "title": "Pregunta qué indica cada número.",
+          "hook": "Número mayor − cuántos menos = número menor que falta",
+          "body": "La frase «5 menos» no significa que el grupo menor tenga 5. Significa que tiene 5 menos que el grupo mayor."
         },
         "independent": {
           "prompt": "Kai tiene 19 boletos. Rosa tiene 7 boletos menos que Kai. ¿Cuántos boletos tiene Rosa?",
           "answer": "12"
         },
         "recall": {
-          "prompt": "Conoces la cantidad mayor y la diferencia. ¿Qué debes hacer?",
+          "prompt": "Conoces el número mayor y cuántos menos hay. ¿Qué debes hacer?",
           "choices": [
-            "Usar la diferencia como respuesta",
-            "Sumar la diferencia a la cantidad mayor",
-            "Restar la diferencia de la cantidad mayor"
+            "Usar cuántos menos como respuesta",
+            "Sumar cuántos menos al número mayor",
+            "Restar cuántos menos del número mayor"
           ],
-          "answer": "Restar la diferencia de la cantidad mayor"
+          "answer": "Restar cuántos menos del número mayor"
         },
         "transfer": {
           "prompt": "Maya leyó 24 páginas. Eli leyó 9 páginas menos que Maya. ¿Cuántas páginas leyó Eli?",
