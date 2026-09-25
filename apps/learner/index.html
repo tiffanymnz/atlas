@@ -23,17 +23,17 @@
     <main class="lesson-panel" id="lessonRoot" tabindex="-1" aria-busy="true"></main>
     <footer class="atlas-footer">
       <label class="lesson-picker" for="lessonSelect"><span class="sr-only" id="lessonSelectLabel">Choose a lesson</span><select id="lessonSelect" class="select" aria-labelledby="lessonSelectLabel">
-        <option value="../../curriculum/lessons/lesson001.json" data-en="Lesson 001 — How many more?" data-es="Lección 001 — ¿Cuántos más?">Lesson 001 — How many more?</option>
-        <option value="../../curriculum/lessons/lesson002.json" data-en="Lesson 002 — How many fewer?" data-es="Lección 002 — ¿Cuántos menos?">Lesson 002 — How many fewer?</option>
-        <option value="../../curriculum/lessons/lesson003.json" data-en="Lesson 003 — Difference" data-es="Lección 003 — Diferencia">Lesson 003 — Difference</option>
-        <option value="../../curriculum/lessons/lesson004.json" data-en="Lesson 004 — Find the compared amount" data-es="Lección 004 — Encuentra la cantidad comparada">Lesson 004 — Find the compared amount</option>
-        <option value="../../curriculum/lessons/lesson005.json" data-en="Prototype 005 — Share equally" data-es="Prototipo 005 — Repartir por igual">Prototype 005 — Share equally</option>
-        <option value="../../curriculum/lessons/lesson006.json" data-en="Prototype 006 — Name equal parts" data-es="Prototipo 006 — Nombrar partes iguales">Prototype 006 — Name equal parts</option>
-        <option value="../../curriculum/lessons/lesson007.json" data-en="Prototype 007 — Percent means per hundred" data-es="Prototipo 007 — Porcentaje significa por cada cien">Prototype 007 — Percent means per hundred</option>
-        <option value="../../curriculum/lessons/lesson008.json" data-en="Prototype 008 — Measure the space inside" data-es="Prototipo 008 — Medir el espacio interior">Prototype 008 — Measure the space inside</option>
-        <option value="../../curriculum/lessons/lesson009.json" data-en="Prototype 009 — Measure the distance around" data-es="Prototipo 009 — Medir la distancia alrededor">Prototype 009 — Measure the distance around</option>
-        <option value="../../curriculum/lessons/lesson010.json" data-en="Prototype 010 — Understand at least" data-es="Prototipo 010 — Comprender como mínimo">Prototype 010 — Understand at least</option>
-        <option value="../../curriculum/lessons/lesson011.json" data-en="Prototype 011 — Understand no more than" data-es="Prototipo 011 — Comprender no más de">Prototype 011 — Understand no more than</option>
+        <option value="../../curriculum/lessons/lesson001.json" data-concept="comparison.more" data-en="Lesson 001 — How many more?" data-es="Lección 001 — ¿Cuántos más?">Lesson 001 — How many more?</option>
+        <option value="../../curriculum/lessons/lesson002.json" data-concept="comparison.fewer" data-en="Lesson 002 — How many fewer?" data-es="Lección 002 — ¿Cuántos menos?">Lesson 002 — How many fewer?</option>
+        <option value="../../curriculum/lessons/lesson003.json" data-concept="difference" data-en="Lesson 003 — Difference" data-es="Lección 003 — Diferencia">Lesson 003 — Difference</option>
+        <option value="../../curriculum/lessons/lesson004.json" data-concept="compare_unknown" data-en="Lesson 004 — Find the compared amount" data-es="Lección 004 — Encuentra la cantidad comparada">Lesson 004 — Find the compared amount</option>
+        <option value="../../curriculum/lessons/lesson005.json" data-concept="division.shared_equally" data-en="Prototype 005 — Share equally" data-es="Prototipo 005 — Repartir por igual">Prototype 005 — Share equally</option>
+        <option value="../../curriculum/lessons/lesson006.json" data-concept="fractions.numerator_denominator" data-en="Prototype 006 — Name equal parts" data-es="Prototipo 006 — Nombrar partes iguales">Prototype 006 — Name equal parts</option>
+        <option value="../../curriculum/lessons/lesson007.json" data-concept="percent.basics" data-en="Prototype 007 — Percent means per hundred" data-es="Prototipo 007 — Porcentaje significa por cada cien">Prototype 007 — Percent means per hundred</option>
+        <option value="../../curriculum/lessons/lesson008.json" data-concept="geometry.area" data-en="Prototype 008 — Measure the space inside" data-es="Prototipo 008 — Medir el espacio interior">Prototype 008 — Measure the space inside</option>
+        <option value="../../curriculum/lessons/lesson009.json" data-concept="geometry.perimeter" data-en="Prototype 009 — Measure the distance around" data-es="Prototipo 009 — Medir la distancia alrededor">Prototype 009 — Measure the distance around</option>
+        <option value="../../curriculum/lessons/lesson010.json" data-concept="inequalities.at_least" data-en="Prototype 010 — Understand at least" data-es="Prototipo 010 — Comprender como mínimo">Prototype 010 — Understand at least</option>
+        <option value="../../curriculum/lessons/lesson011.json" data-concept="inequalities.no_more_than" data-en="Prototype 011 — Understand no more than" data-es="Prototipo 011 — Comprender no más de">Prototype 011 — Understand no more than</option>
       </select></label>
       <a class="btn secondary" id="memoryAssetsLink" href="../../assets/memory/" style="display:inline-flex;align-items:center;text-decoration:none">Memory practice</a>
       <button class="btn secondary" id="analyticsBtn" type="button">Learning summary</button>
@@ -48,6 +48,6 @@
       <button class="btn primary" id="closeAnalytics" type="button">Close</button>
     </div>
   </div>
-  <script type="module" src="../../engine/lessonEngine.js?v=1.9"></script>
+  <script type="module" src="../../engine/lessonEngine.js?v=2.0"></script>
 </body>
 </html>

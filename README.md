@@ -98,3 +98,7 @@ Run the checks with `npm test`.
 - Eligibility, consent, uncoached conduct, reasoning, transfer, hesitations, interventions, and blocking issues are required evidence fields.
 - Two complete sessions from distinct participants are required per cluster before evidence is ready for human curriculum review.
 - The tool stores drafts locally, prohibits personal identifiers, and never grants curriculum approval or changes `adult_review_required`.
+
+## Novice prerequisite pass
+
+The [internal novice hardening record](docs/NOVICE_PREREQUISITE_HARDENING.md) identifies and repairs several hidden starting assumptions in Lessons 005 and 008–011 in English and Spanish. Lesson completion remains a progress record; the next-lesson shortcut now asks for correct first responses without hints on independent practice, recall, and transfer, and advances only within a concept sequence. Real first-exposure observations remain required before curriculum approval.
