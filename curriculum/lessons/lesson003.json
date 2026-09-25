@@ -9,8 +9,8 @@
     "unit": "Comparison"
   },
   "learning": {
-    "learning_goal": "Understand that difference names the gap between two amounts.",
-    "big_idea": "The difference is the amount between two values, not either value by itself."
+    "learning_goal": "Understand that difference names how many items are left after two groups are paired.",
+    "big_idea": "Pair the groups and count what is left in the larger group. That number is called the difference."
   },
   "concepts": {
     "primary_concept": "difference",
@@ -28,7 +28,7 @@
       "type": "intro",
       "label": "Lesson 003",
       "title": "Difference",
-      "body": "Difference is the name for the gap between two amounts."
+      "body": "Pair one item from each group. Count the items left in the larger group. The number left is called the difference."
     },
     {
       "id": "misconception",
@@ -39,9 +39,9 @@
       "choices": [
         {"text": "18, because it is the larger score", "correct": false, "misconception": "object_instead_of_relationship"},
         {"text": "29, because both scores are used", "correct": false, "misconception": "combine_instead_of_compare"},
-        {"text": "7, because difference means the gap", "correct": true, "evidence": "identified_gap", "feedback": "The difference is the distance between 18 and 11."}
+        {"text": "7, because 7 points are left after pairing 11 with 11", "correct": true, "evidence": "identified_gap", "feedback": "Pair 11 points from each score. Seven points from the score of 18 are left. The difference is 7."}
       ],
-      "hints": ["Difference does not name either team’s score.", "Measure how far 11 is from 18."]
+      "hints": ["Pair 11 points from the score of 11 with 11 points from the score of 18.", "Seven points from the larger score are left without partners. That number is the difference."]
     },
     {
       "id": "visual-model",
@@ -53,7 +53,7 @@
         "topCount": 13,
         "bottomCount": 8,
         "revealGap": false,
-        "message": "Match the blocks in both rows. What remains unmatched?"
+        "message": "Pair each bottom block with one top block. Then count the top blocks left without partners."
       },
       "nextLabel": "Show the difference"
     },
@@ -67,14 +67,14 @@
         "topCount": 13,
         "bottomCount": 8,
         "revealGap": true,
-        "message": "The unmatched blocks are the difference between 13 and 8."
+        "message": "After 8 pairs are made, 5 top blocks are left. The number left is called the difference."
       },
       "choices": [
         {
           "text": "The difference",
           "correct": true,
           "evidence": "identified_gap",
-          "feedback": "The difference is the unmatched part between the amounts."
+          "feedback": "Correct. Five top blocks are left after pairing, so the difference between 13 and 8 is 5."
         },
         {
           "text": "The total of both rows",
@@ -90,7 +90,7 @@
       "hints": [
         "Match one block in the top row with one in the bottom row.",
         "Focus on the blocks without a partner.",
-        "The unmatched part is the gap, or difference."
+        "Count the 5 blocks without partners. That number is the difference."
       ]
     },
     {
@@ -103,7 +103,7 @@
         "topCount": 13,
         "bottomCount": 8,
         "revealGap": true,
-        "message": "Each phrase asks about the same gap."
+        "message": "Each question asks you to pair the groups and count what is left."
       },
       "phrases": [
         "What is the difference?",
@@ -111,16 +111,16 @@
         "How many fewer?",
         "How far apart?"
       ],
-      "phraseMeaning": "Find the gap",
-      "guidance": "Do not use the word more by itself to choose an operation. Decide whether the question asks you to combine or compare."
+      "phraseMeaning": "Pair the groups. Count what is left.",
+      "guidance": "“In all” asks you to join the groups. “Difference,” “how many more,” and “how many fewer” ask how far apart the groups are. Pairing shows that distance."
     },
     {
       "id": "memory-hook",
       "type": "memoryHook",
       "label": "Remember",
-      "title": "Difference means distance.",
-      "hook": "Difference = the gap between two amounts",
-      "body": "The difference is a relationship between the amounts, not either amount by itself."
+      "title": "Difference is what is left after pairing.",
+      "hook": "Larger number − smaller number = difference",
+      "body": "The difference is not either starting number. It is the number left after the smaller group is paired with part of the larger group."
     },
     {
       "id": "choose-equation",
@@ -132,14 +132,14 @@
         "topCount": 13,
         "bottomCount": 8,
         "revealGap": true,
-        "message": "Measure the unmatched part from the larger amount to the smaller amount."
+        "message": "Start with 13 top blocks. Eight receive partners. Which number sentence counts the top blocks left?"
       },
       "choices": [
         {
           "text": "13 - 8",
           "correct": true,
           "evidence": "subtraction_as_comparison",
-          "feedback": "Subtracting the smaller amount from the larger amount measures the difference."
+          "feedback": "Correct. Subtract the 8 paired blocks from the 13 top blocks. Five blocks are left, so the difference is 5."
         },
         {
           "text": "13 + 8",
@@ -153,8 +153,8 @@
         }
       ],
       "hints": [
-        "The question asks for the gap, not the combined total.",
-        "Start with the larger amount and subtract the smaller amount."
+        "Start with the 13 blocks in the larger row. Eight receive partners.",
+        "Subtract the 8 paired blocks from 13: 13 − 8."
       ]
     },
     {
@@ -182,7 +182,7 @@
         {"text": "5", "correct": false, "misconception": "object_instead_of_relationship"},
         {"text": "17", "correct": false, "misconception": "combine_instead_of_compare"}
       ],
-      "hints": ["Count the unmatched part.", "Use 12 − 5 to measure the difference."]
+      "hints": ["Pair each of the 5 bottom blocks with one top block.", "Seven top blocks are left. You can calculate 12 − 5 = 7."]
     },
     {
       "id": "independent-practice",
@@ -195,7 +195,7 @@
         {"text": "13", "correct": false, "misconception": "object_instead_of_relationship"},
         {"text": "33", "correct": false, "misconception": "combine_instead_of_compare"}
       ],
-      "hints": ["Difference asks how far apart the numbers are.", "Subtract 13 from 20."]
+      "hints": ["Imagine 20 marks in one row and 13 in another. Pair 13 marks from each row.", "Seven marks are left in the longer row. You can calculate 20 − 13 = 7."]
     },
     {
       "id": "recall",
@@ -206,9 +206,9 @@
       "choices": [
         {"text": "the larger amount", "correct": false, "misconception": "object_instead_of_relationship"},
         {"text": "their combined total", "correct": false, "misconception": "combine_instead_of_compare"},
-        {"text": "the gap between them", "correct": true, "evidence": "identified_gap", "feedback": "Difference names the gap, or distance, between the amounts."}
+        {"text": "the number left after the groups are paired", "correct": true, "evidence": "identified_gap", "feedback": "Correct. Pair one item from each group. The items left in the larger group show the difference."}
       ],
-      "hints": ["Recall the memory hook: difference means distance."]
+      "hints": ["Pair one item from each group until the smaller group runs out.", "Count the items left in the larger group. That count is the difference."]
     },
     {
       "id": "transfer",
@@ -221,7 +221,7 @@
         {"text": "64°F", "correct": false, "misconception": "object_instead_of_relationship"},
         {"text": "136°F", "correct": false, "misconception": "combine_instead_of_compare"}
       ],
-      "hints": ["Temperature difference is still the distance between two values.", "Subtract 64 from 72."]
+      "hints": ["Start at 64°F and count up until 72°F. The number of degrees counted is the difference.", "Eight degrees separate 64°F and 72°F. You can calculate 72 − 64 = 8."]
     },
     {
       "id": "reflection",
@@ -237,10 +237,10 @@
           "misconception": "object_instead_of_relationship"
         },
         {
-          "text": "Difference means the gap between two amounts.",
+          "text": "Difference is the number left after two groups are paired.",
           "correct": true,
           "evidence": "identified_gap",
-          "feedback": "The difference describes how far apart the amounts are."
+          "feedback": "Correct. The number left after pairing tells how far apart the two groups are."
         },
         {
           "text": "Difference means add the amounts together.",
@@ -249,8 +249,8 @@
         }
       ],
       "hints": [
-        "Think about the highlighted unmatched blocks.",
-        "Difference describes a relationship between two amounts."
+        "Pair the blocks one for one. The highlighted blocks are left without partners.",
+        "Count the highlighted blocks. That number is called the difference."
       ]
     },
     {
