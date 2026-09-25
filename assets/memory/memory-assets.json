@@ -142,7 +142,7 @@
         "memoryHook": {
           "title": "Total shared into groups gives one share.",
           "hook": "Total ÷ number of groups = amount in each group",
-          "body": "Rebuild the division from the story instead of reacting to a keyword."
+          "body": "The ÷ sign means sharing a total into equal groups. The × sign means counting equal groups together: 3 groups of 4 are 4 + 4 + 4 = 12. Rebuild the division from the story instead of reacting to a keyword."
         },
         "independent": {
           "prompt": "Twenty-four feet of board is cut into 8 equal sections. How long is each section?",
@@ -290,7 +290,7 @@
           "answer": "Because it measures a one-dimensional distance along the boundary"
         },
         "transfer": {
-          "prompt": "A 3-by-8 rectangle and a 4-by-6 rectangle each have area 24 square units. Which needs more edging?",
+          "prompt": "A 3-by-8 rectangle and a 4-by-6 rectangle each have area 24 square units: each covers 24 equal squares inside. Which needs more edging around its outside?",
           "choices": [
             "They need the same amount of edging because equal areas always create equal outside boundaries",
             "The 3-by-8 rectangle: its perimeter is 22 units, compared with 20 units",
@@ -507,7 +507,7 @@
         "memoryHook": {
           "title": "El total repartido entre grupos da una parte.",
           "hook": "Total ÷ número de grupos = cantidad de cada grupo",
-          "body": "Reconstruye la división desde la situación en vez de reaccionar a una palabra clave."
+          "body": "El signo ÷ significa repartir un total entre grupos iguales. El signo × significa contar grupos iguales juntos: 3 grupos de 4 son 4 + 4 + 4 = 12. Reconstruye la división desde la situación en vez de reaccionar a una palabra clave."
         },
         "independent": {
           "prompt": "Una tabla de 24 pies se corta en 8 secciones iguales. ¿Cuánto mide cada sección?",
@@ -655,7 +655,7 @@
           "answer": "Porque mide una distancia unidimensional a lo largo del borde"
         },
         "transfer": {
-          "prompt": "Un rectángulo de 3 por 8 y uno de 4 por 6 tienen un área de 24 unidades cuadradas. ¿Cuál necesita más borde?",
+          "prompt": "Un rectángulo de 3 por 8 y otro de 4 por 6 tienen un área de 24 unidades cuadradas: cada uno cubre 24 cuadrados iguales en su interior. ¿Cuál necesita más material alrededor del borde exterior?",
           "choices": [
             "Necesitan el mismo borde porque áreas iguales siempre producen bordes exteriores iguales",
             "El de 3 por 8: su perímetro es 22 unidades, comparado con 20 unidades",
