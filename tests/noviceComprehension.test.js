@@ -7,6 +7,61 @@ const names=["lesson005.json","lesson006.json","lesson007.json","lesson008.json"
 const read=path=>JSON.parse(fs.readFileSync(new URL(`../${path}`,import.meta.url)));
 const get=(lesson,type)=>lesson.screens.find(screen=>screen.type===type);
 
+test("lesson001 teaches the comparison action before naming it",()=>{
+  const lesson=read("curriculum/lessons/lesson001.json");
+  const intro=get(lesson,"intro");
+  assert.match(intro.body,/pair one item/i);
+  assert.match(intro.body,/count the items left/i);
+  assert.doesNotMatch(intro.body,/\bgap\b|\bcomparison\b|\bamount\b/i);
+
+  const firstQuestion=get(lesson,"misconception");
+  const correct=firstQuestion.choices.find(choice=>choice.correct);
+  assert.doesNotMatch(correct.text,/\bgap\b|\brelationship\b|\bamount\b/i);
+  assert.match(correct.feedback,/pair .*8 stickers/i);
+
+  const language=get(lesson,"language");
+  assert.deepEqual(language.phrases,["How many more?"]);
+  assert.match(language.guidance,/“In all” or “altogether”/i);
+
+  for(const type of ["misconception","discover","symbol","guidedPractice","independentPractice","recall","transfer","reflection"]){
+    const screen=get(lesson,type);
+    assert.ok(screen.hints.length>=2,`${type} needs a worked second hint`);
+    assert.ok(screen.hints.some(hint=>/pair|count|subtract|calculate|blocks were paired/i.test(hint)),`${type} hints must tell the learner what action to take`);
+  }
+});
+
+test("lesson001 keeps the same plain-language scaffolding in Spanish",()=>{
+  const english=read("curriculum/lessons/lesson001.json");
+  const spanish=applyTranslation(english,read("curriculum/translations/es/lesson001.json"));
+  assert.match(get(spanish,"intro").body,/Forma una pareja/i);
+  assert.doesNotMatch(get(spanish,"intro").body,/\bdiferencia\b|\bcomparar\b|\bcantidad\b/i);
+  assert.deepEqual(get(spanish,"language").phrases,["¿Cuántos más?"]);
+  for(const type of ["misconception","discover","symbol","guidedPractice","independentPractice","recall","transfer","reflection"]){
+    assert.ok(get(spanish,type).hints.length>=2,`${type} needs two Spanish hints`);
+  }
+});
+
+for(const name of ["lesson002.json","lesson003.json","lesson004.json"]){
+  test(`${name} replaces abstract comparison hints with executable steps`,()=>{
+    const lesson=read(`curriculum/lessons/${name}`);
+    assert.match(get(lesson,"intro").body,/pair|subtract/i);
+    for(const type of ["misconception","discover","symbol","guidedPractice","independentPractice","recall","transfer"]){
+      const screen=get(lesson,type);
+      assert.ok(screen.hints.length>=2,`${type} needs layered support`);
+      assert.ok(screen.hints.some(hint=>/pair|count|subtract|remove|start|calculate/i.test(hint)),`${type} must give a concrete action`);
+    }
+  });
+
+  test(`${name} preserves the concrete steps in Spanish`,()=>{
+    const english=read(`curriculum/lessons/${name}`);
+    const spanish=applyTranslation(english,read(`curriculum/translations/es/${name}`));
+    assert.match(get(spanish,"intro").body,/pareja|resta/i);
+    for(const type of ["misconception","discover","symbol","guidedPractice","independentPractice","recall","transfer"]){
+      assert.ok(get(spanish,type).hints.length>=2,`${type} needs layered Spanish support`);
+    }
+  });
+}
+
 for(const name of names){
   test(`${name} is understandable as a first exposure`,()=>{
     const lesson=read(`curriculum/lessons/${name}`);
