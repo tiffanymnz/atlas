@@ -1,6 +1,8 @@
-import { renderConceptVisual, renderChoiceScreen, localizeChoiceState, renderLanguage, renderEquation, renderComplete } from "../sdk/components/lessonComponents.js?v=2.0";
+import { renderConceptVisual, renderChoiceScreen, localizeChoiceState, renderLanguage, renderEquation, renderComplete } from "../sdk/components/lessonComponents.js?v=2.1";
 import { createAnalytics, showAnalytics } from "./analytics-engine/analyticsEngine.js";
 import { recommendNext } from "./recommendation-engine/recommendationEngine.js";
+import { assessNextLessonReadiness } from "./recommendation-engine/readiness.js";
+import { nextConceptId } from "./recommendation-engine/lessonSequence.js";
 import { getPreferences, savePreferences, ensureLessonRecord, saveLessonRecord, getAllLessonRecords, archiveCompletedAttempt, newLessonAttempt, resolveLessonPosition, getLastLessonPath, saveLastLessonPath } from "./state-store/stateStore.js?v=1.5";
 import { loadLocalizedLesson } from "./i18n/lessonLocale.js";
 
@@ -38,7 +40,12 @@ function persist(){
   saveLessonRecord(lesson.metadata.id, lessonRecord);
 }
 function emit(type,payload={}){ analytics.record({type, screen:index, component:current()?.type, payload}); syncAttemptEvents(); persist(); }
-function hasNextLesson(){ return lessonSelect.selectedIndex < lessonSelect.options.length - 1; }
+function hasNextLesson(){
+  const next=lessonSelect.options[lessonSelect.selectedIndex+1];
+  if(!next) return false;
+  const nextId=nextConceptId(lesson);
+  return !!nextId && next.dataset.concept===nextId;
+}
 function refreshLessonOptions(){
   const records=new Map(getAllLessonRecords().map(record=>[record.path,record]));
   for(const option of lessonSelect.options){
@@ -203,9 +210,15 @@ function render(){
   if(screen.type==="complete"){
     markCompleted();
     const hasNext = hasNextLesson();
+    const readiness=assessNextLessonReadiness(lesson,analytics.events());
     const completionCopy={...copy()};
     if(!lesson.screens.some(item=>item.visual?.revealGap === true)) completionCopy.reviewVisualGap=copy().reviewModel;
-    root.innerHTML = renderComplete(screen, recommendNext(lesson, analytics.summary(), screen, hasNext,language), hasNext,completionCopy);
+    const recommendation=readiness.ready
+      ? recommendNext(lesson, analytics.summary(), screen, hasNext,language)
+      : language==="es"
+        ? "Terminaste la lección. Repasa y vuelve a intentarlo: las prácticas independiente, de recuerdo y de transferencia deben resolverse correctamente sin pistas ni intentos previos. Esto no prueba comprensión por sí solo."
+        : "You finished the lesson. Review and try again: independent practice, recall, and transfer need correct first answers without hints. This alone does not prove understanding.";
+    root.innerHTML = renderComplete(screen,recommendation,hasNext&&readiness.ready,completionCopy);
     el("restartBtn").onclick = restart;
     const reviewBtn = el("reviewBtn");
     if(reviewBtn) reviewBtn.onclick = reviewVisualGap;
