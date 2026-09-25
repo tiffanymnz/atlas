@@ -54,7 +54,9 @@ export async function auditRelease(root=projectRoot){
   const htmlFiles=(await walk(root)).filter(path=>extname(path)===".html"&&!(path.includes("/.git/")||path.includes("/node_modules/")));
   for(const absolute of htmlFiles){
     const source=relative(root,absolute),html=await readFile(absolute,"utf8");
-    const values=[...html.matchAll(/(?:href|src|value)="([^"]+)"/g)].map(match=>match[1]);
+    // Only URL-bearing attributes are file references. Form values may be
+    // languages, numeric defaults, answer tokens, or other application data.
+    const values=[...html.matchAll(/(?:href|src)="([^"]+)"/g)].map(match=>match[1]);
     const refresh=[...html.matchAll(/http-equiv="refresh"[^>]+content="[^"]*url=([^";]+)[^"]*"/gi)].map(match=>match[1].trim());
     for(const value of [...values,...refresh].filter(localReference)){
       const target=normalizeTarget(source,value,root);
