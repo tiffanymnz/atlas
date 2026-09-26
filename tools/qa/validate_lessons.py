@@ -80,16 +80,19 @@ for path in sorted(lesson_dir.glob("*.json")):
     screen_types=[screen.get("type") for screen in screens]
     screen_ids=[screen.get("id") for screen in screens]
     if data.get("schema_version") != "3.0": errors.append(f"{path.name}: schema_version must be 3.0")
-    if screen_types != required_types: errors.append(f"{path.name}: memory-first screen sequence must be {' -> '.join(required_types)}")
+    expected_types=required_types
+    if path.name=="lesson001.json":
+        expected_types=["intro","count","count","observe","discover","language","memoryHook","misconception","symbol","equationReveal","guidedPractice","independentPractice","recall","transfer","reflection","complete"]
+    if screen_types != expected_types: errors.append(f"{path.name}: screen sequence must be {' -> '.join(expected_types)}")
     if any(not isinstance(screen_id,str) or not screen_id for screen_id in screen_ids): errors.append(f"{path.name}: every screen needs a stable id")
     if len(set(screen_ids)) != len(screen_ids): errors.append(f"{path.name}: screen ids must be unique")
     if not screens or screens[0].get("type") != "intro": errors.append(f"{path.name}: first screen must be intro")
     if not screens or screens[-1].get("type") != "complete": errors.append(f"{path.name}: last screen must be complete")
     for i,screen in enumerate(data.get("screens",[])):
-        if screen.get("type") in ["misconception","discover","symbol","guidedPractice","independentPractice","recall","transfer","reflection"]:
+        if screen.get("type") in ["count","misconception","discover","symbol","guidedPractice","independentPractice","recall","transfer","reflection"]:
             choices=screen.get("choices",[])
             if sum(choice.get("correct") is True for choice in choices) != 1: errors.append(f"{path.name} screen {i}: expected exactly one correct choice")
-        if screen.get("type") in ["misconception","discover","symbol","guidedPractice","independentPractice","recall","transfer"]:
+        if screen.get("type") in ["count","misconception","discover","symbol","guidedPractice","independentPractice","recall","transfer"]:
             choices=screen.get("choices",[])
             for c in choices:
                 if c.get("correct") is False and "misconception" not in c: errors.append(f"{path.name} screen {i}: wrong choice missing misconception")
