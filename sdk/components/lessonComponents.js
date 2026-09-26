@@ -5,7 +5,7 @@ export function renderComparisonBlocks(visual,label="Comparison model"){
   const msg = visual?.message || "";
   const shared = Math.min(top,bottom);
   function row(count,isBottom){
-    let html = `<div class="blockRow">`;
+    let html = `<div class="blockRow" style="--columns:${Math.max(top,bottom)}">`;
     for(let i=0;i<count;i++){
       let cls = "block";
       if(isBottom) cls += " bottom";
@@ -15,7 +15,7 @@ export function renderComparisonBlocks(visual,label="Comparison model"){
     }
     return html + `</div>`;
   }
-  return `<div class="stage" role="img" aria-label="${label}">${row(top,false)}${row(bottom,true)}<div class="visualMsg">${msg}</div></div>`;
+  return `<div class="stage" role="img" aria-label="${visual?.ariaLabel || label}"><div class="comparisonRows">${row(top,false)}${row(bottom,true)}</div><div class="visualMsg">${msg}</div></div>`;
 }
 function renderEqualGroups(visual,label){
   const groups=Math.max(1,Number(visual?.groups)||1),items=Math.max(0,Number(visual?.itemsPerGroup)||0);
