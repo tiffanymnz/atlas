@@ -33,6 +33,9 @@ function normalizeAttempt(value){
 }
 function normalizeRecord(value,lesson,path){
   const saved=object(value)?value:{};
+  const curriculumRevision=Math.max(1,Number(lesson.metadata.contentRevision)||1);
+  const previousRevision=Math.max(1,Number(saved.curriculumRevision)||1);
+  const needsIntroduction=!!value && previousRevision<curriculumRevision;
   const statuses=new Set(["not_started","in_progress","completed"]);
   const currentAttempt=normalizeAttempt(saved.currentAttempt);
   const screenStates=object(saved.screenStates)?Object.fromEntries(Object.entries(saved.screenStates).filter(([,state])=>object(state))):{};
@@ -43,8 +46,9 @@ function normalizeRecord(value,lesson,path){
     path:typeof path==="string"?path:"",
     title:lesson.metadata.title,
     status:currentAttempt.completed?"completed":statuses.has(saved.status)?saved.status:"not_started",
-    index:Number.isFinite(Number(saved.index))?Math.max(0,Math.floor(Number(saved.index))):0,
-    screenId:typeof saved.screenId==="string"&&saved.screenId?saved.screenId:null,
+    index:needsIntroduction?0:Number.isFinite(Number(saved.index))?Math.max(0,Math.floor(Number(saved.index))):0,
+    screenId:needsIntroduction?lesson.screens[0]?.id||null:typeof saved.screenId==="string"&&saved.screenId?saved.screenId:null,
+    curriculumRevision,
     screenStates,
     currentAttempt,
     priorCompletedAttempts:priorCompletedAttempts.filter(item=>item.id!==currentAttempt.id&&!seen.has(item.id)&&seen.add(item.id)),
