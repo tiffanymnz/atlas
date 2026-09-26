@@ -28,7 +28,7 @@
       "type": "intro",
       "label": "Lesson 001",
       "title": "How many more?",
-      "body": "Put two groups side by side. Pair one item in the first group with one item in the second group. Count the items left without partners. That number tells how many more."
+      "body": "Mia has 5 buttons. Jay has 3. Put one of Mia’s buttons beside each of Jay’s buttons. Two of Mia’s buttons have nothing beside them. Mia has 2 more buttons than Jay."
     },
     {
       "id": "misconception",
@@ -48,12 +48,13 @@
       "legacyIndex": 1,
       "type": "observe",
       "label": "Observe",
-      "title": "Pair the blocks in the two rows.",
+      "title": "Look at the two rows of blocks.",
       "visual": {
         "topCount": 15,
         "bottomCount": 9,
         "revealGap": false,
-        "message": "Each bottom block is directly below a top block. Those blocks are partners. The top row still has blocks left."
+        "ariaLabel": "Two rows of blocks line up from the left. The top row has 15 blocks. The bottom row has 9 blocks, each directly below a top block.",
+        "message": "Each green block has one blue block above it. The blocks above and below go together. Some top blocks have no block below them."
       },
       "nextLabel": "Show what is left"
     },
@@ -62,35 +63,36 @@
       "legacyIndex": 2,
       "type": "discover",
       "label": "Discover",
-      "title": "What do the glowing blocks show?",
+      "title": "What do the yellow blocks tell us?",
       "visual": {
         "topCount": 15,
         "bottomCount": 9,
         "revealGap": true,
-        "message": "The glowing blocks have no partner in the bottom row. Count them to find how many more blocks are in the top row."
+        "ariaLabel": "The top row has 15 blocks. The bottom row has 9 aligned beneath the first 9 top blocks. Six yellow top blocks have nothing below them.",
+        "message": "Look straight down from each yellow block. There is no green block below it. Count the yellow blocks."
       },
       "choices": [
         {
-          "text": "The total",
+          "text": "All the blocks in both rows",
           "correct": false,
           "misconception": "combine_instead_of_compare"
         },
         {
-          "text": "How many blocks are left after pairing",
+          "text": "How many extra blocks the top row has",
           "correct": true,
           "evidence": "identified_gap",
-          "feedback": "Correct. Pair the first 9 top blocks with the 9 bottom blocks. The 6 glowing blocks are left without partners, so the top row has 6 more."
+          "feedback": "Yes. The 9 green blocks each have a blue block above them. Six yellow blocks have no green block below. The top row has 6 more blocks."
         },
         {
-          "text": "The smaller group",
+          "text": "How many blocks are in the bottom row",
           "correct": false,
           "misconception": "object_instead_of_relationship"
         }
       ],
       "hints": [
-        "Start at the left. Give each bottom block one partner from the top row.",
-        "Nine pairs can be made. The glowing top blocks do not have partners.",
-        "Count the 6 glowing blocks. They tell how many more are in the top row."
+        "Look at the first green block. Which blue block is right above it? Now look at the next green block.",
+        "Each of the 9 green blocks has a blue block above it. The yellow blocks do not have a green block below.",
+        "Count the 6 yellow blocks. The top row has 6 more blocks than the bottom row."
       ]
     },
     {
@@ -103,33 +105,33 @@
         "topCount": 15,
         "bottomCount": 9,
         "revealGap": true,
-        "message": "First pair the two groups. Then count what is left in the larger group."
+        "message": "Each green block has a blue block above it. Count the yellow blocks with nothing below them."
       },
       "phrases": [
         "How many more?"
       ],
-      "phraseMeaning": "Pair the groups. Count what is left.",
-      "guidance": "“In all” or “altogether” asks you to join the groups. “How many more” asks you to pair the groups and count what is left in the larger group."
+      "phraseMeaning": "Count the extra blocks.",
+      "guidance": "“In all” asks how many blocks both rows have together. “How many more” asks how many extra blocks are in one row. Here, count the 6 yellow blocks."
     },
     {
       "id": "memory-hook",
       "type": "memoryHook",
       "label": "Remember",
-      "title": "Pair. Count what is left.",
-      "hook": "Larger number − smaller number = how many are left",
-      "body": "The minus sign (−) means subtract. Here, subtraction counts the items left after the two groups are paired."
+      "title": "Line them up. Count the extras.",
+      "hook": "15 on top. 9 have a block below. 6 do not. 15 − 9 = 6.",
+      "body": "The − sign means take away. Start with 15 top blocks. Take away the 9 that have a green block below. Six yellow blocks remain. This is called subtraction."
     },
     {
       "id": "choose-equation",
       "legacyIndex": 4,
       "type": "symbol",
       "label": "Symbol",
-      "title": "Which number sentence counts what is left?",
+      "title": "Which way shows the 6 extra blocks?",
       "visual": {
         "topCount": 15,
         "bottomCount": 9,
         "revealGap": true,
-        "message": "There are 15 top blocks and 9 bottom blocks. Pair 9 from each row. Which number sentence finds the top blocks left over?"
+        "message": "There are 15 blocks on top. Nine have a green block below them. Six do not. Start with 15 and take away 9."
       },
       "choices": [
         {
@@ -159,12 +161,12 @@
       "legacyIndex": 5,
       "type": "equationReveal",
       "label": "Reveal",
-      "title": "Subtraction counts what is left.",
+      "title": "Start with 15. Take away 9. Six remain.",
       "visual": {
         "topCount": 15,
         "bottomCount": 9,
         "revealGap": true,
-        "message": "Fifteen top blocks minus the 9 paired blocks leaves 6 unpaired blocks."
+        "message": "Of the 15 top blocks, 9 have a green block below them. Six yellow blocks do not. That is what 15 − 9 = 6 shows."
       },
       "equation": "15 - 9 = 6"
     },
@@ -172,14 +174,14 @@
       "id": "guided-practice",
       "type": "guidedPractice",
       "label": "Guided practice",
-      "title": "How many top shells are left without partners?",
-      "visual": {"topCount": 11, "bottomCount": 7, "revealGap": true, "message": "Pair 7 top shells with the 7 bottom shells. The glowing top shells are left without partners."},
+      "title": "How many yellow blocks are left on top?",
+      "visual": {"topCount": 11, "bottomCount": 7, "revealGap": true, "message": "Each green block has one blue block above it. Count the yellow blocks with nothing below them."},
       "choices": [
-        {"text": "4", "correct": true, "evidence": "identified_gap", "feedback": "Correct. Seven pairs use 7 of the 11 top shells. Four top shells are left, so 11 is 4 more than 7."},
+        {"text": "4", "correct": true, "evidence": "identified_gap", "feedback": "Yes. Seven green blocks each have one above them. Four yellow blocks have nothing below them. The top row has 4 more blocks."},
         {"text": "18", "correct": false, "misconception": "combine_instead_of_compare"},
         {"text": "7", "correct": false, "misconception": "object_instead_of_relationship"}
       ],
-      "hints": ["Start on the left. Pair each of the 7 bottom shells with one top shell.", "Seven of the 11 top shells have partners. Count the 4 glowing shells that are left."]
+      "hints": ["Start on the left. Point to a green block, then the blue block right above it. Do this for all 7 green blocks.", "There are 4 yellow blocks with nothing below them. Count those 4 blocks to find how many more are on top."]
     },
     {
       "id": "independent-practice",
