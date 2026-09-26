@@ -8,9 +8,9 @@
         "title": "How many more?",
         "learningGoal": "Understand that 'how many more' asks how many items are left after two groups are paired.",
         "memoryHook": {
-          "title": "Pair. Count what is left.",
-          "hook": "Larger number − smaller number = how many are left",
-          "body": "The minus sign (−) means subtract. Here, subtraction counts the items left after the two groups are paired."
+          "title": "Line them up. Count the extras.",
+          "hook": "15 on top. 9 have a block below. 6 do not. 15 − 9 = 6.",
+          "body": "The − sign means take away. Start with 15 top blocks. Take away the 9 that have a green block below. Six yellow blocks remain. This is called subtraction."
         },
         "independent": {
           "prompt": "Nia read 16 pages. Theo read 9 pages. How many more pages did Nia read?",
@@ -373,9 +373,9 @@
         "title": "¿Cuántos más?",
         "learningGoal": "Comprender que «cuántos más» pregunta cuántos elementos quedan después de formar parejas entre dos grupos.",
         "memoryHook": {
-          "title": "Forma parejas. Cuenta lo que queda.",
-          "hook": "Número mayor − número menor = cuántos quedan",
-          "body": "El signo menos (−) significa restar. Aquí, restar cuenta los elementos que quedan después de formar parejas entre los dos grupos."
+          "title": "Ponlos en fila. Cuenta los que sobran.",
+          "hook": "15 arriba. 9 tienen uno debajo. 6 no tienen. 15 − 9 = 6.",
+          "body": "El signo − significa quitar. Empieza con 15 bloques arriba. Quita los 9 que tienen uno verde debajo. Quedan 6 bloques amarillos. Eso se llama restar."
         },
         "independent": {
           "prompt": "Nia leyó 16 páginas. Theo leyó 9 páginas. ¿Cuántas páginas más leyó Nia?",

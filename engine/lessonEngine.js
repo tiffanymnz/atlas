@@ -1,4 +1,4 @@
-import { renderConceptVisual, renderChoiceScreen, localizeChoiceState, renderLanguage, renderEquation, renderComplete } from "../sdk/components/lessonComponents.js?v=2.1";
+import { renderConceptVisual, renderChoiceScreen, localizeChoiceState, renderLanguage, renderEquation, renderComplete } from "../sdk/components/lessonComponents.js?v=2.2";
 import { createAnalytics, showAnalytics } from "./analytics-engine/analyticsEngine.js";
 import { recommendNext } from "./recommendation-engine/recommendationEngine.js";
 import { assessNextLessonReadiness } from "./recommendation-engine/readiness.js";
@@ -15,8 +15,8 @@ let modalReturnFocus = null;
 const root = document.getElementById("lessonRoot");
 const lessonSelect = document.getElementById("lessonSelect");
 const COPY={
-  en:{language:"Español",dark:"Dark mode",light:"Light mode",bigger:"Bigger text",normal:"Normal text",reduce:"Reduce motion",allow:"Allow motion",summary:"Learning summary",memoryAssets:"Memory practice",progress:"Progress",progressBar:"Lesson progress",skip:"Skip to lesson",chooseLesson:"Choose a lesson",choices:"Answer choices",close:"Close",lesson:"Lesson",continue:"Continue",back:"Back",next:"Next",reflect:"Reflect",hint:"Hint",checkAnswer:"Check answer",correct:"Correct.",lookAgain:"Look again.",fallbackHint:"Look at what the problem is asking you to find.",start:"Start lesson",resume:"Resume lesson",review:"Review lesson",complete:"Complete",nextLesson:"Next lesson",reviewVisualGap:"Review visual gap",reviewModel:"Review the model",restartLesson:"Restart lesson",completed:"Completed",inProgress:"In progress"},
-  es:{language:"English",dark:"Modo oscuro",light:"Modo claro",bigger:"Texto más grande",normal:"Texto normal",reduce:"Reducir movimiento",allow:"Permitir movimiento",summary:"Resumen de aprendizaje",memoryAssets:"Práctica de memoria",progress:"Progreso",progressBar:"Progreso de la lección",skip:"Saltar a la lección",chooseLesson:"Elige una lección",choices:"Opciones de respuesta",close:"Cerrar",lesson:"Lección",continue:"Continuar",back:"Atrás",next:"Siguiente",reflect:"Reflexionar",hint:"Pista",checkAnswer:"Comprobar respuesta",correct:"Correcto.",lookAgain:"Inténtalo de nuevo.",fallbackHint:"Observa lo que el problema te pide encontrar.",start:"Comenzar lección",resume:"Continuar lección",review:"Repasar lección",complete:"Completada",nextLesson:"Próxima lección",reviewVisualGap:"Repasar la diferencia visual",reviewModel:"Repasar el modelo",restartLesson:"Reiniciar lección",completed:"Completada",inProgress:"En progreso"}
+  en:{language:"Español",dark:"Dark mode",light:"Light mode",bigger:"Bigger text",normal:"Normal text",reduce:"Reduce motion",allow:"Allow motion",summary:"Learning summary",memoryAssets:"Memory practice",progress:"Progress",progressBar:"Lesson progress",skip:"Skip to lesson",chooseLesson:"Choose a lesson",choices:"Answer choices",close:"Close",lesson:"Lesson",continue:"Continue",back:"Back",next:"Next",reflect:"Reflect",hint:"Hint",checkAnswer:"Check answer",correct:"Correct.",lookAgain:"Look again.",fallbackHint:"Look at what the problem is asking you to find.",start:"Start lesson",resume:"Resume lesson",review:"Review lesson",complete:"Complete",nextLesson:"Next lesson",reviewVisualGap:"Review visual gap",reviewModel:"Review the model",restartLesson:"Restart lesson",newAttempt:"Try lesson again (new answers)",completed:"Completed",inProgress:"In progress"},
+  es:{language:"English",dark:"Modo oscuro",light:"Modo claro",bigger:"Texto más grande",normal:"Texto normal",reduce:"Reducir movimiento",allow:"Permitir movimiento",summary:"Resumen de aprendizaje",memoryAssets:"Práctica de memoria",progress:"Progreso",progressBar:"Progreso de la lección",skip:"Saltar a la lección",chooseLesson:"Elige una lección",choices:"Opciones de respuesta",close:"Cerrar",lesson:"Lección",continue:"Continuar",back:"Atrás",next:"Siguiente",reflect:"Reflexionar",hint:"Pista",checkAnswer:"Comprobar respuesta",correct:"Correcto.",lookAgain:"Inténtalo de nuevo.",fallbackHint:"Observa lo que el problema te pide encontrar.",start:"Comenzar lección",resume:"Continuar lección",review:"Repasar lección",complete:"Completada",nextLesson:"Próxima lección",reviewVisualGap:"Repasar la diferencia visual",reviewModel:"Repasar el modelo",restartLesson:"Reiniciar lección",newAttempt:"Intentar de nuevo (respuestas nuevas)",completed:"Completada",inProgress:"En progreso"}
 };
 function copy(){ return COPY[language]; }
 function el(id){ return document.getElementById(id); }
@@ -53,6 +53,7 @@ function refreshLessonOptions(){
     const status=records.get(option.value)?.status;
     option.textContent=baseLabel+(status==="completed"?` — ${copy().completed}`:status==="in_progress"?` — ${copy().inProgress}`:"");
   }
+  el("newAttemptBtn").hidden = lessonRecord?.status!=="completed";
 }
 function goToNextLesson(){ if(hasNextLesson()){ persist(); lessonSelect.selectedIndex += 1; loadLesson(lessonSelect.value); } }
 function reviewVisualGap(){
@@ -81,6 +82,7 @@ function applyPreferences(){
   el("motionBtn").setAttribute("aria-pressed",String(reduce));
   el("analyticsBtn").textContent=copy().summary;
   el("memoryAssetsLink").textContent=copy().memoryAssets;
+  el("newAttemptBtn").textContent=copy().newAttempt;
   el("analyticsTitle").textContent=copy().summary;
   el("progressLabel").textContent=copy().progress;
   el("closeAnalytics").textContent=copy().close;
@@ -346,6 +348,7 @@ el("textBtn").onclick = function(){ big=!big; applyPreferences(); persistPrefere
 el("motionBtn").onclick = function(){ reduce=!reduce; applyPreferences(); persistPreferences(); };
 el("languageBtn").onclick = async function(){ language=language==="en"?"es":"en"; persistPreferences(); applyPreferences(); await loadLesson(lessonPath||lessonSelect.value); };
 lessonSelect.onchange = () => loadLesson(lessonSelect.value);
+el("newAttemptBtn").onclick = restart;
 
 window.addEventListener("beforeunload", persist);
 document.addEventListener("visibilitychange", () => { if(document.visibilityState === "hidden") persist(); });
