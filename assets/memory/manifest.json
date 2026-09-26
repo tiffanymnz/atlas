@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "generator": "tools/build/generate_memory_assets.mjs",
-  "sourceDigest": "65749232efd259e7ba393639106df444626e6d09ccdb7d4a0d5a1ac1f85715c6",
+  "sourceDigest": "4b9e814c656ae680003aba20e10f6d2db33bfe82c2b9d8eff3460a5276166cd4",
   "sources": [
     "curriculum/lessons/lesson001.json",
     "curriculum/translations/es/lesson001.json",
@@ -41,12 +41,12 @@
   ],
   "outputs": {
     "index.html": "f3ff939071a198c73042c02850144a9f0f3b936861b61ff1bd1ebe9346231c08",
-    "memory-assets.json": "f9dc7ba1c97e289e4d09979a97ee9c977677bfa4e8643dd415345813881226b0",
-    "en/flashcards.html": "0b7c0207b3e757c67d5b618431e222ddb83b11bfbd2b619d631f7d5fd961837e",
-    "en/worksheet.html": "19ecd60cf65bb0e39f8736cc602b043ed521d5a61b53e8658523b17bb4fedc6b",
-    "en/quiz.html": "1cd71810fb35f37b8f68100b0f95e43ec97a0bf740fcf25ff3208db348df3393",
-    "es/flashcards.html": "4dc319e33534466eb12990190e17455d25e771b8aa5dbad68a2fc4f02c1862d0",
-    "es/worksheet.html": "f7433e93d1700ccaa5827bfda543f18f78dc7f817ea46e63858272fdecb5ab34",
-    "es/quiz.html": "2a2f89d4ac7744454c46353b60545c23a74348952a85954dca1fdcb5e11c6eff"
+    "memory-assets.json": "16cf60acefeabc92376fc1ed624dfe9b265f68ceb083df122ac474dbc43e2598",
+    "en/flashcards.html": "adf3c9de84c10ee79e141ba4e5876d68030be462ce1be28810a195bb85561a44",
+    "en/worksheet.html": "b7ed6553e0fa29ad752faf8c51d01a0c51245e2e90298905cc151b64972a3027",
+    "en/quiz.html": "c1e3ca9e7a3496f1b25736cfca7dc6cfdbf494cc783aaf7215dac92587e6d2b6",
+    "es/flashcards.html": "08f98179f9f99bae95e4e9a5e2b24044f66d70656fe18c7b57bcefbf92486d4c",
+    "es/worksheet.html": "bcc8bf55574eea4ed8cd2bff709cfadab58a5cc0ffb72b80f52942fae6a67904",
+    "es/quiz.html": "ec19942f7b7dba3a605bb01d1f44cd49aa3a3389cb0cc9b2bbcefe37cfe98b33"
   }
 }
