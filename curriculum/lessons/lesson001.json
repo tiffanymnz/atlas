@@ -6,11 +6,16 @@
     "domain": "Mathematics",
     "subject": "Arithmetic",
     "course": "Number Sense",
-    "unit": "Comparison"
+    "unit": "Comparison",
+    "contentRevision": 2
   },
   "learning": {
-    "learning_goal": "Understand that 'how many more' asks how many items are left after two groups are paired.",
-    "big_idea": "Pair one item from each group. Count what is left in the larger group."
+    "learning_goal": "Compare two counted groups and connect “how many more,” difference, and subtraction.",
+    "big_idea": "Match one blue and one red. The extra blue buttons show the difference.",
+    "assumed_prior_knowledge": [
+      "Count objects one by one up to 20 and know the last number said is the total.",
+      "Match one item from one group with one item from another group."
+    ]
   },
   "concepts": {
     "primary_concept": "comparison.more",
@@ -26,162 +31,305 @@
       "id": "intro",
       "legacyIndex": 0,
       "type": "intro",
-      "label": "Lesson 001",
+      "label": "Comparison 1",
       "title": "How many more?",
-      "body": "Mia has 5 buttons. Jay has 3. Put one of Mia’s buttons beside each of Jay’s buttons. Two of Mia’s buttons have nothing beside them. Mia has 2 more buttons than Jay."
+      "body": "First, count the blue and red buttons. Then see how many more blue buttons there are.",
+      "callout": "This is the first comparison lesson, not the first math lesson. You need to count objects to 20 and match them one to one. Earlier lessons are being built."
     },
     {
-      "id": "misconception",
-      "type": "misconception",
-      "label": "Misconception",
-      "title": "What does “how many more” ask us to find?",
-      "prompt": "Ava has 14 stickers. Luis has 8. How many more stickers does Ava have?",
+      "id": "count-blue",
+      "type": "count",
+      "label": "Count",
+      "title": "How many blue buttons?",
+      "visual": {
+        "kind": "comparisonButtons",
+        "topCount": 10,
+        "bottomCount": 5,
+        "step": "count",
+        "revealGap": false,
+        "topLabel": "Blue buttons",
+        "bottomLabel": "Red buttons",
+        "ariaLabel": "Ten blue buttons in the top row and five red buttons in the bottom row.",
+        "message": "Count the blue buttons."
+      },
       "choices": [
-        {"text": "22, because more means add", "correct": false, "misconception": "combine_instead_of_compare"},
-        {"text": "14, because Ava has more", "correct": false, "misconception": "object_instead_of_relationship"},
-        {"text": "6, because 6 of Ava’s stickers have no partner", "correct": true, "evidence": "identified_gap", "feedback": "Pair Luis’s 8 stickers with 8 of Ava’s 14 stickers. Ava has 6 stickers left, so she has 6 more."}
+        {
+          "text": "5",
+          "correct": false,
+          "misconception": "object_instead_of_relationship"
+        },
+        {
+          "text": "10",
+          "correct": true,
+          "feedback": "Yes. There are 10 blue buttons.",
+          "evidence": "counted_group"
+        },
+        {
+          "text": "15",
+          "correct": false,
+          "misconception": "combine_instead_of_compare"
+        }
       ],
-      "hints": ["Pair Luis’s 8 stickers with 8 of Ava’s stickers. Do not put both groups into one total.", "After making 8 pairs, Ava has 6 stickers left without partners. Count those 6 stickers."]
+      "hints": [
+        "Point to each blue button once. Count from left to right.",
+        "Count only the blue row. Stop when you reach its last button."
+      ]
+    },
+    {
+      "id": "count-red",
+      "type": "count",
+      "label": "Count",
+      "title": "How many red buttons?",
+      "visual": {
+        "kind": "comparisonButtons",
+        "topCount": 10,
+        "bottomCount": 5,
+        "step": "count",
+        "revealGap": false,
+        "topLabel": "Blue buttons",
+        "bottomLabel": "Red buttons",
+        "ariaLabel": "Ten blue buttons in the top row and five red buttons in the bottom row.",
+        "message": "Now count the red buttons."
+      },
+      "choices": [
+        {
+          "text": "10",
+          "correct": false,
+          "misconception": "object_instead_of_relationship"
+        },
+        {
+          "text": "15",
+          "correct": false,
+          "misconception": "combine_instead_of_compare"
+        },
+        {
+          "text": "5",
+          "correct": true,
+          "feedback": "Yes. There are 5 red buttons.",
+          "evidence": "counted_group"
+        }
+      ],
+      "hints": [
+        "Point to each red button once. Count from left to right.",
+        "Count only the red row. Stop when you reach its last button."
+      ]
     },
     {
       "id": "visual-model",
       "legacyIndex": 1,
       "type": "observe",
-      "label": "Observe",
-      "title": "Look at the two rows of blocks.",
+      "label": "Watch",
+      "title": "Watch the buttons make pairs.",
       "visual": {
-        "topCount": 15,
-        "bottomCount": 9,
+        "kind": "comparisonButtons",
+        "topCount": 10,
+        "bottomCount": 5,
+        "step": "pair",
         "revealGap": false,
-        "ariaLabel": "Two rows of blocks line up from the left. The top row has 15 blocks. The bottom row has 9 blocks, each directly below a top block.",
-        "message": "Each green block has one blue block above it. The blocks above and below go together. Some top blocks have no block below them."
+        "topLabel": "Blue buttons",
+        "bottomLabel": "Red buttons",
+        "ariaLabel": "Ten blue buttons above five red buttons. Rings form around five columns, each with one blue and one red button.",
+        "message": "Each ring joins one blue button and one red button."
       },
-      "nextLabel": "Show what is left"
+      "nextLabel": "Show the extras"
     },
     {
       "id": "discover-gap",
       "legacyIndex": 2,
       "type": "discover",
       "label": "Discover",
-      "title": "What do the yellow blocks tell us?",
+      "title": "How many blue buttons have no red match?",
       "visual": {
-        "topCount": 15,
-        "bottomCount": 9,
+        "kind": "comparisonButtons",
+        "topCount": 10,
+        "bottomCount": 5,
+        "step": "reveal",
         "revealGap": true,
-        "ariaLabel": "The top row has 15 blocks. The bottom row has 9 aligned beneath the first 9 top blocks. Six yellow top blocks have nothing below them.",
-        "message": "Look straight down from each yellow block. There is no green block below it. Count the yellow blocks."
+        "topLabel": "Blue buttons",
+        "bottomLabel": "Red buttons",
+        "ariaLabel": "Five circled blue and red pairs, followed by five gold blue buttons without red buttons below them.",
+        "message": "The gold buttons have no red button below them. Count them."
       },
       "choices": [
         {
-          "text": "All the blocks in both rows",
-          "correct": false,
-          "misconception": "combine_instead_of_compare"
-        },
-        {
-          "text": "How many extra blocks the top row has",
-          "correct": true,
-          "evidence": "identified_gap",
-          "feedback": "Yes. The 9 green blocks each have a blue block above them. Six yellow blocks have no green block below. The top row has 6 more blocks."
-        },
-        {
-          "text": "How many blocks are in the bottom row",
+          "text": "10",
           "correct": false,
           "misconception": "object_instead_of_relationship"
+        },
+        {
+          "text": "5",
+          "correct": true,
+          "feedback": "Yes. Five blue buttons have no red match. There are 5 more blue buttons than red buttons.",
+          "evidence": "identified_gap"
+        },
+        {
+          "text": "15",
+          "correct": false,
+          "misconception": "combine_instead_of_compare"
         }
       ],
       "hints": [
-        "Look at the first green block. Which blue block is right above it? Now look at the next green block.",
-        "Each of the 9 green blocks has a blue block above it. The yellow blocks do not have a green block below.",
-        "Count the 6 yellow blocks. The top row has 6 more blocks than the bottom row."
-      ]
+        "Look for blue buttons outside the five circles.",
+        "Count only the gold buttons, one at a time."
+      ],
+      "revision": 2
     },
     {
       "id": "language-explanation",
       "legacyIndex": 3,
       "type": "language",
       "label": "Language",
-      "title": "What does “how many more” mean?",
+      "title": "Two ways to ask the same question.",
       "visual": {
-        "topCount": 15,
-        "bottomCount": 9,
+        "kind": "comparisonButtons",
+        "topCount": 10,
+        "bottomCount": 5,
+        "step": "reveal",
         "revealGap": true,
-        "message": "Each green block has a blue block above it. Count the yellow blocks with nothing below them."
+        "topLabel": "Blue buttons",
+        "bottomLabel": "Red buttons",
+        "ariaLabel": "Five circled pairs and five extra gold blue buttons.",
+        "message": "The extra blue buttons are the difference."
       },
       "phrases": [
-        "How many more?"
+        "How many more?",
+        "What is the difference?"
       ],
-      "phraseMeaning": "Count the extra blocks.",
-      "guidance": "“In all” asks how many blocks both rows have together. “How many more” asks how many extra blocks are in one row. Here, count the 6 yellow blocks."
+      "phraseMeaning": "Find how far apart the two counts are.",
+      "guidance": "Here both questions ask for the extra blue buttons. That number is called the difference."
     },
     {
       "id": "memory-hook",
       "type": "memoryHook",
       "label": "Remember",
-      "title": "Line them up. Count the extras.",
-      "hook": "15 on top. 9 have a block below. 6 do not. 15 − 9 = 6.",
-      "body": "The − sign means take away. Start with 15 top blocks. Take away the 9 that have a green block below. Six yellow blocks remain. This is called subtraction."
+      "title": "More? Difference? Find the extras.",
+      "hook": "10 blue. 5 red. 5 pairs. 5 extra blue.",
+      "body": "Subtract to find the difference: 10 − 5 = 5. Subtraction can compare two counts; it can also describe taking away."
+    },
+    {
+      "id": "misconception",
+      "type": "misconception",
+      "label": "Misconception",
+      "title": "Does “more” always mean add?",
+      "prompt": "Ava has 14 stickers. Luis has 8. What is the difference in their sticker counts?",
+      "choices": [
+        {
+          "text": "22: add the stickers",
+          "correct": false,
+          "misconception": "combine_instead_of_compare"
+        },
+        {
+          "text": "6: compare the counts",
+          "correct": true,
+          "feedback": "Match 8 of Ava’s stickers with Luis’s 8. Six of Ava’s stickers remain unmatched, so the difference is 6.",
+          "evidence": "identified_gap"
+        },
+        {
+          "text": "14: use Ava’s count",
+          "correct": false,
+          "misconception": "object_instead_of_relationship"
+        }
+      ],
+      "hints": [
+        "The question asks how far apart 14 and 8 are, not how many stickers they have together.",
+        "Start at 8 and count up to 14. How many steps did you count?"
+      ],
+      "revision": 2
     },
     {
       "id": "choose-equation",
       "legacyIndex": 4,
       "type": "symbol",
       "label": "Symbol",
-      "title": "Which way shows the 6 extra blocks?",
+      "title": "Which subtraction finds the difference?",
       "visual": {
-        "topCount": 15,
-        "bottomCount": 9,
+        "kind": "comparisonButtons",
+        "topCount": 10,
+        "bottomCount": 5,
+        "step": "reveal",
         "revealGap": true,
-        "message": "There are 15 blocks on top. Nine have a green block below them. Six do not. Start with 15 and take away 9."
+        "topLabel": "Blue buttons",
+        "bottomLabel": "Red buttons",
+        "ariaLabel": "Five circled pairs and five extra blue buttons.",
+        "message": "Start with 10 blue. Match 5 red. How many blue are extra?"
       },
       "choices": [
         {
-          "text": "15 - 9",
+          "text": "10 − 5",
           "correct": true,
-          "evidence": "subtraction_as_comparison",
-          "feedback": "Correct. Start with the 15 top blocks. Subtract the 9 blocks that received partners. Six top blocks are left."
+          "feedback": "Yes. Ten blue minus five matched blue leaves five extra blue buttons. The difference is 5.",
+          "evidence": "subtraction_as_comparison"
         },
         {
-          "text": "15 + 9",
+          "text": "10 + 5",
           "correct": false,
           "misconception": "combine_instead_of_compare"
         },
         {
-          "text": "9 - 15",
+          "text": "5 − 10",
           "correct": false,
           "misconception": "reversed_subtraction"
         }
       ],
       "hints": [
-        "Start with all 15 top blocks. Nine of them receive partners from the bottom row.",
-        "Subtract the 9 paired blocks from the 15 top blocks: 15 − 9."
-      ]
+        "Start with the 10 blue buttons. Five have red matches.",
+        "Which sign lets you find how many of the 10 blue buttons have no match?"
+      ],
+      "revision": 2
     },
     {
       "id": "equation-explanation",
       "legacyIndex": 5,
       "type": "equationReveal",
       "label": "Reveal",
-      "title": "Start with 15. Take away 9. Six remain.",
+      "title": "The difference is 5.",
       "visual": {
-        "topCount": 15,
-        "bottomCount": 9,
+        "kind": "comparisonButtons",
+        "topCount": 10,
+        "bottomCount": 5,
+        "step": "reveal",
         "revealGap": true,
-        "message": "Of the 15 top blocks, 9 have a green block below them. Six yellow blocks do not. That is what 15 − 9 = 6 shows."
+        "topLabel": "Blue buttons",
+        "bottomLabel": "Red buttons",
+        "ariaLabel": "Five circled pairs and five extra blue buttons.",
+        "message": "10 blue − 5 matched blue = 5 extra blue."
       },
-      "equation": "15 - 9 = 6"
+      "equation": "10 − 5 = 5"
     },
     {
       "id": "guided-practice",
       "type": "guidedPractice",
       "label": "Guided practice",
-      "title": "How many yellow blocks are left on top?",
-      "visual": {"topCount": 11, "bottomCount": 7, "revealGap": true, "message": "Each green block has one blue block above it. Count the yellow blocks with nothing below them."},
+      "title": "How many more blue blocks are there?",
+      "visual": {
+        "topCount": 11,
+        "bottomCount": 7,
+        "revealGap": false,
+        "message": "Count the top row and the bottom row. Match one from each row, starting on the left."
+      },
       "choices": [
-        {"text": "4", "correct": true, "evidence": "identified_gap", "feedback": "Yes. Seven green blocks each have one above them. Four yellow blocks have nothing below them. The top row has 4 more blocks."},
-        {"text": "18", "correct": false, "misconception": "combine_instead_of_compare"},
-        {"text": "7", "correct": false, "misconception": "object_instead_of_relationship"}
+        {
+          "text": "4",
+          "correct": true,
+          "evidence": "identified_gap",
+          "feedback": "Yes. Seven blocks are matched across the rows. Four top blocks have no block below, so there are 4 more on top."
+        },
+        {
+          "text": "18",
+          "correct": false,
+          "misconception": "combine_instead_of_compare"
+        },
+        {
+          "text": "7",
+          "correct": false,
+          "misconception": "object_instead_of_relationship"
+        }
       ],
-      "hints": ["Start on the left. Point to a green block, then the blue block right above it. Do this for all 7 green blocks.", "There are 4 yellow blocks with nothing below them. Count those 4 blocks to find how many more are on top."]
+      "hints": [
+        "Trace the first top block to the bottom block beneath it. Keep going until the bottom row ends.",
+        "Count the top blocks that have no block below them."
+      ],
+      "revision": 2
     },
     {
       "id": "independent-practice",
@@ -190,24 +338,58 @@
       "title": "Solve without the model.",
       "prompt": "Nia read 16 pages. Theo read 9 pages. How many more pages did Nia read?",
       "choices": [
-        {"text": "7", "correct": true, "evidence": "subtraction_as_comparison", "feedback": "16 − 9 = 7, so Nia read 7 more pages."},
-        {"text": "25", "correct": false, "misconception": "combine_instead_of_compare"},
-        {"text": "9", "correct": false, "misconception": "object_instead_of_relationship"}
+        {
+          "text": "7",
+          "correct": true,
+          "evidence": "subtraction_as_comparison",
+          "feedback": "16 − 9 = 7, so Nia read 7 more pages."
+        },
+        {
+          "text": "25",
+          "correct": false,
+          "misconception": "combine_instead_of_compare"
+        },
+        {
+          "text": "9",
+          "correct": false,
+          "misconception": "object_instead_of_relationship"
+        }
       ],
-      "hints": ["Imagine 16 marks for Nia’s pages and 9 marks for Theo’s pages. Pair 9 marks from each group.", "Seven of Nia’s marks are left without partners. You can also calculate 16 − 9 = 7."]
+      "hints": [
+        "Imagine 16 marks for Nia and 9 for Theo. Match one from each group until Theo’s marks run out.",
+        "Count Nia’s unmatched marks. Or start at 9 and count up to 16."
+      ],
+      "revision": 2
     },
     {
       "id": "recall",
       "type": "recall",
       "label": "Recall",
-      "title": "What should you remember?",
-      "prompt": "When a problem asks “how many more,” what should you do?",
+      "title": "Which exam wording asks for the same number?",
+      "prompt": "For 10 blue buttons and 5 red buttons, which question asks for the extra blue buttons?",
       "choices": [
-        {"text": "The combined total", "correct": false, "misconception": "combine_instead_of_compare"},
-        {"text": "The larger amount", "correct": false, "misconception": "object_instead_of_relationship"},
-        {"text": "Pair the groups and count what is left", "correct": true, "evidence": "identified_gap", "feedback": "Correct. Pair one item from each group. The items left in the larger group tell how many more."}
+        {
+          "text": "How many buttons in all?",
+          "correct": false,
+          "misconception": "combine_instead_of_compare"
+        },
+        {
+          "text": "What is the difference?",
+          "correct": true,
+          "feedback": "Yes. “Difference” asks how far apart the two counts are: 10 − 5 = 5.",
+          "evidence": "identified_gap"
+        },
+        {
+          "text": "How many blue buttons?",
+          "correct": false,
+          "misconception": "object_instead_of_relationship"
+        }
       ],
-      "hints": ["Do not join both groups. Put them side by side and make pairs.", "After pairing, count the items left in the larger group." ]
+      "hints": [
+        "“In all” joins the two colors. We want the blue buttons with no red match.",
+        "Look for a question about how far apart the two counts are."
+      ],
+      "revision": 2
     },
     {
       "id": "transfer",
@@ -216,11 +398,28 @@
       "title": "Use the idea in a new setting.",
       "prompt": "A blue notebook costs $18 and a red notebook costs $11. How much more does the blue notebook cost?",
       "choices": [
-        {"text": "$7", "correct": true, "evidence": "subtraction_as_comparison", "feedback": "$18 − $11 = $7, so the blue notebook costs $7 more."},
-        {"text": "$29", "correct": false, "misconception": "combine_instead_of_compare"},
-        {"text": "$18", "correct": false, "misconception": "object_instead_of_relationship"}
+        {
+          "text": "$7",
+          "correct": true,
+          "evidence": "subtraction_as_comparison",
+          "feedback": "$18 − $11 = $7, so the blue notebook costs $7 more."
+        },
+        {
+          "text": "$29",
+          "correct": false,
+          "misconception": "combine_instead_of_compare"
+        },
+        {
+          "text": "$18",
+          "correct": false,
+          "misconception": "object_instead_of_relationship"
+        }
       ],
-      "hints": ["Pair $11 of the blue notebook’s $18 cost with the red notebook’s $11 cost.", "$7 of the blue notebook’s cost is left. You can calculate this as $18 − $11 = $7."]
+      "hints": [
+        "Compare the two prices. Is the question asking for their combined cost or how far apart they are?",
+        "Start at $11 and count up to $18. How much did the price increase?"
+      ],
+      "revision": 2
     },
     {
       "id": "reflection",
@@ -228,32 +427,33 @@
       "type": "reflection",
       "label": "Reflect",
       "title": "What did you discover?",
-      "prompt": "Choose the statement that explains the idea.",
+      "prompt": "What does subtraction show when we compare two counts?",
       "choices": [
         {
-          "text": "Subtraction always means taking away.",
+          "text": "It always means taking objects away.",
           "correct": false
         },
         {
-          "text": "Subtraction can count what is left after two groups are paired.",
+          "text": "It joins the counts into one total.",
+          "correct": false
+        },
+        {
+          "text": "It finds the difference between the counts.",
           "correct": true
-        },
-        {
-          "text": "The word more always means add.",
-          "correct": false
         }
       ],
       "hints": [
-        "The blocks were paired one for one. The glowing blocks were left without partners.",
-        "The subtraction sentence counted the blocks left after pairing."
-      ]
+        "We matched one blue with one red, then found the extra blue buttons.",
+        "Ten minus five tells how far apart ten and five are."
+      ],
+      "revision": 2
     },
     {
       "id": "complete",
       "legacyIndex": 7,
       "type": "complete",
-      "title": "You found how many more.",
-      "body": "You paired two groups, counted what was left, and used subtraction to show the same action.",
+      "title": "You found the difference.",
+      "body": "“How many more?” and “What is the difference?” both ask for how far apart the counts are.",
       "nextRecommendation": "Next lesson: How many fewer?"
     }
   ]
