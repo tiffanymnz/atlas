@@ -145,6 +145,21 @@ test("stable screen ids preserve position when curriculum screens are inserted",
   assert.deepEqual(record.screenStates.practice,{selected:1});
 });
 
+test("a revised lesson starts at its new introduction without losing an earlier completion",()=>{
+  const old={metadata:{id:"one",title:"Lesson one"},screens:[{id:"intro"},{id:"old-question"}]};
+  const record=ensureLessonRecord(old,"one.json");
+  record.index=1; record.screenId="old-question"; record.screenStates["old-question"]={selected:1};
+  record.currentAttempt.completed=true;
+  saveLessonRecord("one",record);
+  const revised={metadata:{...old.metadata,contentRevision:2},screens:[{id:"intro"},{id:"count"},{id:"old-question"}]};
+  const restored=ensureLessonRecord(revised,"one.json");
+  assert.equal(resolveLessonPosition(restored,revised),0);
+  assert.equal(restored.screenId,"intro");
+  assert.equal(restored.currentAttempt.completed,true);
+  assert.equal(restored.screenStates["old-question"].selected,1);
+  assert.equal(ensureLessonRecord(revised,"one.json").index,0);
+});
+
 test("legacy numeric positions migrate through explicit legacy indexes",()=>{
   const record={index:1,screenId:null,screenStates:{1:{hintIndex:2}}};
   const revised={screens:[{id:"intro",legacyIndex:0},{id:"new"},{id:"observe",legacyIndex:1}]};

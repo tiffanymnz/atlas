@@ -1,6 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { localizeChoiceState, renderComparisonBlocks } from "../sdk/components/lessonComponents.js";
+import { localizeChoiceState, renderComparisonBlocks, renderComparisonButtons } from "../sdk/components/lessonComponents.js";
 
 const screen={
   choices:[{text:"6",feedback:"La diferencia es 6."}],
@@ -29,4 +29,14 @@ test("unequal comparison rows share columns so vertical pairs line up",()=>{
   assert.equal((html.match(/--columns:15/g)||[]).length,2);
   assert.equal((html.match(/class="block extra"/g)||[]).length,6);
   assert.equal((html.match(/class="block bottom dim"/g)||[]).length,9);
+});
+
+test("button model forms five visible pairs before showing five extras",()=>{
+  const base={topCount:10,bottomCount:5,ariaLabel:"Ten blue and five red buttons"};
+  const pairs=renderComparisonButtons({...base,step:"pair"});
+  const extras=renderComparisonButtons({...base,step:"reveal"});
+  assert.match(pairs,/role="img" aria-label="Ten blue and five red buttons"/);
+  assert.equal((pairs.match(/class="buttonColumn matched"/g)||[]).length,5);
+  assert.equal((extras.match(/class="buttonColumn unmatched"/g)||[]).length,5);
+  assert.equal((extras.match(/class="buttonToken red absent"/g)||[]).length,5);
 });

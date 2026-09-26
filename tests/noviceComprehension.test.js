@@ -7,45 +7,35 @@ const names=["lesson005.json","lesson006.json","lesson007.json","lesson008.json"
 const read=path=>JSON.parse(fs.readFileSync(new URL(`../${path}`,import.meta.url)));
 const get=(lesson,type)=>lesson.screens.find(screen=>screen.type===type);
 
-test("lesson001 teaches the comparison action before naming it",()=>{
+test("lesson001 moves from counting to formed pairs, difference language, and subtraction",()=>{
   const lesson=read("curriculum/lessons/lesson001.json");
-  const intro=get(lesson,"intro");
-  assert.match(intro.body,/one of Mia’s buttons beside each of Jay’s buttons/i);
-  assert.match(intro.body,/Two of Mia’s buttons have nothing beside them/i);
-  assert.doesNotMatch(intro.body,/14|8|6/);
-  assert.doesNotMatch(intro.body,/\bgap\b|\bcomparison\b|\bamount\b/i);
-
-  const firstQuestion=get(lesson,"misconception");
-  const correct=firstQuestion.choices.find(choice=>choice.correct);
-  assert.doesNotMatch(correct.text,/\bgap\b|\brelationship\b|\bamount\b/i);
-  assert.match(correct.feedback,/pair .*8 stickers/i);
-
-  const language=get(lesson,"language");
-  assert.deepEqual(language.phrases,["How many more?"]);
-  assert.match(language.guidance,/“In all” asks how many blocks both rows have together/i);
-  const discover=get(lesson,"discover");
-  assert.match(discover.visual.message,/below/i);
-  assert.doesNotMatch(`${discover.visual.message} ${discover.title}`,/glow|partner|larger group/i);
-  assert.doesNotMatch(JSON.stringify(get(lesson,"guidedPractice")),/shell|glow/i);
-
-  for(const type of ["misconception","discover","symbol","guidedPractice","independentPractice","recall","transfer","reflection"]){
-    const screen=get(lesson,type);
-    assert.ok(screen.hints.length>=2,`${type} needs a worked second hint`);
-    assert.ok(screen.hints.some(hint=>/pair|count|subtract|calculate|blocks were paired/i.test(hint)),`${type} hints must tell the learner what action to take`);
+  const screens=lesson.screens;
+  assert.deepEqual(screens.slice(0,7).map(screen=>screen.type),["intro","count","count","observe","discover","language","memoryHook"]);
+  assert.match(screens[0].body,/count the blue and red buttons/i);
+  assert.equal(lesson.learning.assumed_prior_knowledge.length,2);
+  assert.match(screens[0].callout,/Earlier lessons are being built/i);
+  assert.deepEqual(screens.filter(screen=>screen.type==="count").map(screen=>screen.choices.find(c=>c.correct).text),["10","5"]);
+  assert.equal(get(lesson,"observe").visual.step,"pair");
+  assert.equal(get(lesson,"discover").visual.step,"reveal");
+  assert.deepEqual(get(lesson,"language").phrases,["How many more?","What is the difference?"]);
+  assert.match(get(lesson,"memoryHook").body,/Subtraction can compare two counts/i);
+  assert.match(get(lesson,"reflection").choices.find(c=>c.correct).text,/difference between the counts/i);
+  assert.ok(screens.indexOf(get(lesson,"misconception"))>screens.indexOf(get(lesson,"observe")));
+  for(const screen of screens.filter(screen=>screen.choices)){
+    if(screen.revision) assert.equal(screen.revision,2);
+    for(const hint of screen.hints||[]) assert.doesNotMatch(hint,/(?:the answer is|there are [456] (?:extra|yellow)|= [456]$)/i);
   }
 });
 
-test("lesson001 keeps the same plain-language scaffolding in Spanish",()=>{
+test("lesson001 gives the same sequence and exam vocabulary in Spanish",()=>{
   const english=read("curriculum/lessons/lesson001.json");
   const spanish=applyTranslation(english,read("curriculum/translations/es/lesson001.json"));
-  assert.match(get(spanish,"intro").body,/Pon un botón de Mia al lado de cada botón de Jay/i);
-  assert.doesNotMatch(get(spanish,"intro").body,/\bdiferencia\b|\bcomparar\b|\bcantidad\b/i);
-  assert.deepEqual(get(spanish,"language").phrases,["¿Cuántos más?"]);
-  assert.match(get(spanish,"discover").visual.message,/debajo/i);
-  assert.doesNotMatch(JSON.stringify(get(spanish,"guidedPractice")),/concha|iluminad/i);
-  for(const type of ["misconception","discover","symbol","guidedPractice","independentPractice","recall","transfer","reflection"]){
-    assert.ok(get(spanish,type).hints.length>=2,`${type} needs two Spanish hints`);
-  }
+  assert.deepEqual(spanish.screens.map(screen=>screen.id),english.screens.map(screen=>screen.id));
+  assert.match(spanish.screens[0].body,/cuenta los botones azules y rojos/i);
+  assert.match(spanish.screens[0].callout,/lecciones anteriores están en preparación/i);
+  assert.notDeepEqual(spanish.learning.assumed_prior_knowledge,english.learning.assumed_prior_knowledge);
+  assert.deepEqual(get(spanish,"language").phrases,["¿Cuántos más?","¿Cuál es la diferencia?"]);
+  assert.match(get(spanish,"reflection").choices.find(c=>c.correct).text,/diferencia entre las cantidades/i);
 });
 
 for(const name of ["lesson002.json","lesson003.json","lesson004.json"]){
