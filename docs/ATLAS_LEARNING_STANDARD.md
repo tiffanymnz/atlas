@@ -35,6 +35,19 @@ An arbitrary phrase that only encodes an answer is not sufficient. A useful shor
 
 Atlas does not label learners as fixed visual, auditory, reading/writing, or kinesthetic types. Lessons should provide multiple accurate representations because different concepts and difficulties benefit from different supports. Learners may choose supports without being assigned a permanent category.
 
+### Math model progression
+
+For a concept that can be modeled with objects, design a connected path:
+
+1. **Act:** the learner moves or groups objects; each object has a clear mathematical job.
+2. **See:** a drawing or diagram preserves the same quantities and relationship. Connect each part of the drawing to the objects before removing the objects.
+3. **Name and write:** introduce concise technical terms and symbols alongside the plain-language action. Explain the symbol from the model, including when that interpretation applies.
+4. **Explain:** the learner says why the model and the expression show the same relationship. Feedback responds to the reasoning, not merely the selected answer.
+5. **Use again:** vary the objects, arrangement, wording, and context; then ask for a solution without the original model. Fade supports only when the learner can explain and solve accurately.
+6. **Retrieve later:** revisit the relationship after a delay and test transfer with technical exam wording.
+
+Montessori Golden Beads and base-ten blocks are useful for quantity, place value, and exchanging. Other concepts may need number lines, equal-group arrays, area models, diagrams, or different representations. A learner's success with one attractive material is not evidence of transfer. Prefer a short performance check over a self-reported yes/no prerequisite check. Provide age-respectful contexts and test them with the intended learners.
+
 ## Research-card contract
 
 Before a new concept becomes an Atlas production lesson, its research card must define:
