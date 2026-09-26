@@ -10,8 +10,9 @@ const get=(lesson,type)=>lesson.screens.find(screen=>screen.type===type);
 test("lesson001 teaches the comparison action before naming it",()=>{
   const lesson=read("curriculum/lessons/lesson001.json");
   const intro=get(lesson,"intro");
-  assert.match(intro.body,/pair one item/i);
-  assert.match(intro.body,/count the items left/i);
+  assert.match(intro.body,/one of Mia’s buttons beside each of Jay’s buttons/i);
+  assert.match(intro.body,/Two of Mia’s buttons have nothing beside them/i);
+  assert.doesNotMatch(intro.body,/14|8|6/);
   assert.doesNotMatch(intro.body,/\bgap\b|\bcomparison\b|\bamount\b/i);
 
   const firstQuestion=get(lesson,"misconception");
@@ -21,7 +22,11 @@ test("lesson001 teaches the comparison action before naming it",()=>{
 
   const language=get(lesson,"language");
   assert.deepEqual(language.phrases,["How many more?"]);
-  assert.match(language.guidance,/“In all” or “altogether”/i);
+  assert.match(language.guidance,/“In all” asks how many blocks both rows have together/i);
+  const discover=get(lesson,"discover");
+  assert.match(discover.visual.message,/below/i);
+  assert.doesNotMatch(`${discover.visual.message} ${discover.title}`,/glow|partner|larger group/i);
+  assert.doesNotMatch(JSON.stringify(get(lesson,"guidedPractice")),/shell|glow/i);
 
   for(const type of ["misconception","discover","symbol","guidedPractice","independentPractice","recall","transfer","reflection"]){
     const screen=get(lesson,type);
@@ -33,9 +38,11 @@ test("lesson001 teaches the comparison action before naming it",()=>{
 test("lesson001 keeps the same plain-language scaffolding in Spanish",()=>{
   const english=read("curriculum/lessons/lesson001.json");
   const spanish=applyTranslation(english,read("curriculum/translations/es/lesson001.json"));
-  assert.match(get(spanish,"intro").body,/Forma una pareja/i);
+  assert.match(get(spanish,"intro").body,/Pon un botón de Mia al lado de cada botón de Jay/i);
   assert.doesNotMatch(get(spanish,"intro").body,/\bdiferencia\b|\bcomparar\b|\bcantidad\b/i);
   assert.deepEqual(get(spanish,"language").phrases,["¿Cuántos más?"]);
+  assert.match(get(spanish,"discover").visual.message,/debajo/i);
+  assert.doesNotMatch(JSON.stringify(get(spanish,"guidedPractice")),/concha|iluminad/i);
   for(const type of ["misconception","discover","symbol","guidedPractice","independentPractice","recall","transfer","reflection"]){
     assert.ok(get(spanish,type).hints.length>=2,`${type} needs two Spanish hints`);
   }

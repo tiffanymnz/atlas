@@ -1,6 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { localizeChoiceState } from "../sdk/components/lessonComponents.js";
+import { localizeChoiceState, renderComparisonBlocks } from "../sdk/components/lessonComponents.js";
 
 const screen={
   choices:[{text:"6",feedback:"La diferencia es 6."}],
@@ -22,4 +22,11 @@ test("restored hints and retries are rebuilt in the active language",()=>{
     hintHtml:"<strong>Pista</strong><br>Compara las cantidades.",
     feedback:{className:"feedback warn",html:"<strong>Inténtalo de nuevo.</strong><br>Compara las cantidades."}
   });
+});
+
+test("unequal comparison rows share columns so vertical pairs line up",()=>{
+  const html=renderComparisonBlocks({topCount:15,bottomCount:9,revealGap:true});
+  assert.equal((html.match(/--columns:15/g)||[]).length,2);
+  assert.equal((html.match(/class="block extra"/g)||[]).length,6);
+  assert.equal((html.match(/class="block bottom dim"/g)||[]).length,9);
 });
