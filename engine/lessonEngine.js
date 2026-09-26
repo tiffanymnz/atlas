@@ -26,6 +26,10 @@ function screenStateKey(){ return current()?.id || String(index); }
 function currentState(){
   lessonRecord.screenStates ||= {};
   const key=screenStateKey();
+  const revision=current()?.revision || 1;
+  if(lessonRecord.screenStates[key] && revision>1 && lessonRecord.screenStates[key].revision!==revision){
+    lessonRecord.screenStates[key]={selected:null,hintIndex:0,hintHtml:"",feedback:null,submittedCorrect:false,revision};
+  }
   lessonRecord.screenStates[key] ||= { selected:null, hintIndex:0, hintHtml:"", feedback:null, submittedCorrect:false };
   return lessonRecord.screenStates[key];
 }
@@ -190,7 +194,7 @@ function render(){
     root.innerHTML = base(screen)+renderConceptVisual(screen.visual,screen.title)+`<div class="toolbar"><button class="btn secondary" type="button" id="backBtn">${copy().back}</button><button class="btn primary" type="button" id="nextBtn">${screen.nextLabel || copy().next}</button></div>`;
     el("backBtn").onclick = back; el("nextBtn").onclick = next; return;
   }
-  if(["misconception","discover","symbol","guidedPractice","independentPractice","recall","transfer","reflection"].includes(screen.type)){
+  if(["count","misconception","discover","symbol","guidedPractice","independentPractice","recall","transfer","reflection"].includes(screen.type)){
     const visual = screen.visual ? renderConceptVisual(screen.visual,screen.title) : `<p>${screen.prompt || ""}</p>`;
     root.innerHTML = base(screen)+visual+renderChoiceScreen(screen,copy());
     bindChoiceScreen(screen); restoreChoiceState(screen); return;
