@@ -102,3 +102,5 @@ Run the checks with `npm test`.
 ## Novice prerequisite pass
 
 The [internal novice hardening record](docs/NOVICE_PREREQUISITE_HARDENING.md) identifies and repairs several hidden starting assumptions in Lessons 005 and 008–011 in English and Spanish. Lesson completion remains a progress record; the next-lesson shortcut now asks for correct first responses without hints on independent practice, recall, and transfer, and advances only within a concept sequence. Real first-exposure observations remain required before curriculum approval.
+
+The current first option is the start of a **comparison unit**, not a zero-knowledge math course. Its counting and one-to-one matching prerequisites are stated on the opening screen. The [foundation pathway](docs/FOUNDATION_PATHWAY.md) lists the earlier concepts that still need lessons and observation before Atlas can claim a beginner starting point.

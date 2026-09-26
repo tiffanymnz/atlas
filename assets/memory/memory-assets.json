@@ -6,24 +6,24 @@
         "lessonId": "MATH-NS-COMP-0001",
         "conceptId": "comparison.more",
         "title": "How many more?",
-        "learningGoal": "Understand that 'how many more' asks how many items are left after two groups are paired.",
+        "learningGoal": "Compare two counted groups and connect “how many more,” difference, and subtraction.",
         "memoryHook": {
-          "title": "Line them up. Count the extras.",
-          "hook": "15 on top. 9 have a block below. 6 do not. 15 − 9 = 6.",
-          "body": "The − sign means take away. Start with 15 top blocks. Take away the 9 that have a green block below. Six yellow blocks remain. This is called subtraction."
+          "title": "More? Difference? Find the extras.",
+          "hook": "10 blue. 5 red. 5 pairs. 5 extra blue.",
+          "body": "Subtract to find the difference: 10 − 5 = 5. Subtraction can compare two counts; it can also describe taking away."
         },
         "independent": {
           "prompt": "Nia read 16 pages. Theo read 9 pages. How many more pages did Nia read?",
           "answer": "7"
         },
         "recall": {
-          "prompt": "When a problem asks “how many more,” what should you do?",
+          "prompt": "For 10 blue buttons and 5 red buttons, which question asks for the extra blue buttons?",
           "choices": [
-            "The combined total",
-            "The larger amount",
-            "Pair the groups and count what is left"
+            "How many buttons in all?",
+            "What is the difference?",
+            "How many blue buttons?"
           ],
-          "answer": "Pair the groups and count what is left"
+          "answer": "What is the difference?"
         },
         "transfer": {
           "prompt": "A blue notebook costs $18 and a red notebook costs $11. How much more does the blue notebook cost?",
@@ -371,24 +371,24 @@
         "lessonId": "MATH-NS-COMP-0001",
         "conceptId": "comparison.more",
         "title": "¿Cuántos más?",
-        "learningGoal": "Comprender que «cuántos más» pregunta cuántos elementos quedan después de formar parejas entre dos grupos.",
+        "learningGoal": "Comparar dos grupos y relacionar «cuántos más», diferencia y resta.",
         "memoryHook": {
-          "title": "Ponlos en fila. Cuenta los que sobran.",
-          "hook": "15 arriba. 9 tienen uno debajo. 6 no tienen. 15 − 9 = 6.",
-          "body": "El signo − significa quitar. Empieza con 15 bloques arriba. Quita los 9 que tienen uno verde debajo. Quedan 6 bloques amarillos. Eso se llama restar."
+          "title": "¿Cuántos más? ¿Diferencia? Busca los que sobran.",
+          "hook": "10 azules. 5 rojos. 5 parejas. 5 azules de más.",
+          "body": "Resta para hallar la diferencia: 10 − 5 = 5. La resta puede comparar dos cantidades; también puede describir cuando quitamos algo."
         },
         "independent": {
           "prompt": "Nia leyó 16 páginas. Theo leyó 9 páginas. ¿Cuántas páginas más leyó Nia?",
           "answer": "7"
         },
         "recall": {
-          "prompt": "Cuando un problema pregunta «cuántos más», ¿qué debes hacer?",
+          "prompt": "Con 10 botones azules y 5 rojos, ¿qué pregunta pide los botones azules de más?",
           "choices": [
-            "Juntar los dos grupos",
-            "Elegir el número mayor",
-            "Formar parejas y contar lo que queda"
+            "¿Cuántos botones hay en total?",
+            "¿Cuál es la diferencia?",
+            "¿Cuántos botones azules hay?"
           ],
-          "answer": "Formar parejas y contar lo que queda"
+          "answer": "¿Cuál es la diferencia?"
         },
         "transfer": {
           "prompt": "Un cuaderno azul cuesta $18 y uno rojo cuesta $11. ¿Cuánto más cuesta el cuaderno azul?",

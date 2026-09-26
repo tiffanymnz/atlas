@@ -17,6 +17,17 @@ export function renderComparisonBlocks(visual,label="Comparison model"){
   }
   return `<div class="stage" role="img" aria-label="${visual?.ariaLabel || label}"><div class="comparisonRows">${row(top,false)}${row(bottom,true)}</div><div class="visualMsg">${msg}</div></div>`;
 }
+export function renderComparisonButtons(visual,label="Button comparison"){
+  const top=Math.min(20,Math.max(0,Number(visual?.topCount)||0));
+  const bottom=Math.min(20,Math.max(0,Number(visual?.bottomCount)||0));
+  const step=["count","pair","reveal"].includes(visual?.step)?visual.step:"count";
+  const columns=Array.from({length:Math.max(top,bottom)},(_,i)=>{
+    const hasTop=i<top,hasBottom=i<bottom;
+    return `<span class="buttonColumn${hasTop&&hasBottom?" matched":""}${step==="reveal"&&hasTop&&!hasBottom?" unmatched":""}" style="--pair-index:${i}" aria-hidden="true"><i class="buttonToken blue${hasTop?"":" absent"}"></i><i class="buttonToken red${hasBottom?"":" absent"}"></i></span>`;
+  }).join("");
+  const legend=`<div class="buttonLegend"><span><i class="buttonKey blue"></i>${visual?.topLabel||"Blue buttons"}</span><span><i class="buttonKey red"></i>${visual?.bottomLabel||"Red buttons"}</span></div>`;
+  return `<div class="stage buttonStage ${step}" role="img" aria-label="${visual?.ariaLabel||label}">${legend}<div class="buttonColumns" style="--button-columns:${Math.max(top,bottom)}">${columns}</div><div class="visualMsg">${visual?.message||""}</div></div>`;
+}
 function renderEqualGroups(visual,label){
   const groups=Math.max(1,Number(visual?.groups)||1),items=Math.max(0,Number(visual?.itemsPerGroup)||0);
   const boxes=Array.from({length:groups},()=>`<div class="equalGroup" aria-hidden="true"><span>${Array.from({length:items},()=>"<i></i>").join("")}</span><b>${items}</b></div>`).join("");
@@ -64,6 +75,7 @@ function renderInequalityLine(visual,label){
   return `<div class="stage conceptStage" role="img" aria-label="${visual?.ariaLabel||label}"><div class="inequalityLine ${direction}" aria-hidden="true"><div class="inequalityRay"></div><span class="inequalityArrow">${direction==="left"?"◀":"▶"}</span><span class="inequalityPoint${inclusive?" closed":" open"}"></span><div class="inequalityTicks">${ticks}</div></div>${caption}<div class="visualMsg">${visual?.message||""}</div></div>`;
 }
 export function renderConceptVisual(visual,label="Concept model"){
+  if(visual?.kind==="comparisonButtons") return renderComparisonButtons(visual,label);
   if(visual?.kind==="equalGroups") return renderEqualGroups(visual,label);
   if(visual?.kind==="fractionBar") return renderFractionBar(visual,label);
   if(visual?.kind==="hundredGrid") return renderHundredGrid(visual,label);

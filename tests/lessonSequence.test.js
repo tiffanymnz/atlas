@@ -12,6 +12,8 @@ const picker=fs.readFileSync(new URL("../apps/learner/index.html",import.meta.ur
 test("the lesson picker identifies the concept actually taught by each option",()=>{
   const options=[...picker.matchAll(/<option[^>]+data-concept="([^"]+)"/g)].map(match=>match[1]);
   assert.deepEqual(options,lessons.map(lesson=>lesson.concepts.primary_concept));
+  assert.match(picker,/data-en="Comparison 1 — How many more\?"/);
+  assert.match(picker,/data-es="Comparación 1 — ¿Cuántos más\?"/);
 });
 
 test("next-lesson shortcuts stop at topic boundaries",()=>{
