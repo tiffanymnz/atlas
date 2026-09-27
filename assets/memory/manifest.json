@@ -1,8 +1,10 @@
 {
   "schemaVersion": 1,
   "generator": "tools/build/generate_memory_assets.mjs",
-  "sourceDigest": "65749232efd259e7ba393639106df444626e6d09ccdb7d4a0d5a1ac1f85715c6",
+  "sourceDigest": "6a579c306f5d074719a42e5ff0ec20cd960084074f9baa4621df7b58da9d33bf",
   "sources": [
+    "curriculum/lessons/lesson000.json",
+    "curriculum/translations/es/lesson000.json",
     "curriculum/lessons/lesson001.json",
     "curriculum/translations/es/lesson001.json",
     "curriculum/lessons/lesson002.json",
@@ -27,6 +29,7 @@
     "curriculum/translations/es/lesson011.json"
   ],
   "lessonIds": [
+    "MATH-NS-FOUND-0000",
     "MATH-NS-COMP-0001",
     "MATH-NS-COMP-0002",
     "MATH-NS-COMP-0003",
@@ -41,12 +44,12 @@
   ],
   "outputs": {
     "index.html": "f3ff939071a198c73042c02850144a9f0f3b936861b61ff1bd1ebe9346231c08",
-    "memory-assets.json": "f9dc7ba1c97e289e4d09979a97ee9c977677bfa4e8643dd415345813881226b0",
-    "en/flashcards.html": "0b7c0207b3e757c67d5b618431e222ddb83b11bfbd2b619d631f7d5fd961837e",
-    "en/worksheet.html": "19ecd60cf65bb0e39f8736cc602b043ed521d5a61b53e8658523b17bb4fedc6b",
-    "en/quiz.html": "1cd71810fb35f37b8f68100b0f95e43ec97a0bf740fcf25ff3208db348df3393",
-    "es/flashcards.html": "4dc319e33534466eb12990190e17455d25e771b8aa5dbad68a2fc4f02c1862d0",
-    "es/worksheet.html": "f7433e93d1700ccaa5827bfda543f18f78dc7f817ea46e63858272fdecb5ab34",
-    "es/quiz.html": "2a2f89d4ac7744454c46353b60545c23a74348952a85954dca1fdcb5e11c6eff"
+    "memory-assets.json": "20450f9bcfcb372209f8ae649a41ef69e9b7e19134c1c5d1b1e8933b4ce27573",
+    "en/flashcards.html": "7e7f387cafc24df153a7016d977cfa68828f1d73e2e4e530ad2e43fcebea7cdd",
+    "en/worksheet.html": "fcc6d4c9440d4d3f3e8b7a0450831732f6d51a1151426d14c7d5cdd3e165cd1c",
+    "en/quiz.html": "b93e4d9c0a34e989dcfc98518f1ac606942ac59036d59b7c48b27c00a15f2106",
+    "es/flashcards.html": "7455ad6b9f30e76a6bb866bdf82cd3968c0b3ff57dfe44576b827d9b5c3a0635",
+    "es/worksheet.html": "cd42c7f49ab3c532a126a53f382fe91745f305a342c9acda0e1095c21089e4e4",
+    "es/quiz.html": "54e3acfd428fe39e63b5fb7a147d5fe754fa96cd481150755325a339478629aa"
   }
 }

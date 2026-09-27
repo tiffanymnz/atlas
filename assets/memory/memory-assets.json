@@ -3,36 +3,67 @@
   "locales": {
     "en": [
       {
+        "lessonId": "MATH-NS-FOUND-0000",
+        "conceptId": "counting_and_matching",
+        "title": "Count and make pairs",
+        "learningGoal": "Count objects to ten and match one item from each group.",
+        "memoryHook": {
+          "title": "Count. Then pair.",
+          "hook": "One number per dot. One blue and one red per pair.",
+          "body": "The last number tells how many. A pair has one from each group."
+        },
+        "independent": {
+          "answer": "10"
+        },
+        "recall": {
+          "prompt": "You counted: 1, 2, 3, 4. What does 4 tell you?",
+          "choices": [
+            "Which dot is blue",
+            "How many dots there are",
+            "How many pairs there are"
+          ],
+          "answer": "How many dots there are"
+        },
+        "transfer": {
+          "choices": [
+            "5",
+            "1",
+            "4"
+          ],
+          "answer": "4"
+        }
+      },
+      {
         "lessonId": "MATH-NS-COMP-0001",
         "conceptId": "comparison.more",
         "title": "How many more?",
-        "learningGoal": "Compare two counted groups and connect “how many more,” difference, and subtraction.",
+        "learningGoal": "Compare two groups by pairing them, then name the difference and write a subtraction.",
         "memoryHook": {
-          "title": "More? Difference? Find the extras.",
-          "hook": "10 blue. 5 red. 5 pairs. 5 extra blue.",
-          "body": "Subtract to find the difference: 10 − 5 = 5. Subtraction can compare two counts; it can also describe taking away."
+          "title": "How many more? Find the difference.",
+          "hook": "6 blue. 4 red. 4 pairs. 2 extra blue.",
+          "body": "The difference is 2. Write it as 6 − 4 = 2. This is subtraction."
         },
         "independent": {
-          "prompt": "Nia read 16 pages. Theo read 9 pages. How many more pages did Nia read?",
-          "answer": "7"
+          "prompt": "Nia read 9 pages. Theo read 5 pages. How many more pages did Nia read?",
+          "answer": "4"
         },
         "recall": {
-          "prompt": "For 10 blue buttons and 5 red buttons, which question asks for the extra blue buttons?",
+          "prompt": "There are 6 blue dots and 4 red dots. Which question asks for the extra blue dots?",
           "choices": [
-            "How many buttons in all?",
+            "How many dots in all?",
             "What is the difference?",
-            "How many blue buttons?"
+            "How many blue dots?"
           ],
           "answer": "What is the difference?"
         },
         "transfer": {
-          "prompt": "A blue notebook costs $18 and a red notebook costs $11. How much more does the blue notebook cost?",
+          "prompt": "One notebook costs $10. Another costs $8. What is the difference in price?",
           "choices": [
-            "$7",
-            "$29",
-            "$18"
+            "$2",
+            "$18",
+            "$10"
           ],
-          "answer": "$7"
+          "answer": "$2"
         }
       },
       {
@@ -368,36 +399,67 @@
     ],
     "es": [
       {
+        "lessonId": "MATH-NS-FOUND-0000",
+        "conceptId": "counting_and_matching",
+        "title": "Cuenta y forma parejas",
+        "learningGoal": "Cuenta objetos hasta diez y une uno de cada grupo.",
+        "memoryHook": {
+          "title": "Cuenta. Después forma parejas.",
+          "hook": "Un número por punto. Un azul y un rojo por pareja.",
+          "body": "El último número dice cuántos hay. Una pareja tiene uno de cada grupo."
+        },
+        "independent": {
+          "answer": "10"
+        },
+        "recall": {
+          "prompt": "Cuentas: 1, 2, 3, 4. ¿Qué te dice el 4?",
+          "choices": [
+            "Cuál punto es azul",
+            "Cuántos puntos hay",
+            "Cuántas parejas hay"
+          ],
+          "answer": "Cuántos puntos hay"
+        },
+        "transfer": {
+          "choices": [
+            "5",
+            "1",
+            "4"
+          ],
+          "answer": "4"
+        }
+      },
+      {
         "lessonId": "MATH-NS-COMP-0001",
         "conceptId": "comparison.more",
         "title": "¿Cuántos más?",
-        "learningGoal": "Comparar dos grupos y relacionar «cuántos más», diferencia y resta.",
+        "learningGoal": "Compara dos grupos formando parejas; luego nombra la diferencia y escribe una resta.",
         "memoryHook": {
-          "title": "¿Cuántos más? ¿Diferencia? Busca los que sobran.",
-          "hook": "10 azules. 5 rojos. 5 parejas. 5 azules de más.",
-          "body": "Resta para hallar la diferencia: 10 − 5 = 5. La resta puede comparar dos cantidades; también puede describir cuando quitamos algo."
+          "title": "¿Cuántos más? Halla la diferencia.",
+          "hook": "6 azules. 4 rojos. 4 parejas. 2 azules de más.",
+          "body": "La diferencia es 2. Escríbelo así: 6 − 4 = 2. Esto es una resta."
         },
         "independent": {
-          "prompt": "Nia leyó 16 páginas. Theo leyó 9 páginas. ¿Cuántas páginas más leyó Nia?",
-          "answer": "7"
+          "prompt": "Nia leyó 9 páginas. Theo leyó 5. ¿Cuántas páginas más leyó Nia?",
+          "answer": "4"
         },
         "recall": {
-          "prompt": "Con 10 botones azules y 5 rojos, ¿qué pregunta pide los botones azules de más?",
+          "prompt": "Hay 6 puntos azules y 4 rojos. ¿Qué pregunta pide los puntos azules de más?",
           "choices": [
-            "¿Cuántos botones hay en total?",
+            "¿Cuántos puntos hay en total?",
             "¿Cuál es la diferencia?",
-            "¿Cuántos botones azules hay?"
+            "¿Cuántos puntos azules hay?"
           ],
           "answer": "¿Cuál es la diferencia?"
         },
         "transfer": {
-          "prompt": "Un cuaderno azul cuesta $18 y uno rojo cuesta $11. ¿Cuánto más cuesta el cuaderno azul?",
+          "prompt": "Un cuaderno cuesta $10. Otro cuesta $8. ¿Cuál es la diferencia de precio?",
           "choices": [
-            "$7",
-            "$29",
-            "$18"
+            "$2",
+            "$18",
+            "$10"
           ],
-          "answer": "$7"
+          "answer": "$2"
         }
       },
       {
