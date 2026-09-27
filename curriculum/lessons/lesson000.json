@@ -2,353 +2,247 @@
   "schema_version": "3.0",
   "metadata": {
     "id": "MATH-NS-FOUND-0000",
-    "title": "Count and find how many",
+    "title": "Meet the numbers 1 through 10",
     "domain": "Mathematics",
     "subject": "Arithmetic",
     "course": "Number Sense",
     "unit": "Counting",
-    "contentRevision": 2
+    "contentRevision": 3
   },
   "learning": {
-    "learning_goal": "Hear number words, see numerals, and count objects to ten without skipping or repeating.",
-    "big_idea": "The final number said when counting tells how many objects are there.",
-    "assumed_prior_knowledge": []
+    "learning_goal": "Hear, see, and connect each number from 1 through 10 to a group of objects.",
+    "big_idea": "A number can name how many objects are in a group.",
+    "assumed_prior_knowledge": [],
+    "novice_success_criteria": [
+      "say or identify the number words from one through ten",
+      "connect each numeral from 1 through 10 to its spoken name and quantity",
+      "count a group to ten by counting each object once"
+    ]
   },
   "concepts": {
     "primary_concept": "counting",
-    "supporting_concepts": [
-      "counting",
-      "cardinality"
-    ]
+    "supporting_concepts": ["counting", "cardinality"]
   },
   "screens": [
     {
       "id": "intro",
       "type": "intro",
       "label": "Start here",
-      "title": "How many dots?",
-      "body": "First, hear and see the numbers. Then count dots to find how many there are."
+      "title": "Meet the numbers 1 through 10.",
+      "body": "Tap Listen whenever you want the screen read aloud.",
+      "audio": "We will learn the numbers one through ten. You will see each number, hear its name, and count that many dots."
+    },
+    {
+      "id": "number-1",
+      "type": "observe",
+      "label": "Number 1",
+      "title": "1 — one",
+      "audio": "This is one. One dot. Tap the dot to hear one.",
+      "visual": {"kind": "countingDots", "count": 1, "numbered": true, "interactive": true, "ariaLabel": "One blue dot labeled 1.", "message": "1 dot"},
+      "nextLabel": "Next number"
+    },
+    {
+      "id": "number-2",
+      "type": "observe",
+      "label": "Number 2",
+      "title": "2 — two",
+      "audio": "This is two. Two dots. Tap the dots in order: one, two.",
+      "visual": {"kind": "countingDots", "count": 2, "numbered": true, "interactive": true, "ariaLabel": "Two blue dots labeled 1 and 2.", "message": "2 dots"},
+      "nextLabel": "Next number"
     },
     {
       "id": "count-model",
       "type": "observe",
-      "label": "Watch",
-      "title": "Hear and see the numbers.",
-      "visual": {
-        "kind": "countingDots",
-        "count": 3,
-        "numbered": true,
-        "interactive": true,
-        "ariaLabel": "Three blue dots labeled 1, 2, 3. Tap each dot to hear its number.",
-        "message": "Tap each dot, starting on the left. You will hear its number."
-      },
+      "label": "Number 3",
+      "title": "3 — three",
+      "audio": "This is three. Three dots. Tap the dots in order: one, two, three.",
+      "visual": {"kind": "countingDots", "count": 3, "numbered": true, "interactive": true, "ariaLabel": "Three blue dots labeled 1, 2, and 3.", "message": "3 dots"},
       "nextLabel": "Try counting"
     },
     {
       "id": "count-four",
       "type": "count",
-      "title": "How many dots are here?",
-      "visual": {
-        "kind": "countingDots",
-        "count": 3,
-        "numbered": false,
-        "ariaLabel": "Three blue dots in a row.",
-        "message": "Look at each dot as you count: one, two, three."
-      },
+      "title": "Count the dots.",
+      "audio": "Count the blue dots. Choose the number that matches the group.",
+      "visual": {"kind": "countingDots", "count": 3, "numbered": false, "ariaLabel": "Three blue dots in a row.", "message": "Choose the number."},
       "choices": [
-        {
-          "text": "2",
-          "correct": false,
-          "feedback": "Look at the dot on the right, too.",
-          "misconception": "object_instead_of_relationship"
-        },
-        {
-          "text": "3",
-          "correct": true,
-          "feedback": "There are three dots. You said three when you reached the last dot."
-        },
-        {
-          "text": "4",
-          "correct": false,
-          "feedback": "Check that you did not count a dot twice.",
-          "misconception": "object_instead_of_relationship"
-        }
+        {"text": "2", "correct": false, "feedback": "Look at the dot on the right, too.", "misconception": "object_instead_of_relationship"},
+        {"text": "3", "correct": true, "feedback": "There are three dots."},
+        {"text": "4", "correct": false, "feedback": "Check that you did not count a dot twice.", "misconception": "object_instead_of_relationship"}
       ],
-      "hints": [
-        "Start with the dot on the left. Move to the next dot as you count.",
-        "Which number did you say at the last dot?"
-      ],
-      "revision": 2
+      "hints": ["Start with the dot on the left. Count each dot once.", "Count again: one, two, three."],
+      "revision": 3
     },
     {
       "id": "pair-model",
       "type": "observe",
-      "title": "What is a group?",
-      "visual": {
-        "kind": "countingDots",
-        "count": 3,
-        "grouped": true,
-        "ariaLabel": "Three blue dots together inside a box. This is one group of three dots.",
-        "message": "These dots are together in one box. We call them a group. There are three dots in this group."
-      },
-      "nextLabel": "Keep counting"
+      "label": "New word",
+      "title": "This is a group.",
+      "audio": "These three dots are together inside one box. Dots together are called a group. This is one group of three dots.",
+      "visual": {"kind": "countingDots", "count": 3, "grouped": true, "ariaLabel": "Three blue dots together inside one box.", "message": "Dots together in one box are a group."},
+      "nextLabel": "Next number"
     },
     {
       "id": "count-four-model",
       "type": "observe",
-      "label": "Watch and listen",
-      "title": "Hear one through four.",
-      "visual": {
-        "kind": "countingDots",
-        "count": 4,
-        "numbered": true,
-        "interactive": true,
-        "ariaLabel": "Four blue dots labeled 1 through 4. Tap each dot to hear its number.",
-        "message": "Tap the dots from left to right. The last dot says four. There are four dots."
-      },
-      "nextLabel": "Try four"
+      "label": "Number 4",
+      "title": "4 — four",
+      "audio": "This is four. Four dots. Tap the dots in order: one, two, three, four.",
+      "visual": {"kind": "countingDots", "count": 4, "numbered": true, "interactive": true, "ariaLabel": "Four blue dots labeled 1 through 4.", "message": "4 dots"},
+      "nextLabel": "Next number"
     },
     {
       "id": "pair-check",
       "type": "guidedPractice",
-      "title": "How many dots are in this group?",
-      "visual": {
-        "kind": "countingDots",
-        "count": 4,
-        "grouped": true,
-        "ariaLabel": "Four blue dots together in one box.",
-        "message": "Count the dots. What number do you say at the last dot?"
-      },
+      "title": "Count this group.",
+      "audio": "Count the dots in the box. Choose the number that matches the group.",
+      "visual": {"kind": "countingDots", "count": 4, "grouped": true, "ariaLabel": "Four blue dots together in one box.", "message": "Choose the number."},
       "choices": [
-        {
-          "text": "3",
-          "correct": false,
-          "feedback": "Look at every dot, including the one on the right.",
-          "misconception": "object_instead_of_relationship"
-        },
-        {
-          "text": "4",
-          "correct": true,
-          "feedback": "There are four dots in this group."
-        },
-        {
-          "text": "5",
-          "correct": false,
-          "feedback": "Count each dot once. Check that none was counted twice.",
-          "misconception": "object_instead_of_relationship"
-        }
+        {"text": "3", "correct": false, "feedback": "Look at every dot, including the one on the right.", "misconception": "object_instead_of_relationship"},
+        {"text": "4", "correct": true, "feedback": "There are four dots in this group."},
+        {"text": "5", "correct": false, "feedback": "Count each dot once. Check that none was counted twice.", "misconception": "object_instead_of_relationship"}
       ],
-      "hints": [
-        "Start at the left. Look at the next dot as you say the next number.",
-        "The number at the last dot tells how many dots are in the group."
-      ],
-      "revision": 2
+      "hints": ["Start on the left. Count each dot once.", "Count again: one, two, three, four."],
+      "revision": 3
     },
     {
       "id": "count-five-model",
       "type": "observe",
-      "label": "Watch and listen",
-      "title": "Hear one through five.",
-      "visual": {
-        "kind": "countingDots",
-        "count": 5,
-        "numbered": true,
-        "interactive": true,
-        "ariaLabel": "Five blue dots labeled 1 through 5. Tap each dot in order to hear its number.",
-        "message": "Tap the dots from left to right to hear their numbers."
-      },
+      "label": "Number 5",
+      "title": "5 — five",
+      "audio": "This is five. Five dots. Tap the dots in order: one, two, three, four, five.",
+      "visual": {"kind": "countingDots", "count": 5, "numbered": true, "interactive": true, "ariaLabel": "Five blue dots labeled 1 through 5.", "message": "5 dots"},
       "nextLabel": "Try five"
-    },
-    {
-      "id": "memory-hook",
-      "type": "memoryHook",
-      "title": "Count to find how many.",
-      "hook": "Look. Count. Tell how many.",
-      "body": "Look at each dot once. The number you say at the last dot tells how many dots are in the group."
     },
     {
       "id": "count-five",
       "type": "count",
-      "title": "How many dots are in this group?",
-      "visual": {
-        "kind": "countingDots",
-        "count": 5,
-        "grouped": true,
-        "numbered": false,
-        "ariaLabel": "Dot, dot, dot, dot, dot.",
-        "message": "Count the dots in this box. Choose how many there are."
-      },
+      "title": "Count this group.",
+      "audio": "Count the dots in the box. Choose the number that matches the group.",
+      "visual": {"kind": "countingDots", "count": 5, "grouped": true, "ariaLabel": "Five blue dots inside one box.", "message": "Choose the number."},
       "choices": [
-        {
-          "text": "4",
-          "correct": false,
-          "feedback": "Look at the dot on the right. Count it too.",
-          "misconception": "object_instead_of_relationship"
-        },
-        {
-          "text": "6",
-          "correct": false,
-          "feedback": "Check that each dot was counted only once.",
-          "misconception": "object_instead_of_relationship"
-        },
-        {
-          "text": "5",
-          "correct": true,
-          "feedback": "There are five dots in this group."
-        }
+        {"text": "4", "correct": false, "feedback": "Look at the dot on the right. Count it too.", "misconception": "object_instead_of_relationship"},
+        {"text": "6", "correct": false, "feedback": "Check that you counted each dot only once.", "misconception": "object_instead_of_relationship"},
+        {"text": "5", "correct": true, "feedback": "There are five dots in this group."}
       ],
-      "hints": [
-        "Look from left to right. Count every dot once.",
-        "Which number did you say when you reached the last dot?"
-      ],
-      "revision": 2
+      "hints": ["Start on the left. Count each dot once.", "Count again: one, two, three, four, five."],
+      "revision": 3
+    },
+    {
+      "id": "number-6",
+      "type": "observe",
+      "label": "Number 6",
+      "title": "6 — six",
+      "audio": "This is six. Six dots. Tap the dots in order from one through six.",
+      "visual": {"kind": "countingDots", "count": 6, "numbered": true, "interactive": true, "ariaLabel": "Six blue dots labeled 1 through 6.", "message": "6 dots"},
+      "nextLabel": "Next number"
+    },
+    {
+      "id": "number-7",
+      "type": "observe",
+      "label": "Number 7",
+      "title": "7 — seven",
+      "audio": "This is seven. Seven dots. Tap the dots in order from one through seven.",
+      "visual": {"kind": "countingDots", "count": 7, "numbered": true, "interactive": true, "ariaLabel": "Seven blue dots labeled 1 through 7.", "message": "7 dots"},
+      "nextLabel": "Next number"
+    },
+    {
+      "id": "number-8",
+      "type": "observe",
+      "label": "Number 8",
+      "title": "8 — eight",
+      "audio": "This is eight. Eight dots. Tap the dots in order from one through eight.",
+      "visual": {"kind": "countingDots", "count": 8, "numbered": true, "interactive": true, "ariaLabel": "Eight blue dots labeled 1 through 8.", "message": "8 dots"},
+      "nextLabel": "Next number"
+    },
+    {
+      "id": "number-9",
+      "type": "observe",
+      "label": "Number 9",
+      "title": "9 — nine",
+      "audio": "This is nine. Nine dots. Tap the dots in order from one through nine.",
+      "visual": {"kind": "countingDots", "count": 9, "numbered": true, "interactive": true, "ariaLabel": "Nine blue dots labeled 1 through 9.", "message": "9 dots"},
+      "nextLabel": "Next number"
     },
     {
       "id": "count-ten-model",
       "type": "observe",
-      "title": "Hear the numbers to ten.",
-      "visual": {
-        "kind": "countingDots",
-        "count": 10,
-        "numbered": true,
-        "interactive": true,
-        "ariaLabel": "Ten dots labeled in order from 1 to 10.",
-        "message": "Tap each dot in order to hear its number. Stop at ten."
-      },
+      "label": "Number 10",
+      "title": "10 — ten",
+      "audio": "This is ten. Ten dots. Tap the dots in order from one through ten.",
+      "visual": {"kind": "countingDots", "count": 10, "numbered": true, "interactive": true, "ariaLabel": "Ten blue dots labeled 1 through 10.", "message": "10 dots"},
       "nextLabel": "Try ten"
+    },
+    {
+      "id": "memory-hook",
+      "type": "memoryHook",
+      "title": "The total is the whole group.",
+      "hook": "Count each dot once.",
+      "body": "The last number is the total. Total means the number of dots in the group.",
+      "audio": "Count each dot once. The last number is the total. Total means the number of dots in the whole group."
     },
     {
       "id": "count-ten",
       "type": "independentPractice",
-      "title": "How many dots?",
-      "visual": {
-        "kind": "countingDots",
-        "count": 10,
-        "numbered": false,
-        "ariaLabel": "Dot, dot, dot, dot, dot, dot, dot, dot, dot, dot.",
-        "message": "Count every dot once. Which number do you say at the last dot?"
-      },
+      "title": "Count this group.",
+      "audio": "Count the dots in the box. Choose the number that matches the group.",
+      "visual": {"kind": "countingDots", "count": 10, "grouped": true, "ariaLabel": "Ten blue dots together inside one box.", "message": "Choose the number."},
       "choices": [
-        {
-          "text": "9",
-          "correct": false,
-          "feedback": "You may have missed a dot. Start at the left.",
-          "misconception": "object_instead_of_relationship"
-        },
-        {
-          "text": "10",
-          "correct": true,
-          "feedback": "There are ten dots. Ten is the number at the last dot."
-        },
-        {
-          "text": "11",
-          "correct": false,
-          "feedback": "You may have counted a dot twice.",
-          "misconception": "object_instead_of_relationship"
-        }
+        {"text": "9", "correct": false, "feedback": "You may have missed a dot. Start on the left and count again.", "misconception": "object_instead_of_relationship"},
+        {"text": "10", "correct": true, "feedback": "There are ten dots in this group."},
+        {"text": "11", "correct": false, "feedback": "You may have counted a dot twice.", "misconception": "object_instead_of_relationship"}
       ],
-      "hints": [
-        "Look at the next dot as you count from left to right.",
-        "Count every dot just once, including the last dot."
-      ],
-      "revision": 2
+      "hints": ["Start on the left. Count each dot once.", "Count slowly from one through ten."],
+      "revision": 3
     },
     {
       "id": "recall",
       "type": "recall",
-      "title": "What does the last number tell you?",
-      "prompt": "You counted four dots: one, two, three, four. What does four tell you?",
+      "title": "What is the total?",
+      "prompt": "You count four dots. What is the total?",
+      "audio": "You count four dots. What is the total? Choose an answer.",
       "choices": [
-        {
-          "text": "Which dot is blue",
-          "correct": false,
-          "misconception": "object_instead_of_relationship"
-        },
-        {
-          "text": "How many dots there are",
-          "correct": true,
-          "feedback": "Yes. Four is how many dots you counted."
-        },
-        {
-          "text": "How many boxes there are",
-          "correct": false,
-          "misconception": "object_instead_of_relationship"
-        }
+        {"text": "The color", "correct": false, "misconception": "object_instead_of_relationship"},
+        {"text": "4 dots", "correct": true, "feedback": "Yes. The total is four dots."},
+        {"text": "1 box", "correct": false, "misconception": "object_instead_of_relationship"}
       ],
-      "hints": [
-        "Think about all the dots together.",
-        "You counted the dots. What were you trying to find?"
-      ],
-      "revision": 2
+      "hints": ["Total means the number of dots in the whole group.", "The group has four dots."],
+      "revision": 3
     },
     {
       "id": "transfer",
       "type": "transfer",
-      "title": "Count a different group.",
-      "visual": {
-        "kind": "countingDots",
-        "count": 6,
-        "grouped": true,
-        "ariaLabel": "Six blue dots together inside one box.",
-        "message": "How many dots are in this group?"
-      },
+      "title": "Count a new group.",
+      "audio": "Count the dots in this new group. Choose the number that matches the group.",
+      "visual": {"kind": "countingDots", "count": 6, "grouped": true, "ariaLabel": "Six blue dots together inside one box.", "message": "Choose the number."},
       "choices": [
-        {
-          "text": "7",
-          "correct": false,
-          "feedback": "Check that you counted each dot only once.",
-          "misconception": "object_instead_of_relationship"
-        },
-        {
-          "text": "5",
-          "correct": false,
-          "feedback": "Look for a dot you may have missed.",
-          "misconception": "object_instead_of_relationship"
-        },
-        {
-          "text": "6",
-          "correct": true,
-          "feedback": "There are six dots. Six is the number at the last dot."
-        }
+        {"text": "7", "correct": false, "feedback": "Check that you counted each dot only once.", "misconception": "object_instead_of_relationship"},
+        {"text": "5", "correct": false, "feedback": "Look for a dot you may have missed.", "misconception": "object_instead_of_relationship"},
+        {"text": "6", "correct": true, "feedback": "There are six dots in this group."}
       ],
-      "hints": [
-        "Start at the left. Count every dot once.",
-        "Which number did you say when you reached the last dot?"
-      ],
-      "revision": 2
+      "hints": ["Start on the left. Count each dot once.", "Count again from one through six."],
+      "revision": 3
     },
     {
       "id": "reflection",
       "type": "reflection",
       "title": "What is a group?",
-      "prompt": "In this lesson, the dots inside one box are together. What do we call them?",
+      "prompt": "The dots are together inside one box. What do we call them?",
+      "audio": "The dots are together inside one box. What do we call them? Choose an answer.",
       "choices": [
-        {
-          "text": "One number",
-          "correct": false,
-          "misconception": "object_instead_of_relationship"
-        },
-        {
-          "text": "A group of dots",
-          "correct": true
-        },
-        {
-          "text": "A pair of boxes",
-          "correct": false,
-          "misconception": "object_instead_of_relationship"
-        }
+        {"text": "A color", "correct": false, "misconception": "object_instead_of_relationship"},
+        {"text": "A group of dots", "correct": true},
+        {"text": "A pair", "correct": false, "misconception": "object_instead_of_relationship"}
       ],
-      "hints": [
-        "Think of the dots together inside the box.",
-        "We call dots together a group."
-      ],
-      "revision": 2
+      "hints": ["Think about all the dots together.", "Dots together are called a group."],
+      "revision": 3
     },
     {
       "id": "complete",
       "type": "complete",
-      "title": "You counted the dots.",
-      "body": "Next, learn what a pair is by putting two dots together.",
+      "title": "You met the numbers 1 through 10.",
+      "body": "Next, learn what a pair is.",
+      "audio": "You finished. You saw, heard, and counted the numbers one through ten. Next, you can learn what a pair is.",
       "nextRecommendation": "Next lesson: Make a pair."
     }
   ]
