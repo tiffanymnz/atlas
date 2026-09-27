@@ -6,7 +6,7 @@ import { applyTranslation } from "../../engine/i18n/lessonLocale.js";
 
 const root=resolve(dirname(fileURLToPath(import.meta.url)),"../..");
 const outputRoot=resolve(root,"assets/memory");
-const lessonNames=["lesson000.json","lesson001.json","lesson002.json","lesson003.json","lesson004.json","lesson005.json","lesson006.json","lesson007.json","lesson008.json","lesson009.json","lesson010.json","lesson011.json"];
+const lessonNames=["lesson000.json","lesson000a.json","lesson001.json","lesson002.json","lesson003.json","lesson004.json","lesson005.json","lesson006.json","lesson007.json","lesson008.json","lesson009.json","lesson010.json","lesson011.json"];
 const inputPaths=lessonNames.flatMap(name=>[
   `curriculum/lessons/${name}`,
   `curriculum/translations/es/${name}`
@@ -30,9 +30,9 @@ function modelLesson(lesson){
     title:lesson.metadata.title,
     learningGoal:lesson.learning.learning_goal,
     memoryHook:{title:hook.title,hook:hook.hook,body:hook.body},
-    independent:{prompt:independent.prompt,answer:correct(independent)},
+    independent:{prompt:independent.prompt||independent.visual?.message||independent.title,answer:correct(independent)},
     recall:{prompt:recall.prompt,choices:recall.choices.map(({text})=>text),answer:correct(recall)},
-    transfer:{prompt:transfer.prompt,choices:transfer.choices.map(({text})=>text),answer:correct(transfer)}
+    transfer:{prompt:transfer.prompt||transfer.visual?.message||transfer.title,choices:transfer.choices.map(({text})=>text),answer:correct(transfer)}
   };
 }
 

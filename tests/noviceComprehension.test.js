@@ -2,16 +2,37 @@ import test from "node:test";
 import assert from "node:assert/strict";
 import fs from "node:fs";
 import {applyTranslation} from "../engine/i18n/lessonLocale.js";
+import {renderCountingDots} from "../sdk/components/lessonComponents.js";
 
 const names=["lesson005.json","lesson006.json","lesson007.json","lesson008.json","lesson009.json","lesson010.json","lesson011.json"];
 const read=path=>JSON.parse(fs.readFileSync(new URL(`../${path}`,import.meta.url)));
 const get=(lesson,type)=>lesson.screens.find(screen=>screen.type===type);
 
-test("foundation counts to ten and pairs before comparison",()=>{
+test("counting foundation establishes quantities and group before pairing",()=>{
   const f=read("curriculum/lessons/lesson000.json");
   assert.equal(f.screens.find(s=>s.id==="count-ten").visual.count,10);
-  assert.ok(f.screens.some(s=>s.visual?.step==="pair"));
-  assert.equal(f.concepts.primary_concept,"counting_and_matching");
+  assert.ok(f.screens.some(s=>s.visual?.interactive));
+  assert.ok(f.screens.some(s=>s.visual?.grouped));
+  assert.ok(!f.screens.some(s=>s.visual?.step==="pair"));
+  assert.equal(f.concepts.primary_concept,"counting");
+  const pair=read("curriculum/lessons/lesson000a.json");
+  assert.equal(pair.concepts.primary_concept,"one_to_one_matching");
+  assert.ok(pair.screens.find(s=>s.id==="one-pair").visual.topCount===1);
+  assert.ok(pair.screens.some(s=>s.visual?.step==="pair"));
+  assert.ok(f.screens.find(s=>s.id==="pair-model").visual.grouped);
+  for(const screen of f.screens){
+    assert.doesNotMatch(JSON.stringify(screen),/say one number|count outlines|touch each dot|make pairs/i);
+  }
+});
+
+test("counting model offers accessible taps and visible words when audio is unavailable",()=>{
+  const html=renderCountingDots({kind:"countingDots",count:3,numbered:true,interactive:true,ariaLabel:"Three dots"});
+  assert.equal((html.match(/class="countingDot countTap"/g)||[]).length,3);
+  assert.match(html,/role="group" aria-label="Three dots"/);
+  assert.match(html,/id="countSpeech" role="status" aria-live="polite"/);
+  const engine=fs.readFileSync(new URL("../engine/lessonEngine.js",import.meta.url),"utf8");
+  assert.match(engine,/SpeechSynthesisUtterance/);
+  assert.match(engine,/speechSynthesis\.cancel/);
 });
 
 test("lesson001 moves from counting to formed pairs, difference language, and subtraction",()=>{

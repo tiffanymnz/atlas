@@ -1,11 +1,12 @@
 {
   "concepts": [
-    {"id":"counting_and_matching","title":"Count and make pairs","prerequisites":[],"successors":["comparison.more"]},
+    {"id":"counting","title":"Count and find how many","prerequisites":[],"successors":["one_to_one_matching"]},
+    {"id":"one_to_one_matching","title":"Make a pair","prerequisites":["counting"],"successors":["comparison.more"]},
     {
       "id": "comparison.more",
       "title": "How many more?",
       "prerequisites": [
-        "counting_and_matching"
+        "one_to_one_matching"
       ],
       "successors": [
         "comparison.fewer",

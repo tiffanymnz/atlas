@@ -15,12 +15,12 @@ test("memory assets are deterministic, bilingual, and traceable",async()=>{
     "index.html","manifest.json","memory-assets.json"
   ]);
   const data=JSON.parse(first["memory-assets.json"]);
-  assert.equal(data.locales.en.length,12);
-  assert.equal(data.locales.es.length,12);
+  assert.equal(data.locales.en.length,13);
+  assert.equal(data.locales.es.length,13);
   assert.notEqual(data.locales.en[0].title,data.locales.es[0].title);
   for(const locale of ["en","es"]){
     for(const lesson of data.locales[locale]){
-      assert.match(lesson.lessonId,/^MATH-(?:NS-FOUND-0000|NS-COMP-000[1-4]|NS-DIV-0005|NS-FRAC-0006|NS-PCT-0007|GEO-AREA-0008|GEO-PERIM-0009|ALG-INEQ-001[01])$/);
+      assert.match(lesson.lessonId,/^MATH-(?:NS-FOUND-000(?:0|A)|NS-COMP-000[1-4]|NS-DIV-0005|NS-FRAC-0006|NS-PCT-0007|GEO-AREA-0008|GEO-PERIM-0009|ALG-INEQ-001[01])$/);
       assert.ok(lesson.conceptId);
       assert.ok(lesson.memoryHook.hook);
       assert.ok(lesson.independent.answer);
@@ -29,8 +29,8 @@ test("memory assets are deterministic, bilingual, and traceable",async()=>{
     }
   }
   const manifest=JSON.parse(first["manifest.json"]);
-  assert.equal(manifest.sources.length,24);
-  assert.equal(manifest.lessonIds.length,12);
+  assert.equal(manifest.sources.length,26);
+  assert.equal(manifest.lessonIds.length,13);
   for(const [path,hash] of Object.entries(manifest.outputs)) assert.equal(hash,digest(first[path]));
 });
 
@@ -40,6 +40,7 @@ test("printable assets contain every lesson and no unresolved values",async()=>{
     for(const type of ["flashcards","worksheet","quiz"]){
       const html=outputs[`${locale}/${type}.html`];
       for(const id of ["MATH-NS-FOUND-0000","MATH-NS-COMP-0001","MATH-NS-COMP-0002","MATH-NS-COMP-0003","MATH-NS-COMP-0004","MATH-NS-DIV-0005","MATH-NS-FRAC-0006","MATH-NS-PCT-0007","MATH-GEO-AREA-0008","MATH-GEO-PERIM-0009","MATH-ALG-INEQ-0010","MATH-ALG-INEQ-0011"]) assert.match(html,new RegExp(id));
+      assert.match(html,/MATH-NS-FOUND-000A/);
       assert.doesNotMatch(html,/undefined|null/);
     }
   }
