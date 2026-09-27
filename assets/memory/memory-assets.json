@@ -5,28 +5,28 @@
       {
         "lessonId": "MATH-NS-FOUND-0000",
         "conceptId": "counting",
-        "title": "Count and find how many",
-        "learningGoal": "Hear number words, see numerals, and count objects to ten without skipping or repeating.",
+        "title": "Meet the numbers 1 through 10",
+        "learningGoal": "Hear, see, and connect each number from 1 through 10 to a group of objects.",
         "memoryHook": {
-          "title": "Count to find how many.",
-          "hook": "Look. Count. Tell how many.",
-          "body": "Look at each dot once. The number you say at the last dot tells how many dots are in the group."
+          "title": "The total is the whole group.",
+          "hook": "Count each dot once.",
+          "body": "The last number is the total. Total means the number of dots in the group."
         },
         "independent": {
-          "prompt": "Count every dot once. Which number do you say at the last dot?",
+          "prompt": "Choose the number.",
           "answer": "10"
         },
         "recall": {
-          "prompt": "You counted four dots: one, two, three, four. What does four tell you?",
+          "prompt": "You count four dots. What is the total?",
           "choices": [
-            "Which dot is blue",
-            "How many dots there are",
-            "How many boxes there are"
+            "The color",
+            "4 dots",
+            "1 box"
           ],
-          "answer": "How many dots there are"
+          "answer": "4 dots"
         },
         "transfer": {
-          "prompt": "How many dots are in this group?",
+          "prompt": "Choose the number.",
           "choices": [
             "7",
             "5",
@@ -436,28 +436,28 @@
       {
         "lessonId": "MATH-NS-FOUND-0000",
         "conceptId": "counting",
-        "title": "Cuenta y descubre cuántos hay",
-        "learningGoal": "Escucha los números, ve las cifras y cuenta objetos hasta diez sin saltar ni repetir.",
+        "title": "Conoce los números del 1 al 10",
+        "learningGoal": "Escucha, mira y relaciona cada número del 1 al 10 con un grupo de objetos.",
         "memoryHook": {
-          "title": "Cuenta para saber cuántos hay.",
-          "hook": "Mira. Cuenta. Di cuántos hay.",
-          "body": "Mira cada punto una vez. El número que dices al llegar al último punto te indica cuántos hay en el grupo."
+          "title": "El total es el grupo completo.",
+          "hook": "Cuenta cada punto una vez.",
+          "body": "El último número es el total. Total significa la cantidad de puntos en el grupo."
         },
         "independent": {
-          "prompt": "Cuenta cada punto una vez. ¿Qué número dices al llegar al último punto?",
+          "prompt": "Elige el número.",
           "answer": "10"
         },
         "recall": {
-          "prompt": "Contaste cuatro puntos: uno, dos, tres, cuatro. ¿Qué indica cuatro?",
+          "prompt": "Cuentas cuatro puntos. ¿Cuál es el total?",
           "choices": [
-            "Cuál punto es azul",
-            "Cuántos puntos hay",
-            "Cuántos recuadros hay"
+            "El color",
+            "4 puntos",
+            "1 recuadro"
           ],
-          "answer": "Cuántos puntos hay"
+          "answer": "4 puntos"
         },
         "transfer": {
-          "prompt": "¿Cuántos puntos hay en este grupo?",
+          "prompt": "Elige el número.",
           "choices": [
             "7",
             "5",
