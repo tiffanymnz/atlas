@@ -3,10 +3,10 @@
     "title": "¿Cuántos más?"
   },
   "learning": {
-    "learning_goal": "Comparar dos grupos y relacionar «cuántos más», diferencia y resta.",
-    "big_idea": "Une un azul con un rojo. Los azules de más muestran la diferencia.",
+    "learning_goal": "Compara dos grupos formando parejas; luego nombra la diferencia y escribe una resta.",
+    "big_idea": "Une un punto azul con uno rojo. Cuenta los puntos azules que sobran para saber cuántos más hay.",
     "assumed_prior_knowledge": [
-      "Contar objetos de uno en uno hasta 20 y saber que el último número dicho es el total.",
+      "Contar objetos de uno en uno hasta 10 y saber que el último número dicho es el total.",
       "Unir un objeto de un grupo con uno del otro grupo."
     ]
   },
@@ -14,321 +14,382 @@
     {
       "label": "Comparación 1",
       "title": "¿Cuántos más?",
-      "body": "Primero cuenta los botones azules y rojos. Después veremos cuántos botones azules hay de más.",
-      "callout": "Esta es la primera lección de comparación, no la primera de matemáticas. Necesitas contar objetos hasta 20 y unirlos uno con uno. Las lecciones anteriores están en preparación."
+      "body": "Cuenta dos grupos de puntos. Después verás cuántos puntos azules hay de más."
     },
     {
       "label": "Cuenta",
-      "title": "¿Cuántos botones azules hay?",
+      "title": "¿Cuántos puntos azules hay?",
       "visual": {
         "kind": "comparisonButtons",
-        "topCount": 10,
-        "bottomCount": 5,
+        "topCount": 6,
+        "bottomCount": 4,
         "step": "count",
         "revealGap": false,
-        "topLabel": "Botones azules",
-        "bottomLabel": "Botones rojos",
-        "ariaLabel": "Diez botones azules arriba y cinco botones rojos abajo.",
-        "message": "Cuenta los botones azules."
+        "topLabel": "Puntos azules",
+        "bottomLabel": "Puntos rojos",
+        "ariaLabel": "Azul: punto, punto, punto, punto, punto, punto. Rojo: punto, punto, punto, punto.",
+        "message": "Cuenta los puntos azules."
       },
       "choices": [
         {
-          "text": "5"
+          "text": "4",
+          "feedback": "Cuatro cuenta rojo. Cuenta azul desde la izquierda."
+        },
+        {
+          "text": "6",
+          "feedback": "Sí. Contaste 6 puntos azules."
         },
         {
           "text": "10",
-          "feedback": "Sí. Hay 10 botones azules."
-        },
-        {
-          "text": "15"
+          "feedback": "Diez junta las filas. Cuenta solo azul."
         }
       ],
       "hints": [
-        "Señala cada botón azul una vez. Cuenta de izquierda a derecha.",
-        "Cuenta solo la fila azul. Detente en el último botón."
-      ]
+        "Toca cada punto azul mientras cuentas.",
+        "Empieza por el punto azul de la izquierda. Di un número por punto."
+      ],
+      "revision": 3
     },
     {
       "label": "Cuenta",
-      "title": "¿Cuántos botones rojos hay?",
+      "title": "¿Cuántos puntos rojos hay?",
       "visual": {
         "kind": "comparisonButtons",
-        "topCount": 10,
-        "bottomCount": 5,
+        "topCount": 6,
+        "bottomCount": 4,
         "step": "count",
         "revealGap": false,
-        "topLabel": "Botones azules",
-        "bottomLabel": "Botones rojos",
-        "ariaLabel": "Diez botones azules arriba y cinco botones rojos abajo.",
-        "message": "Ahora cuenta los botones rojos."
+        "topLabel": "Puntos azules",
+        "bottomLabel": "Puntos rojos",
+        "ariaLabel": "Azul: punto, punto, punto, punto, punto, punto. Rojo: punto, punto, punto, punto.",
+        "message": "Cuenta los puntos rojos."
       },
       "choices": [
         {
-          "text": "10"
+          "text": "6",
+          "feedback": "Seis cuenta azul. Cuenta solo rojo."
         },
         {
-          "text": "15"
+          "text": "10",
+          "feedback": "Diez junta las filas. Cuenta solo rojo."
         },
         {
-          "text": "5",
-          "feedback": "Sí. Hay 5 botones rojos."
+          "text": "4",
+          "feedback": "Sí. Contaste 4 puntos rojos."
         }
       ],
       "hints": [
-        "Señala cada botón rojo una vez. Cuenta de izquierda a derecha.",
-        "Cuenta solo la fila roja. Detente en el último botón."
-      ]
+        "Toca cada punto rojo mientras cuentas.",
+        "Empieza por el punto rojo de la izquierda. Di un número por punto."
+      ],
+      "revision": 3
     },
     {
       "label": "Mira",
-      "title": "Mira cómo se forman las parejas.",
+      "title": "Une un azul con un rojo.",
       "visual": {
         "kind": "comparisonButtons",
-        "topCount": 10,
-        "bottomCount": 5,
+        "topCount": 6,
+        "bottomCount": 4,
         "step": "pair",
         "revealGap": false,
-        "topLabel": "Botones azules",
-        "bottomLabel": "Botones rojos",
-        "ariaLabel": "Diez botones azules sobre cinco rojos. Aparecen círculos alrededor de cinco parejas, cada una con un botón azul y uno rojo.",
-        "message": "Cada círculo une un botón azul con uno rojo."
+        "topLabel": "Puntos azules",
+        "bottomLabel": "Puntos rojos",
+        "ariaLabel": "Cuatro parejas rodeadas, cada una con un punto azul sobre uno rojo; dos puntos azules quedan fuera.",
+        "message": "Cada contorno rodea un punto azul y uno rojo."
       },
-      "nextLabel": "Ver los que sobran"
+      "nextLabel": "Ver qué sobra"
     },
     {
       "label": "Descubre",
-      "title": "¿Cuántos botones azules no tienen pareja roja?",
+      "title": "¿Cuántos puntos azules sobran?",
       "visual": {
         "kind": "comparisonButtons",
-        "topCount": 10,
-        "bottomCount": 5,
+        "topCount": 6,
+        "bottomCount": 4,
         "step": "reveal",
         "revealGap": true,
-        "topLabel": "Botones azules",
-        "bottomLabel": "Botones rojos",
-        "ariaLabel": "Cinco parejas de botones azules y rojos rodeadas por círculos. Después hay cinco botones azules dorados sin botón rojo debajo.",
-        "message": "Los botones dorados no tienen un botón rojo debajo. Cuéntalos."
+        "topLabel": "Puntos azules",
+        "bottomLabel": "Puntos rojos",
+        "ariaLabel": "Pareja, pareja, pareja, pareja; después punto azul, punto azul sin pareja roja.",
+        "message": "Hay puntos azules fuera de las parejas. Cuéntalos."
       },
       "choices": [
         {
-          "text": "10"
+          "text": "6",
+          "feedback": "Seis cuenta todos los azules. Mira después de las parejas."
         },
         {
-          "text": "5",
-          "feedback": "Sí. Cinco botones azules no tienen pareja roja. Hay 5 botones azules más que rojos."
+          "text": "2",
+          "feedback": "Sí. Sobran dos puntos azules. Hay 2 puntos azules más que rojos."
         },
         {
-          "text": "15"
+          "text": "10",
+          "feedback": "Diez junta ambos colores. Cuenta azules sin pareja."
         }
       ],
       "hints": [
-        "Busca los botones azules fuera de los cinco círculos.",
-        "Cuenta solo los botones dorados, uno por uno."
-      ]
+        "Mira a la derecha de las cuatro parejas.",
+        "Cuenta los puntos azules que no tienen un punto rojo debajo."
+      ],
+      "revision": 3
     },
     {
       "label": "Lenguaje",
-      "title": "Dos maneras de hacer la misma pregunta.",
+      "title": "La diferencia es 2.",
       "visual": {
         "kind": "comparisonButtons",
-        "topCount": 10,
-        "bottomCount": 5,
+        "topCount": 6,
+        "bottomCount": 4,
         "step": "reveal",
         "revealGap": true,
-        "topLabel": "Botones azules",
-        "bottomLabel": "Botones rojos",
-        "ariaLabel": "Cinco parejas rodeadas por círculos y cinco botones azules dorados de más.",
-        "message": "Los botones azules de más son la diferencia."
+        "topLabel": "Puntos azules",
+        "bottomLabel": "Puntos rojos",
+        "ariaLabel": "Cuatro parejas azules y rojas y dos puntos azules de más.",
+        "message": "Sobran dos puntos azules después de formar parejas."
       },
       "phrases": [
         "¿Cuántos más?",
         "¿Cuál es la diferencia?"
       ],
-      "phraseMeaning": "Encuentra cuánto se separan las dos cantidades.",
-      "guidance": "Aquí ambas preguntas piden los botones azules de más. Ese número se llama diferencia."
+      "phraseMeaning": "Cuenta los puntos azules de más.",
+      "guidance": "«¿Cuántos más?» y «¿Cuál es la diferencia?» preguntan por esos 2 puntos azules de más."
     },
     {
       "label": "Recuerda",
-      "title": "¿Cuántos más? ¿Diferencia? Busca los que sobran.",
-      "hook": "10 azules. 5 rojos. 5 parejas. 5 azules de más.",
-      "body": "Resta para hallar la diferencia: 10 − 5 = 5. La resta puede comparar dos cantidades; también puede describir cuando quitamos algo."
+      "title": "¿Cuántos más? Halla la diferencia.",
+      "hook": "6 azules. 4 rojos. 4 parejas. 2 azules de más.",
+      "body": "La diferencia es 2. Escríbelo así: 6 − 4 = 2. Esto es una resta."
     },
     {
       "label": "Idea equivocada",
-      "title": "¿«Más» siempre significa sumar?",
-      "prompt": "Ava tiene 14 pegatinas y Luis tiene 8. ¿Cuál es la diferencia entre sus cantidades?",
+      "title": "¿Hay que sumar aquí?",
+      "prompt": "Ava tiene 8 pegatinas. Luis tiene 5. ¿Cuántas más tiene Ava?",
       "choices": [
         {
-          "text": "22: sumar las pegatinas"
+          "text": "13: sumar los dos grupos",
+          "feedback": "Trece junta ambos grupos. Cuenta los puntos de Ava después de las parejas."
         },
         {
-          "text": "6: comparar las cantidades",
-          "feedback": "Une 8 pegatinas de Ava con las 8 de Luis. Quedan seis pegatinas de Ava sin pareja; la diferencia es 6."
+          "text": "3: buscar las que sobran",
+          "feedback": "Sí. Cinco pegatinas forman parejas. A Ava le sobran tres, así que la diferencia es 3."
         },
         {
-          "text": "14: usar la cantidad de Ava"
+          "text": "8: usar la cantidad de Ava",
+          "feedback": "Ocho es todo el grupo de Ava. Cuenta sus puntos sin pareja."
         }
       ],
       "hints": [
-        "La pregunta pide cuánto se separan 14 y 8, no cuántas pegatinas hay en total.",
-        "Empieza en 8 y cuenta hasta 14. ¿Cuántos pasos contaste?"
-      ]
-    },
-    {
-      "label": "Símbolo",
-      "title": "¿Qué resta halla la diferencia?",
-      "visual": {
-        "kind": "comparisonButtons",
-        "topCount": 10,
-        "bottomCount": 5,
-        "step": "reveal",
-        "revealGap": true,
-        "topLabel": "Botones azules",
-        "bottomLabel": "Botones rojos",
-        "ariaLabel": "Cinco parejas rodeadas por círculos y cinco botones azules de más.",
-        "message": "Empieza con 10 azules. Junta 5 con los rojos. ¿Cuántos azules sobran?"
-      },
-      "choices": [
-        {
-          "text": "10 − 5",
-          "feedback": "Sí. Diez azules menos cinco que tienen pareja dejan cinco azules de más. La diferencia es 5."
-        },
-        {
-          "text": "10 + 5"
-        },
-        {
-          "text": "5 − 10"
-        }
+        "Buscamos las pegatinas de más de Ava, no todas juntas.",
+        "Une 5 pegatinas de Ava con las 5 de Luis. ¿Cuántas le sobran a Ava?"
       ],
-      "hints": [
-        "Empieza con los 10 botones azules. Cinco tienen pareja roja.",
-        "¿Qué signo permite hallar cuántos de los 10 botones azules no tienen pareja?"
-      ]
-    },
-    {
-      "label": "Resultado",
-      "title": "La diferencia es 5.",
+      "revision": 3,
       "visual": {
         "kind": "comparisonButtons",
-        "topCount": 10,
+        "topCount": 8,
         "bottomCount": 5,
-        "step": "reveal",
-        "revealGap": true,
-        "topLabel": "Botones azules",
-        "bottomLabel": "Botones rojos",
-        "ariaLabel": "Cinco parejas rodeadas por círculos y cinco botones azules de más.",
-        "message": "10 azules − 5 azules con pareja = 5 azules de más."
+        "step": "pair",
+        "revealGap": false,
+        "topLabel": "Pegatinas de Ava",
+        "bottomLabel": "Pegatinas de Luis",
+        "ariaLabel": "Ava: punto, punto, punto, punto, punto, punto, punto, punto. Luis: punto, punto, punto, punto, punto. Cinco posiciones emparejadas.",
+        "message": "Un punto representa una pegatina. Los contornos muestran parejas."
       }
     },
     {
-      "label": "Práctica guiada",
-      "title": "¿Cuántos bloques azules hay de más?",
+      "label": "Símbolo",
+      "title": "¿Qué resta corresponde a los puntos?",
       "visual": {
-        "message": "Cuenta la fila de arriba y la de abajo. Empareja uno de cada fila, empezando a la izquierda."
+        "kind": "comparisonButtons",
+        "topCount": 6,
+        "bottomCount": 4,
+        "step": "reveal",
+        "revealGap": true,
+        "topLabel": "Puntos azules",
+        "bottomLabel": "Puntos rojos",
+        "ariaLabel": "Cuatro parejas azules y rojas y dos puntos azules de más.",
+        "message": "Hay seis azules. Cuatro tienen pareja roja."
       },
       "choices": [
         {
-          "text": "4",
-          "feedback": "Sí. Siete bloques tienen otro debajo. Cuatro bloques de arriba no tienen pareja, así que hay 4 más arriba."
+          "text": "6 − 4",
+          "feedback": "Sí. A los seis puntos azules les quitamos los cuatro que tienen pareja: quedan dos. La diferencia es 2."
         },
         {
-          "text": "18"
+          "text": "6 + 4",
+          "feedback": "Sumar junta los grupos. Buscamos azules de más."
         },
         {
-          "text": "7"
+          "text": "4 − 6",
+          "feedback": "Empieza con seis azules y resta cuatro azules emparejados."
         }
       ],
       "hints": [
-        "Mira el primer bloque de arriba y el que tiene debajo. Sigue hasta el final de la fila de abajo.",
-        "Cuenta los bloques de arriba que no tienen otro debajo."
-      ]
+        "Empieza con los 6 puntos azules. Cuatro tienen pareja roja.",
+        "¿Qué opción empieza con 6 y quita los 4 puntos que tienen pareja?"
+      ],
+      "revision": 3
+    },
+    {
+      "label": "Resultado",
+      "title": "6 − 4 = 2.",
+      "visual": {
+        "kind": "comparisonButtons",
+        "topCount": 6,
+        "bottomCount": 4,
+        "step": "reveal",
+        "revealGap": true,
+        "topLabel": "Puntos azules",
+        "bottomLabel": "Puntos rojos",
+        "ariaLabel": "Cuatro parejas azules y rojas y dos puntos azules de más.",
+        "message": "6 azules − 4 con pareja = 2 azules de más."
+      },
+      "equation": "6 − 4 = 2"
+    },
+    {
+      "label": "Práctica guiada",
+      "title": "¿Cuántos puntos azules más hay?",
+      "visual": {
+        "message": "Cada contorno muestra un punto azul y uno rojo. ¿Qué puntos azules sobran?",
+        "kind": "comparisonButtons",
+        "topCount": 7,
+        "bottomCount": 4,
+        "topLabel": "Puntos azules",
+        "bottomLabel": "Puntos rojos",
+        "ariaLabel": "Pareja, pareja, pareja, pareja; después punto azul, punto azul, punto azul sin pareja roja.",
+        "step": "pair",
+        "revealGap": false
+      },
+      "choices": [
+        {
+          "text": "3",
+          "feedback": "Sí. Hay cuatro parejas y tres puntos azules que sobran. Hay 3 puntos azules más."
+        },
+        {
+          "text": "11",
+          "feedback": "Once junta los colores. Cuenta solo azules de más."
+        },
+        {
+          "text": "4",
+          "feedback": "Cuatro cuenta rojo. Cuenta los azules después de las parejas."
+        }
+      ],
+      "hints": [
+        "Busca las parejas rodeadas.",
+        "Después de la última pareja, cuenta los puntos azules sin pareja roja."
+      ],
+      "revision": 3
     },
     {
       "label": "Práctica independiente",
-      "title": "Resuelve sin el modelo.",
-      "prompt": "Nia leyó 16 páginas. Theo leyó 9 páginas. ¿Cuántas páginas más leyó Nia?",
+      "title": "Ahora sin puntos.",
+      "prompt": "Nia leyó 9 páginas. Theo leyó 5. ¿Cuántas páginas más leyó Nia?",
       "choices": [
         {
-          "text": "7",
-          "feedback": "16 − 9 = 7, así que Nia leyó 7 páginas más."
+          "text": "4",
+          "feedback": "9 − 5 = 4. Nia leyó 4 páginas más."
         },
         {
-          "text": "25"
+          "text": "14",
+          "feedback": "Catorce junta las páginas. Busca las páginas de más de Nia."
         },
         {
-          "text": "9"
+          "text": "5",
+          "feedback": "Cinco es la cantidad de Theo. Cuenta desde cinco hasta nueve."
         }
       ],
       "hints": [
-        "Imagina 16 marcas para Nia y 9 para Theo. Une una de cada grupo hasta terminar las de Theo.",
-        "Cuenta las marcas de Nia sin pareja. O empieza en 9 y cuenta hasta 16."
-      ]
+        "Cada punto de abajo representa una página. Busca los puntos de Nia sin pareja.",
+        "O cuenta desde 5 hasta 9. ¿Cuántos pasos diste?"
+      ],
+      "revision": 3,
+      "supportVisual": {
+        "kind": "comparisonButtons",
+        "topCount": 9,
+        "bottomCount": 5,
+        "step": "pair",
+        "revealGap": false,
+        "topLabel": "Páginas de Nia",
+        "bottomLabel": "Páginas de Theo",
+        "ariaLabel": "Nia: punto, punto, punto, punto, punto, punto, punto, punto, punto. Theo: punto, punto, punto, punto, punto.",
+        "message": "Un punto representa una página. Cuenta los puntos de Nia sin pareja."
+      }
     },
     {
       "label": "Recuerdo",
-      "title": "¿Qué pregunta de examen pide el mismo número?",
-      "prompt": "Con 10 botones azules y 5 rojos, ¿qué pregunta pide los botones azules de más?",
+      "title": "Otra forma de decir «¿cuántos más?»",
+      "prompt": "Hay 6 puntos azules y 4 rojos. ¿Qué pregunta pide los puntos azules de más?",
       "choices": [
         {
-          "text": "¿Cuántos botones hay en total?"
+          "text": "¿Cuántos puntos hay en total?",
+          "feedback": "«En total» junta los grupos. Busca la frase para los de más."
         },
         {
           "text": "¿Cuál es la diferencia?",
-          "feedback": "Sí. «Diferencia» pregunta cuánto se separan las dos cantidades: 10 − 5 = 5."
+          "feedback": "Sí. La diferencia indica cuántos puntos azules más hay: 6 − 4 = 2."
         },
         {
-          "text": "¿Cuántos botones azules hay?"
+          "text": "¿Cuántos puntos azules hay?",
+          "feedback": "«¿Cuántos azules?» cuenta todos los azules. Busca la frase para los de más."
         }
       ],
       "hints": [
-        "«En total» junta los dos colores. Buscamos los azules que no tienen pareja roja.",
-        "Busca la pregunta que pide cuánto se separan las dos cantidades."
-      ]
+        "«En total» pide juntar los dos grupos.",
+        "Busca la pregunta sobre cuántos puntos azules más hay."
+      ],
+      "revision": 3
     },
     {
       "label": "Transferencia",
-      "title": "Usa la idea en una situación nueva.",
-      "prompt": "Un cuaderno azul cuesta $18 y uno rojo cuesta $11. ¿Cuánto más cuesta el cuaderno azul?",
+      "title": "Ahora con precios.",
+      "prompt": "Un cuaderno cuesta $10. Otro cuesta $8. ¿Cuál es la diferencia de precio?",
       "choices": [
         {
-          "text": "$7",
-          "feedback": "$18 − $11 = $7, así que el cuaderno azul cuesta $7 más."
+          "text": "$2",
+          "feedback": "$10 − $8 = $2. La diferencia es $2."
         },
         {
-          "text": "$29"
+          "text": "$18",
+          "feedback": "Dieciocho suma ambos precios. Busca cuánto más es diez que ocho."
         },
         {
-          "text": "$18"
+          "text": "$10",
+          "feedback": "Diez es un precio, no la diferencia. Cuenta de ocho a diez."
         }
       ],
       "hints": [
-        "Compara los dos precios. ¿Piden el costo total o cuánto se separan?",
-        "Empieza en $11 y cuenta hasta $18. ¿Cuánto subió el precio?"
-      ]
+        "La diferencia de precio dice cuánto más cuesta uno.",
+        "Empieza en $8. Cuenta hasta $10. ¿Cuánto sumaste?"
+      ],
+      "revision": 3
     },
     {
       "label": "Reflexiona",
-      "title": "¿Qué descubriste?",
-      "prompt": "¿Qué muestra la resta cuando comparamos dos cantidades?",
+      "title": "¿Qué significa «diferencia»?",
+      "prompt": "Al comparar 6 puntos azules con 4 rojos, ¿qué es la diferencia?",
       "choices": [
         {
-          "text": "Siempre significa quitar objetos."
+          "text": "Quitar todos los puntos.",
+          "feedback": "Aquí no se quitan puntos. Comparamos los grupos."
         },
         {
-          "text": "Junta las dos cantidades en un total."
+          "text": "Todos los puntos juntos.",
+          "feedback": "Todos juntos da el total. Diferencia pide los de más."
         },
         {
-          "text": "Halla la diferencia entre las cantidades."
+          "text": "Cuántos puntos azules más hay.",
+          "feedback": "Los dos puntos azules de más muestran la diferencia."
         }
       ],
       "hints": [
-        "Unimos un botón azul con uno rojo y vimos los azules de más.",
-        "Diez menos cinco indica cuánto se separan diez y cinco."
-      ]
+        "Une un azul con un rojo.",
+        "¿Qué indican los puntos azules que sobran?"
+      ],
+      "revision": 3
     },
     {
       "title": "Hallaste la diferencia.",
-      "body": "«¿Cuántos más?» y «¿Cuál es la diferencia?» preguntan cuánto se separan las cantidades.",
+      "body": "Cuenta los que sobran para responder «¿cuántos más?» o «¿cuál es la diferencia?»",
       "nextRecommendation": "Próxima lección: ¿Cuántos menos?"
     }
   ]
