@@ -1,7 +1,8 @@
 // Only these adjacent lessons build directly on the preceding lesson's idea.
 // The picker remains available to start a different topic independently.
 const NEXT=new Map([
-  ["counting_and_matching","comparison.more"],
+  ["counting","one_to_one_matching"],
+  ["one_to_one_matching","comparison.more"],
   ["comparison.more","comparison.fewer"],
   ["comparison.fewer","difference"],
   ["difference","compare_unknown"],
