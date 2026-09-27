@@ -1,22 +1,22 @@
 # Before the comparison unit
 
-The learner app currently opens with **Comparison 1 — How many more?** This is the first *published comparison lesson*, not the first lesson of mathematics. Its knowledge-graph prerequisites already include counting and one-to-one matching. Asking a learner to count ten buttons inside this lesson checks those skills; it does not teach them from zero.
+The learner app now opens with **Start here — Count and find how many**, followed by **Make a pair**, then **Comparison 1 — How many more?** Counting uses tappable dots with spoken number words when the browser supports speech, visible numerals and words, and a text fallback. Pairing is taught with one blue and one red dot before asking learners to count several pairs. These are test-branch lessons pending direct first-exposure observation, not a validated mathematics curriculum.
 
-A true first-entry path must be built and reviewed before Atlas claims that someone with no prior math exposure can start here. Proposed sequence, with stable concept IDs and bilingual lessons to be added to the existing JSON engine:
+The remaining path below is still needed before Atlas can claim a complete beginning-to-comparison course. The first two entries are partly implemented in bilingual JSON lessons; later foundations are planned:
 
 | Foundation | Learner action and evidence before moving on |
 | --- | --- |
-| F1: Small groups and number words | Recognize one to three objects, then say the count words in order. Explain that each word points to one item. |
-| F2: Count and name the total | Touch each item once, count up to 10 and then 20, and say that the last count word tells the total. Recount rearranged objects without changing the total. |
-| F3: Numerals and quantities | Link spoken number words and written numerals to groups of objects, including zero. Make a group of a requested size rather than only identifying a pictured group. |
-| F4: Match and compare groups | Bring one item from each group together; distinguish same number, more, and fewer, including groups with different spacing. Explain which items have no match. |
+| F1: Small groups and number words | Lesson 000 introduces one to three, then four, five, and ten with tap-to-hear models. Recognition without counting still needs more varied practice and observation. |
+| F2: Count and name the total | Lesson 000 checks counting to ten and the final count as the total. Counting to twenty and rearranged objects are not taught yet. |
+| F3: Numerals and quantities | Lesson 000 connects spoken words, written numerals, and pictured dots. Zero and making a requested size are not taught yet. |
+| F4: Match and compare groups | Lesson 000a introduces a pair and matching across two groups. Same number, more/fewer, and different spacing need additional practice and observation. |
 | F5: Join and separate | Model addition by joining groups and subtraction by separating a group. Connect the actions to + and − without making either word a one-step keyword rule. Comparison is introduced in the next unit. |
 | Comparison 1: How many more? | Compare two already-counted groups, find the unmatched amount, and connect “how many more” with “difference” and a subtraction sentence. |
 | F6: Place value and exchanging | Build numbers with ones and tens. Exchange ten ones for one ten, ten tens for one hundred, and ten hundreds for one thousand. Show that the quantity stays the same when its representation changes. |
 | F7: Equal groups | Make several groups with the same number in each. Tell the difference between the number of groups, items per group, and total. Connect repeated addition to grouping without treating “each” as an automatic multiplication cue. |
 | F8: Multiplication from groups and place value | Build, draw, and write a product. For 4 × 23, show four groups of two tens and three ones; combine eight tens and twelve ones; exchange ten ones for one ten to make 92. Then solve a changed example without the model. |
 
-This is a **proposed dependency map**, not one compulsory order or a guarantee of comprehension. F1–F8 have no learner screens, translations, assessments, or observation evidence yet. They must not appear as completed lessons or count toward readiness. Place value and equal groups are needed before the multidigit multiplication example; they are not prerequisites for every simple comparison. After implementation, test the path with unfamiliar learners before presenting it as a beginner entry point. The existing comparison, division, geometry, and inequality clusters remain separate topic sequences; their numerical file order is not a global course order.
+This is a **dependency map**, not proof of comprehension. F1–F4 have partial learner screens and bilingual assessments in Lessons 000 and 000a, with no independent first-exposure evidence. F5–F8 are planned; do not present them as completed lessons. Place value and equal groups are needed before the multidigit multiplication example; they are not prerequisites for every simple comparison. Test each step with unfamiliar learners before claiming a beginner course. The division, geometry, and inequality clusters remain separate topic sequences; their numerical file order is not a global course order.
 
 Learners who can already count and match should be able to enter the comparison unit through a brief performance check. Asking “Do you know how?” can invite reflection, but a yes/no answer alone is not evidence: have the learner count a rearranged set, make a requested set, and match two groups without coaching. A missed skill routes to its foundation lesson; a demonstrated skill can be skipped. This placement behavior is **not implemented** yet.
 
