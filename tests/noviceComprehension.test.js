@@ -11,6 +11,10 @@ const get=(lesson,type)=>lesson.screens.find(screen=>screen.type===type);
 test("counting foundation establishes quantities and group before pairing",()=>{
   const f=read("curriculum/lessons/lesson000.json");
   assert.equal(f.screens.find(s=>s.id==="count-ten").visual.count,10);
+  assert.deepEqual(
+    f.screens.filter(s=>s.type==="observe"&&/^number-\d+$/.test(s.id)||s.id==="count-model"||s.id==="count-four-model"||s.id==="count-five-model"||s.id==="count-ten-model").map(s=>s.visual.count),
+    [1,2,3,4,5,6,7,8,9,10]
+  );
   assert.ok(f.screens.some(s=>s.visual?.interactive));
   assert.ok(f.screens.some(s=>s.visual?.grouped));
   assert.ok(!f.screens.some(s=>s.visual?.step==="pair"));
@@ -21,11 +25,13 @@ test("counting foundation establishes quantities and group before pairing",()=>{
   assert.ok(pair.screens.some(s=>s.visual?.step==="pair"));
   assert.ok(f.screens.find(s=>s.id==="pair-model").visual.grouped);
   for(const screen of f.screens){
-    assert.doesNotMatch(JSON.stringify(screen),/say one number|count outlines|touch each dot|make pairs/i);
+    assert.doesNotMatch(JSON.stringify(screen),/say one number|count outlines|touch each dot|tell how many|make pairs/i);
   }
 });
 
-test("counting model offers accessible taps and visible words when audio is unavailable",()=>{
+test("counting model offers number audio plus full-screen read-aloud support",()=>{
+  const lesson=read("curriculum/lessons/lesson000.json");
+  assert.ok(lesson.screens.every(screen=>screen.audio),"every counting screen needs pre-reader narration");
   const html=renderCountingDots({kind:"countingDots",count:3,numbered:true,interactive:true,ariaLabel:"Three dots"});
   assert.equal((html.match(/class="countingDot countTap"/g)||[]).length,3);
   assert.match(html,/role="group" aria-label="Three dots"/);
@@ -33,6 +39,9 @@ test("counting model offers accessible taps and visible words when audio is unav
   const engine=fs.readFileSync(new URL("../engine/lessonEngine.js",import.meta.url),"utf8");
   assert.match(engine,/SpeechSynthesisUtterance/);
   assert.match(engine,/speechSynthesis\.cancel/);
+  assert.match(engine,/id="listenBtn"/);
+  assert.match(engine,/screen\.choices\.map/);
+  assert.match(engine,/audioUnavailable/);
 });
 
 test("lesson001 moves from counting to formed pairs, difference language, and subtraction",()=>{
