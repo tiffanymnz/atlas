@@ -1,6 +1,6 @@
 # Before the comparison unit
 
-The learner app now opens with **Start here — Count and find how many**, followed by **Make a pair**, then **Comparison 1 — How many more?** Counting uses tappable dots with spoken number words when the browser supports speech, visible numerals and words, and a text fallback. Pairing is taught with one blue and one red dot before asking learners to count several pairs. These are test-branch lessons pending direct first-exposure observation, not a validated mathematics curriculum.
+The learner app now opens with **Start here — Meet numbers 1–10**, followed by **Make a pair**, then **Comparison 1 — How many more?** The counting lesson presents each number from 1 through 10 separately, connecting its numeral, spoken name, and quantity. Every screen has a Listen control that reads its directions and choices aloud, while tappable dots speak individual number words when browser speech is available. Visible text remains available as reinforcement and as a fallback when speech is unavailable. Pairing is taught with one blue and one red dot before asking learners to count several pairs. These are test-branch lessons pending direct first-exposure observation, not a validated mathematics curriculum.
 
 The remaining path below is still needed before Atlas can claim a complete beginning-to-comparison course. The first two entries are partly implemented in bilingual JSON lessons; later foundations are planned:
 
