@@ -7,13 +7,13 @@
     "subject": "Arithmetic",
     "course": "Number Sense",
     "unit": "Comparison",
-    "contentRevision": 2
+    "contentRevision": 4
   },
   "learning": {
-    "learning_goal": "Compare two counted groups and connect “how many more,” difference, and subtraction.",
-    "big_idea": "Match one blue and one red. The extra blue buttons show the difference.",
+    "learning_goal": "Compare two groups by pairing them, then name the difference and write a subtraction.",
+    "big_idea": "Pair one blue dot with one red dot. Count the blue dots left over to find how many more.",
     "assumed_prior_knowledge": [
-      "Count objects one by one up to 20 and know the last number said is the total.",
+      "Count objects one by one up to 10 and know the last number said is the total.",
       "Match one item from one group with one item from another group."
     ]
   },
@@ -33,427 +33,476 @@
       "type": "intro",
       "label": "Comparison 1",
       "title": "How many more?",
-      "body": "First, count the blue and red buttons. Then see how many more blue buttons there are.",
-      "callout": "This is the first comparison lesson, not the first math lesson. You need to count objects to 20 and match them one to one. Earlier lessons are being built."
+      "body": "Count two groups of dots. Then see how many more blue dots there are."
     },
     {
       "id": "count-blue",
       "type": "count",
       "label": "Count",
-      "title": "How many blue buttons?",
+      "title": "How many blue dots?",
       "visual": {
         "kind": "comparisonButtons",
-        "topCount": 10,
-        "bottomCount": 5,
+        "topCount": 6,
+        "bottomCount": 4,
         "step": "count",
         "revealGap": false,
-        "topLabel": "Blue buttons",
-        "bottomLabel": "Red buttons",
-        "ariaLabel": "Ten blue buttons in the top row and five red buttons in the bottom row.",
-        "message": "Count the blue buttons."
+        "topLabel": "Blue dots",
+        "bottomLabel": "Red dots",
+        "ariaLabel": "Blue: dot, dot, dot, dot, dot, dot. Red: dot, dot, dot, dot.",
+        "message": "Count the blue dots."
       },
       "choices": [
         {
-          "text": "5",
+          "text": "4",
           "correct": false,
-          "misconception": "object_instead_of_relationship"
+          "misconception": "object_instead_of_relationship",
+          "feedback": "Four counts red. Count blue from the left."
         },
         {
-          "text": "10",
+          "text": "6",
           "correct": true,
-          "feedback": "Yes. There are 10 blue buttons.",
+          "feedback": "Yes. You counted 6 blue dots.",
           "evidence": "counted_group"
         },
         {
-          "text": "15",
+          "text": "10",
           "correct": false,
-          "misconception": "combine_instead_of_compare"
+          "misconception": "combine_instead_of_compare",
+          "feedback": "Ten joins both rows. Count only blue."
         }
       ],
       "hints": [
-        "Point to each blue button once. Count from left to right.",
-        "Count only the blue row. Stop when you reach its last button."
-      ]
+        "Touch each blue dot as you count.",
+        "Start at the left blue dot. Say one number for each dot."
+      ],
+      "revision": 4
     },
     {
       "id": "count-red",
       "type": "count",
       "label": "Count",
-      "title": "How many red buttons?",
+      "title": "How many red dots?",
       "visual": {
         "kind": "comparisonButtons",
-        "topCount": 10,
-        "bottomCount": 5,
+        "topCount": 6,
+        "bottomCount": 4,
         "step": "count",
         "revealGap": false,
-        "topLabel": "Blue buttons",
-        "bottomLabel": "Red buttons",
-        "ariaLabel": "Ten blue buttons in the top row and five red buttons in the bottom row.",
-        "message": "Now count the red buttons."
+        "topLabel": "Blue dots",
+        "bottomLabel": "Red dots",
+        "ariaLabel": "Blue: dot, dot, dot, dot, dot, dot. Red: dot, dot, dot, dot.",
+        "message": "Count the red dots."
       },
       "choices": [
         {
+          "text": "6",
+          "correct": false,
+          "misconception": "object_instead_of_relationship",
+          "feedback": "Six counts blue. Count only red."
+        },
+        {
           "text": "10",
           "correct": false,
-          "misconception": "object_instead_of_relationship"
+          "misconception": "combine_instead_of_compare",
+          "feedback": "Ten joins both rows. Count only red."
         },
         {
-          "text": "15",
-          "correct": false,
-          "misconception": "combine_instead_of_compare"
-        },
-        {
-          "text": "5",
+          "text": "4",
           "correct": true,
-          "feedback": "Yes. There are 5 red buttons.",
+          "feedback": "Yes. You counted 4 red dots.",
           "evidence": "counted_group"
         }
       ],
       "hints": [
-        "Point to each red button once. Count from left to right.",
-        "Count only the red row. Stop when you reach its last button."
-      ]
+        "Touch each red dot as you count.",
+        "Start at the left red dot. Say one number for each dot."
+      ],
+      "revision": 4
     },
     {
       "id": "visual-model",
       "legacyIndex": 1,
       "type": "observe",
       "label": "Watch",
-      "title": "Watch the buttons make pairs.",
+      "title": "Put one blue with one red.",
       "visual": {
         "kind": "comparisonButtons",
-        "topCount": 10,
-        "bottomCount": 5,
+        "topCount": 6,
+        "bottomCount": 4,
         "step": "pair",
         "revealGap": false,
-        "topLabel": "Blue buttons",
-        "bottomLabel": "Red buttons",
-        "ariaLabel": "Ten blue buttons above five red buttons. Rings form around five columns, each with one blue and one red button.",
-        "message": "Each ring joins one blue button and one red button."
+        "topLabel": "Blue dots",
+        "bottomLabel": "Red dots",
+        "ariaLabel": "Four outlined pairs, each with one blue dot above one red dot; two blue dots remain outside the outlines.",
+        "message": "Each outline holds one blue dot and one red dot."
       },
-      "nextLabel": "Show the extras"
+      "nextLabel": "See what is left"
     },
     {
       "id": "discover-gap",
       "legacyIndex": 2,
       "type": "discover",
       "label": "Discover",
-      "title": "How many blue buttons have no red match?",
+      "title": "How many blue dots are left?",
       "visual": {
         "kind": "comparisonButtons",
-        "topCount": 10,
-        "bottomCount": 5,
+        "topCount": 6,
+        "bottomCount": 4,
         "step": "reveal",
         "revealGap": true,
-        "topLabel": "Blue buttons",
-        "bottomLabel": "Red buttons",
-        "ariaLabel": "Five circled blue and red pairs, followed by five gold blue buttons without red buttons below them.",
-        "message": "The gold buttons have no red button below them. Count them."
+        "topLabel": "Blue dots",
+        "bottomLabel": "Red dots",
+        "ariaLabel": "Pair, pair, pair, pair; then blue dot, blue dot without red partners.",
+        "message": "Some blue dots are outside the pairs. Count them."
       },
       "choices": [
         {
-          "text": "10",
+          "text": "6",
           "correct": false,
-          "misconception": "object_instead_of_relationship"
+          "misconception": "object_instead_of_relationship",
+          "feedback": "Six counts every blue dot. Look after the pairs."
         },
         {
-          "text": "5",
+          "text": "2",
           "correct": true,
-          "feedback": "Yes. Five blue buttons have no red match. There are 5 more blue buttons than red buttons.",
+          "feedback": "Yes. Two blue dots are left. There are 2 more blue dots than red dots.",
           "evidence": "identified_gap"
         },
         {
-          "text": "15",
+          "text": "10",
           "correct": false,
-          "misconception": "combine_instead_of_compare"
+          "misconception": "combine_instead_of_compare",
+          "feedback": "Ten joins both colors. Count blue without partners."
         }
       ],
       "hints": [
-        "Look for blue buttons outside the five circles.",
-        "Count only the gold buttons, one at a time."
+        "Look to the right of the four pairs.",
+        "Count the blue dots without a red dot below them."
       ],
-      "revision": 2
+      "revision": 4
     },
     {
       "id": "language-explanation",
       "legacyIndex": 3,
       "type": "language",
       "label": "Language",
-      "title": "Two ways to ask the same question.",
+      "title": "The difference is 2.",
       "visual": {
         "kind": "comparisonButtons",
-        "topCount": 10,
-        "bottomCount": 5,
+        "topCount": 6,
+        "bottomCount": 4,
         "step": "reveal",
         "revealGap": true,
-        "topLabel": "Blue buttons",
-        "bottomLabel": "Red buttons",
-        "ariaLabel": "Five circled pairs and five extra gold blue buttons.",
-        "message": "The extra blue buttons are the difference."
+        "topLabel": "Blue dots",
+        "bottomLabel": "Red dots",
+        "ariaLabel": "Four blue and red pairs, plus two extra blue dots.",
+        "message": "Two blue dots are left after pairing."
       },
       "phrases": [
         "How many more?",
         "What is the difference?"
       ],
-      "phraseMeaning": "Find how far apart the two counts are.",
-      "guidance": "Here both questions ask for the extra blue buttons. That number is called the difference."
+      "phraseMeaning": "Count the extra blue dots.",
+      "guidance": "“How many more?” and “What is the difference?” both ask for those 2 extra blue dots."
     },
     {
       "id": "memory-hook",
       "type": "memoryHook",
       "label": "Remember",
-      "title": "More? Difference? Find the extras.",
-      "hook": "10 blue. 5 red. 5 pairs. 5 extra blue.",
-      "body": "Subtract to find the difference: 10 − 5 = 5. Subtraction can compare two counts; it can also describe taking away."
+      "title": "How many more? Find the difference.",
+      "hook": "6 blue. 4 red. 4 pairs. 2 extra blue.",
+      "body": "The difference is 2. Write it as 6 − 4 = 2. This is subtraction."
     },
     {
       "id": "misconception",
       "type": "misconception",
       "label": "Misconception",
-      "title": "Does “more” always mean add?",
-      "prompt": "Ava has 14 stickers. Luis has 8. What is the difference in their sticker counts?",
+      "title": "Does “more” mean add here?",
+      "prompt": "Ava has 8 stickers. Luis has 5. How many more does Ava have?",
       "choices": [
         {
-          "text": "22: add the stickers",
+          "text": "13: add both groups",
           "correct": false,
-          "misconception": "combine_instead_of_compare"
+          "misconception": "combine_instead_of_compare",
+          "feedback": "Thirteen joins both groups. Count Ava’s dots after the pairs."
         },
         {
-          "text": "6: compare the counts",
+          "text": "3: find the extras",
           "correct": true,
-          "feedback": "Match 8 of Ava’s stickers with Luis’s 8. Six of Ava’s stickers remain unmatched, so the difference is 6.",
+          "feedback": "Yes. Five stickers pair up. Three of Ava’s are left, so the difference is 3.",
           "evidence": "identified_gap"
         },
         {
-          "text": "14: use Ava’s count",
+          "text": "8: use Ava’s count",
           "correct": false,
-          "misconception": "object_instead_of_relationship"
+          "misconception": "object_instead_of_relationship",
+          "feedback": "Eight is Ava’s whole group. Count her dots without partners."
         }
       ],
       "hints": [
-        "The question asks how far apart 14 and 8 are, not how many stickers they have together.",
-        "Start at 8 and count up to 14. How many steps did you count?"
+        "We want Ava’s extra stickers, not both groups together.",
+        "Match 5 of Ava’s stickers with Luis’s 5. How many of Ava’s are left?"
       ],
-      "revision": 2
+      "revision": 4,
+      "visual": {
+        "kind": "comparisonButtons",
+        "topCount": 8,
+        "bottomCount": 5,
+        "step": "pair",
+        "revealGap": false,
+        "topLabel": "Ava’s stickers",
+        "bottomLabel": "Luis’s stickers",
+        "ariaLabel": "Ava: dot, dot, dot, dot, dot, dot, dot, dot. Luis: dot, dot, dot, dot, dot. Five paired positions.",
+        "message": "One dot stands for one sticker. The outlines show pairs."
+      }
     },
     {
       "id": "choose-equation",
       "legacyIndex": 4,
       "type": "symbol",
       "label": "Symbol",
-      "title": "Which subtraction finds the difference?",
+      "title": "Which subtraction matches the dots?",
       "visual": {
         "kind": "comparisonButtons",
-        "topCount": 10,
-        "bottomCount": 5,
+        "topCount": 6,
+        "bottomCount": 4,
         "step": "reveal",
         "revealGap": true,
-        "topLabel": "Blue buttons",
-        "bottomLabel": "Red buttons",
-        "ariaLabel": "Five circled pairs and five extra blue buttons.",
-        "message": "Start with 10 blue. Match 5 red. How many blue are extra?"
+        "topLabel": "Blue dots",
+        "bottomLabel": "Red dots",
+        "ariaLabel": "Four outlined blue and red pairs, then two extra blue dots.",
+        "message": "Six blue. Four have red partners."
       },
       "choices": [
         {
-          "text": "10 − 5",
+          "text": "6 − 4",
           "correct": true,
-          "feedback": "Yes. Ten blue minus five matched blue leaves five extra blue buttons. The difference is 5.",
+          "feedback": "Yes. Six blue dots minus four paired dots leaves two. The difference is 2.",
           "evidence": "subtraction_as_comparison"
         },
         {
-          "text": "10 + 5",
+          "text": "6 + 4",
           "correct": false,
-          "misconception": "combine_instead_of_compare"
+          "misconception": "combine_instead_of_compare",
+          "feedback": "Adding joins the groups. We need extra blue dots."
         },
         {
-          "text": "5 − 10",
+          "text": "4 − 6",
           "correct": false,
-          "misconception": "reversed_subtraction"
+          "misconception": "reversed_subtraction",
+          "feedback": "Start with six blue, then subtract four paired blue dots."
         }
       ],
       "hints": [
-        "Start with the 10 blue buttons. Five have red matches.",
-        "Which sign lets you find how many of the 10 blue buttons have no match?"
+        "Start with all 6 blue dots. Four have a red partner.",
+        "Which choice starts at 6 and removes the 4 paired dots?"
       ],
-      "revision": 2
+      "revision": 4
     },
     {
       "id": "equation-explanation",
       "legacyIndex": 5,
       "type": "equationReveal",
       "label": "Reveal",
-      "title": "The difference is 5.",
+      "title": "6 − 4 = 2.",
       "visual": {
         "kind": "comparisonButtons",
-        "topCount": 10,
-        "bottomCount": 5,
+        "topCount": 6,
+        "bottomCount": 4,
         "step": "reveal",
         "revealGap": true,
-        "topLabel": "Blue buttons",
-        "bottomLabel": "Red buttons",
-        "ariaLabel": "Five circled pairs and five extra blue buttons.",
-        "message": "10 blue − 5 matched blue = 5 extra blue."
+        "topLabel": "Blue dots",
+        "bottomLabel": "Red dots",
+        "ariaLabel": "Four blue and red pairs, plus two extra blue dots.",
+        "message": "6 blue − 4 paired = 2 extra blue."
       },
-      "equation": "10 − 5 = 5"
+      "equation": "6 − 4 = 2"
     },
     {
       "id": "guided-practice",
       "type": "guidedPractice",
       "label": "Guided practice",
-      "title": "How many more blue blocks are there?",
+      "title": "How many more blue dots?",
       "visual": {
-        "topCount": 11,
-        "bottomCount": 7,
+        "topCount": 7,
+        "bottomCount": 4,
         "revealGap": false,
-        "message": "Count the top row and the bottom row. Match one from each row, starting on the left."
+        "message": "Each outline shows one blue and one red dot. Which blue dots are left?",
+        "kind": "comparisonButtons",
+        "topLabel": "Blue dots",
+        "bottomLabel": "Red dots",
+        "ariaLabel": "Pair, pair, pair, pair; then blue dot, blue dot, blue dot without red partners.",
+        "step": "pair"
       },
       "choices": [
         {
-          "text": "4",
+          "text": "3",
           "correct": true,
           "evidence": "identified_gap",
-          "feedback": "Yes. Seven blocks are matched across the rows. Four top blocks have no block below, so there are 4 more on top."
+          "feedback": "Yes. Four pairs and three blue dots left over. There are 3 more blue dots."
         },
         {
-          "text": "18",
+          "text": "11",
           "correct": false,
-          "misconception": "combine_instead_of_compare"
+          "misconception": "combine_instead_of_compare",
+          "feedback": "Eleven joins the colors. Count only extra blue dots."
         },
         {
-          "text": "7",
+          "text": "4",
           "correct": false,
-          "misconception": "object_instead_of_relationship"
+          "misconception": "object_instead_of_relationship",
+          "feedback": "Four counts red. Count blue after the pairs."
         }
       ],
       "hints": [
-        "Trace the first top block to the bottom block beneath it. Keep going until the bottom row ends.",
-        "Count the top blocks that have no block below them."
+        "Find each outlined pair.",
+        "After the last pair, count the blue dots without red partners."
       ],
-      "revision": 2
+      "revision": 4
     },
     {
       "id": "independent-practice",
       "type": "independentPractice",
       "label": "Independent practice",
-      "title": "Solve without the model.",
-      "prompt": "Nia read 16 pages. Theo read 9 pages. How many more pages did Nia read?",
+      "title": "Try one without dots.",
+      "prompt": "Nia read 9 pages. Theo read 5 pages. How many more pages did Nia read?",
       "choices": [
         {
-          "text": "7",
+          "text": "4",
           "correct": true,
           "evidence": "subtraction_as_comparison",
-          "feedback": "16 − 9 = 7, so Nia read 7 more pages."
+          "feedback": "9 − 5 = 4. Nia read 4 more pages."
         },
         {
-          "text": "25",
+          "text": "14",
           "correct": false,
-          "misconception": "combine_instead_of_compare"
+          "misconception": "combine_instead_of_compare",
+          "feedback": "Fourteen joins the pages. Find Nia’s extra pages."
         },
         {
-          "text": "9",
+          "text": "5",
           "correct": false,
-          "misconception": "object_instead_of_relationship"
+          "misconception": "object_instead_of_relationship",
+          "feedback": "Five is Theo’s count. Count from five to nine."
         }
       ],
       "hints": [
-        "Imagine 16 marks for Nia and 9 for Theo. Match one from each group until Theo’s marks run out.",
-        "Count Nia’s unmatched marks. Or start at 9 and count up to 16."
+        "Each dot below stands for one page. Find Nia’s dots without a partner.",
+        "Or count from 5 up to 9. How many steps?"
       ],
-      "revision": 2
+      "revision": 4,
+      "supportVisual": {
+        "kind": "comparisonButtons",
+        "topCount": 9,
+        "bottomCount": 5,
+        "step": "pair",
+        "revealGap": false,
+        "topLabel": "Nia’s pages",
+        "bottomLabel": "Theo’s pages",
+        "ariaLabel": "Nia: dot, dot, dot, dot, dot, dot, dot, dot, dot. Theo: dot, dot, dot, dot, dot.",
+        "message": "One dot stands for one page. Count Nia’s dots without a partner."
+      }
     },
     {
       "id": "recall",
       "type": "recall",
       "label": "Recall",
-      "title": "Which exam wording asks for the same number?",
-      "prompt": "For 10 blue buttons and 5 red buttons, which question asks for the extra blue buttons?",
+      "title": "Another way to ask “how many more”?",
+      "prompt": "There are 6 blue dots and 4 red dots. Which question asks for the extra blue dots?",
       "choices": [
         {
-          "text": "How many buttons in all?",
+          "text": "How many dots in all?",
           "correct": false,
-          "misconception": "combine_instead_of_compare"
+          "misconception": "combine_instead_of_compare",
+          "feedback": "“In all” joins the groups. Find the phrase for extras."
         },
         {
           "text": "What is the difference?",
           "correct": true,
-          "feedback": "Yes. “Difference” asks how far apart the two counts are: 10 − 5 = 5.",
+          "feedback": "Yes. The difference is how many more blue dots there are: 6 − 4 = 2.",
           "evidence": "identified_gap"
         },
         {
-          "text": "How many blue buttons?",
+          "text": "How many blue dots?",
           "correct": false,
-          "misconception": "object_instead_of_relationship"
+          "misconception": "object_instead_of_relationship",
+          "feedback": "“How many blue?” counts all blue dots. Find the phrase for extras."
         }
       ],
       "hints": [
-        "“In all” joins the two colors. We want the blue buttons with no red match.",
-        "Look for a question about how far apart the two counts are."
+        "“In all” asks you to join both groups.",
+        "Find the question that asks how many more blue dots there are."
       ],
-      "revision": 2
+      "revision": 4
     },
     {
       "id": "transfer",
       "type": "transfer",
       "label": "Transfer",
-      "title": "Use the idea in a new setting.",
-      "prompt": "A blue notebook costs $18 and a red notebook costs $11. How much more does the blue notebook cost?",
+      "title": "Try it with prices.",
+      "prompt": "One notebook costs $10. Another costs $8. What is the difference in price?",
       "choices": [
         {
-          "text": "$7",
+          "text": "$2",
           "correct": true,
           "evidence": "subtraction_as_comparison",
-          "feedback": "$18 − $11 = $7, so the blue notebook costs $7 more."
-        },
-        {
-          "text": "$29",
-          "correct": false,
-          "misconception": "combine_instead_of_compare"
+          "feedback": "$10 − $8 = $2. The difference is $2."
         },
         {
           "text": "$18",
           "correct": false,
-          "misconception": "object_instead_of_relationship"
+          "misconception": "combine_instead_of_compare",
+          "feedback": "Eighteen adds both prices. Find how much higher ten is than eight."
+        },
+        {
+          "text": "$10",
+          "correct": false,
+          "misconception": "object_instead_of_relationship",
+          "feedback": "Ten is one price, not the difference. Count from eight to ten."
         }
       ],
       "hints": [
-        "Compare the two prices. Is the question asking for their combined cost or how far apart they are?",
-        "Start at $11 and count up to $18. How much did the price increase?"
+        "A difference in price tells how much more one costs.",
+        "Start at $8. Count up to $10. How much did you add?"
       ],
-      "revision": 2
+      "revision": 4
     },
     {
       "id": "reflection",
       "legacyIndex": 6,
       "type": "reflection",
       "label": "Reflect",
-      "title": "What did you discover?",
-      "prompt": "What does subtraction show when we compare two counts?",
+      "title": "What does “difference” mean?",
+      "prompt": "When we compare 6 blue dots with 4 red dots, what is the difference?",
       "choices": [
         {
-          "text": "It always means taking objects away.",
-          "correct": false
+          "text": "Taking every dot away.",
+          "correct": false,
+          "feedback": "No dots are removed here. We compare the groups."
         },
         {
-          "text": "It joins the counts into one total.",
-          "correct": false
+          "text": "All the dots together.",
+          "correct": false,
+          "feedback": "All together gives a total. Difference asks for the extras."
         },
         {
-          "text": "It finds the difference between the counts.",
-          "correct": true
+          "text": "How many more blue dots there are.",
+          "correct": true,
+          "feedback": "The two extra blue dots show the difference."
         }
       ],
       "hints": [
-        "We matched one blue with one red, then found the extra blue buttons.",
-        "Ten minus five tells how far apart ten and five are."
+        "Pair one blue with one red.",
+        "What do the blue dots left over tell you?"
       ],
-      "revision": 2
+      "revision": 4
     },
     {
       "id": "complete",
       "legacyIndex": 7,
       "type": "complete",
       "title": "You found the difference.",
-      "body": "“How many more?” and “What is the difference?” both ask for how far apart the counts are.",
+      "body": "Count the extras to answer “how many more?” or “what is the difference?”",
       "nextRecommendation": "Next lesson: How many fewer?"
     }
   ]
