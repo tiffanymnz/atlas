@@ -1,21 +1,187 @@
 {
-  "metadata":{"title":"Cuenta y descubre cuántos hay"},
-  "learning":{"learning_goal":"Escucha los números, ve las cifras y cuenta objetos hasta diez sin saltar ni repetir.","big_idea":"El último número que dices al contar indica cuántos objetos hay.","assumed_prior_knowledge":[]},
-  "screens":[
-    {"label":"Empieza aquí","title":"¿Cuántos puntos hay?","body":"Primero, escucha y mira los números. Después, cuenta los puntos para saber cuántos hay."},
-    {"label":"Mira y escucha","title":"Escucha y mira los números.","visual":{"ariaLabel":"Tres puntos azules marcados con 1, 2 y 3. Toca cada punto para escuchar su número.","message":"Toca cada punto, empezando por la izquierda. Escucharás su número."},"nextLabel":"Intenta contar"},
-    {"title":"¿Cuántos puntos hay aquí?","visual":{"ariaLabel":"Tres puntos azules en una fila.","message":"Mira cada punto mientras cuentas: uno, dos, tres."},"choices":[{"text":"2","feedback":"Mira también el punto de la derecha."},{"text":"3","feedback":"Hay tres puntos. Dijiste tres al llegar al último punto."},{"text":"4","feedback":"Comprueba que no hayas contado un punto dos veces."}],"hints":["Empieza por el punto de la izquierda. Mira el siguiente punto mientras cuentas.","¿Qué número dijiste al llegar al último punto?"]},
-    {"title":"¿Qué es un grupo?","visual":{"ariaLabel":"Tres puntos azules juntos dentro de un recuadro. Es un grupo de tres puntos.","message":"Estos puntos están juntos en un recuadro. Los llamamos un grupo. Hay tres puntos en este grupo."},"nextLabel":"Seguir contando"},
-    {"label":"Mira y escucha","title":"Escucha los números del uno al cuatro.","visual":{"ariaLabel":"Cuatro puntos azules marcados del 1 al 4. Toca cada punto para escuchar su número.","message":"Toca los puntos de izquierda a derecha. El último dice cuatro. Hay cuatro puntos."},"nextLabel":"Intenta contar cuatro"},
-    {"title":"¿Cuántos puntos hay en este grupo?","visual":{"ariaLabel":"Cuatro puntos azules juntos dentro de un recuadro.","message":"Cuenta los puntos. ¿Qué número dices al llegar al último punto?"},"choices":[{"text":"3","feedback":"Mira todos los puntos, incluso el de la derecha."},{"text":"4","feedback":"Hay cuatro puntos en este grupo."},{"text":"5","feedback":"Cuenta cada punto una vez. Comprueba que no hayas repetido ninguno."}],"hints":["Empieza por la izquierda. Mira el siguiente punto mientras dices el siguiente número.","El número que dices al llegar al último punto te indica cuántos puntos hay en el grupo."]},
-    {"label":"Mira y escucha","title":"Escucha los números del uno al cinco.","visual":{"ariaLabel":"Cinco puntos azules marcados del 1 al 5. Toca cada punto para escuchar su número.","message":"Toca los puntos de izquierda a derecha para escuchar sus números."},"nextLabel":"Intenta contar cinco"},
-    {"title":"Cuenta para saber cuántos hay.","hook":"Mira. Cuenta. Di cuántos hay.","body":"Mira cada punto una vez. El número que dices al llegar al último punto te indica cuántos hay en el grupo."},
-    {"title":"¿Cuántos puntos hay en este grupo?","visual":{"ariaLabel":"Cinco puntos azules dentro de un recuadro.","message":"Cuenta los puntos de este recuadro. Elige cuántos hay."},"choices":[{"text":"4","feedback":"Mira el último punto de la derecha. Cuéntalo también."},{"text":"6","feedback":"Comprueba que hayas contado cada punto solo una vez."},{"text":"5","feedback":"Hay cinco puntos en este grupo."}],"hints":["Mira de izquierda a derecha. Cuenta cada punto una vez.","¿Qué número dijiste al llegar al último punto?"]},
-    {"title":"Escucha los números hasta diez.","visual":{"ariaLabel":"Diez puntos marcados en orden del 1 al 10.","message":"Toca cada punto en orden para escuchar su número. Detente en diez."},"nextLabel":"Intenta contar diez"},
-    {"title":"¿Cuántos puntos hay?","visual":{"ariaLabel":"Diez puntos azules en una fila.","message":"Cuenta cada punto una vez. ¿Qué número dices al llegar al último punto?"},"choices":[{"text":"9","feedback":"Busca un punto que quizás no hayas contado."},{"text":"10","feedback":"Hay diez puntos. Diez es el número del último punto."},{"text":"11","feedback":"Comprueba que no hayas contado un punto dos veces."}],"hints":["Mira cada punto mientras cuentas de izquierda a derecha.","Cuenta cada punto una sola vez, incluso el último."]},
-    {"title":"¿Qué indica el último número?","prompt":"Contaste cuatro puntos: uno, dos, tres, cuatro. ¿Qué indica cuatro?","choices":[{"text":"Cuál punto es azul"},{"text":"Cuántos puntos hay","feedback":"Sí. Hay cuatro puntos en el grupo."},{"text":"Cuántos recuadros hay"}],"hints":["Piensa en todos los puntos juntos.","Contaste los puntos. ¿Qué querías saber?"]},
-    {"title":"Cuenta otro grupo.","visual":{"ariaLabel":"Seis puntos azules juntos dentro de un recuadro.","message":"¿Cuántos puntos hay en este grupo?"},"choices":[{"text":"7","feedback":"Comprueba que hayas contado cada punto una sola vez."},{"text":"5","feedback":"Busca un punto que quizás no hayas contado."},{"text":"6","feedback":"Hay seis puntos. Seis es el número del último punto."}],"hints":["Empieza por la izquierda. Cuenta cada punto una vez.","¿Qué número dijiste al llegar al último punto?"]},
-    {"title":"¿Qué es un grupo?","prompt":"En esta lección, los puntos dentro de un recuadro están juntos. ¿Cómo los llamamos?","choices":[{"text":"Un número"},{"text":"Un grupo de puntos"},{"text":"Una pareja de recuadros"}],"hints":["Piensa en los puntos juntos dentro del recuadro.","A los puntos juntos los llamamos un grupo."]},
-    {"title":"Contaste los puntos.","body":"Después aprenderás qué es una pareja al juntar dos puntos.","nextRecommendation":"Próxima lección: Forma una pareja."}
+  "metadata": {"title": "Conoce los números del 1 al 10"},
+  "learning": {
+    "learning_goal": "Escucha, mira y relaciona cada número del 1 al 10 con un grupo de objetos.",
+    "big_idea": "Un número puede nombrar cuántos objetos hay en un grupo.",
+    "assumed_prior_knowledge": [],
+    "novice_success_criteria": [
+      "decir o identificar las palabras numéricas del uno al diez",
+      "relacionar cada cifra del 1 al 10 con su nombre hablado y su cantidad",
+      "contar un grupo hasta diez contando cada objeto una vez"
+    ]
+  },
+  "screens": [
+    {
+      "label": "Empieza aquí",
+      "title": "Conoce los números del 1 al 10.",
+      "body": "Toca Escuchar cuando quieras oír la pantalla.",
+      "audio": "Aprenderemos los números del uno al diez. Verás cada número, escucharás su nombre y contarás esa cantidad de puntos."
+    },
+    {
+      "label": "Número 1",
+      "title": "1 — uno",
+      "audio": "Este es el uno. Un punto. Toca el punto para escuchar uno.",
+      "visual": {"ariaLabel": "Un punto azul marcado con el número 1.", "message": "1 punto"},
+      "nextLabel": "Siguiente número"
+    },
+    {
+      "label": "Número 2",
+      "title": "2 — dos",
+      "audio": "Este es el dos. Dos puntos. Toca los puntos en orden: uno, dos.",
+      "visual": {"ariaLabel": "Dos puntos azules marcados con 1 y 2.", "message": "2 puntos"},
+      "nextLabel": "Siguiente número"
+    },
+    {
+      "label": "Número 3",
+      "title": "3 — tres",
+      "audio": "Este es el tres. Tres puntos. Toca los puntos en orden: uno, dos, tres.",
+      "visual": {"ariaLabel": "Tres puntos azules marcados con 1, 2 y 3.", "message": "3 puntos"},
+      "nextLabel": "Intenta contar"
+    },
+    {
+      "title": "Cuenta los puntos.",
+      "audio": "Cuenta los puntos azules. Elige el número que corresponde al grupo.",
+      "visual": {"ariaLabel": "Tres puntos azules en una fila.", "message": "Elige el número."},
+      "choices": [
+        {"text": "2", "feedback": "Mira también el punto de la derecha."},
+        {"text": "3", "feedback": "Hay tres puntos."},
+        {"text": "4", "feedback": "Comprueba que no hayas contado un punto dos veces."}
+      ],
+      "hints": ["Empieza con el punto de la izquierda. Cuenta cada punto una vez.", "Cuenta de nuevo: uno, dos, tres."]
+    },
+    {
+      "label": "Palabra nueva",
+      "title": "Esto es un grupo.",
+      "audio": "Estos tres puntos están juntos dentro de un recuadro. Los puntos que están juntos se llaman un grupo. Este es un grupo de tres puntos.",
+      "visual": {"ariaLabel": "Tres puntos azules juntos dentro de un recuadro.", "message": "Los puntos juntos en un recuadro forman un grupo."},
+      "nextLabel": "Siguiente número"
+    },
+    {
+      "label": "Número 4",
+      "title": "4 — cuatro",
+      "audio": "Este es el cuatro. Cuatro puntos. Toca los puntos en orden: uno, dos, tres, cuatro.",
+      "visual": {"ariaLabel": "Cuatro puntos azules marcados del 1 al 4.", "message": "4 puntos"},
+      "nextLabel": "Siguiente número"
+    },
+    {
+      "title": "Cuenta este grupo.",
+      "audio": "Cuenta los puntos del recuadro. Elige el número que corresponde al grupo.",
+      "visual": {"ariaLabel": "Cuatro puntos azules juntos dentro de un recuadro.", "message": "Elige el número."},
+      "choices": [
+        {"text": "3", "feedback": "Mira todos los puntos, incluso el de la derecha."},
+        {"text": "4", "feedback": "Hay cuatro puntos en este grupo."},
+        {"text": "5", "feedback": "Cuenta cada punto una vez. Comprueba que no hayas repetido ninguno."}
+      ],
+      "hints": ["Empieza a la izquierda. Cuenta cada punto una vez.", "Cuenta de nuevo: uno, dos, tres, cuatro."]
+    },
+    {
+      "label": "Número 5",
+      "title": "5 — cinco",
+      "audio": "Este es el cinco. Cinco puntos. Toca los puntos en orden: uno, dos, tres, cuatro, cinco.",
+      "visual": {"ariaLabel": "Cinco puntos azules marcados del 1 al 5.", "message": "5 puntos"},
+      "nextLabel": "Intenta contar cinco"
+    },
+    {
+      "title": "Cuenta este grupo.",
+      "audio": "Cuenta los puntos del recuadro. Elige el número que corresponde al grupo.",
+      "visual": {"ariaLabel": "Cinco puntos azules dentro de un recuadro.", "message": "Elige el número."},
+      "choices": [
+        {"text": "4", "feedback": "Mira el punto de la derecha. Cuéntalo también."},
+        {"text": "6", "feedback": "Comprueba que hayas contado cada punto solo una vez."},
+        {"text": "5", "feedback": "Hay cinco puntos en este grupo."}
+      ],
+      "hints": ["Empieza a la izquierda. Cuenta cada punto una vez.", "Cuenta de nuevo: uno, dos, tres, cuatro, cinco."]
+    },
+    {
+      "label": "Número 6",
+      "title": "6 — seis",
+      "audio": "Este es el seis. Seis puntos. Toca los puntos en orden del uno al seis.",
+      "visual": {"ariaLabel": "Seis puntos azules marcados del 1 al 6.", "message": "6 puntos"},
+      "nextLabel": "Siguiente número"
+    },
+    {
+      "label": "Número 7",
+      "title": "7 — siete",
+      "audio": "Este es el siete. Siete puntos. Toca los puntos en orden del uno al siete.",
+      "visual": {"ariaLabel": "Siete puntos azules marcados del 1 al 7.", "message": "7 puntos"},
+      "nextLabel": "Siguiente número"
+    },
+    {
+      "label": "Número 8",
+      "title": "8 — ocho",
+      "audio": "Este es el ocho. Ocho puntos. Toca los puntos en orden del uno al ocho.",
+      "visual": {"ariaLabel": "Ocho puntos azules marcados del 1 al 8.", "message": "8 puntos"},
+      "nextLabel": "Siguiente número"
+    },
+    {
+      "label": "Número 9",
+      "title": "9 — nueve",
+      "audio": "Este es el nueve. Nueve puntos. Toca los puntos en orden del uno al nueve.",
+      "visual": {"ariaLabel": "Nueve puntos azules marcados del 1 al 9.", "message": "9 puntos"},
+      "nextLabel": "Siguiente número"
+    },
+    {
+      "label": "Número 10",
+      "title": "10 — diez",
+      "audio": "Este es el diez. Diez puntos. Toca los puntos en orden del uno al diez.",
+      "visual": {"ariaLabel": "Diez puntos azules marcados del 1 al 10.", "message": "10 puntos"},
+      "nextLabel": "Intenta contar diez"
+    },
+    {
+      "title": "El total es el grupo completo.",
+      "hook": "Cuenta cada punto una vez.",
+      "body": "El último número es el total. Total significa la cantidad de puntos en el grupo.",
+      "audio": "Cuenta cada punto una vez. El último número es el total. Total significa la cantidad de puntos en todo el grupo."
+    },
+    {
+      "title": "Cuenta este grupo.",
+      "audio": "Cuenta los puntos del recuadro. Elige el número que corresponde al grupo.",
+      "visual": {"ariaLabel": "Diez puntos azules juntos dentro de un recuadro.", "message": "Elige el número."},
+      "choices": [
+        {"text": "9", "feedback": "Quizás te faltó un punto. Empieza a la izquierda y cuenta de nuevo."},
+        {"text": "10", "feedback": "Hay diez puntos en este grupo."},
+        {"text": "11", "feedback": "Quizás contaste un punto dos veces."}
+      ],
+      "hints": ["Empieza a la izquierda. Cuenta cada punto una vez.", "Cuenta lentamente del uno al diez."]
+    },
+    {
+      "title": "¿Cuál es el total?",
+      "prompt": "Cuentas cuatro puntos. ¿Cuál es el total?",
+      "audio": "Cuentas cuatro puntos. ¿Cuál es el total? Elige una respuesta.",
+      "choices": [
+        {"text": "El color"},
+        {"text": "4 puntos", "feedback": "Sí. El total es cuatro puntos."},
+        {"text": "1 recuadro"}
+      ],
+      "hints": ["Total significa la cantidad de puntos en todo el grupo.", "El grupo tiene cuatro puntos."]
+    },
+    {
+      "title": "Cuenta un grupo nuevo.",
+      "audio": "Cuenta los puntos de este grupo nuevo. Elige el número que corresponde al grupo.",
+      "visual": {"ariaLabel": "Seis puntos azules juntos dentro de un recuadro.", "message": "Elige el número."},
+      "choices": [
+        {"text": "7", "feedback": "Comprueba que hayas contado cada punto solo una vez."},
+        {"text": "5", "feedback": "Busca un punto que quizás no hayas contado."},
+        {"text": "6", "feedback": "Hay seis puntos en este grupo."}
+      ],
+      "hints": ["Empieza a la izquierda. Cuenta cada punto una vez.", "Cuenta de nuevo del uno al seis."]
+    },
+    {
+      "title": "¿Qué es un grupo?",
+      "prompt": "Los puntos están juntos dentro de un recuadro. ¿Cómo los llamamos?",
+      "audio": "Los puntos están juntos dentro de un recuadro. ¿Cómo los llamamos? Elige una respuesta.",
+      "choices": [
+        {"text": "Un color"},
+        {"text": "Un grupo de puntos"},
+        {"text": "Una pareja"}
+      ],
+      "hints": ["Piensa en todos los puntos juntos.", "Los puntos juntos se llaman un grupo."]
+    },
+    {
+      "title": "Conociste los números del 1 al 10.",
+      "body": "Después aprenderás qué es una pareja.",
+      "audio": "Terminaste. Viste, escuchaste y contaste los números del uno al diez. Ahora puedes aprender qué es una pareja.",
+      "nextRecommendation": "Próxima lección: Forma una pareja."
+    }
   ]
 }
