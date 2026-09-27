@@ -17,7 +17,12 @@ export function renderComparisonBlocks(visual,label="Comparison model"){
   }
   return `<div class="stage" role="img" aria-label="${visual?.ariaLabel || label}"><div class="comparisonRows">${row(top,false)}${row(bottom,true)}</div><div class="visualMsg">${msg}</div></div>`;
 }
-export function renderComparisonButtons(visual,label="Button comparison"){
+export function renderCountingDots(visual,label="Dots to count"){
+  const count=Math.min(10,Math.max(1,Number(visual?.count)||1));
+  const dots=Array.from({length:count},(_,i)=>`<span class="countingDot" aria-hidden="true"><i></i>${visual?.numbered?`<b>${i+1}</b>`:""}</span>`).join("");
+  return `<div class="stage countingStage" role="img" aria-label="${visual?.ariaLabel||label}"><div class="countingRow">${dots}</div><div class="visualMsg">${visual?.message||""}</div></div>`;
+}
+export function renderComparisonButtons(visual,label="Dot comparison"){
   const top=Math.min(20,Math.max(0,Number(visual?.topCount)||0));
   const bottom=Math.min(20,Math.max(0,Number(visual?.bottomCount)||0));
   const step=["count","pair","reveal"].includes(visual?.step)?visual.step:"count";
@@ -25,7 +30,7 @@ export function renderComparisonButtons(visual,label="Button comparison"){
     const hasTop=i<top,hasBottom=i<bottom;
     return `<span class="buttonColumn${hasTop&&hasBottom?" matched":""}${step==="reveal"&&hasTop&&!hasBottom?" unmatched":""}" style="--pair-index:${i}" aria-hidden="true"><i class="buttonToken blue${hasTop?"":" absent"}"></i><i class="buttonToken red${hasBottom?"":" absent"}"></i></span>`;
   }).join("");
-  const legend=`<div class="buttonLegend"><span><i class="buttonKey blue"></i>${visual?.topLabel||"Blue buttons"}</span><span><i class="buttonKey red"></i>${visual?.bottomLabel||"Red buttons"}</span></div>`;
+  const legend=`<div class="buttonLegend"><span><i class="buttonKey blue"></i>${visual?.topLabel||"Blue dots"}</span><span><i class="buttonKey red"></i>${visual?.bottomLabel||"Red dots"}</span></div>`;
   return `<div class="stage buttonStage ${step}" role="img" aria-label="${visual?.ariaLabel||label}">${legend}<div class="buttonColumns" style="--button-columns:${Math.max(top,bottom)}">${columns}</div><div class="visualMsg">${visual?.message||""}</div></div>`;
 }
 function renderEqualGroups(visual,label){
@@ -75,6 +80,7 @@ function renderInequalityLine(visual,label){
   return `<div class="stage conceptStage" role="img" aria-label="${visual?.ariaLabel||label}"><div class="inequalityLine ${direction}" aria-hidden="true"><div class="inequalityRay"></div><span class="inequalityArrow">${direction==="left"?"◀":"▶"}</span><span class="inequalityPoint${inclusive?" closed":" open"}"></span><div class="inequalityTicks">${ticks}</div></div>${caption}<div class="visualMsg">${visual?.message||""}</div></div>`;
 }
 export function renderConceptVisual(visual,label="Concept model"){
+  if(visual?.kind==="countingDots") return renderCountingDots(visual,label);
   if(visual?.kind==="comparisonButtons") return renderComparisonButtons(visual,label);
   if(visual?.kind==="equalGroups") return renderEqualGroups(visual,label);
   if(visual?.kind==="fractionBar") return renderFractionBar(visual,label);
@@ -102,7 +108,8 @@ export function localizeChoiceState(screen,state,copy){
       result.feedback={className:"feedback success",html:`<strong>${copy.correct}</strong>${detail?"<br>"+detail:""}`};
     }else{
       const index=Number.isInteger(state.feedbackHintIndex)?state.feedbackHintIndex:Math.max((Number(state.hintIndex)||1)-1,0);
-      result.feedback={className:"feedback warn",html:`<strong>${copy.lookAgain}</strong><br>${hintAt(index)}`};
+      const diagnostic=screen.choices?.[state.wrongChoiceIndex]?.feedback;
+      result.feedback={className:"feedback warn",html:`<strong>${copy.lookAgain}</strong><br>${diagnostic || hintAt(index)}`};
     }
   }
   return result;
