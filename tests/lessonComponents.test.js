@@ -1,5 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
+import fs from "node:fs";
 import { localizeChoiceState, renderComparisonBlocks, renderComparisonButtons } from "../sdk/components/lessonComponents.js";
 
 const screen={
@@ -39,4 +40,11 @@ test("button model forms five visible pairs before showing five extras",()=>{
   assert.equal((pairs.match(/class="buttonColumn matched"/g)||[]).length,5);
   assert.equal((extras.match(/class="buttonColumn unmatched"/g)||[]).length,5);
   assert.equal((extras.match(/class="buttonToken red absent"/g)||[]).length,5);
+});
+
+test("extra blue dots retain their blue color when pairs are revealed",()=>{
+  const css=fs.readFileSync(new URL("../sdk/components/concept-visuals.css",import.meta.url),"utf8");
+  assert.match(css,/\.buttonKey\.blue,\.buttonToken\.blue\{background:#4389c5\}/);
+  assert.doesNotMatch(css,/\.buttonStage\.reveal \.unmatched \.blue\{background:/);
+  assert.match(css,/\.buttonStage\.reveal \.unmatched\{border-color:var\(--primary\)/);
 });

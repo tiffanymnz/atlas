@@ -7,35 +7,45 @@ const names=["lesson005.json","lesson006.json","lesson007.json","lesson008.json"
 const read=path=>JSON.parse(fs.readFileSync(new URL(`../${path}`,import.meta.url)));
 const get=(lesson,type)=>lesson.screens.find(screen=>screen.type===type);
 
+test("foundation counts to ten and pairs before comparison",()=>{
+  const f=read("curriculum/lessons/lesson000.json");
+  assert.equal(f.screens.find(s=>s.id==="count-ten").visual.count,10);
+  assert.ok(f.screens.some(s=>s.visual?.step==="pair"));
+  assert.equal(f.concepts.primary_concept,"counting_and_matching");
+});
+
 test("lesson001 moves from counting to formed pairs, difference language, and subtraction",()=>{
   const lesson=read("curriculum/lessons/lesson001.json");
   const screens=lesson.screens;
   assert.deepEqual(screens.slice(0,7).map(screen=>screen.type),["intro","count","count","observe","discover","language","memoryHook"]);
-  assert.match(screens[0].body,/count the blue and red buttons/i);
+  assert.match(screens[0].body,/count two groups of dots/i);
   assert.equal(lesson.learning.assumed_prior_knowledge.length,2);
-  assert.match(screens[0].callout,/Earlier lessons are being built/i);
-  assert.deepEqual(screens.filter(screen=>screen.type==="count").map(screen=>screen.choices.find(c=>c.correct).text),["10","5"]);
+  assert.equal(screens[0].callout,undefined);
+  assert.deepEqual(screens.filter(screen=>screen.type==="count").map(screen=>screen.choices.find(c=>c.correct).text),["6","4"]);
   assert.equal(get(lesson,"observe").visual.step,"pair");
   assert.equal(get(lesson,"discover").visual.step,"reveal");
   assert.deepEqual(get(lesson,"language").phrases,["How many more?","What is the difference?"]);
-  assert.match(get(lesson,"memoryHook").body,/Subtraction can compare two counts/i);
-  assert.match(get(lesson,"reflection").choices.find(c=>c.correct).text,/difference between the counts/i);
+  assert.match(get(lesson,"memoryHook").body,/6 − 4 = 2/);
+  assert.match(get(lesson,"reflection").choices.find(c=>c.correct).text,/how many more blue dots/i);
   assert.ok(screens.indexOf(get(lesson,"misconception"))>screens.indexOf(get(lesson,"observe")));
   for(const screen of screens.filter(screen=>screen.choices)){
-    if(screen.revision) assert.equal(screen.revision,2);
-    for(const hint of screen.hints||[]) assert.doesNotMatch(hint,/(?:the answer is|there are [456] (?:extra|yellow)|= [456]$)/i);
+    assert.equal(screen.revision,4);
+    for(const hint of screen.hints||[]) assert.doesNotMatch(hint,/(?:the answer is|there are [234] extra|= [234]$)/i);
   }
+  assert.equal(get(lesson,"guidedPractice").visual.kind,"comparisonButtons");
+  assert.ok(screens.filter(screen=>screen.visual?.kind==="comparisonButtons"&&screen.id!=="misconception").every(screen=>screen.visual.topLabel==="Blue dots"));
+  assert.ok(screens.every(screen=>!JSON.stringify(screen).includes("gold")));
 });
 
 test("lesson001 gives the same sequence and exam vocabulary in Spanish",()=>{
   const english=read("curriculum/lessons/lesson001.json");
   const spanish=applyTranslation(english,read("curriculum/translations/es/lesson001.json"));
   assert.deepEqual(spanish.screens.map(screen=>screen.id),english.screens.map(screen=>screen.id));
-  assert.match(spanish.screens[0].body,/cuenta los botones azules y rojos/i);
-  assert.match(spanish.screens[0].callout,/lecciones anteriores están en preparación/i);
+  assert.match(spanish.screens[0].body,/cuenta dos grupos de puntos/i);
+  assert.equal(spanish.screens[0].callout,undefined);
   assert.notDeepEqual(spanish.learning.assumed_prior_knowledge,english.learning.assumed_prior_knowledge);
   assert.deepEqual(get(spanish,"language").phrases,["¿Cuántos más?","¿Cuál es la diferencia?"]);
-  assert.match(get(spanish,"reflection").choices.find(c=>c.correct).text,/diferencia entre las cantidades/i);
+  assert.match(get(spanish,"reflection").choices.find(c=>c.correct).text,/cuántos puntos azules más/i);
 });
 
 for(const name of ["lesson002.json","lesson003.json","lesson004.json"]){
