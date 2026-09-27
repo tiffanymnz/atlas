@@ -4,31 +4,66 @@
     "en": [
       {
         "lessonId": "MATH-NS-FOUND-0000",
-        "conceptId": "counting_and_matching",
-        "title": "Count and make pairs",
-        "learningGoal": "Count objects to ten and match one item from each group.",
+        "conceptId": "counting",
+        "title": "Count and find how many",
+        "learningGoal": "Hear number words, see numerals, and count objects to ten without skipping or repeating.",
         "memoryHook": {
-          "title": "Count. Then pair.",
-          "hook": "One number per dot. One blue and one red per pair.",
-          "body": "The last number tells how many. A pair has one from each group."
+          "title": "Count to find how many.",
+          "hook": "Look. Count. Tell how many.",
+          "body": "Look at each dot once. The number you say at the last dot tells how many dots are in the group."
         },
         "independent": {
+          "prompt": "Count every dot once. Which number do you say at the last dot?",
           "answer": "10"
         },
         "recall": {
-          "prompt": "You counted: 1, 2, 3, 4. What does 4 tell you?",
+          "prompt": "You counted four dots: one, two, three, four. What does four tell you?",
           "choices": [
             "Which dot is blue",
             "How many dots there are",
-            "How many pairs there are"
+            "How many boxes there are"
           ],
           "answer": "How many dots there are"
         },
         "transfer": {
+          "prompt": "How many dots are in this group?",
+          "choices": [
+            "7",
+            "5",
+            "6"
+          ],
+          "answer": "6"
+        }
+      },
+      {
+        "lessonId": "MATH-NS-FOUND-000A",
+        "conceptId": "one_to_one_matching",
+        "title": "Make a pair",
+        "learningGoal": "Identify and make a pair with one object from each of two groups.",
+        "memoryHook": {
+          "title": "What makes a pair?",
+          "hook": "One blue plus one red, together.",
+          "body": "In this lesson, two dots make a pair when one is blue and one is red and they are together."
+        },
+        "independent": {
+          "prompt": "Count the blue-and-red pairs. The blue dot alone is not a pair.",
+          "answer": "3"
+        },
+        "recall": {
+          "prompt": "Which two dots could you put together to make one pair?",
+          "choices": [
+            "One blue dot and one red dot",
+            "One blue dot alone",
+            "One empty place"
+          ],
+          "answer": "One blue dot and one red dot"
+        },
+        "transfer": {
+          "prompt": "Put one red dot with one blue dot above it. How many pairs can you make?",
           "choices": [
             "5",
-            "1",
-            "4"
+            "4",
+            "1"
           ],
           "answer": "4"
         }
@@ -400,31 +435,66 @@
     "es": [
       {
         "lessonId": "MATH-NS-FOUND-0000",
-        "conceptId": "counting_and_matching",
-        "title": "Cuenta y forma parejas",
-        "learningGoal": "Cuenta objetos hasta diez y une uno de cada grupo.",
+        "conceptId": "counting",
+        "title": "Cuenta y descubre cuántos hay",
+        "learningGoal": "Escucha los números, ve las cifras y cuenta objetos hasta diez sin saltar ni repetir.",
         "memoryHook": {
-          "title": "Cuenta. Después forma parejas.",
-          "hook": "Un número por punto. Un azul y un rojo por pareja.",
-          "body": "El último número dice cuántos hay. Una pareja tiene uno de cada grupo."
+          "title": "Cuenta para saber cuántos hay.",
+          "hook": "Mira. Cuenta. Di cuántos hay.",
+          "body": "Mira cada punto una vez. El número que dices al llegar al último punto te indica cuántos hay en el grupo."
         },
         "independent": {
+          "prompt": "Cuenta cada punto una vez. ¿Qué número dices al llegar al último punto?",
           "answer": "10"
         },
         "recall": {
-          "prompt": "Cuentas: 1, 2, 3, 4. ¿Qué te dice el 4?",
+          "prompt": "Contaste cuatro puntos: uno, dos, tres, cuatro. ¿Qué indica cuatro?",
           "choices": [
             "Cuál punto es azul",
             "Cuántos puntos hay",
-            "Cuántas parejas hay"
+            "Cuántos recuadros hay"
           ],
           "answer": "Cuántos puntos hay"
         },
         "transfer": {
+          "prompt": "¿Cuántos puntos hay en este grupo?",
+          "choices": [
+            "7",
+            "5",
+            "6"
+          ],
+          "answer": "6"
+        }
+      },
+      {
+        "lessonId": "MATH-NS-FOUND-000A",
+        "conceptId": "one_to_one_matching",
+        "title": "Forma una pareja",
+        "learningGoal": "Identifica y forma una pareja con un objeto de cada uno de dos grupos.",
+        "memoryHook": {
+          "title": "¿Qué forma una pareja?",
+          "hook": "Un azul y un rojo, juntos.",
+          "body": "En esta lección, dos puntos forman una pareja cuando uno es azul, el otro es rojo y están juntos."
+        },
+        "independent": {
+          "prompt": "Cuenta las parejas de azul y rojo. El punto azul solo no es una pareja.",
+          "answer": "3"
+        },
+        "recall": {
+          "prompt": "¿Qué dos puntos puedes juntar para formar una pareja?",
+          "choices": [
+            "Un punto azul y uno rojo",
+            "Un punto azul solo",
+            "Un lugar vacío"
+          ],
+          "answer": "Un punto azul y uno rojo"
+        },
+        "transfer": {
+          "prompt": "Junta cada punto rojo con el azul que tiene arriba. ¿Cuántas parejas puedes formar?",
           "choices": [
             "5",
-            "1",
-            "4"
+            "4",
+            "1"
           ],
           "answer": "4"
         }
