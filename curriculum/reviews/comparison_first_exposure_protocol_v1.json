@@ -1,0 +1,18 @@
+{
+  "schema_version": "1.0",
+  "id": "comparison-first-exposure-v1",
+  "scope": ["lesson000", "lesson001"],
+  "claimed_locales": ["en", "es"],
+  "minimum_independent_learners_per_locale": 5,
+  "eligibility": "Fresh learners who cannot already explain or solve a comparison difference. Record counting-to-ten and one-to-one matching ability; use lesson000 first if either is missing. Use a fresh attempt and obtain consent without identifying details.",
+  "facilitation": "Do not teach, rephrase, point, hint, or reveal answers before the learner's first response. Record verbatim reasoning, hesitation, wrong turns, and any intervention. A hint after the uncoached response may support teaching but cannot count as independent evidence.",
+  "checks": [
+    {"id":"prerequisite","task":"Count ten unnumbered dots and make one-to-one pairs in a new group.","criterion":"Both correct after lesson000 if needed."},
+    {"id":"independent","task":"Solve the pages problem before opening the support model; explain why.","criterion":"Correct first response and comparison reasoning."},
+    {"id":"vocabulary","task":"Explain difference and how many more in own words.","criterion":"Connect both to comparison without claiming more always means subtract."},
+    {"id":"new_example","task":"Seven round tiles and three square tiles. How many more round tiles? Show how you know and why 7 + 3 is wrong here.","criterion":"Four, with pairing or equivalent comparison and rejection of the combined total."},
+    {"id":"delayed","task":"At least 24 hours later without review: one jar has nine marbles, another six. What is their difference? Explain.","criterion":"Three with independent comparison reasoning."}
+  ],
+  "decision":"For each locale, five distinct eligible uncoached learners must meet every check with no critical barrier. A failure calls for revision and a new independent round. This is preliminary evidence for the tested group, not proof for every age or learner.",
+  "privacy":"Use anonymous codes and responses only; no names or contact details."
+}
