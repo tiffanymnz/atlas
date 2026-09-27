@@ -1,4 +1,4 @@
-import { renderConceptVisual, renderChoiceScreen, localizeChoiceState, renderLanguage, renderEquation, renderComplete } from "../sdk/components/lessonComponents.js?v=2.5";
+import { renderConceptVisual, renderChoiceScreen, localizeChoiceState, renderLanguage, renderEquation, renderComplete } from "../sdk/components/lessonComponents.js?v=2.6";
 import { createAnalytics, showAnalytics } from "./analytics-engine/analyticsEngine.js";
 import { recommendNext } from "./recommendation-engine/recommendationEngine.js";
 import { assessNextLessonReadiness } from "./recommendation-engine/readiness.js";
@@ -71,6 +71,44 @@ function reviewVisualGap(){
 }
 function focusLesson(){ root.focus({preventScroll:true}); }
 function base(screen){ const progress=pct(); return `<span class="badge">${screen.label || screen.stage || copy().lesson}</span><div class="progress" role="progressbar" aria-label="${copy().progressBar}" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${progress}"><span style="width:${progress}%"></span></div><h1 id="screenTitle">${screen.title}</h1>`; }
+const NUMBER_WORDS={en:["one","two","three","four","five","six","seven","eight","nine","ten"],es:["uno","dos","tres","cuatro","cinco","seis","siete","ocho","nueve","diez"]};
+function bindCountingAudio(){
+  const taps=[...root.querySelectorAll(".countTap")];
+  if(!taps.length) return;
+  let nextNumber=1;
+  const canSpeak="speechSynthesis" in window && "SpeechSynthesisUtterance" in window;
+  if(!canSpeak) el("countSpeech").textContent=language==="es"?"Toca un punto para ver su número.":"Tap a dot to see its number.";
+  for(const tap of taps){
+    const number=Number(tap.dataset.count);
+    const word=NUMBER_WORDS[language][number-1];
+    tap.setAttribute("aria-label",`${number}, ${word}`);
+    tap.onclick=()=>{
+      if(number===1 && nextNumber>taps.length){
+        for(const button of taps) button.classList.remove("heard");
+        nextNumber=1;
+      }
+      if(number!==nextNumber){
+        const expected=NUMBER_WORDS[language][nextNumber-1];
+        el("countSpeech").textContent=language==="es"?`Sigue con ${nextNumber} — ${expected}.`:`Next, tap ${nextNumber} — ${expected}.`;
+        return;
+      }
+      tap.classList.add("heard");
+      nextNumber++;
+      const complete=nextNumber>taps.length;
+      el("countSpeech").textContent=complete
+        ? language==="es"?`${number} — ${word}. Hay ${word} puntos.`:`${number} — ${word}. There are ${word} dots.`
+        : `${number} — ${word}`;
+      if(canSpeak){
+        window.speechSynthesis.cancel();
+        const spoken=new SpeechSynthesisUtterance(word);
+        spoken.lang=language==="es"?"es-ES":"en-US";
+        spoken.rate=0.85;
+        window.speechSynthesis.speak(spoken);
+      }
+    };
+  }
+}
+function stopCountingAudio(){ if("speechSynthesis" in window) window.speechSynthesis.cancel(); }
 
 function applyPreferences(){
   document.body.setAttribute("data-theme",dark?"dark":"light");
@@ -102,6 +140,7 @@ function loadPreferences(){
 function persistPreferences(){ savePreferences({dark,big,reduce,language}); }
 
 async function loadLesson(path,{focus=true}={}){
+  stopCountingAudio();
   if(lesson && lessonRecord) persist();
   root.setAttribute("aria-busy","true");
   try{
@@ -193,6 +232,7 @@ function render(){
   }
   if(screen.type==="observe"){
     root.innerHTML = base(screen)+renderConceptVisual(screen.visual,screen.title)+`<div class="toolbar"><button class="btn secondary" type="button" id="backBtn">${copy().back}</button><button class="btn primary" type="button" id="nextBtn">${screen.nextLabel || copy().next}</button></div>`;
+    bindCountingAudio();
     el("backBtn").onclick = back; el("nextBtn").onclick = next; return;
   }
   if(["count","misconception","discover","symbol","guidedPractice","independentPractice","recall","transfer","reflection"].includes(screen.type)){
@@ -317,11 +357,12 @@ function hint(screen){
 
 function next(){
   if(index < lesson.screens.length-1){
+    stopCountingAudio();
     if(index===0 && lessonRecord.status!=="completed") lessonRecord.status="in_progress";
     index++; lessonRecord.index=index; persist(); refreshLessonOptions(); render(); focusLesson();
   }
 }
-function back(){ if(index > 0){ index--; lessonRecord.index=index; persist(); render(); focusLesson(); } }
+function back(){ if(index > 0){ stopCountingAudio(); index--; lessonRecord.index=index; persist(); render(); focusLesson(); } }
 function restart(){
   lessonRecord = newLessonAttempt(lessonRecord);
   analytics = createAnalytics();
