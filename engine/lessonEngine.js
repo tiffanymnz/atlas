@@ -15,8 +15,8 @@ let modalReturnFocus = null;
 const root = document.getElementById("lessonRoot");
 const lessonSelect = document.getElementById("lessonSelect");
 const COPY={
-  en:{language:"Español",dark:"Dark mode",light:"Light mode",bigger:"Bigger text",normal:"Normal text",reduce:"Reduce motion",allow:"Allow motion",summary:"Learning summary",memoryAssets:"Memory practice",progress:"Progress",progressBar:"Lesson progress",skip:"Skip to lesson",chooseLesson:"Choose a lesson",choices:"Answer choices",close:"Close",lesson:"Lesson",continue:"Continue",back:"Back",next:"Next",reflect:"Reflect",hint:"Hint",checkAnswer:"Check answer",correct:"Correct.",lookAgain:"Look again.",fallbackHint:"Look at what the problem is asking you to find.",start:"Start lesson",resume:"Resume lesson",review:"Review lesson",complete:"Complete",nextLesson:"Next lesson",reviewVisualGap:"Review visual gap",reviewModel:"Review the model",restartLesson:"Restart lesson",newAttempt:"Try lesson again (new answers)",completed:"Completed",inProgress:"In progress"},
-  es:{language:"English",dark:"Modo oscuro",light:"Modo claro",bigger:"Texto más grande",normal:"Texto normal",reduce:"Reducir movimiento",allow:"Permitir movimiento",summary:"Resumen de aprendizaje",memoryAssets:"Práctica de memoria",progress:"Progreso",progressBar:"Progreso de la lección",skip:"Saltar a la lección",chooseLesson:"Elige una lección",choices:"Opciones de respuesta",close:"Cerrar",lesson:"Lección",continue:"Continuar",back:"Atrás",next:"Siguiente",reflect:"Reflexionar",hint:"Pista",checkAnswer:"Comprobar respuesta",correct:"Correcto.",lookAgain:"Inténtalo de nuevo.",fallbackHint:"Observa lo que el problema te pide encontrar.",start:"Comenzar lección",resume:"Continuar lección",review:"Repasar lección",complete:"Completada",nextLesson:"Próxima lección",reviewVisualGap:"Repasar la diferencia visual",reviewModel:"Repasar el modelo",restartLesson:"Reiniciar lección",newAttempt:"Intentar de nuevo (respuestas nuevas)",completed:"Completada",inProgress:"En progreso"}
+  en:{language:"Español",dark:"Dark mode",light:"Light mode",bigger:"Bigger text",normal:"Normal text",reduce:"Reduce motion",allow:"Allow motion",summary:"Learning summary",memoryAssets:"Memory practice",progress:"Progress",progressBar:"Lesson progress",skip:"Skip to lesson",chooseLesson:"Choose a lesson",choices:"Answer choices",close:"Close",lesson:"Lesson",continue:"Continue",back:"Back",next:"Next",reflect:"Reflect",hint:"Hint",checkAnswer:"Check answer",correct:"Correct.",lookAgain:"Look again.",fallbackHint:"Look at what the problem is asking you to find.",start:"Start lesson",resume:"Resume lesson",review:"Review lesson",complete:"Complete",nextLesson:"Next lesson",reviewVisualGap:"Review visual gap",reviewModel:"Review the model",restartLesson:"Restart lesson",newAttempt:"Try lesson again (new answers)",completed:"Completed",inProgress:"In progress",listen:"Listen",stopAudio:"Stop audio",audioUnavailable:"Audio unavailable",choice:"Choice"},
+  es:{language:"English",dark:"Modo oscuro",light:"Modo claro",bigger:"Texto más grande",normal:"Texto normal",reduce:"Reducir movimiento",allow:"Permitir movimiento",summary:"Resumen de aprendizaje",memoryAssets:"Práctica de memoria",progress:"Progreso",progressBar:"Progreso de la lección",skip:"Saltar a la lección",chooseLesson:"Elige una lección",choices:"Opciones de respuesta",close:"Cerrar",lesson:"Lección",continue:"Continuar",back:"Atrás",next:"Siguiente",reflect:"Reflexionar",hint:"Pista",checkAnswer:"Comprobar respuesta",correct:"Correcto.",lookAgain:"Inténtalo de nuevo.",fallbackHint:"Observa lo que el problema te pide encontrar.",start:"Comenzar lección",resume:"Continuar lección",review:"Repasar lección",complete:"Completada",nextLesson:"Próxima lección",reviewVisualGap:"Repasar la diferencia visual",reviewModel:"Repasar el modelo",restartLesson:"Reiniciar lección",newAttempt:"Intentar de nuevo (respuestas nuevas)",completed:"Completada",inProgress:"En progreso",listen:"Escuchar",stopAudio:"Detener audio",audioUnavailable:"Audio no disponible",choice:"Opción"}
 };
 function copy(){ return COPY[language]; }
 function el(id){ return document.getElementById(id); }
@@ -70,8 +70,49 @@ function reviewVisualGap(){
   focusLesson();
 }
 function focusLesson(){ root.focus({preventScroll:true}); }
-function base(screen){ const progress=pct(); return `<span class="badge">${screen.label || screen.stage || copy().lesson}</span><div class="progress" role="progressbar" aria-label="${copy().progressBar}" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${progress}"><span style="width:${progress}%"></span></div><h1 id="screenTitle">${screen.title}</h1>`; }
+function audioButton(){ return `<button class="btn listenBtn" type="button" id="listenBtn" aria-pressed="false">🔊 ${copy().listen}</button>`; }
+function base(screen){ const progress=pct(); return `<div class="screenTools"><span class="badge">${screen.label || screen.stage || copy().lesson}</span>${audioButton()}</div><div class="progress" role="progressbar" aria-label="${copy().progressBar}" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${progress}"><span style="width:${progress}%"></span></div><h1 id="screenTitle">${screen.title}</h1>`; }
 const NUMBER_WORDS={en:["one","two","three","four","five","six","seven","eight","nine","ten"],es:["uno","dos","tres","cuatro","cinco","seis","siete","ocho","nueve","diez"]};
+let screenUtterance=null;
+function screenSpeechText(screen){
+  const parts=[screen.audio || [screen.title,screen.body,screen.prompt,screen.visual?.message,screen.hook].filter(Boolean).join(". ")];
+  if(screen.choices?.length) parts.push(screen.choices.map((choice,index)=>`${copy().choice} ${index+1}: ${choice.text}`).join(". "));
+  const visibleSupport=[el("hintBox"),el("feedback")].filter(node=>node&&node.style.display==="block").map(node=>node.textContent.trim()).filter(Boolean);
+  return [...parts,...visibleSupport].filter(Boolean).join(". ");
+}
+function resetListenButton(){
+  const button=el("listenBtn");
+  if(!button) return;
+  button.textContent=`🔊 ${copy().listen}`;
+  button.setAttribute("aria-pressed","false");
+}
+function bindScreenAudio(screen){
+  const button=el("listenBtn");
+  if(!button) return;
+  const canSpeak="speechSynthesis" in window && "SpeechSynthesisUtterance" in window;
+  if(!canSpeak){
+    button.disabled=true;
+    button.textContent=copy().audioUnavailable;
+    return;
+  }
+  button.onclick=()=>{
+    if(screenUtterance && window.speechSynthesis.speaking){
+      window.speechSynthesis.cancel();
+      screenUtterance=null;
+      resetListenButton();
+      return;
+    }
+    window.speechSynthesis.cancel();
+    screenUtterance=new SpeechSynthesisUtterance(screenSpeechText(screen));
+    screenUtterance.lang=language==="es"?"es-ES":"en-US";
+    screenUtterance.rate=0.82;
+    screenUtterance.onend=()=>{screenUtterance=null;resetListenButton();};
+    screenUtterance.onerror=()=>{screenUtterance=null;resetListenButton();};
+    button.textContent=`■ ${copy().stopAudio}`;
+    button.setAttribute("aria-pressed","true");
+    window.speechSynthesis.speak(screenUtterance);
+  };
+}
 function bindCountingAudio(){
   const taps=[...root.querySelectorAll(".countTap")];
   if(!taps.length) return;
@@ -100,6 +141,8 @@ function bindCountingAudio(){
         : `${number} — ${word}`;
       if(canSpeak){
         window.speechSynthesis.cancel();
+        screenUtterance=null;
+        resetListenButton();
         const spoken=new SpeechSynthesisUtterance(word);
         spoken.lang=language==="es"?"es-ES":"en-US";
         spoken.rate=0.85;
@@ -108,7 +151,7 @@ function bindCountingAudio(){
     };
   }
 }
-function stopCountingAudio(){ if("speechSynthesis" in window) window.speechSynthesis.cancel(); }
+function stopCountingAudio(){ if("speechSynthesis" in window) window.speechSynthesis.cancel(); screenUtterance=null; }
 
 function applyPreferences(){
   document.body.setAttribute("data-theme",dark?"dark":"light");
@@ -228,10 +271,12 @@ function render(){
     const callout = screen.callout ? `<div class="coach" style="display:block">${screen.callout}</div>` : "";
     const label = lessonRecord.status==="in_progress" ? copy().resume : lessonRecord.status==="completed" ? copy().review : copy().start;
     root.innerHTML = base(screen)+body+callout+`<button class="btn primary" type="button" id="nextBtn">${label}</button>`;
+    bindScreenAudio(screen);
     el("nextBtn").onclick = next; return;
   }
   if(screen.type==="observe"){
     root.innerHTML = base(screen)+renderConceptVisual(screen.visual,screen.title)+`<div class="toolbar"><button class="btn secondary" type="button" id="backBtn">${copy().back}</button><button class="btn primary" type="button" id="nextBtn">${screen.nextLabel || copy().next}</button></div>`;
+    bindScreenAudio(screen);
     bindCountingAudio();
     el("backBtn").onclick = back; el("nextBtn").onclick = next; return;
   }
@@ -239,20 +284,24 @@ function render(){
     const visual = screen.visual ? `${screen.prompt?`<p>${screen.prompt}</p>`:""}${renderConceptVisual(screen.visual,screen.title)}` : `<p>${screen.prompt || ""}</p>`;
     const support=screen.supportVisual?`<div id="supportModel" hidden>${renderConceptVisual(screen.supportVisual,screen.title)}</div>`:"";
     root.innerHTML = base(screen)+visual+support+renderChoiceScreen(screen,copy());
+    bindScreenAudio(screen);
     bindChoiceScreen(screen); restoreChoiceState(screen); return;
   }
   if(screen.type==="language"){
     root.innerHTML = base(screen)+renderConceptVisual(screen.visual,screen.title)+renderLanguage(screen)+`<div class="coach" style="display:block">${screen.guidance}</div><div class="toolbar"><button class="btn secondary" type="button" id="backBtn">${copy().back}</button><button class="btn primary" type="button" id="nextBtn">${copy().next}</button></div>`;
+    bindScreenAudio(screen);
     el("backBtn").onclick = back; el("nextBtn").onclick = next; return;
   }
   if(screen.type==="memoryHook"){
     const steps=screen.rebuildSteps?.length?`<ol>${screen.rebuildSteps.map(step=>`<li>${step}</li>`).join("")}</ol>`:"";
     const boundary=screen.boundary?`<p class="boundary"><strong>${screen.boundaryLabel||"Boundary"}:</strong> ${screen.boundary}</p>`:"";
     root.innerHTML = base(screen)+`<div class="coach" style="display:block"><strong>${screen.hook}</strong><br>${screen.body}${steps}${boundary}</div><div class="toolbar"><button class="btn secondary" type="button" id="backBtn">${copy().back}</button><button class="btn primary" type="button" id="nextBtn">${copy().next}</button></div>`;
+    bindScreenAudio(screen);
     el("backBtn").onclick = back; el("nextBtn").onclick = next; return;
   }
   if(screen.type==="equationReveal"){
     root.innerHTML = base(screen)+renderConceptVisual(screen.visual,screen.title)+renderEquation(screen)+`<div class="toolbar"><button class="btn secondary" type="button" id="backBtn">${copy().back}</button><button class="btn primary" type="button" id="nextBtn">${copy().reflect}</button></div>`;
+    bindScreenAudio(screen);
     el("backBtn").onclick = back; el("nextBtn").onclick = next; return;
   }
   if(screen.type==="complete"){
@@ -266,7 +315,8 @@ function render(){
       : language==="es"
         ? "Terminaste la lección. Repasa y vuelve a intentarlo: las prácticas independiente, de recuerdo y de transferencia deben resolverse correctamente sin pistas ni intentos previos. Esto no prueba comprensión por sí solo."
         : "You finished the lesson. Review and try again: independent practice, recall, and transfer need correct first answers without hints. This alone does not prove understanding.";
-    root.innerHTML = renderComplete(screen,recommendation,hasNext&&readiness.ready,completionCopy);
+    root.innerHTML = `<div class="screenTools">${audioButton()}</div>`+renderComplete(screen,recommendation,hasNext&&readiness.ready,completionCopy);
+    bindScreenAudio(screen);
     el("restartBtn").onclick = restart;
     const reviewBtn = el("reviewBtn");
     if(reviewBtn) reviewBtn.onclick = reviewVisualGap;
