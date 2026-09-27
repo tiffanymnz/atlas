@@ -7,6 +7,13 @@ const names=["lesson005.json","lesson006.json","lesson007.json","lesson008.json"
 const read=path=>JSON.parse(fs.readFileSync(new URL(`../${path}`,import.meta.url)));
 const get=(lesson,type)=>lesson.screens.find(screen=>screen.type===type);
 
+test("foundation counts to ten and pairs before comparison",()=>{
+  const f=read("curriculum/lessons/lesson000.json");
+  assert.equal(f.screens.find(s=>s.id==="count-ten").visual.count,10);
+  assert.ok(f.screens.some(s=>s.visual?.step==="pair"));
+  assert.equal(f.concepts.primary_concept,"counting_and_matching");
+});
+
 test("lesson001 moves from counting to formed pairs, difference language, and subtraction",()=>{
   const lesson=read("curriculum/lessons/lesson001.json");
   const screens=lesson.screens;
@@ -22,11 +29,11 @@ test("lesson001 moves from counting to formed pairs, difference language, and su
   assert.match(get(lesson,"reflection").choices.find(c=>c.correct).text,/how many more blue dots/i);
   assert.ok(screens.indexOf(get(lesson,"misconception"))>screens.indexOf(get(lesson,"observe")));
   for(const screen of screens.filter(screen=>screen.choices)){
-    assert.equal(screen.revision,3);
+    assert.equal(screen.revision,4);
     for(const hint of screen.hints||[]) assert.doesNotMatch(hint,/(?:the answer is|there are [234] extra|= [234]$)/i);
   }
   assert.equal(get(lesson,"guidedPractice").visual.kind,"comparisonButtons");
-  assert.ok(screens.filter(screen=>screen.visual?.kind==="comparisonButtons").every(screen=>screen.visual.topLabel==="Blue dots"));
+  assert.ok(screens.filter(screen=>screen.visual?.kind==="comparisonButtons"&&screen.id!=="misconception").every(screen=>screen.visual.topLabel==="Blue dots"));
   assert.ok(screens.every(screen=>!JSON.stringify(screen).includes("gold")));
 });
 

@@ -7,7 +7,7 @@
     "subject": "Arithmetic",
     "course": "Number Sense",
     "unit": "Comparison",
-    "contentRevision": 3
+    "contentRevision": 4
   },
   "learning": {
     "learning_goal": "Compare two groups by pairing them, then name the difference and write a subtraction.",
@@ -48,14 +48,15 @@
         "revealGap": false,
         "topLabel": "Blue dots",
         "bottomLabel": "Red dots",
-        "ariaLabel": "Six blue dots above four red dots.",
+        "ariaLabel": "Blue: dot, dot, dot, dot, dot, dot. Red: dot, dot, dot, dot.",
         "message": "Count the blue dots."
       },
       "choices": [
         {
           "text": "4",
           "correct": false,
-          "misconception": "object_instead_of_relationship"
+          "misconception": "object_instead_of_relationship",
+          "feedback": "Four counts red. Count blue from the left."
         },
         {
           "text": "6",
@@ -66,14 +67,15 @@
         {
           "text": "10",
           "correct": false,
-          "misconception": "combine_instead_of_compare"
+          "misconception": "combine_instead_of_compare",
+          "feedback": "Ten joins both rows. Count only blue."
         }
       ],
       "hints": [
         "Touch each blue dot as you count.",
         "Start at the left blue dot. Say one number for each dot."
       ],
-      "revision": 3
+      "revision": 4
     },
     {
       "id": "count-red",
@@ -88,19 +90,21 @@
         "revealGap": false,
         "topLabel": "Blue dots",
         "bottomLabel": "Red dots",
-        "ariaLabel": "Six blue dots above four red dots.",
+        "ariaLabel": "Blue: dot, dot, dot, dot, dot, dot. Red: dot, dot, dot, dot.",
         "message": "Count the red dots."
       },
       "choices": [
         {
           "text": "6",
           "correct": false,
-          "misconception": "object_instead_of_relationship"
+          "misconception": "object_instead_of_relationship",
+          "feedback": "Six counts blue. Count only red."
         },
         {
           "text": "10",
           "correct": false,
-          "misconception": "combine_instead_of_compare"
+          "misconception": "combine_instead_of_compare",
+          "feedback": "Ten joins both rows. Count only red."
         },
         {
           "text": "4",
@@ -113,7 +117,7 @@
         "Touch each red dot as you count.",
         "Start at the left red dot. Say one number for each dot."
       ],
-      "revision": 3
+      "revision": 4
     },
     {
       "id": "visual-model",
@@ -148,14 +152,15 @@
         "revealGap": true,
         "topLabel": "Blue dots",
         "bottomLabel": "Red dots",
-        "ariaLabel": "Four outlined blue and red pairs, then two extra blue dots outlined in blue.",
+        "ariaLabel": "Pair, pair, pair, pair; then blue dot, blue dot without red partners.",
         "message": "Some blue dots are outside the pairs. Count them."
       },
       "choices": [
         {
           "text": "6",
           "correct": false,
-          "misconception": "object_instead_of_relationship"
+          "misconception": "object_instead_of_relationship",
+          "feedback": "Six counts every blue dot. Look after the pairs."
         },
         {
           "text": "2",
@@ -166,14 +171,15 @@
         {
           "text": "10",
           "correct": false,
-          "misconception": "combine_instead_of_compare"
+          "misconception": "combine_instead_of_compare",
+          "feedback": "Ten joins both colors. Count blue without partners."
         }
       ],
       "hints": [
         "Look to the right of the four pairs.",
         "Count the blue dots without a red dot below them."
       ],
-      "revision": 3
+      "revision": 4
     },
     {
       "id": "language-explanation",
@@ -217,7 +223,8 @@
         {
           "text": "13: add both groups",
           "correct": false,
-          "misconception": "combine_instead_of_compare"
+          "misconception": "combine_instead_of_compare",
+          "feedback": "Thirteen joins both groups. Count Ava’s dots after the pairs."
         },
         {
           "text": "3: find the extras",
@@ -228,14 +235,26 @@
         {
           "text": "8: use Ava’s count",
           "correct": false,
-          "misconception": "object_instead_of_relationship"
+          "misconception": "object_instead_of_relationship",
+          "feedback": "Eight is Ava’s whole group. Count her dots without partners."
         }
       ],
       "hints": [
         "We want Ava’s extra stickers, not both groups together.",
         "Match 5 of Ava’s stickers with Luis’s 5. How many of Ava’s are left?"
       ],
-      "revision": 3
+      "revision": 4,
+      "visual": {
+        "kind": "comparisonButtons",
+        "topCount": 8,
+        "bottomCount": 5,
+        "step": "pair",
+        "revealGap": false,
+        "topLabel": "Ava’s stickers",
+        "bottomLabel": "Luis’s stickers",
+        "ariaLabel": "Ava: dot, dot, dot, dot, dot, dot, dot, dot. Luis: dot, dot, dot, dot, dot. Five paired positions.",
+        "message": "One dot stands for one sticker. The outlines show pairs."
+      }
     },
     {
       "id": "choose-equation",
@@ -264,19 +283,21 @@
         {
           "text": "6 + 4",
           "correct": false,
-          "misconception": "combine_instead_of_compare"
+          "misconception": "combine_instead_of_compare",
+          "feedback": "Adding joins the groups. We need extra blue dots."
         },
         {
           "text": "4 − 6",
           "correct": false,
-          "misconception": "reversed_subtraction"
+          "misconception": "reversed_subtraction",
+          "feedback": "Start with six blue, then subtract four paired blue dots."
         }
       ],
       "hints": [
         "Start with all 6 blue dots. Four have a red partner.",
         "Which choice starts at 6 and removes the 4 paired dots?"
       ],
-      "revision": 3
+      "revision": 4
     },
     {
       "id": "equation-explanation",
@@ -310,7 +331,7 @@
         "kind": "comparisonButtons",
         "topLabel": "Blue dots",
         "bottomLabel": "Red dots",
-        "ariaLabel": "Four blue and red pairs, plus three blue dots without red partners.",
+        "ariaLabel": "Pair, pair, pair, pair; then blue dot, blue dot, blue dot without red partners.",
         "step": "pair"
       },
       "choices": [
@@ -323,49 +344,64 @@
         {
           "text": "11",
           "correct": false,
-          "misconception": "combine_instead_of_compare"
+          "misconception": "combine_instead_of_compare",
+          "feedback": "Eleven joins the colors. Count only extra blue dots."
         },
         {
           "text": "4",
           "correct": false,
-          "misconception": "object_instead_of_relationship"
+          "misconception": "object_instead_of_relationship",
+          "feedback": "Four counts red. Count blue after the pairs."
         }
       ],
       "hints": [
         "Find each outlined pair.",
         "After the last pair, count the blue dots without red partners."
       ],
-      "revision": 3
+      "revision": 4
     },
     {
       "id": "independent-practice",
       "type": "independentPractice",
       "label": "Independent practice",
       "title": "Try one without dots.",
-      "prompt": "Nia read 9 pages. Theo read 6 pages. How many more pages did Nia read?",
+      "prompt": "Nia read 9 pages. Theo read 5 pages. How many more pages did Nia read?",
       "choices": [
         {
-          "text": "3",
+          "text": "4",
           "correct": true,
           "evidence": "subtraction_as_comparison",
-          "feedback": "9 − 6 = 3. Nia read 3 more pages."
+          "feedback": "9 − 5 = 4. Nia read 4 more pages."
         },
         {
-          "text": "15",
+          "text": "14",
           "correct": false,
-          "misconception": "combine_instead_of_compare"
+          "misconception": "combine_instead_of_compare",
+          "feedback": "Fourteen joins the pages. Find Nia’s extra pages."
         },
         {
-          "text": "6",
+          "text": "5",
           "correct": false,
-          "misconception": "object_instead_of_relationship"
+          "misconception": "object_instead_of_relationship",
+          "feedback": "Five is Theo’s count. Count from five to nine."
         }
       ],
       "hints": [
-        "Start with Nia’s 9 pages. Match 6 with Theo’s pages.",
-        "Count from 6 up to 9. How many steps?"
+        "Each dot below stands for one page. Find Nia’s dots without a partner.",
+        "Or count from 5 up to 9. How many steps?"
       ],
-      "revision": 3
+      "revision": 4,
+      "supportVisual": {
+        "kind": "comparisonButtons",
+        "topCount": 9,
+        "bottomCount": 5,
+        "step": "pair",
+        "revealGap": false,
+        "topLabel": "Nia’s pages",
+        "bottomLabel": "Theo’s pages",
+        "ariaLabel": "Nia: dot, dot, dot, dot, dot, dot, dot, dot, dot. Theo: dot, dot, dot, dot, dot.",
+        "message": "One dot stands for one page. Count Nia’s dots without a partner."
+      }
     },
     {
       "id": "recall",
@@ -377,7 +413,8 @@
         {
           "text": "How many dots in all?",
           "correct": false,
-          "misconception": "combine_instead_of_compare"
+          "misconception": "combine_instead_of_compare",
+          "feedback": "“In all” joins the groups. Find the phrase for extras."
         },
         {
           "text": "What is the difference?",
@@ -388,44 +425,47 @@
         {
           "text": "How many blue dots?",
           "correct": false,
-          "misconception": "object_instead_of_relationship"
+          "misconception": "object_instead_of_relationship",
+          "feedback": "“How many blue?” counts all blue dots. Find the phrase for extras."
         }
       ],
       "hints": [
         "“In all” asks you to join both groups.",
         "Find the question that asks how many more blue dots there are."
       ],
-      "revision": 3
+      "revision": 4
     },
     {
       "id": "transfer",
       "type": "transfer",
       "label": "Transfer",
       "title": "Try it with prices.",
-      "prompt": "One notebook costs $12. Another costs $9. What is the difference in price?",
+      "prompt": "One notebook costs $10. Another costs $8. What is the difference in price?",
       "choices": [
         {
-          "text": "$3",
+          "text": "$2",
           "correct": true,
           "evidence": "subtraction_as_comparison",
-          "feedback": "$12 − $9 = $3. The difference in price is $3."
+          "feedback": "$10 − $8 = $2. The difference is $2."
         },
         {
-          "text": "$21",
+          "text": "$18",
           "correct": false,
-          "misconception": "combine_instead_of_compare"
+          "misconception": "combine_instead_of_compare",
+          "feedback": "Eighteen adds both prices. Find how much higher ten is than eight."
         },
         {
-          "text": "$12",
+          "text": "$10",
           "correct": false,
-          "misconception": "object_instead_of_relationship"
+          "misconception": "object_instead_of_relationship",
+          "feedback": "Ten is one price, not the difference. Count from eight to ten."
         }
       ],
       "hints": [
-        "The question asks for how much more one notebook costs.",
-        "Start at $9. Count up to $12. How much did you add?"
+        "A difference in price tells how much more one costs.",
+        "Start at $8. Count up to $10. How much did you add?"
       ],
-      "revision": 3
+      "revision": 4
     },
     {
       "id": "reflection",
@@ -437,11 +477,13 @@
       "choices": [
         {
           "text": "Taking every dot away.",
-          "correct": false
+          "correct": false,
+          "feedback": "No dots are removed here. We compare the groups."
         },
         {
           "text": "All the dots together.",
-          "correct": false
+          "correct": false,
+          "feedback": "All together gives a total. Difference asks for the extras."
         },
         {
           "text": "How many more blue dots there are.",
@@ -453,7 +495,7 @@
         "Pair one blue with one red.",
         "What do the blue dots left over tell you?"
       ],
-      "revision": 3
+      "revision": 4
     },
     {
       "id": "complete",

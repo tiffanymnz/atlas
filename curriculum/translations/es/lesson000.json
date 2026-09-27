@@ -1,0 +1,251 @@
+{
+  "metadata": {
+    "title": "Cuenta y forma parejas"
+  },
+  "learning": {
+    "learning_goal": "Cuenta objetos hasta diez y une uno de cada grupo.",
+    "big_idea": "El último número dice cuántos hay; una pareja tiene uno de cada grupo.",
+    "assumed_prior_knowledge": []
+  },
+  "screens": [
+    {
+      "label": "Empieza aquí",
+      "title": "Cuenta y forma parejas.",
+      "body": "Cuenta puntos. Después une un punto azul con uno rojo."
+    },
+    {
+      "label": "Mira",
+      "title": "Cuenta de uno en uno.",
+      "visual": {
+        "count": 4,
+        "numbered": true,
+        "message": "Toca los puntos: 1, 2, 3, 4. El último número dice cuántos hay.",
+        "ariaLabel": "Cuatro puntos numerados del 1 al 4."
+      },
+      "nextLabel": "Ahora intenta tú"
+    },
+    {
+      "label": "Cuenta",
+      "title": "¿Cuántos puntos hay?",
+      "visual": {
+        "count": 4,
+        "numbered": false,
+        "message": "Señala cada punto una vez.",
+        "ariaLabel": "Punto, punto, punto, punto."
+      },
+      "choices": [
+        {
+          "text": "3",
+          "feedback": "Quizás te faltó un punto. Empieza por la izquierda."
+        },
+        {
+          "text": "4",
+          "feedback": "Sí. El último número es 4, así que hay 4 puntos."
+        },
+        {
+          "text": "5",
+          "feedback": "Quizás contaste un punto dos veces."
+        }
+      ],
+      "hints": [
+        "Toca cada punto desde la izquierda.",
+        "Di un número por punto."
+      ]
+    },
+    {
+      "label": "Mira",
+      "title": "Forma parejas.",
+      "visual": {
+        "topCount": 3,
+        "bottomCount": 3,
+        "revealGap": false,
+        "message": "Un azul y un rojo forman una pareja.",
+        "ariaLabel": "Tres contornos, cada uno con un azul y un rojo.",
+        "topLabel": "Puntos azules",
+        "bottomLabel": "Puntos rojos"
+      },
+      "nextLabel": "Ahora intenta tú"
+    },
+    {
+      "label": "Prueba",
+      "title": "¿Cuántas parejas hay?",
+      "visual": {
+        "topCount": 4,
+        "bottomCount": 3,
+        "revealGap": false,
+        "message": "Cuenta los contornos con los dos colores.",
+        "ariaLabel": "Pareja, pareja, pareja; después un azul sin pareja.",
+        "topLabel": "Puntos azules",
+        "bottomLabel": "Puntos rojos"
+      },
+      "choices": [
+        {
+          "text": "4",
+          "feedback": "Cuatro cuenta los azules. Una pareja necesita los dos colores."
+        },
+        {
+          "text": "3",
+          "feedback": "Sí. Tres contornos tienen los dos colores."
+        },
+        {
+          "text": "1",
+          "feedback": "Un azul no tiene pareja. Cuenta las parejas."
+        }
+      ],
+      "hints": [
+        "Una pareja tiene uno de cada color.",
+        "Cuenta los contornos con los dos colores."
+      ]
+    },
+    {
+      "label": "Recuerda",
+      "title": "Cuenta. Después forma parejas.",
+      "body": "El último número dice cuántos hay. Una pareja tiene uno de cada grupo.",
+      "hook": "Un número por punto. Un azul y un rojo por pareja."
+    },
+    {
+      "label": "Cuenta",
+      "title": "Cuenta otro grupo.",
+      "visual": {
+        "count": 5,
+        "numbered": false,
+        "message": "¿Cuántos puntos hay?",
+        "ariaLabel": "Punto, punto, punto, punto, punto."
+      },
+      "choices": [
+        {
+          "text": "4",
+          "feedback": "Mira el último punto."
+        },
+        {
+          "text": "6",
+          "feedback": "Toca cada punto una sola vez."
+        },
+        {
+          "text": "5",
+          "feedback": "Sí. Contaste cinco puntos."
+        }
+      ],
+      "hints": [
+        "Empieza a la izquierda.",
+        "Cuenta cada punto una vez."
+      ]
+    },
+    {
+      "label": "Mira",
+      "title": "Sigue contando hasta diez.",
+      "visual": {
+        "count": 10,
+        "numbered": true,
+        "message": "Toca los puntos en orden, del 1 al 10.",
+        "ariaLabel": "Diez puntos numerados del 1 al 10."
+      },
+      "nextLabel": "Ahora intenta tú"
+    },
+    {
+      "label": "Tú solo",
+      "title": "¿Cuántos puntos hay?",
+      "visual": {
+        "count": 10,
+        "numbered": false,
+        "message": "Cuenta cada punto una vez.",
+        "ariaLabel": "Punto, punto, punto, punto, punto, punto, punto, punto, punto, punto."
+      },
+      "choices": [
+        {
+          "text": "9",
+          "feedback": "Quizás te faltó un punto. Empieza por la izquierda."
+        },
+        {
+          "text": "10",
+          "feedback": "Sí. El último número es diez."
+        },
+        {
+          "text": "11",
+          "feedback": "Quizás contaste un punto dos veces."
+        }
+      ],
+      "hints": [
+        "Pasa al siguiente punto después de cada número.",
+        "El último número dice cuántos hay."
+      ]
+    },
+    {
+      "label": "Recuerda",
+      "title": "¿Qué indica el último número?",
+      "prompt": "Cuentas: 1, 2, 3, 4. ¿Qué te dice el 4?",
+      "choices": [
+        {
+          "text": "Cuál punto es azul"
+        },
+        {
+          "text": "Cuántos puntos hay",
+          "feedback": "Sí. Cuatro es la cantidad que contaste."
+        },
+        {
+          "text": "Cuántas parejas hay"
+        }
+      ],
+      "hints": [
+        "Piensa en todo el grupo.",
+        "El último número dice el tamaño del grupo."
+      ]
+    },
+    {
+      "label": "Tú solo",
+      "title": "Forma parejas con otro grupo.",
+      "visual": {
+        "topCount": 5,
+        "bottomCount": 4,
+        "revealGap": false,
+        "message": "Dale a cada rojo una pareja azul. ¿Cuántas parejas hay?",
+        "ariaLabel": "Azules: punto, punto, punto, punto, punto. Rojos: punto, punto, punto, punto.",
+        "topLabel": "Puntos azules",
+        "bottomLabel": "Puntos rojos"
+      },
+      "choices": [
+        {
+          "text": "5",
+          "feedback": "Cinco cuenta los azules. Una pareja también necesita rojo."
+        },
+        {
+          "text": "1",
+          "feedback": "Un azul no tiene pareja. Cuenta las parejas."
+        },
+        {
+          "text": "4",
+          "feedback": "Sí. Los cuatro rojos pueden formar pareja."
+        }
+      ],
+      "hints": [
+        "Dale un azul a cada rojo.",
+        "Cuenta los rojos con pareja."
+      ]
+    },
+    {
+      "label": "Piensa",
+      "title": "¿Qué es una pareja?",
+      "prompt": "Elige una pareja en esta lección.",
+      "choices": [
+        {
+          "text": "Dos puntos azules"
+        },
+        {
+          "text": "Un punto azul y uno rojo"
+        },
+        {
+          "text": "Un punto azul solo"
+        }
+      ],
+      "hints": [
+        "Recuerda los contornos.",
+        "Una pareja tiene un punto de cada grupo."
+      ]
+    },
+    {
+      "title": "Contaste y formaste parejas.",
+      "body": "Ahora usarás parejas para saber cuántos más hay en un grupo.",
+      "nextRecommendation": "Próxima lección: ¿Cuántos más?"
+    }
+  ]
+}

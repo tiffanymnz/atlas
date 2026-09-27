@@ -1,0 +1,334 @@
+{
+  "schema_version": "3.0",
+  "metadata": {
+    "id": "MATH-NS-FOUND-0000",
+    "title": "Count and make pairs",
+    "domain": "Mathematics",
+    "subject": "Arithmetic",
+    "course": "Number Sense",
+    "unit": "Counting and matching",
+    "contentRevision": 1
+  },
+  "learning": {
+    "learning_goal": "Count objects to ten and match one item from each group.",
+    "big_idea": "The last number says how many; a pair has one from each group.",
+    "assumed_prior_knowledge": []
+  },
+  "concepts": {
+    "primary_concept": "counting_and_matching",
+    "supporting_concepts": [
+      "counting",
+      "one_to_one_matching"
+    ]
+  },
+  "screens": [
+    {
+      "id": "intro",
+      "type": "intro",
+      "label": "Start here",
+      "title": "Count and make pairs.",
+      "body": "Count dots. Then match one blue dot with one red dot."
+    },
+    {
+      "id": "count-model",
+      "type": "observe",
+      "label": "Watch",
+      "title": "Count one at a time.",
+      "visual": {
+        "kind": "countingDots",
+        "count": 4,
+        "numbered": true,
+        "ariaLabel": "Four dots labeled 1, 2, 3, 4.",
+        "message": "Touch each dot: 1, 2, 3, 4. The last number tells how many."
+      },
+      "nextLabel": "Try counting"
+    },
+    {
+      "id": "count-four",
+      "type": "count",
+      "title": "How many dots?",
+      "visual": {
+        "kind": "countingDots",
+        "count": 4,
+        "numbered": false,
+        "ariaLabel": "Dot, dot, dot, dot.",
+        "message": "Point to each dot once."
+      },
+      "choices": [
+        {
+          "text": "3",
+          "correct": false,
+          "feedback": "You may have missed a dot. Start at the left.",
+          "misconception": "object_instead_of_relationship"
+        },
+        {
+          "text": "4",
+          "correct": true,
+          "feedback": "Yes. The last number is 4, so there are 4 dots."
+        },
+        {
+          "text": "5",
+          "correct": false,
+          "feedback": "You may have counted one dot twice.",
+          "misconception": "object_instead_of_relationship"
+        }
+      ],
+      "hints": [
+        "Touch each dot from the left.",
+        "Say one number for each dot."
+      ],
+      "revision": 1
+    },
+    {
+      "id": "pair-model",
+      "type": "observe",
+      "title": "Make pairs.",
+      "visual": {
+        "kind": "comparisonButtons",
+        "topCount": 3,
+        "bottomCount": 3,
+        "step": "pair",
+        "revealGap": false,
+        "topLabel": "Blue dots",
+        "bottomLabel": "Red dots",
+        "ariaLabel": "Three outlines, each holding a blue and a red dot.",
+        "message": "One blue and one red make a pair."
+      },
+      "nextLabel": "Try pairing"
+    },
+    {
+      "id": "pair-check",
+      "type": "guidedPractice",
+      "title": "How many pairs?",
+      "visual": {
+        "kind": "comparisonButtons",
+        "topCount": 4,
+        "bottomCount": 3,
+        "step": "pair",
+        "revealGap": false,
+        "topLabel": "Blue dots",
+        "bottomLabel": "Red dots",
+        "ariaLabel": "Pair, pair, pair; then a blue dot without a partner.",
+        "message": "Count outlines with both colors."
+      },
+      "choices": [
+        {
+          "text": "4",
+          "correct": false,
+          "feedback": "Four counts blue dots. A pair needs both colors.",
+          "misconception": "object_instead_of_relationship"
+        },
+        {
+          "text": "3",
+          "correct": true,
+          "feedback": "Yes. Three outlines have both colors."
+        },
+        {
+          "text": "1",
+          "correct": false,
+          "feedback": "One blue has no partner. Count the outlined pairs.",
+          "misconception": "object_instead_of_relationship"
+        }
+      ],
+      "hints": [
+        "A pair has one of each color.",
+        "Count outlines with both colors."
+      ],
+      "revision": 1
+    },
+    {
+      "id": "memory-hook",
+      "type": "memoryHook",
+      "title": "Count. Then pair.",
+      "hook": "One number per dot. One blue and one red per pair.",
+      "body": "The last number tells how many. A pair has one from each group."
+    },
+    {
+      "id": "count-five",
+      "type": "count",
+      "title": "Count a new group.",
+      "visual": {
+        "kind": "countingDots",
+        "count": 5,
+        "numbered": false,
+        "ariaLabel": "Dot, dot, dot, dot, dot.",
+        "message": "How many dots?"
+      },
+      "choices": [
+        {
+          "text": "4",
+          "correct": false,
+          "feedback": "Check the last dot.",
+          "misconception": "object_instead_of_relationship"
+        },
+        {
+          "text": "6",
+          "correct": false,
+          "feedback": "Touch each dot only once.",
+          "misconception": "object_instead_of_relationship"
+        },
+        {
+          "text": "5",
+          "correct": true,
+          "feedback": "Yes. You counted five dots."
+        }
+      ],
+      "hints": [
+        "Start on the left.",
+        "Count each dot once."
+      ],
+      "revision": 1
+    },
+    {
+      "id": "count-ten-model",
+      "type": "observe",
+      "title": "Keep counting to ten.",
+      "visual": {
+        "kind": "countingDots",
+        "count": 10,
+        "numbered": true,
+        "ariaLabel": "Ten dots labeled in order from 1 to 10.",
+        "message": "Touch the dots in order, from 1 to 10."
+      },
+      "nextLabel": "Try ten"
+    },
+    {
+      "id": "count-ten",
+      "type": "independentPractice",
+      "title": "How many dots?",
+      "visual": {
+        "kind": "countingDots",
+        "count": 10,
+        "numbered": false,
+        "ariaLabel": "Dot, dot, dot, dot, dot, dot, dot, dot, dot, dot.",
+        "message": "Count every dot once."
+      },
+      "choices": [
+        {
+          "text": "9",
+          "correct": false,
+          "feedback": "You may have missed a dot. Start at the left.",
+          "misconception": "object_instead_of_relationship"
+        },
+        {
+          "text": "10",
+          "correct": true,
+          "feedback": "Yes. The last number is ten."
+        },
+        {
+          "text": "11",
+          "correct": false,
+          "feedback": "You may have counted a dot twice.",
+          "misconception": "object_instead_of_relationship"
+        }
+      ],
+      "hints": [
+        "Move to the next dot after each number.",
+        "The last number says how many."
+      ],
+      "revision": 1
+    },
+    {
+      "id": "recall",
+      "type": "recall",
+      "title": "What does the last number tell you?",
+      "prompt": "You counted: 1, 2, 3, 4. What does 4 tell you?",
+      "choices": [
+        {
+          "text": "Which dot is blue",
+          "correct": false,
+          "misconception": "object_instead_of_relationship"
+        },
+        {
+          "text": "How many dots there are",
+          "correct": true,
+          "feedback": "Yes. Four is how many dots you counted."
+        },
+        {
+          "text": "How many pairs there are",
+          "correct": false,
+          "misconception": "object_instead_of_relationship"
+        }
+      ],
+      "hints": [
+        "Think about the whole group.",
+        "The last number tells the group size."
+      ],
+      "revision": 1
+    },
+    {
+      "id": "transfer",
+      "type": "transfer",
+      "title": "Pair a new group.",
+      "visual": {
+        "kind": "comparisonButtons",
+        "topCount": 5,
+        "bottomCount": 4,
+        "step": "count",
+        "revealGap": false,
+        "topLabel": "Blue dots",
+        "bottomLabel": "Red dots",
+        "ariaLabel": "Blue: dot, dot, dot, dot, dot. Red: dot, dot, dot, dot.",
+        "message": "Give each red dot one blue partner. How many pairs?"
+      },
+      "choices": [
+        {
+          "text": "5",
+          "correct": false,
+          "feedback": "Five counts the blue dots. A pair also needs red.",
+          "misconception": "object_instead_of_relationship"
+        },
+        {
+          "text": "1",
+          "correct": false,
+          "feedback": "One blue has no partner. Count the pairs.",
+          "misconception": "object_instead_of_relationship"
+        },
+        {
+          "text": "4",
+          "correct": true,
+          "feedback": "Yes. Four red dots can each make a pair."
+        }
+      ],
+      "hints": [
+        "Give each red one blue partner.",
+        "Count the red dots with partners."
+      ],
+      "revision": 1
+    },
+    {
+      "id": "reflection",
+      "type": "reflection",
+      "title": "What is a pair?",
+      "prompt": "Choose a pair in this lesson.",
+      "choices": [
+        {
+          "text": "Two blue dots",
+          "correct": false,
+          "misconception": "object_instead_of_relationship"
+        },
+        {
+          "text": "One blue and one red dot",
+          "correct": true
+        },
+        {
+          "text": "One blue dot alone",
+          "correct": false,
+          "misconception": "object_instead_of_relationship"
+        }
+      ],
+      "hints": [
+        "Look back at the outlines.",
+        "A pair has one dot from each group."
+      ],
+      "revision": 1
+    },
+    {
+      "id": "complete",
+      "type": "complete",
+      "title": "You counted and made pairs.",
+      "body": "Next, use pairs to find how many more are in one group.",
+      "nextRecommendation": "Next lesson: How many more?"
+    }
+  ]
+}

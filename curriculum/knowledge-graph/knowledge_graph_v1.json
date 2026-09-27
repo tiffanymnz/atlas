@@ -1,11 +1,11 @@
 {
   "concepts": [
+    {"id":"counting_and_matching","title":"Count and make pairs","prerequisites":[],"successors":["comparison.more"]},
     {
       "id": "comparison.more",
       "title": "How many more?",
       "prerequisites": [
-        "counting",
-        "one_to_one_matching"
+        "counting_and_matching"
       ],
       "successors": [
         "comparison.fewer",

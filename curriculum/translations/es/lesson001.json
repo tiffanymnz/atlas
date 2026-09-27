@@ -27,19 +27,21 @@
         "revealGap": false,
         "topLabel": "Puntos azules",
         "bottomLabel": "Puntos rojos",
-        "ariaLabel": "Seis puntos azules sobre cuatro puntos rojos.",
+        "ariaLabel": "Azul: punto, punto, punto, punto, punto, punto. Rojo: punto, punto, punto, punto.",
         "message": "Cuenta los puntos azules."
       },
       "choices": [
         {
-          "text": "4"
+          "text": "4",
+          "feedback": "Cuatro cuenta rojo. Cuenta azul desde la izquierda."
         },
         {
           "text": "6",
           "feedback": "Sí. Contaste 6 puntos azules."
         },
         {
-          "text": "10"
+          "text": "10",
+          "feedback": "Diez junta las filas. Cuenta solo azul."
         }
       ],
       "hints": [
@@ -59,15 +61,17 @@
         "revealGap": false,
         "topLabel": "Puntos azules",
         "bottomLabel": "Puntos rojos",
-        "ariaLabel": "Seis puntos azules sobre cuatro puntos rojos.",
+        "ariaLabel": "Azul: punto, punto, punto, punto, punto, punto. Rojo: punto, punto, punto, punto.",
         "message": "Cuenta los puntos rojos."
       },
       "choices": [
         {
-          "text": "6"
+          "text": "6",
+          "feedback": "Seis cuenta azul. Cuenta solo rojo."
         },
         {
-          "text": "10"
+          "text": "10",
+          "feedback": "Diez junta las filas. Cuenta solo rojo."
         },
         {
           "text": "4",
@@ -107,19 +111,21 @@
         "revealGap": true,
         "topLabel": "Puntos azules",
         "bottomLabel": "Puntos rojos",
-        "ariaLabel": "Cuatro parejas de puntos azules y rojos, y dos puntos azules más rodeados de azul.",
+        "ariaLabel": "Pareja, pareja, pareja, pareja; después punto azul, punto azul sin pareja roja.",
         "message": "Hay puntos azules fuera de las parejas. Cuéntalos."
       },
       "choices": [
         {
-          "text": "6"
+          "text": "6",
+          "feedback": "Seis cuenta todos los azules. Mira después de las parejas."
         },
         {
           "text": "2",
           "feedback": "Sí. Sobran dos puntos azules. Hay 2 puntos azules más que rojos."
         },
         {
-          "text": "10"
+          "text": "10",
+          "feedback": "Diez junta ambos colores. Cuenta azules sin pareja."
         }
       ],
       "hints": [
@@ -161,21 +167,34 @@
       "prompt": "Ava tiene 8 pegatinas. Luis tiene 5. ¿Cuántas más tiene Ava?",
       "choices": [
         {
-          "text": "13: sumar los dos grupos"
+          "text": "13: sumar los dos grupos",
+          "feedback": "Trece junta ambos grupos. Cuenta los puntos de Ava después de las parejas."
         },
         {
           "text": "3: buscar las que sobran",
           "feedback": "Sí. Cinco pegatinas forman parejas. A Ava le sobran tres, así que la diferencia es 3."
         },
         {
-          "text": "8: usar la cantidad de Ava"
+          "text": "8: usar la cantidad de Ava",
+          "feedback": "Ocho es todo el grupo de Ava. Cuenta sus puntos sin pareja."
         }
       ],
       "hints": [
         "Buscamos las pegatinas de más de Ava, no todas juntas.",
         "Une 5 pegatinas de Ava con las 5 de Luis. ¿Cuántas le sobran a Ava?"
       ],
-      "revision": 3
+      "revision": 3,
+      "visual": {
+        "kind": "comparisonButtons",
+        "topCount": 8,
+        "bottomCount": 5,
+        "step": "pair",
+        "revealGap": false,
+        "topLabel": "Pegatinas de Ava",
+        "bottomLabel": "Pegatinas de Luis",
+        "ariaLabel": "Ava: punto, punto, punto, punto, punto, punto, punto, punto. Luis: punto, punto, punto, punto, punto. Cinco posiciones emparejadas.",
+        "message": "Un punto representa una pegatina. Los contornos muestran parejas."
+      }
     },
     {
       "label": "Símbolo",
@@ -197,10 +216,12 @@
           "feedback": "Sí. A los seis puntos azules les quitamos los cuatro que tienen pareja: quedan dos. La diferencia es 2."
         },
         {
-          "text": "6 + 4"
+          "text": "6 + 4",
+          "feedback": "Sumar junta los grupos. Buscamos azules de más."
         },
         {
-          "text": "4 − 6"
+          "text": "4 − 6",
+          "feedback": "Empieza con seis azules y resta cuatro azules emparejados."
         }
       ],
       "hints": [
@@ -235,7 +256,7 @@
         "bottomCount": 4,
         "topLabel": "Puntos azules",
         "bottomLabel": "Puntos rojos",
-        "ariaLabel": "Cuatro parejas azules y rojas y tres puntos azules sin pareja roja.",
+        "ariaLabel": "Pareja, pareja, pareja, pareja; después punto azul, punto azul, punto azul sin pareja roja.",
         "step": "pair",
         "revealGap": false
       },
@@ -245,10 +266,12 @@
           "feedback": "Sí. Hay cuatro parejas y tres puntos azules que sobran. Hay 3 puntos azules más."
         },
         {
-          "text": "11"
+          "text": "11",
+          "feedback": "Once junta los colores. Cuenta solo azules de más."
         },
         {
-          "text": "4"
+          "text": "4",
+          "feedback": "Cuatro cuenta rojo. Cuenta los azules después de las parejas."
         }
       ],
       "hints": [
@@ -260,24 +283,37 @@
     {
       "label": "Práctica independiente",
       "title": "Ahora sin puntos.",
-      "prompt": "Nia leyó 9 páginas. Theo leyó 6. ¿Cuántas páginas más leyó Nia?",
+      "prompt": "Nia leyó 9 páginas. Theo leyó 5. ¿Cuántas páginas más leyó Nia?",
       "choices": [
         {
-          "text": "3",
-          "feedback": "9 − 6 = 3. Nia leyó 3 páginas más."
+          "text": "4",
+          "feedback": "9 − 5 = 4. Nia leyó 4 páginas más."
         },
         {
-          "text": "15"
+          "text": "14",
+          "feedback": "Catorce junta las páginas. Busca las páginas de más de Nia."
         },
         {
-          "text": "6"
+          "text": "5",
+          "feedback": "Cinco es la cantidad de Theo. Cuenta desde cinco hasta nueve."
         }
       ],
       "hints": [
-        "Empieza con las 9 páginas de Nia. Une 6 con las de Theo.",
-        "Cuenta desde 6 hasta 9. ¿Cuántos pasos diste?"
+        "Cada punto de abajo representa una página. Busca los puntos de Nia sin pareja.",
+        "O cuenta desde 5 hasta 9. ¿Cuántos pasos diste?"
       ],
-      "revision": 3
+      "revision": 3,
+      "supportVisual": {
+        "kind": "comparisonButtons",
+        "topCount": 9,
+        "bottomCount": 5,
+        "step": "pair",
+        "revealGap": false,
+        "topLabel": "Páginas de Nia",
+        "bottomLabel": "Páginas de Theo",
+        "ariaLabel": "Nia: punto, punto, punto, punto, punto, punto, punto, punto, punto. Theo: punto, punto, punto, punto, punto.",
+        "message": "Un punto representa una página. Cuenta los puntos de Nia sin pareja."
+      }
     },
     {
       "label": "Recuerdo",
@@ -285,14 +321,16 @@
       "prompt": "Hay 6 puntos azules y 4 rojos. ¿Qué pregunta pide los puntos azules de más?",
       "choices": [
         {
-          "text": "¿Cuántos puntos hay en total?"
+          "text": "¿Cuántos puntos hay en total?",
+          "feedback": "«En total» junta los grupos. Busca la frase para los de más."
         },
         {
           "text": "¿Cuál es la diferencia?",
           "feedback": "Sí. La diferencia indica cuántos puntos azules más hay: 6 − 4 = 2."
         },
         {
-          "text": "¿Cuántos puntos azules hay?"
+          "text": "¿Cuántos puntos azules hay?",
+          "feedback": "«¿Cuántos azules?» cuenta todos los azules. Busca la frase para los de más."
         }
       ],
       "hints": [
@@ -304,22 +342,24 @@
     {
       "label": "Transferencia",
       "title": "Ahora con precios.",
-      "prompt": "Un cuaderno cuesta $12. Otro cuesta $9. ¿Cuál es la diferencia de precio?",
+      "prompt": "Un cuaderno cuesta $10. Otro cuesta $8. ¿Cuál es la diferencia de precio?",
       "choices": [
         {
-          "text": "$3",
-          "feedback": "$12 − $9 = $3. La diferencia de precio es $3."
+          "text": "$2",
+          "feedback": "$10 − $8 = $2. La diferencia es $2."
         },
         {
-          "text": "$21"
+          "text": "$18",
+          "feedback": "Dieciocho suma ambos precios. Busca cuánto más es diez que ocho."
         },
         {
-          "text": "$12"
+          "text": "$10",
+          "feedback": "Diez es un precio, no la diferencia. Cuenta de ocho a diez."
         }
       ],
       "hints": [
-        "La pregunta pide cuánto más cuesta uno de los cuadernos.",
-        "Empieza en $9. Cuenta hasta $12. ¿Cuánto sumaste?"
+        "La diferencia de precio dice cuánto más cuesta uno.",
+        "Empieza en $8. Cuenta hasta $10. ¿Cuánto sumaste?"
       ],
       "revision": 3
     },
@@ -329,10 +369,12 @@
       "prompt": "Al comparar 6 puntos azules con 4 rojos, ¿qué es la diferencia?",
       "choices": [
         {
-          "text": "Quitar todos los puntos."
+          "text": "Quitar todos los puntos.",
+          "feedback": "Aquí no se quitan puntos. Comparamos los grupos."
         },
         {
-          "text": "Todos los puntos juntos."
+          "text": "Todos los puntos juntos.",
+          "feedback": "Todos juntos da el total. Diferencia pide los de más."
         },
         {
           "text": "Cuántos puntos azules más hay.",

@@ -33,3 +33,7 @@ The learner uses standard HTML controls, ES modules, CSS media queries, local st
 - A lesson can complete, restart, and retain the prior completed attempt.
 - The viewport has no horizontal overflow at mobile width.
 - No console errors appear during the smoke flow.
+
+## Revised comparison first-exposure gate
+
+Before claiming this path teaches a first-time learner, follow `curriculum/reviews/comparison_first_exposure_protocol_v1.json` and run `npm run gate:novice`. Require an unfamiliar example, an explanation in the learner’s own words, and a delayed check after at least 24 hours. The gate is pending until real sessions are recorded; automated correctness cannot establish understanding.

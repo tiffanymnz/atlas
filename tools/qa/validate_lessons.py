@@ -35,6 +35,8 @@ def validate_translation(data,translation,path_name):
             require_translation(screen,translated,key,location)
         require_translation(screen.get("visual",{}),translated.get("visual",{}),"message",location)
         require_translation(screen.get("visual",{}),translated.get("visual",{}),"ariaLabel",location)
+        for key in ["message","ariaLabel","topLabel","bottomLabel"]:
+            require_translation(screen.get("supportVisual",{}),translated.get("supportVisual",{}),key,location)
         for key in ["hints","phrases","rebuildSteps"]:
             if key in screen:
                 values=translated.get(key,[])
@@ -81,6 +83,8 @@ for path in sorted(lesson_dir.glob("*.json")):
     screen_ids=[screen.get("id") for screen in screens]
     if data.get("schema_version") != "3.0": errors.append(f"{path.name}: schema_version must be 3.0")
     expected_types=required_types
+    if path.name=="lesson000.json":
+        expected_types=["intro","observe","count","observe","guidedPractice","memoryHook","count","observe","independentPractice","recall","transfer","reflection","complete"]
     if path.name=="lesson001.json":
         expected_types=["intro","count","count","observe","discover","language","memoryHook","misconception","symbol","equationReveal","guidedPractice","independentPractice","recall","transfer","reflection","complete"]
     if screen_types != expected_types: errors.append(f"{path.name}: screen sequence must be {' -> '.join(expected_types)}")

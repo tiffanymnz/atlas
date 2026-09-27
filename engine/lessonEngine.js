@@ -1,4 +1,4 @@
-import { renderConceptVisual, renderChoiceScreen, localizeChoiceState, renderLanguage, renderEquation, renderComplete } from "../sdk/components/lessonComponents.js?v=2.2";
+import { renderConceptVisual, renderChoiceScreen, localizeChoiceState, renderLanguage, renderEquation, renderComplete } from "../sdk/components/lessonComponents.js?v=2.5";
 import { createAnalytics, showAnalytics } from "./analytics-engine/analyticsEngine.js";
 import { recommendNext } from "./recommendation-engine/recommendationEngine.js";
 import { assessNextLessonReadiness } from "./recommendation-engine/readiness.js";
@@ -149,6 +149,7 @@ function restoreChoiceState(screen){
     fb.className=localized.feedback.className;
     fb.innerHTML=localized.feedback.html;
   }
+  if(state.hintShown && el("supportModel")) el("supportModel").hidden=false;
   if(state.submittedCorrect){
     document.querySelectorAll(".choice").forEach((btn,i)=>{
       btn.disabled=true;
@@ -195,8 +196,9 @@ function render(){
     el("backBtn").onclick = back; el("nextBtn").onclick = next; return;
   }
   if(["count","misconception","discover","symbol","guidedPractice","independentPractice","recall","transfer","reflection"].includes(screen.type)){
-    const visual = screen.visual ? renderConceptVisual(screen.visual,screen.title) : `<p>${screen.prompt || ""}</p>`;
-    root.innerHTML = base(screen)+visual+renderChoiceScreen(screen,copy());
+    const visual = screen.visual ? `${screen.prompt?`<p>${screen.prompt}</p>`:""}${renderConceptVisual(screen.visual,screen.title)}` : `<p>${screen.prompt || ""}</p>`;
+    const support=screen.supportVisual?`<div id="supportModel" hidden>${renderConceptVisual(screen.supportVisual,screen.title)}</div>`:"";
+    root.innerHTML = base(screen)+visual+support+renderChoiceScreen(screen,copy());
     bindChoiceScreen(screen); restoreChoiceState(screen); return;
   }
   if(screen.type==="language"){
@@ -241,6 +243,7 @@ function bindChoiceScreen(screen){
       if(state.submittedCorrect) return;
       selected = Number(btn.dataset.i);
       state.selected=selected;
+      if(state.feedback?.kind==="warning"){state.feedback=null;el("feedback").style.display="none";}
       buttons.forEach(b=>{ b.classList.remove("selected"); b.setAttribute("aria-checked","false"); b.tabIndex=-1; });
       btn.classList.add("selected");
       btn.setAttribute("aria-checked","true");
@@ -283,10 +286,12 @@ function submitChoice(screen){
     lessonRecord.screenStates[screenStateKey()]=state; persist(); setCorrectControls();
   } else {
     const h = screen.hints?.[Math.min(hintIndex, screen.hints.length-1)] || copy().fallbackHint;
+    const diagnostic=choice.feedback || h;
     hintIndex++;
     state.hintIndex=hintIndex;
     fb.style.display = "block"; fb.className = "feedback warn";
-    fb.innerHTML = `<strong>${copy().lookAgain}</strong><br>${h}`;
+    fb.innerHTML = `<strong>${copy().lookAgain}</strong><br>${diagnostic}`;
+    state.wrongChoiceIndex=selected;
     state.feedbackHintIndex=Math.max(hintIndex-1,0);
     state.feedback={kind:"warning"};
     document.querySelectorAll(".choice").forEach(btn=>{ btn.disabled = false; btn.classList.remove("selected","correct"); btn.setAttribute("aria-checked","false"); });
@@ -302,6 +307,7 @@ function hint(screen){
   hintIndex++;
   state.hintIndex=hintIndex;
   const box = el("hintBox");
+  if(el("supportModel")) el("supportModel").hidden=false;
   box.style.display = "block"; box.innerHTML = `<strong>${copy().hint}</strong><br>${h}`;
   state.hintShown=true;
   state.hintStep=usedIndex;
