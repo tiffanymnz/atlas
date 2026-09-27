@@ -10,7 +10,7 @@ const requiredFiles=[
   "docs/V1_RELEASE_CHECKLIST.md","docs/V1_RELEASE_NOTES.md","docs/V1_KNOWN_LIMITATIONS.md","docs/V1_ROLLBACK.md","docs/V1_GO_NO_GO.md",
   "engine/lessonEngine.js","engine/state-store/stateStore.js",
   "sdk/components/components.css","sdk/components/lessonComponents.js",
-  ...[1,2,3,4].flatMap(number=>{
+  ...[0,1,2,3,4].flatMap(number=>{
     const name=`lesson${String(number).padStart(3,"0")}.json`;
     return [`curriculum/lessons/${name}`,`curriculum/translations/es/${name}`];
   }),
