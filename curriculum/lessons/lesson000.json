@@ -2,21 +2,21 @@
   "schema_version": "3.0",
   "metadata": {
     "id": "MATH-NS-FOUND-0000",
-    "title": "Meet the numbers 1 through 10",
+    "title": "Meet the numbers 0 through 10",
     "domain": "Mathematics",
     "subject": "Arithmetic",
     "course": "Number Sense",
     "unit": "Counting",
-    "contentRevision": 3
+    "contentRevision": 4
   },
   "learning": {
-    "learning_goal": "Hear, see, and connect each number from 1 through 10 to a group of objects.",
+    "learning_goal": "Hear, see, and connect each number from 0 through 10 to a group of objects.",
     "big_idea": "A number can name how many objects are in a group.",
     "assumed_prior_knowledge": [],
     "novice_success_criteria": [
-      "say or identify the number words from one through ten",
-      "connect each numeral from 1 through 10 to its spoken name and quantity",
-      "count a group to ten by counting each object once"
+      "say or identify the number words from zero through ten",
+      "connect each numeral from 0 through 10 to its spoken name and quantity",
+      "count a group to ten by counting each object once, even when the objects move"
     ]
   },
   "concepts": {
@@ -28,9 +28,32 @@
       "id": "intro",
       "type": "intro",
       "label": "Start here",
-      "title": "Meet the numbers 1 through 10.",
+      "title": "Meet the numbers 0 through 10.",
       "body": "Tap Listen whenever you want the screen read aloud.",
-      "audio": "We will learn the numbers one through ten. You will see each number, hear its name, and count that many dots."
+      "audio": "We will learn the numbers zero through ten. You will see each number, hear its name, and count that many dots."
+    },
+    {
+      "id": "number-0",
+      "type": "observe",
+      "label": "Number 0",
+      "title": "0 — zero",
+      "audio": "This is zero. The box has no dots. Zero means none. Look inside the box.",
+      "visual": {"kind": "countingDots", "count": 0, "grouped": true, "ariaLabel": "An empty box with no dots. Zero dots.", "message": "No dots. 0 dots."},
+      "nextLabel": "Try zero"
+    },
+    {
+      "id": "count-zero",
+      "type": "count",
+      "title": "How many dots?",
+      "audio": "Look in the empty box. How many dots are inside? Choose a number.",
+      "visual": {"kind": "countingDots", "count": 0, "grouped": true, "ariaLabel": "An empty box. There are no dots inside.", "message": "How many dots?"},
+      "choices": [
+        {"text": "1", "correct": false, "feedback": "One would mean a dot is inside. Look in the box again.", "misconception": "object_instead_of_relationship"},
+        {"text": "0", "correct": true, "feedback": "The box has no dots. That is zero."},
+        {"text": "2", "correct": false, "feedback": "Two would mean two dots are inside. Look in the box again.", "misconception": "object_instead_of_relationship"}
+      ],
+      "hints": ["Look inside the box. Do you see any dots?", "No dots means zero dots."],
+      "revision": 1
     },
     {
       "id": "number-1",
@@ -182,6 +205,29 @@
       "audio": "Count each dot once. The last number is the total. Total means the number of dots in the whole group."
     },
     {
+      "id": "rearranged-model",
+      "type": "observe",
+      "label": "New shape",
+      "title": "Dots can move.",
+      "audio": "These five dots are spread out. The spaces do not change how many there are. Count each dot once.",
+      "visual": {"kind": "countingDots", "count": 5, "layout": "scattered", "numbered": true, "interactive": true, "ariaLabel": "Five blue dots spread out, labeled one through five.", "message": "Still 5 dots."},
+      "nextLabel": "Try a new shape"
+    },
+    {
+      "id": "rearranged-check",
+      "type": "guidedPractice",
+      "title": "Count the spread-out dots.",
+      "audio": "The dots are spread out. Count each one once. Choose how many dots there are.",
+      "visual": {"kind": "countingDots", "count": 5, "layout": "scattered", "grouped": true, "ariaLabel": "Five blue dots spread out inside one box.", "message": "How many dots?"},
+      "choices": [
+        {"text": "4", "correct": false, "feedback": "Look for a dot you missed. Count each one once.", "misconception": "object_instead_of_relationship"},
+        {"text": "6", "correct": false, "feedback": "Check that you did not count one dot twice.", "misconception": "object_instead_of_relationship"},
+        {"text": "5", "correct": true, "feedback": "There are five dots. Moving them apart did not add any."}
+      ],
+      "hints": ["Start at the left and point to each dot once.", "Say one, two, three, four, five as you point."],
+      "revision": 1
+    },
+    {
       "id": "count-ten",
       "type": "independentPractice",
       "title": "Count this group.",
@@ -214,14 +260,14 @@
       "type": "transfer",
       "title": "Count a new group.",
       "audio": "Count the dots in this new group. Choose the number that matches the group.",
-      "visual": {"kind": "countingDots", "count": 6, "grouped": true, "ariaLabel": "Six blue dots together inside one box.", "message": "Choose the number."},
+      "visual": {"kind": "countingDots", "count": 6, "layout": "scattered", "grouped": true, "ariaLabel": "Six blue dots spread out inside one box.", "message": "Choose the number."},
       "choices": [
         {"text": "7", "correct": false, "feedback": "Check that you counted each dot only once.", "misconception": "object_instead_of_relationship"},
         {"text": "5", "correct": false, "feedback": "Look for a dot you may have missed.", "misconception": "object_instead_of_relationship"},
         {"text": "6", "correct": true, "feedback": "There are six dots in this group."}
       ],
       "hints": ["Start on the left. Count each dot once.", "Count again from one through six."],
-      "revision": 3
+      "revision": 4
     },
     {
       "id": "reflection",
@@ -240,10 +286,10 @@
     {
       "id": "complete",
       "type": "complete",
-      "title": "You met the numbers 1 through 10.",
-      "body": "Next, learn what a pair is.",
-      "audio": "You finished. You saw, heard, and counted the numbers one through ten. Next, you can learn what a pair is.",
-      "nextRecommendation": "Next lesson: Make a pair."
+      "title": "You met the numbers 0 through 10.",
+      "body": "Practice counting in other shapes before moving to pairing.",
+      "audio": "You finished. You saw and heard zero through ten. Practice counting groups in different shapes before moving to pairing.",
+      "nextRecommendation": "Keep practicing this category. Pairing comes after its remaining skills."
     }
   ]
 }
