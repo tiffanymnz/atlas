@@ -7,7 +7,8 @@
     "novice_success_criteria": [
       "decir o identificar las palabras numéricas del cero al diez",
       "relacionar cada cifra del 0 al 10 con su nombre hablado y su cantidad",
-      "contar un grupo hasta diez contando cada objeto una vez, aunque cambie su posición"
+      "contar un grupo hasta diez contando cada objeto una vez, aunque cambie su posición",
+      "formar un grupo con la cantidad pedida sin elegir entre respuestas"
     ]
   },
   "screens": [
@@ -93,6 +94,21 @@
       "hints": ["Empieza a la izquierda. Cuenta cada punto una vez.", "Cuenta de nuevo: uno, dos, tres, cuatro."]
     },
     {
+      "label": "Forma un grupo",
+      "title": "Forma cuatro puntos.",
+      "audio": "Aquí hay un grupo de cuatro puntos. Para formar uno, empieza con un recuadro vacío. Agrega puntos de uno en uno. Detente cuando tengas cuatro.",
+      "visual": {"ariaLabel": "Un recuadro con cuatro puntos.", "message": "Cuatro puntos en un recuadro."},
+      "nextLabel": "Forma tu grupo"
+    },
+    {
+      "label": "Tu turno",
+      "title": "Forma 4 puntos.",
+      "audio": "Empieza con un recuadro vacío. Toca Agregar un punto hasta tener cuatro puntos. Puedes quitar un punto. Después toca Comprobar mis puntos.",
+      "correctFeedback": "Formaste cuatro puntos.",
+      "wrongFeedback": "Cuenta los puntos en tu recuadro. Agrega o quita un punto y vuelve a comprobar.",
+      "hints": ["Toca Agregar un punto para poner un punto en el recuadro.", "Señala cada punto y cuenta: uno, dos, tres, cuatro. Detente en cuatro."]
+    },
+    {
       "label": "Número 5",
       "title": "5 — cinco",
       "audio": "Este es el cinco. Cinco puntos. Toca los puntos en orden: uno, dos, tres, cuatro, cinco.",
@@ -152,6 +168,14 @@
       "audio": "Cuenta cada punto una vez. El último número es el total. Total significa la cantidad de puntos en todo el grupo."
     },
     {
+      "label": "Forma un grupo",
+      "title": "Forma 7 puntos.",
+      "audio": "Forma un grupo nuevo de siete puntos. Toca Agregar un punto para poner puntos en el recuadro. Comprueba el grupo cuando estés listo.",
+      "correctFeedback": "Formaste siete puntos.",
+      "wrongFeedback": "Cuenta los puntos en tu recuadro. Agrega o quita un punto y vuelve a comprobar.",
+      "hints": ["Señala cada punto una vez. Di su número al señalarlo.", "Agrega o quita puntos hasta que termines de contar en siete."]
+    },
+    {
       "label": "Otra forma",
       "title": "Los puntos pueden cambiar de lugar.",
       "audio": "Estos cinco puntos están separados. Los espacios no cambian la cantidad. Cuenta cada punto una vez.",
@@ -172,7 +196,7 @@
     {
       "title": "Cuenta este grupo.",
       "audio": "Cuenta los puntos del recuadro. Elige el número que corresponde al grupo.",
-      "visual": {"ariaLabel": "Diez puntos azules juntos dentro de un recuadro.", "message": "Elige el número."},
+      "visual": {"ariaLabel": "Diez puntos azules separados dentro de un recuadro.", "message": "Elige el número."},
       "choices": [
         {"text": "9", "feedback": "Quizás te faltó un punto. Empieza a la izquierda y cuenta de nuevo."},
         {"text": "10", "feedback": "Hay diez puntos en este grupo."},
