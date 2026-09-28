@@ -7,8 +7,8 @@ The remaining path below is still needed before Atlas can claim a complete begin
 | Foundation | Learner action and evidence before moving on |
 | --- | --- |
 | F1: Small groups and number words | Lesson 000 introduces zero through ten with spoken models. Recognition without counting still needs more varied practice and observation. |
-| F2: Count and name the total | Lesson 000 checks counting to ten, the final count as the total, and a spread-out group. Counting to twenty and different arrangements still need development and observation. |
-| F3: Numerals and quantities | Lesson 000 connects spoken words, written numerals, and pictured dots, including an empty group for zero. Making a requested size is not taught yet. |
+| F2: Count and name the total | Lesson 000 checks counting to ten, the final count as the total, and several spread-out groups. Counting to twenty and more arrangements still need development and observation. |
+| F3: Numerals and quantities | Lesson 000 connects spoken words, written numerals, and pictured dots, including an empty group for zero. Learners now make groups of four and seven with Add/Remove controls. This needs uncoached observation and more target sizes before the category can be considered complete. |
 | F4: Match and compare groups | Lesson 000a introduces a pair and matching across two groups. Same number, more/fewer, and different spacing need additional practice and observation. |
 | Comparison 1: How many more? | Compare two already-counted groups, find the unmatched amount, and connect “how many more” with “difference” and a subtraction sentence. |
 | F5: Join and separate | Model addition by joining groups and subtraction by separating a group. Connect the actions to + and − without making either word a one-step keyword rule. This can be developed alongside the comparison unit before symbolic subtraction is expected. |
