@@ -1,21 +1,39 @@
 {
-  "metadata": {"title": "Conoce los números del 1 al 10"},
+  "metadata": {"title": "Conoce los números del 0 al 10"},
   "learning": {
-    "learning_goal": "Escucha, mira y relaciona cada número del 1 al 10 con un grupo de objetos.",
+    "learning_goal": "Escucha, mira y relaciona cada número del 0 al 10 con un grupo de objetos.",
     "big_idea": "Un número puede nombrar cuántos objetos hay en un grupo.",
     "assumed_prior_knowledge": [],
     "novice_success_criteria": [
-      "decir o identificar las palabras numéricas del uno al diez",
-      "relacionar cada cifra del 1 al 10 con su nombre hablado y su cantidad",
-      "contar un grupo hasta diez contando cada objeto una vez"
+      "decir o identificar las palabras numéricas del cero al diez",
+      "relacionar cada cifra del 0 al 10 con su nombre hablado y su cantidad",
+      "contar un grupo hasta diez contando cada objeto una vez, aunque cambie su posición"
     ]
   },
   "screens": [
     {
       "label": "Empieza aquí",
-      "title": "Conoce los números del 1 al 10.",
+      "title": "Conoce los números del 0 al 10.",
       "body": "Toca Escuchar cuando quieras oír la pantalla.",
-      "audio": "Aprenderemos los números del uno al diez. Verás cada número, escucharás su nombre y contarás esa cantidad de puntos."
+      "audio": "Aprenderemos los números del cero al diez. Verás cada número, escucharás su nombre y contarás esa cantidad de puntos."
+    },
+    {
+      "label": "Número 0",
+      "title": "0 — cero",
+      "audio": "Este es el cero. El recuadro no tiene puntos. Cero significa ninguno. Mira dentro del recuadro.",
+      "visual": {"ariaLabel": "Un recuadro vacío sin puntos. Cero puntos.", "message": "No hay puntos. 0 puntos."},
+      "nextLabel": "Intenta con cero"
+    },
+    {
+      "title": "¿Cuántos puntos hay?",
+      "audio": "Mira el recuadro vacío. ¿Cuántos puntos hay dentro? Elige un número.",
+      "visual": {"ariaLabel": "Un recuadro vacío. No hay puntos dentro.", "message": "¿Cuántos puntos hay?"},
+      "choices": [
+        {"text": "1", "feedback": "Uno significaría que hay un punto dentro. Mira otra vez."},
+        {"text": "0", "feedback": "El recuadro no tiene puntos. Eso es cero."},
+        {"text": "2", "feedback": "Dos significaría que hay dos puntos dentro. Mira otra vez."}
+      ],
+      "hints": ["Mira dentro del recuadro. ¿Ves algún punto?", "Sin puntos significa cero puntos."]
     },
     {
       "label": "Número 1",
@@ -134,6 +152,24 @@
       "audio": "Cuenta cada punto una vez. El último número es el total. Total significa la cantidad de puntos en todo el grupo."
     },
     {
+      "label": "Otra forma",
+      "title": "Los puntos pueden cambiar de lugar.",
+      "audio": "Estos cinco puntos están separados. Los espacios no cambian la cantidad. Cuenta cada punto una vez.",
+      "visual": {"ariaLabel": "Cinco puntos azules separados, marcados del uno al cinco.", "message": "Siguen siendo 5 puntos."},
+      "nextLabel": "Intenta otra forma"
+    },
+    {
+      "title": "Cuenta los puntos separados.",
+      "audio": "Los puntos están separados. Cuenta cada uno una vez. Elige cuántos puntos hay.",
+      "visual": {"ariaLabel": "Cinco puntos azules separados dentro de un recuadro.", "message": "¿Cuántos puntos hay?"},
+      "choices": [
+        {"text": "4", "feedback": "Busca un punto que no contaste. Cuenta cada uno una vez."},
+        {"text": "6", "feedback": "Comprueba que no contaste un punto dos veces."},
+        {"text": "5", "feedback": "Hay cinco puntos. Separarlos no agregó ninguno."}
+      ],
+      "hints": ["Empieza a la izquierda y señala cada punto una vez.", "Di uno, dos, tres, cuatro, cinco mientras señalas."]
+    },
+    {
       "title": "Cuenta este grupo.",
       "audio": "Cuenta los puntos del recuadro. Elige el número que corresponde al grupo.",
       "visual": {"ariaLabel": "Diez puntos azules juntos dentro de un recuadro.", "message": "Elige el número."},
@@ -158,7 +194,7 @@
     {
       "title": "Cuenta un grupo nuevo.",
       "audio": "Cuenta los puntos de este grupo nuevo. Elige el número que corresponde al grupo.",
-      "visual": {"ariaLabel": "Seis puntos azules juntos dentro de un recuadro.", "message": "Elige el número."},
+      "visual": {"ariaLabel": "Seis puntos azules separados dentro de un recuadro.", "message": "Elige el número."},
       "choices": [
         {"text": "7", "feedback": "Comprueba que hayas contado cada punto solo una vez."},
         {"text": "5", "feedback": "Busca un punto que quizás no hayas contado."},
@@ -178,10 +214,10 @@
       "hints": ["Piensa en todos los puntos juntos.", "Los puntos juntos se llaman un grupo."]
     },
     {
-      "title": "Conociste los números del 1 al 10.",
-      "body": "Después aprenderás qué es una pareja.",
-      "audio": "Terminaste. Viste, escuchaste y contaste los números del uno al diez. Ahora puedes aprender qué es una pareja.",
-      "nextRecommendation": "Próxima lección: Forma una pareja."
+      "title": "Conociste los números del 0 al 10.",
+      "body": "Practica contando puntos en otras formas antes de aprender las parejas.",
+      "audio": "Terminaste. Viste y escuchaste los números del cero al diez. Practica contando grupos en distintas formas antes de aprender las parejas.",
+      "nextRecommendation": "Sigue practicando esta categoría. Las parejas vienen después de sus otras habilidades."
     }
   ]
 }
