@@ -24,6 +24,9 @@ test("counting foundation establishes quantities and group before pairing",()=>{
   assert.ok(pair.screens.find(s=>s.id==="one-pair").visual.topCount===1);
   assert.ok(pair.screens.some(s=>s.visual?.step==="pair"));
   assert.ok(f.screens.find(s=>s.id==="pair-model").visual.grouped);
+  const checks=["count-zero","count-one","count-two","count-four","pair-check","count-five","count-six","count-seven","count-eight","count-nine","count-ten"]
+    .map(id=>f.screens.find(screen=>screen.id===id)?.choices?.find(choice=>choice.correct)?.text);
+  assert.deepEqual(checks,["0","1","2","3","4","5","6","7","8","9","10"]);
   for(const screen of f.screens){
     assert.doesNotMatch(JSON.stringify(screen),/say one number|count outlines|touch each dot|tell how many|make pairs/i);
   }
@@ -37,7 +40,7 @@ test("zero is empty, and an unassisted transfer checks rearranged dots in both l
   assert.equal(lesson.screens.find(s=>s.id==="transfer").visual.layout,"scattered");
   assert.equal(spanish.screens.find(s=>s.id==="transfer").visual.layout,"scattered");
   assert.match(renderCountingDots(lesson.screens.find(s=>s.id==="transfer").visual),/countingRow grouped scattered/);
-  assert.ok(spanish.screens.every(s=>s.audio),"pre-readers need both languages narrated");
+  assert.ok(spanish.screens.every(s=>s.audio),"every screen needs a Spanish recording script");
 });
 
 test("learners construct groups after seeing the number, with bilingual audio and feedback",()=>{
@@ -57,9 +60,10 @@ test("learners construct groups after seeing the number, with bilingual audio an
   assert.equal(lesson.screens.find(s=>s.id==="count-ten").visual.layout,"scattered");
 });
 
-test("counting model offers number audio plus full-screen read-aloud support",()=>{
+test("counting model speaks number words without using robotic full-screen narration",()=>{
   const lesson=read("curriculum/lessons/lesson000.json");
-  assert.ok(lesson.screens.every(screen=>screen.audio),"every counting screen needs pre-reader narration");
+  assert.equal(lesson.metadata.audioStrategy,"number_words_only");
+  assert.ok(lesson.screens.every(screen=>screen.audio),"every counting screen keeps a script for future recorded narration");
   const html=renderCountingDots({kind:"countingDots",count:3,numbered:true,interactive:true,ariaLabel:"Three dots"});
   assert.equal((html.match(/class="countingDot countTap"/g)||[]).length,3);
   assert.match(html,/role="group" aria-label="Three dots"/);
@@ -68,7 +72,8 @@ test("counting model offers number audio plus full-screen read-aloud support",()
   assert.match(engine,/SpeechSynthesisUtterance/);
   assert.match(engine,/speechSynthesis\.cancel/);
   assert.match(engine,/id="listenBtn"/);
-  assert.match(engine,/screen\.choices\.map/);
+  assert.match(engine,/if\(numberOnlyAudio\(\) && !isNumberModel\(screen\)\) return ""/);
+  assert.match(engine,/NUMBER_WORDS\[language\]\[screen\.visual\.count\]/);
   assert.match(engine,/audioUnavailable/);
 });
 
