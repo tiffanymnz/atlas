@@ -1,0 +1,371 @@
+{
+  "metadata": {
+    "title": "Cuenta del 16 al 20"
+  },
+  "learning": {
+    "learning_goal": "Cuenta grupos del 16 al 20, punto por punto.",
+    "big_idea": "El último número que dices indica cuántos puntos hay en el grupo.",
+    "assumed_prior_knowledge": [
+      "Contar grupos hasta quince."
+    ],
+    "novice_success_criteria": [
+      "relacionar del 16 al 20 con sus nombres hablados y grupos de puntos",
+      "contar cada punto una vez en otra forma",
+      "formar 18 puntos sin opciones de respuesta"
+    ]
+  },
+  "screens": [
+    {
+      "label": "Empieza aquí",
+      "title": "Conoce del 16 al 20.",
+      "body": "Empieza con diez puntos. Cuenta los puntos de más.",
+      "audio": "Contaremos del dieciséis al veinte."
+    },
+    {
+      "label": "Número 16",
+      "title": "16 — dieciséis",
+      "audio": "Este es dieciséis. Toca los puntos para escucharlos en orden.",
+      "visual": {
+        "kind": "countingDots",
+        "count": 16,
+        "layout": "tenRows",
+        "numbered": true,
+        "interactive": true,
+        "firstLabel": "Primeros diez",
+        "moreLabel": "Más puntos",
+        "ariaLabel": "16 puntos azules. Diez primero y 6 más.",
+        "message": "Diez y 6 puntos más."
+      },
+      "nextLabel": "Tu turno"
+    },
+    {
+      "title": "¿Cuántos puntos hay?",
+      "audio": "Cuenta cada punto una vez. Elige el número.",
+      "visual": {
+        "kind": "countingDots",
+        "count": 16,
+        "layout": "tenRows",
+        "numbered": false,
+        "interactive": false,
+        "firstLabel": "Primeros diez",
+        "moreLabel": "Más puntos",
+        "ariaLabel": "16 puntos azules. Diez primero y 6 más.",
+        "message": "Diez y 6 puntos más."
+      },
+      "choices": [
+        {
+          "text": "15",
+          "feedback": "Cuenta los primeros diez. Después cuenta los puntos de abajo."
+        },
+        {
+          "text": "16",
+          "feedback": "Sí. Diez y 6 más son 16."
+        },
+        {
+          "text": "14",
+          "feedback": "Cuenta los primeros diez. Después cuenta los puntos de abajo."
+        }
+      ],
+      "hints": [
+        "Cuenta los primeros diez. Después cuenta los puntos de abajo.",
+        "Cuenta desde diez hasta dieciséis."
+      ]
+    },
+    {
+      "label": "Número 17",
+      "title": "17 — diecisiete",
+      "audio": "Este es diecisiete. Toca los puntos para escucharlos en orden.",
+      "visual": {
+        "kind": "countingDots",
+        "count": 17,
+        "layout": "tenRows",
+        "numbered": true,
+        "interactive": true,
+        "firstLabel": "Primeros diez",
+        "moreLabel": "Más puntos",
+        "ariaLabel": "17 puntos azules. Diez primero y 7 más.",
+        "message": "Diez y 7 puntos más."
+      },
+      "nextLabel": "Tu turno"
+    },
+    {
+      "title": "¿Cuántos puntos hay?",
+      "audio": "Cuenta cada punto una vez. Elige el número.",
+      "visual": {
+        "kind": "countingDots",
+        "count": 17,
+        "layout": "tenRows",
+        "numbered": false,
+        "interactive": false,
+        "firstLabel": "Primeros diez",
+        "moreLabel": "Más puntos",
+        "ariaLabel": "17 puntos azules. Diez primero y 7 más.",
+        "message": "Diez y 7 puntos más."
+      },
+      "choices": [
+        {
+          "text": "16",
+          "feedback": "Cuenta los primeros diez. Después cuenta los puntos de abajo."
+        },
+        {
+          "text": "17",
+          "feedback": "Sí. Diez y 7 más son 17."
+        },
+        {
+          "text": "15",
+          "feedback": "Cuenta los primeros diez. Después cuenta los puntos de abajo."
+        }
+      ],
+      "hints": [
+        "Cuenta los primeros diez. Después cuenta los puntos de abajo.",
+        "Cuenta desde diez hasta diecisiete."
+      ]
+    },
+    {
+      "label": "Número 18",
+      "title": "18 — dieciocho",
+      "audio": "Este es dieciocho. Toca los puntos para escucharlos en orden.",
+      "visual": {
+        "kind": "countingDots",
+        "count": 18,
+        "layout": "tenRows",
+        "numbered": true,
+        "interactive": true,
+        "firstLabel": "Primeros diez",
+        "moreLabel": "Más puntos",
+        "ariaLabel": "18 puntos azules. Diez primero y 8 más.",
+        "message": "Diez y 8 puntos más."
+      },
+      "nextLabel": "Tu turno"
+    },
+    {
+      "title": "¿Cuántos puntos hay?",
+      "audio": "Cuenta cada punto una vez. Elige el número.",
+      "visual": {
+        "kind": "countingDots",
+        "count": 18,
+        "layout": "tenRows",
+        "numbered": false,
+        "interactive": false,
+        "firstLabel": "Primeros diez",
+        "moreLabel": "Más puntos",
+        "ariaLabel": "18 puntos azules. Diez primero y 8 más.",
+        "message": "Diez y 8 puntos más."
+      },
+      "choices": [
+        {
+          "text": "17",
+          "feedback": "Cuenta los primeros diez. Después cuenta los puntos de abajo."
+        },
+        {
+          "text": "18",
+          "feedback": "Sí. Diez y 8 más son 18."
+        },
+        {
+          "text": "16",
+          "feedback": "Cuenta los primeros diez. Después cuenta los puntos de abajo."
+        }
+      ],
+      "hints": [
+        "Cuenta los primeros diez. Después cuenta los puntos de abajo.",
+        "Cuenta desde diez hasta dieciocho."
+      ]
+    },
+    {
+      "label": "Forma un grupo",
+      "title": "Forma 18 puntos.",
+      "audio": "Toca Añadir un punto hasta tener dieciocho puntos. Revisa tus puntos.",
+      "correctFeedback": "Formaste dieciocho puntos.",
+      "wrongFeedback": "Cuenta otra vez. Añade o quita un punto.",
+      "hints": [
+        "Cuenta cada punto una vez.",
+        "Detente en dieciocho."
+      ]
+    },
+    {
+      "label": "Número 19",
+      "title": "19 — diecinueve",
+      "audio": "Este es diecinueve. Toca los puntos para escucharlos en orden.",
+      "visual": {
+        "kind": "countingDots",
+        "count": 19,
+        "layout": "tenRows",
+        "numbered": true,
+        "interactive": true,
+        "firstLabel": "Primeros diez",
+        "moreLabel": "Más puntos",
+        "ariaLabel": "19 puntos azules. Diez primero y 9 más.",
+        "message": "Diez y 9 puntos más."
+      },
+      "nextLabel": "Tu turno"
+    },
+    {
+      "title": "¿Cuántos puntos hay?",
+      "audio": "Cuenta cada punto una vez. Elige el número.",
+      "visual": {
+        "kind": "countingDots",
+        "count": 19,
+        "layout": "tenRows",
+        "numbered": false,
+        "interactive": false,
+        "firstLabel": "Primeros diez",
+        "moreLabel": "Más puntos",
+        "ariaLabel": "19 puntos azules. Diez primero y 9 más.",
+        "message": "Diez y 9 puntos más."
+      },
+      "choices": [
+        {
+          "text": "18",
+          "feedback": "Cuenta los primeros diez. Después cuenta los puntos de abajo."
+        },
+        {
+          "text": "19",
+          "feedback": "Sí. Diez y 9 más son 19."
+        },
+        {
+          "text": "17",
+          "feedback": "Cuenta los primeros diez. Después cuenta los puntos de abajo."
+        }
+      ],
+      "hints": [
+        "Cuenta los primeros diez. Después cuenta los puntos de abajo.",
+        "Cuenta desde diez hasta diecinueve."
+      ]
+    },
+    {
+      "label": "Número 20",
+      "title": "20 — veinte",
+      "audio": "Este es veinte. Toca los puntos para escucharlos en orden.",
+      "visual": {
+        "kind": "countingDots",
+        "count": 20,
+        "layout": "tenRows",
+        "numbered": true,
+        "interactive": true,
+        "firstLabel": "Primeros diez",
+        "moreLabel": "Más puntos",
+        "ariaLabel": "20 puntos azules. Diez primero y 10 más.",
+        "message": "Diez y 10 puntos más."
+      },
+      "nextLabel": "Tu turno"
+    },
+    {
+      "title": "¿Cuántos puntos hay?",
+      "audio": "Cuenta cada punto una vez. Elige el número.",
+      "visual": {
+        "kind": "countingDots",
+        "count": 20,
+        "layout": "tenRows",
+        "numbered": false,
+        "interactive": false,
+        "firstLabel": "Primeros diez",
+        "moreLabel": "Más puntos",
+        "ariaLabel": "20 puntos azules. Diez primero y 10 más.",
+        "message": "Diez y 10 puntos más."
+      },
+      "choices": [
+        {
+          "text": "19",
+          "feedback": "Cuenta los primeros diez. Después cuenta los puntos de abajo."
+        },
+        {
+          "text": "20",
+          "feedback": "Sí. Diez y 10 más son 20."
+        },
+        {
+          "text": "18",
+          "feedback": "Cuenta los primeros diez. Después cuenta los puntos de abajo."
+        }
+      ],
+      "hints": [
+        "Cuenta los primeros diez. Después cuenta los puntos de abajo.",
+        "Cuenta desde diez hasta veinte."
+      ]
+    },
+    {
+      "title": "Sigue contando después de diez.",
+      "hook": "Diez, luego sigue.",
+      "body": "Cuenta los primeros diez. Sigue contando cada punto extra una vez.",
+      "audio": "Diez, luego sigue."
+    },
+    {
+      "title": "Cuenta otra forma.",
+      "audio": "Cuenta los puntos. Elige el total.",
+      "visual": {
+        "ariaLabel": "19 puntos azules en otra forma.",
+        "message": "¿Cuántos puntos hay?"
+      },
+      "choices": [
+        {
+          "text": "18",
+          "feedback": "Inténtalo otra vez. Cuenta cada punto una vez."
+        },
+        {
+          "text": "20",
+          "feedback": "Inténtalo otra vez. Cuenta cada punto una vez."
+        },
+        {
+          "text": "19",
+          "feedback": "Sí. Contaste todos los puntos."
+        }
+      ],
+      "hints": [
+        "Empieza por un lado. Cuenta cada punto una vez.",
+        "Sigue contando hasta diecinueve."
+      ]
+    },
+    {
+      "title": "¿Qué significa el último número?",
+      "prompt": "Cuentas cada punto. ¿Qué indica el último número?",
+      "audio": "¿Qué indica el último número?",
+      "choices": [
+        {
+          "text": "Cuántos puntos hay",
+          "feedback": "Sí. Indica el total."
+        },
+        {
+          "text": "El color de los puntos"
+        },
+        {
+          "text": "Dónde están los puntos"
+        }
+      ],
+      "hints": [
+        "Piensa en todo el grupo.",
+        "El último número es el total."
+      ]
+    },
+    {
+      "title": "Cuenta sin números en los puntos.",
+      "audio": "Cuenta todos los puntos. Elige el número.",
+      "visual": {
+        "ariaLabel": "20 puntos azules separados.",
+        "message": "¿Cuántos puntos hay?"
+      },
+      "choices": [
+        {
+          "text": "18",
+          "feedback": "Cuenta otra vez. Revisa todos los puntos."
+        },
+        {
+          "text": "20",
+          "feedback": "Sí. Cuenta cada punto una vez."
+        },
+        {
+          "text": "19",
+          "feedback": "Cuenta otra vez. Revisa todos los puntos."
+        }
+      ],
+      "hints": [
+        "Empieza arriba a la izquierda. Cuenta cada punto una vez.",
+        "Sigue hasta veinte."
+      ]
+    },
+    {
+      "title": "Contaste hasta 20.",
+      "body": "Sigue practicando estos números en otras formas.",
+      "audio": "Terminaste de contar hasta veinte.",
+      "nextRecommendation": "Siguiente: aprende qué es una pareja."
+    }
+  ]
+}

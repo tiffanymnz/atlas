@@ -35,6 +35,8 @@ def validate_translation(data,translation,path_name):
             require_translation(screen,translated,key,location)
         require_translation(screen.get("visual",{}),translated.get("visual",{}),"message",location)
         require_translation(screen.get("visual",{}),translated.get("visual",{}),"ariaLabel",location)
+        for key in ["firstLabel","moreLabel"]:
+            require_translation(screen.get("visual",{}),translated.get("visual",{}),key,location)
         for key in ["message","ariaLabel","topLabel","bottomLabel"]:
             require_translation(screen.get("supportVisual",{}),translated.get("supportVisual",{}),key,location)
         for key in ["hints","phrases","rebuildSteps"]:
@@ -75,7 +77,7 @@ for path in sorted(lesson_dir.glob("*.json")):
     primary_concept=data.get("concepts",{}).get("primary_concept")
     if not primary_concept: errors.append(f"{path.name}: missing primary concept")
     elif primary_concept not in concept_ids: errors.append(f"{path.name}: unknown primary concept {primary_concept}")
-    elif primary_concept in primary_concepts: errors.append(f"{path.name}: duplicate primary concept {primary_concept}")
+    elif primary_concept in primary_concepts and not (primary_concept=="counting" and path.name in {"lesson000b.json","lesson000c.json"}): errors.append(f"{path.name}: duplicate primary concept {primary_concept}")
     primary_concepts.add(primary_concept)
     screens=data.get("screens",[])
     required_types=["intro","misconception","observe","discover","language","memoryHook","symbol","equationReveal","guidedPractice","independentPractice","recall","transfer","reflection","complete"]
@@ -96,6 +98,15 @@ for path in sorted(lesson_dir.glob("*.json")):
             errors.append(f"{path.name}: seven-dot construction must follow the seven-dot check")
     if path.name=="lesson000a.json":
         expected_types=["intro","observe","observe","guidedPractice","observe","independentPractice","memoryHook","recall","transfer","complete"]
+    if path.name in {"lesson000b.json","lesson000c.json"}:
+        expected_types=None
+        begin,end=(11,15) if path.name=="lesson000b.json" else (16,20)
+        for number in range(begin,end+1):
+            model_index=next((i for i,screen in enumerate(screens) if screen.get("id")==f"number-{number}"),-1)
+            if model_index<0 or model_index+1>=len(screens) or screens[model_index+1].get("id")!=f"count-{number}" or screens[model_index].get("visual",{}).get("count")!=number or screens[model_index+1].get("visual",{}).get("count")!=number:
+                errors.append(f"{path.name}: number {number} must be modeled and immediately checked")
+        for required in ["memoryHook","independentPractice","recall","transfer","complete"]:
+            if required not in screen_types: errors.append(f"{path.name}: missing {required}")
     if path.name=="lesson001.json":
         expected_types=["intro","count","count","observe","discover","language","memoryHook","misconception","symbol","equationReveal","guidedPractice","independentPractice","recall","transfer","reflection","complete"]
     if expected_types is not None and screen_types != expected_types: errors.append(f"{path.name}: screen sequence must be {' -> '.join(expected_types)}")
@@ -105,7 +116,7 @@ for path in sorted(lesson_dir.glob("*.json")):
     if not screens or screens[-1].get("type") != "complete": errors.append(f"{path.name}: last screen must be complete")
     for i,screen in enumerate(data.get("screens",[])):
         if screen.get("type")=="buildGroup":
-            if not isinstance(screen.get("targetCount"),int) or not 0<=screen["targetCount"]<=10: errors.append(f"{path.name} screen {i}: targetCount must be 0–10")
+            if not isinstance(screen.get("targetCount"),int) or not 0<=screen["targetCount"]<=20: errors.append(f"{path.name} screen {i}: targetCount must be 0–20")
             if len(screen.get("hints",[]))<2 or not all(screen.get(key) for key in ["audio","correctFeedback","wrongFeedback"]): errors.append(f"{path.name} screen {i}: buildGroup needs narrated instructions and feedback")
         if screen.get("type") in ["count","misconception","discover","symbol","guidedPractice","independentPractice","recall","transfer","reflection"]:
             choices=screen.get("choices",[])

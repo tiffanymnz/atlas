@@ -36,6 +36,72 @@
         }
       },
       {
+        "lessonId": "MATH-NS-FOUND-000B",
+        "conceptId": "counting",
+        "title": "Count 11 through 15",
+        "learningGoal": "Count groups from 11 through 15, one dot at a time.",
+        "memoryHook": {
+          "title": "Keep counting after ten.",
+          "hook": "Ten, then count on.",
+          "body": "Count the first ten. Keep counting each extra dot once."
+        },
+        "independent": {
+          "prompt": "How many dots?",
+          "answer": "14"
+        },
+        "recall": {
+          "prompt": "You count each dot. What does the last number tell you?",
+          "choices": [
+            "How many dots there are",
+            "The color of the dots",
+            "Where the dots are"
+          ],
+          "answer": "How many dots there are"
+        },
+        "transfer": {
+          "prompt": "How many dots?",
+          "choices": [
+            "13",
+            "15",
+            "14"
+          ],
+          "answer": "15"
+        }
+      },
+      {
+        "lessonId": "MATH-NS-FOUND-000C",
+        "conceptId": "counting",
+        "title": "Count 16 through 20",
+        "learningGoal": "Count groups from 16 through 20, one dot at a time.",
+        "memoryHook": {
+          "title": "Keep counting after ten.",
+          "hook": "Ten, then count on.",
+          "body": "Count the first ten. Keep counting each extra dot once."
+        },
+        "independent": {
+          "prompt": "How many dots?",
+          "answer": "19"
+        },
+        "recall": {
+          "prompt": "You count each dot. What does the last number tell you?",
+          "choices": [
+            "How many dots there are",
+            "The color of the dots",
+            "Where the dots are"
+          ],
+          "answer": "How many dots there are"
+        },
+        "transfer": {
+          "prompt": "How many dots?",
+          "choices": [
+            "18",
+            "20",
+            "19"
+          ],
+          "answer": "20"
+        }
+      },
+      {
         "lessonId": "MATH-NS-FOUND-000A",
         "conceptId": "one_to_one_matching",
         "title": "Make a pair",
@@ -464,6 +530,72 @@
             "6"
           ],
           "answer": "6"
+        }
+      },
+      {
+        "lessonId": "MATH-NS-FOUND-000B",
+        "conceptId": "counting",
+        "title": "Cuenta del 11 al 15",
+        "learningGoal": "Cuenta grupos del 11 al 15, punto por punto.",
+        "memoryHook": {
+          "title": "Sigue contando después de diez.",
+          "hook": "Diez, luego sigue.",
+          "body": "Cuenta los primeros diez. Sigue contando cada punto extra una vez."
+        },
+        "independent": {
+          "prompt": "¿Cuántos puntos hay?",
+          "answer": "14"
+        },
+        "recall": {
+          "prompt": "Cuentas cada punto. ¿Qué indica el último número?",
+          "choices": [
+            "Cuántos puntos hay",
+            "El color de los puntos",
+            "Dónde están los puntos"
+          ],
+          "answer": "Cuántos puntos hay"
+        },
+        "transfer": {
+          "prompt": "¿Cuántos puntos hay?",
+          "choices": [
+            "13",
+            "15",
+            "14"
+          ],
+          "answer": "15"
+        }
+      },
+      {
+        "lessonId": "MATH-NS-FOUND-000C",
+        "conceptId": "counting",
+        "title": "Cuenta del 16 al 20",
+        "learningGoal": "Cuenta grupos del 16 al 20, punto por punto.",
+        "memoryHook": {
+          "title": "Sigue contando después de diez.",
+          "hook": "Diez, luego sigue.",
+          "body": "Cuenta los primeros diez. Sigue contando cada punto extra una vez."
+        },
+        "independent": {
+          "prompt": "¿Cuántos puntos hay?",
+          "answer": "19"
+        },
+        "recall": {
+          "prompt": "Cuentas cada punto. ¿Qué indica el último número?",
+          "choices": [
+            "Cuántos puntos hay",
+            "El color de los puntos",
+            "Dónde están los puntos"
+          ],
+          "answer": "Cuántos puntos hay"
+        },
+        "transfer": {
+          "prompt": "¿Cuántos puntos hay?",
+          "choices": [
+            "18",
+            "20",
+            "19"
+          ],
+          "answer": "20"
         }
       },
       {

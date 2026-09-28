@@ -8,11 +8,12 @@ const lessons=Array.from({length:12},(_,i)=>{
   return JSON.parse(fs.readFileSync(new URL(`../curriculum/lessons/lesson${id}.json`,import.meta.url)));
 });
 const pairLesson=JSON.parse(fs.readFileSync(new URL("../curriculum/lessons/lesson000a.json",import.meta.url)));
+const countingContinuations=["b","c"].map(suffix=>JSON.parse(fs.readFileSync(new URL(`../curriculum/lessons/lesson000${suffix}.json`,import.meta.url))));
 const picker=fs.readFileSync(new URL("../apps/learner/index.html",import.meta.url),"utf8");
 
 test("the lesson picker identifies the concept actually taught by each option",()=>{
   const options=[...picker.matchAll(/<option[^>]+data-concept="([^"]+)"/g)].map(match=>match[1]);
-  assert.deepEqual(options,[lessons[0].concepts.primary_concept,pairLesson.concepts.primary_concept,...lessons.slice(1).map(lesson=>lesson.concepts.primary_concept)]);
+  assert.deepEqual(options,[lessons[0].concepts.primary_concept,...countingContinuations.map(lesson=>lesson.concepts.primary_concept),pairLesson.concepts.primary_concept,...lessons.slice(1).map(lesson=>lesson.concepts.primary_concept)]);
   assert.match(picker,/data-en="Comparison 1 — How many more\?"/);
   assert.match(picker,/data-es="Comparación 1 — ¿Cuántos más\?"/);
 });
@@ -27,6 +28,9 @@ test("next-lesson shortcuts stop at topic boundaries",()=>{
   }
   assert.equal(continuesConceptSequence(lessons[0],pairLesson),false);
   assert.equal(continuesConceptSequence(pairLesson,lessons[1]),false);
-  assert.equal(nextConceptId(lessons[0]),null);
+  assert.equal(nextConceptId(lessons[0]),"counting");
+  assert.equal(continuesConceptSequence(lessons[0],countingContinuations[0]),true);
+  assert.equal(continuesConceptSequence(countingContinuations[0],countingContinuations[1]),true);
+  assert.equal(continuesConceptSequence(countingContinuations[1],pairLesson),false);
   assert.equal(nextConceptId(pairLesson),null);
 });

@@ -1,10 +1,14 @@
 {
   "schemaVersion": 1,
   "generator": "tools/build/generate_memory_assets.mjs",
-  "sourceDigest": "8ce1bf4a1a07f66d613bdc5180756efe54ce2ace31feeb616a27538aeb07cdb0",
+  "sourceDigest": "0e1684c15fabe5527eb3d409604f759a423cbf7dad5d619c3ba0450f3deb1e75",
   "sources": [
     "curriculum/lessons/lesson000.json",
     "curriculum/translations/es/lesson000.json",
+    "curriculum/lessons/lesson000b.json",
+    "curriculum/translations/es/lesson000b.json",
+    "curriculum/lessons/lesson000c.json",
+    "curriculum/translations/es/lesson000c.json",
     "curriculum/lessons/lesson000a.json",
     "curriculum/translations/es/lesson000a.json",
     "curriculum/lessons/lesson001.json",
@@ -32,6 +36,8 @@
   ],
   "lessonIds": [
     "MATH-NS-FOUND-0000",
+    "MATH-NS-FOUND-000B",
+    "MATH-NS-FOUND-000C",
     "MATH-NS-FOUND-000A",
     "MATH-NS-COMP-0001",
     "MATH-NS-COMP-0002",
@@ -47,12 +53,12 @@
   ],
   "outputs": {
     "index.html": "f3ff939071a198c73042c02850144a9f0f3b936861b61ff1bd1ebe9346231c08",
-    "memory-assets.json": "5c435ff5c0bfc72859e5baa4e41e529dea2cc1214c1fc0813d336814a8a7be22",
-    "en/flashcards.html": "8f9d91ac885dbc4e274df5da99fc3c071ac0f6dd265e7325303935ce3312849a",
-    "en/worksheet.html": "e2337861571d85d9e458114adf9ed0e8bc75921d750f7ee9df82223e42db7fd5",
-    "en/quiz.html": "a9c8a3862f5e793ae6b402ea89054529591efa64f1f97c65a23a1fb5e8c986df",
-    "es/flashcards.html": "58653e0de9c1868a16f1b67122b7c4904bc5996d9a991583f1b9c1580647f02c",
-    "es/worksheet.html": "830e1dcdf36522bd14b00d55fa955b8b8c442700b7f8ed2ebf71c589743580c4",
-    "es/quiz.html": "71afb3f2a2b176f713e8973a762b67feca32ec69afc46cee4d1e969feccce160"
+    "memory-assets.json": "67dc9acd9f4bbb41369ff9acfe9025564bdaa22a7dea2dba856e0b2660ea7b08",
+    "en/flashcards.html": "e9333e6f2cff77926a0857e77f19e2b9ed59cef650c827c5b3869efae6f65acb",
+    "en/worksheet.html": "15039c76219b8bfe2d8d9c132f87bd42126203feb94c690f56f3f8512f3d936f",
+    "en/quiz.html": "f514de7aa44793043e9e5179efe647d98b063466f33ac9e881d0342f1c4fb15d",
+    "es/flashcards.html": "6de0d6480e8458f9d144f98d5138dbd9a34a6cccc8ecea7a941b02fb9cdee713",
+    "es/worksheet.html": "ea0fab362476620d4d3e921a22791dedc8bfd33af4406402894486a552657917",
+    "es/quiz.html": "996d61d4471ab61c767fca21434d3b4ffe9ffa218fc5e464f41882be3bcd1f47"
   }
 }

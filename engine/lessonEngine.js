@@ -78,7 +78,7 @@ function audioButton(screen){
   return `<button class="btn listenBtn" type="button" id="listenBtn" aria-pressed="false">🔊 ${label}</button>`;
 }
 function base(screen){ const progress=pct(); return `<div class="screenTools"><span class="badge">${screen.label || screen.stage || copy().lesson}</span>${audioButton(screen)}</div><div class="progress" role="progressbar" aria-label="${copy().progressBar}" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${progress}"><span style="width:${progress}%"></span></div><h1 id="screenTitle">${screen.title}</h1>`; }
-const NUMBER_WORDS={en:["zero","one","two","three","four","five","six","seven","eight","nine","ten"],es:["cero","uno","dos","tres","cuatro","cinco","seis","siete","ocho","nueve","diez"]};
+const NUMBER_WORDS={en:["zero","one","two","three","four","five","six","seven","eight","nine","ten","eleven","twelve","thirteen","fourteen","fifteen","sixteen","seventeen","eighteen","nineteen","twenty"],es:["cero","uno","dos","tres","cuatro","cinco","seis","siete","ocho","nueve","diez","once","doce","trece","catorce","quince","dieciséis","diecisiete","dieciocho","diecinueve","veinte"]};
 let screenUtterance=null;
 function screenSpeechText(screen){
   if(numberOnlyAudio() && isNumberModel(screen)) return NUMBER_WORDS[language][screen.visual.count];
@@ -164,10 +164,10 @@ function buildCount(state,limit){
   return Number.isInteger(state.builtCount)?Math.min(limit,Math.max(0,state.builtCount)):0;
 }
 function renderBuildGroup(screen){
-  const state=currentState(), limit=10, count=buildCount(state,limit);
+  const state=currentState(), limit=screen.targetCount>10?20:10, count=buildCount(state,limit);
   state.builtCount=count;
   const finished=state.submittedCorrect===true;
-  const visual={kind:"countingDots",count,grouped:true,ariaLabel:`${copy().groupCount}: ${count}`,message:`${copy().groupCount}: ${count}`};
+  const visual={kind:"countingDots",count,grouped:true,layout:screen.targetCount>10?"tenRows":undefined,firstLabel:language==="es"?"Primeros diez":"First ten",moreLabel:language==="es"?"Más puntos":"More dots",ariaLabel:`${copy().groupCount}: ${count}`,message:`${copy().groupCount}: ${count}`};
   root.innerHTML=base(screen)+renderConceptVisual(visual,screen.title)+
     `<div class="toolbar"><button class="btn secondary" type="button" id="removeDot" ${count===0||finished?"disabled":""}>${copy().removeDot}</button><button class="btn secondary" type="button" id="addDot" ${count===limit||finished?"disabled":""}>${copy().addDot}</button></div>`+
     `<div class="toolbar"><button class="btn secondary" type="button" id="hintBtn" ${finished?"disabled":""}>${copy().hint}</button><button class="btn primary" type="button" id="checkGroup">${finished?copy().continue:copy().checkGroup}</button></div>`+
@@ -194,7 +194,8 @@ function renderBuildGroup(screen){
 function changeBuildGroup(delta){
   const screen=current(),state=currentState();
   if(state.submittedCorrect) return;
-  const count=buildCount(state,10),nextCount=Math.min(10,Math.max(0,count+delta));
+  const limit=screen.targetCount>10?20:10;
+  const count=buildCount(state,limit),nextCount=Math.min(limit,Math.max(0,count+delta));
   if(count===nextCount) return;
   state.builtCount=nextCount;state.feedback=null;persist();emit("build_group",{count:nextCount});
   renderBuildGroup(screen);

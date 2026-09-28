@@ -1,0 +1,478 @@
+{
+  "schema_version": "3.0",
+  "metadata": {
+    "id": "MATH-NS-FOUND-000B",
+    "title": "Count 11 through 15",
+    "domain": "Mathematics",
+    "subject": "Arithmetic",
+    "course": "Number Sense",
+    "unit": "Counting",
+    "contentRevision": 1,
+    "audioStrategy": "number_words_only"
+  },
+  "learning": {
+    "learning_goal": "Count groups from 11 through 15, one dot at a time.",
+    "big_idea": "The last number counted tells how many dots are in the group.",
+    "assumed_prior_knowledge": [
+      "Count groups through ten."
+    ],
+    "novice_success_criteria": [
+      "connect 11 through 15 with spoken names and groups of dots",
+      "count each dot once in a different arrangement",
+      "make 12 dots without answer choices"
+    ]
+  },
+  "concepts": {
+    "primary_concept": "counting",
+    "supporting_concepts": [
+      "counting",
+      "cardinality"
+    ]
+  },
+  "screens": [
+    {
+      "id": "intro",
+      "type": "intro",
+      "label": "Start here",
+      "title": "Meet 11 through 15.",
+      "body": "Start with ten dots. Count the extra dots.",
+      "audio": "We will count from eleven to fifteen."
+    },
+    {
+      "id": "number-11",
+      "type": "observe",
+      "label": "Number 11",
+      "title": "11 — eleven",
+      "audio": "This is eleven. Tap the dots to hear them in order.",
+      "visual": {
+        "kind": "countingDots",
+        "count": 11,
+        "layout": "tenRows",
+        "numbered": true,
+        "interactive": true,
+        "firstLabel": "First ten",
+        "moreLabel": "More dots",
+        "ariaLabel": "11 blue dots. First ten, then 1 more.",
+        "message": "Ten and 1 more dots."
+      },
+      "nextLabel": "Your turn"
+    },
+    {
+      "id": "count-11",
+      "type": "count",
+      "title": "How many dots?",
+      "audio": "Count every dot once. Choose the number.",
+      "visual": {
+        "kind": "countingDots",
+        "count": 11,
+        "layout": "tenRows",
+        "numbered": false,
+        "interactive": false,
+        "firstLabel": "First ten",
+        "moreLabel": "More dots",
+        "ariaLabel": "11 blue dots. First ten, then 1 more.",
+        "message": "Ten and 1 more dots."
+      },
+      "choices": [
+        {
+          "text": "10",
+          "correct": false,
+          "feedback": "Count the first ten. Then count the dots below.",
+          "misconception": "object_instead_of_relationship"
+        },
+        {
+          "text": "11",
+          "correct": true,
+          "feedback": "Yes. Ten and 1 more make 11."
+        },
+        {
+          "text": "9",
+          "correct": false,
+          "feedback": "Count the first ten. Then count the dots below.",
+          "misconception": "object_instead_of_relationship"
+        }
+      ],
+      "hints": [
+        "Count the first ten. Then count the dots below.",
+        "Count on from ten to eleven."
+      ],
+      "revision": 1
+    },
+    {
+      "id": "number-12",
+      "type": "observe",
+      "label": "Number 12",
+      "title": "12 — twelve",
+      "audio": "This is twelve. Tap the dots to hear them in order.",
+      "visual": {
+        "kind": "countingDots",
+        "count": 12,
+        "layout": "tenRows",
+        "numbered": true,
+        "interactive": true,
+        "firstLabel": "First ten",
+        "moreLabel": "More dots",
+        "ariaLabel": "12 blue dots. First ten, then 2 more.",
+        "message": "Ten and 2 more dots."
+      },
+      "nextLabel": "Your turn"
+    },
+    {
+      "id": "count-12",
+      "type": "count",
+      "title": "How many dots?",
+      "audio": "Count every dot once. Choose the number.",
+      "visual": {
+        "kind": "countingDots",
+        "count": 12,
+        "layout": "tenRows",
+        "numbered": false,
+        "interactive": false,
+        "firstLabel": "First ten",
+        "moreLabel": "More dots",
+        "ariaLabel": "12 blue dots. First ten, then 2 more.",
+        "message": "Ten and 2 more dots."
+      },
+      "choices": [
+        {
+          "text": "11",
+          "correct": false,
+          "feedback": "Count the first ten. Then count the dots below.",
+          "misconception": "object_instead_of_relationship"
+        },
+        {
+          "text": "12",
+          "correct": true,
+          "feedback": "Yes. Ten and 2 more make 12."
+        },
+        {
+          "text": "10",
+          "correct": false,
+          "feedback": "Count the first ten. Then count the dots below.",
+          "misconception": "object_instead_of_relationship"
+        }
+      ],
+      "hints": [
+        "Count the first ten. Then count the dots below.",
+        "Count on from ten to twelve."
+      ],
+      "revision": 1
+    },
+    {
+      "id": "make-12",
+      "type": "buildGroup",
+      "label": "Make a group",
+      "title": "Make 12 dots.",
+      "audio": "Tap Add a dot until you have twelve dots. Check your dots.",
+      "targetCount": 12,
+      "correctFeedback": "You made twelve dots.",
+      "wrongFeedback": "Count again. Add or remove a dot.",
+      "hints": [
+        "Count each dot once.",
+        "Stop at twelve."
+      ],
+      "revision": 1
+    },
+    {
+      "id": "number-13",
+      "type": "observe",
+      "label": "Number 13",
+      "title": "13 — thirteen",
+      "audio": "This is thirteen. Tap the dots to hear them in order.",
+      "visual": {
+        "kind": "countingDots",
+        "count": 13,
+        "layout": "tenRows",
+        "numbered": true,
+        "interactive": true,
+        "firstLabel": "First ten",
+        "moreLabel": "More dots",
+        "ariaLabel": "13 blue dots. First ten, then 3 more.",
+        "message": "Ten and 3 more dots."
+      },
+      "nextLabel": "Your turn"
+    },
+    {
+      "id": "count-13",
+      "type": "count",
+      "title": "How many dots?",
+      "audio": "Count every dot once. Choose the number.",
+      "visual": {
+        "kind": "countingDots",
+        "count": 13,
+        "layout": "tenRows",
+        "numbered": false,
+        "interactive": false,
+        "firstLabel": "First ten",
+        "moreLabel": "More dots",
+        "ariaLabel": "13 blue dots. First ten, then 3 more.",
+        "message": "Ten and 3 more dots."
+      },
+      "choices": [
+        {
+          "text": "12",
+          "correct": false,
+          "feedback": "Count the first ten. Then count the dots below.",
+          "misconception": "object_instead_of_relationship"
+        },
+        {
+          "text": "13",
+          "correct": true,
+          "feedback": "Yes. Ten and 3 more make 13."
+        },
+        {
+          "text": "11",
+          "correct": false,
+          "feedback": "Count the first ten. Then count the dots below.",
+          "misconception": "object_instead_of_relationship"
+        }
+      ],
+      "hints": [
+        "Count the first ten. Then count the dots below.",
+        "Count on from ten to thirteen."
+      ],
+      "revision": 1
+    },
+    {
+      "id": "number-14",
+      "type": "observe",
+      "label": "Number 14",
+      "title": "14 — fourteen",
+      "audio": "This is fourteen. Tap the dots to hear them in order.",
+      "visual": {
+        "kind": "countingDots",
+        "count": 14,
+        "layout": "tenRows",
+        "numbered": true,
+        "interactive": true,
+        "firstLabel": "First ten",
+        "moreLabel": "More dots",
+        "ariaLabel": "14 blue dots. First ten, then 4 more.",
+        "message": "Ten and 4 more dots."
+      },
+      "nextLabel": "Your turn"
+    },
+    {
+      "id": "count-14",
+      "type": "count",
+      "title": "How many dots?",
+      "audio": "Count every dot once. Choose the number.",
+      "visual": {
+        "kind": "countingDots",
+        "count": 14,
+        "layout": "tenRows",
+        "numbered": false,
+        "interactive": false,
+        "firstLabel": "First ten",
+        "moreLabel": "More dots",
+        "ariaLabel": "14 blue dots. First ten, then 4 more.",
+        "message": "Ten and 4 more dots."
+      },
+      "choices": [
+        {
+          "text": "13",
+          "correct": false,
+          "feedback": "Count the first ten. Then count the dots below.",
+          "misconception": "object_instead_of_relationship"
+        },
+        {
+          "text": "14",
+          "correct": true,
+          "feedback": "Yes. Ten and 4 more make 14."
+        },
+        {
+          "text": "12",
+          "correct": false,
+          "feedback": "Count the first ten. Then count the dots below.",
+          "misconception": "object_instead_of_relationship"
+        }
+      ],
+      "hints": [
+        "Count the first ten. Then count the dots below.",
+        "Count on from ten to fourteen."
+      ],
+      "revision": 1
+    },
+    {
+      "id": "number-15",
+      "type": "observe",
+      "label": "Number 15",
+      "title": "15 — fifteen",
+      "audio": "This is fifteen. Tap the dots to hear them in order.",
+      "visual": {
+        "kind": "countingDots",
+        "count": 15,
+        "layout": "tenRows",
+        "numbered": true,
+        "interactive": true,
+        "firstLabel": "First ten",
+        "moreLabel": "More dots",
+        "ariaLabel": "15 blue dots. First ten, then 5 more.",
+        "message": "Ten and 5 more dots."
+      },
+      "nextLabel": "Your turn"
+    },
+    {
+      "id": "count-15",
+      "type": "count",
+      "title": "How many dots?",
+      "audio": "Count every dot once. Choose the number.",
+      "visual": {
+        "kind": "countingDots",
+        "count": 15,
+        "layout": "tenRows",
+        "numbered": false,
+        "interactive": false,
+        "firstLabel": "First ten",
+        "moreLabel": "More dots",
+        "ariaLabel": "15 blue dots. First ten, then 5 more.",
+        "message": "Ten and 5 more dots."
+      },
+      "choices": [
+        {
+          "text": "14",
+          "correct": false,
+          "feedback": "Count the first ten. Then count the dots below.",
+          "misconception": "object_instead_of_relationship"
+        },
+        {
+          "text": "15",
+          "correct": true,
+          "feedback": "Yes. Ten and 5 more make 15."
+        },
+        {
+          "text": "13",
+          "correct": false,
+          "feedback": "Count the first ten. Then count the dots below.",
+          "misconception": "object_instead_of_relationship"
+        }
+      ],
+      "hints": [
+        "Count the first ten. Then count the dots below.",
+        "Count on from ten to fifteen."
+      ],
+      "revision": 1
+    },
+    {
+      "id": "memory-hook",
+      "type": "memoryHook",
+      "title": "Keep counting after ten.",
+      "hook": "Ten, then count on.",
+      "body": "Count the first ten. Keep counting each extra dot once.",
+      "audio": "Ten, then count on."
+    },
+    {
+      "id": "independent",
+      "type": "independentPractice",
+      "title": "Count a new shape.",
+      "audio": "Count the dots. Choose the total.",
+      "visual": {
+        "kind": "countingDots",
+        "count": 14,
+        "layout": "scattered",
+        "grouped": true,
+        "ariaLabel": "14 blue dots in a new arrangement.",
+        "message": "How many dots?"
+      },
+      "choices": [
+        {
+          "text": "13",
+          "correct": false,
+          "feedback": "Try again. Count each dot once.",
+          "misconception": "object_instead_of_relationship"
+        },
+        {
+          "text": "15",
+          "correct": false,
+          "feedback": "Try again. Count each dot once.",
+          "misconception": "object_instead_of_relationship"
+        },
+        {
+          "text": "14",
+          "correct": true,
+          "feedback": "Yes. You counted every dot."
+        }
+      ],
+      "hints": [
+        "Start at one side. Count each dot once.",
+        "Count on until you reach fourteen."
+      ],
+      "revision": 1
+    },
+    {
+      "id": "recall",
+      "type": "recall",
+      "title": "What does the last number mean?",
+      "prompt": "You count each dot. What does the last number tell you?",
+      "audio": "What does the last number tell you?",
+      "choices": [
+        {
+          "text": "How many dots there are",
+          "correct": true,
+          "feedback": "Yes. It tells the total."
+        },
+        {
+          "text": "The color of the dots",
+          "correct": false,
+          "misconception": "object_instead_of_relationship"
+        },
+        {
+          "text": "Where the dots are",
+          "correct": false,
+          "misconception": "object_instead_of_relationship"
+        }
+      ],
+      "hints": [
+        "Think of the whole group.",
+        "The last number is the total."
+      ],
+      "revision": 1
+    },
+    {
+      "id": "transfer",
+      "type": "transfer",
+      "title": "Count without number labels.",
+      "audio": "Count all the dots. Choose the number.",
+      "visual": {
+        "kind": "countingDots",
+        "count": 15,
+        "layout": "scattered",
+        "grouped": true,
+        "ariaLabel": "15 blue dots spread out.",
+        "message": "How many dots?"
+      },
+      "choices": [
+        {
+          "text": "13",
+          "correct": false,
+          "feedback": "Count again. Check every dot.",
+          "misconception": "object_instead_of_relationship"
+        },
+        {
+          "text": "15",
+          "correct": true,
+          "feedback": "Yes. Count each dot once."
+        },
+        {
+          "text": "14",
+          "correct": false,
+          "feedback": "Count again. Check every dot.",
+          "misconception": "object_instead_of_relationship"
+        }
+      ],
+      "hints": [
+        "Start at the top left. Count each dot once.",
+        "Keep going until fifteen."
+      ],
+      "revision": 1
+    },
+    {
+      "id": "complete",
+      "type": "complete",
+      "title": "You counted through 15.",
+      "body": "Keep practicing these numbers in different shapes.",
+      "audio": "You finished counting through fifteen.",
+      "nextRecommendation": "Next: count 16 through 20."
+    }
+  ]
+}

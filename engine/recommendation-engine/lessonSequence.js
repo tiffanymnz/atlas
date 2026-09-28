@@ -3,6 +3,7 @@
 // promote a learner to the next category. The picker supports independent
 // review and test access.
 const NEXT=new Map([
+  ["counting","counting"],
   ["comparison.more","comparison.fewer"],
   ["comparison.fewer","difference"],
   ["difference","compare_unknown"],
