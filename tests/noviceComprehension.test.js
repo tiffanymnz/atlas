@@ -40,6 +40,23 @@ test("zero is empty, and an unassisted transfer checks rearranged dots in both l
   assert.ok(spanish.screens.every(s=>s.audio),"pre-readers need both languages narrated");
 });
 
+test("learners construct groups after seeing the number, with bilingual audio and feedback",()=>{
+  const lesson=read("curriculum/lessons/lesson000.json");
+  const spanish=applyTranslation(lesson,read("curriculum/translations/es/lesson000.json"));
+  const model=lesson.screens.findIndex(s=>s.id==="make-four-model");
+  const first=lesson.screens.findIndex(s=>s.id==="make-four");
+  const second=lesson.screens.findIndex(s=>s.id==="make-seven");
+  assert.ok(model<first && first<second);
+  assert.deepEqual([lesson.screens[first].targetCount,lesson.screens[second].targetCount],[4,7]);
+  assert.ok(lesson.screens[first].choices===undefined,"the learner must make a group, not select an answer");
+  for(const id of ["make-four","make-seven"]){
+    const en=lesson.screens.find(s=>s.id===id),es=spanish.screens.find(s=>s.id===id);
+    assert.notEqual(en.audio,es.audio);
+    assert.notEqual(en.correctFeedback,es.correctFeedback);
+  }
+  assert.equal(lesson.screens.find(s=>s.id==="count-ten").visual.layout,"scattered");
+});
+
 test("counting model offers number audio plus full-screen read-aloud support",()=>{
   const lesson=read("curriculum/lessons/lesson000.json");
   assert.ok(lesson.screens.every(screen=>screen.audio),"every counting screen needs pre-reader narration");
