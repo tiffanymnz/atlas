@@ -7,7 +7,8 @@
     "subject": "Arithmetic",
     "course": "Number Sense",
     "unit": "Counting",
-    "contentRevision": 5
+    "contentRevision": 6,
+    "audioStrategy": "number_words_only"
   },
   "learning": {
     "learning_goal": "Hear, see, and connect each number from 0 through 10 to a group of objects.",
@@ -30,7 +31,7 @@
       "type": "intro",
       "label": "Start here",
       "title": "Meet the numbers 0 through 10.",
-      "body": "Tap Listen whenever you want the screen read aloud.",
+      "body": "Tap the dots. Listen to each number.",
       "audio": "We will learn the numbers zero through ten. You will see each number, hear its name, and count that many dots."
     },
     {
@@ -66,6 +67,20 @@
       "nextLabel": "Next number"
     },
     {
+      "id": "count-one",
+      "type": "count",
+      "title": "How many dots?",
+      "audio": "Count the dots. Choose the matching number.",
+      "visual": {"kind": "countingDots", "count": 1, "grouped": true, "ariaLabel": "One blue dot inside one box.", "message": "Choose the number."},
+      "choices": [
+        {"text": "0", "correct": false, "feedback": "Zero means there are no dots. This box has one dot.", "misconception": "object_instead_of_relationship"},
+        {"text": "1", "correct": true, "feedback": "There is one dot."},
+        {"text": "2", "correct": false, "feedback": "Two means there would be two dots. Count this dot once.", "misconception": "object_instead_of_relationship"}
+      ],
+      "hints": ["Look inside the box. Point to the dot once.", "One dot matches the number 1."],
+      "revision": 1
+    },
+    {
       "id": "number-2",
       "type": "observe",
       "label": "Number 2",
@@ -73,6 +88,20 @@
       "audio": "This is two. Two dots. Tap the dots in order: one, two.",
       "visual": {"kind": "countingDots", "count": 2, "numbered": true, "interactive": true, "ariaLabel": "Two blue dots labeled 1 and 2.", "message": "2 dots"},
       "nextLabel": "Next number"
+    },
+    {
+      "id": "count-two",
+      "type": "count",
+      "title": "How many dots?",
+      "audio": "Count the dots. Choose the matching number.",
+      "visual": {"kind": "countingDots", "count": 2, "grouped": true, "ariaLabel": "Two blue dots inside one box.", "message": "Choose the number."},
+      "choices": [
+        {"text": "1", "correct": false, "feedback": "Look at both dots. Count each one once.", "misconception": "object_instead_of_relationship"},
+        {"text": "3", "correct": false, "feedback": "Three means there would be one more dot. Count again.", "misconception": "object_instead_of_relationship"},
+        {"text": "2", "correct": true, "feedback": "There are two dots."}
+      ],
+      "hints": ["Start with the dot on the left. Then count the dot on the right.", "Count again: one, two."],
+      "revision": 1
     },
     {
       "id": "count-model",
@@ -180,7 +209,21 @@
       "title": "6 — six",
       "audio": "This is six. Six dots. Tap the dots in order from one through six.",
       "visual": {"kind": "countingDots", "count": 6, "numbered": true, "interactive": true, "ariaLabel": "Six blue dots labeled 1 through 6.", "message": "6 dots"},
-      "nextLabel": "Next number"
+      "nextLabel": "Try six"
+    },
+    {
+      "id": "count-six",
+      "type": "count",
+      "title": "How many dots?",
+      "audio": "Count the dots. Choose the matching number.",
+      "visual": {"kind": "countingDots", "count": 6, "grouped": true, "ariaLabel": "Six blue dots inside one box.", "message": "Choose the number."},
+      "choices": [
+        {"text": "5", "correct": false, "feedback": "Look for a dot you may have missed. Count each dot once.", "misconception": "object_instead_of_relationship"},
+        {"text": "6", "correct": true, "feedback": "There are six dots."},
+        {"text": "7", "correct": false, "feedback": "Check that you did not count one dot twice.", "misconception": "object_instead_of_relationship"}
+      ],
+      "hints": ["Start on the left. Point to each dot once.", "Count again: one, two, three, four, five, six."],
+      "revision": 1
     },
     {
       "id": "number-7",
@@ -189,7 +232,21 @@
       "title": "7 — seven",
       "audio": "This is seven. Seven dots. Tap the dots in order from one through seven.",
       "visual": {"kind": "countingDots", "count": 7, "numbered": true, "interactive": true, "ariaLabel": "Seven blue dots labeled 1 through 7.", "message": "7 dots"},
-      "nextLabel": "Next number"
+      "nextLabel": "Try seven"
+    },
+    {
+      "id": "count-seven",
+      "type": "count",
+      "title": "How many dots?",
+      "audio": "Count the dots. Choose the matching number.",
+      "visual": {"kind": "countingDots", "count": 7, "grouped": true, "ariaLabel": "Seven blue dots inside one box.", "message": "Choose the number."},
+      "choices": [
+        {"text": "8", "correct": false, "feedback": "Check that you did not count one dot twice.", "misconception": "object_instead_of_relationship"},
+        {"text": "6", "correct": false, "feedback": "Look for a dot you may have missed. Count each dot once.", "misconception": "object_instead_of_relationship"},
+        {"text": "7", "correct": true, "feedback": "There are seven dots."}
+      ],
+      "hints": ["Start on the left. Point to each dot once.", "Count again from one through seven."],
+      "revision": 1
     },
     {
       "id": "number-8",
@@ -198,7 +255,21 @@
       "title": "8 — eight",
       "audio": "This is eight. Eight dots. Tap the dots in order from one through eight.",
       "visual": {"kind": "countingDots", "count": 8, "numbered": true, "interactive": true, "ariaLabel": "Eight blue dots labeled 1 through 8.", "message": "8 dots"},
-      "nextLabel": "Next number"
+      "nextLabel": "Try eight"
+    },
+    {
+      "id": "count-eight",
+      "type": "count",
+      "title": "How many dots?",
+      "audio": "Count the dots. Choose the matching number.",
+      "visual": {"kind": "countingDots", "count": 8, "grouped": true, "ariaLabel": "Eight blue dots inside one box.", "message": "Choose the number."},
+      "choices": [
+        {"text": "7", "correct": false, "feedback": "Look for a dot you may have missed. Count each dot once.", "misconception": "object_instead_of_relationship"},
+        {"text": "8", "correct": true, "feedback": "There are eight dots."},
+        {"text": "9", "correct": false, "feedback": "Check that you did not count one dot twice.", "misconception": "object_instead_of_relationship"}
+      ],
+      "hints": ["Start on the left. Point to each dot once.", "Count again from one through eight."],
+      "revision": 1
     },
     {
       "id": "number-9",
@@ -207,7 +278,21 @@
       "title": "9 — nine",
       "audio": "This is nine. Nine dots. Tap the dots in order from one through nine.",
       "visual": {"kind": "countingDots", "count": 9, "numbered": true, "interactive": true, "ariaLabel": "Nine blue dots labeled 1 through 9.", "message": "9 dots"},
-      "nextLabel": "Next number"
+      "nextLabel": "Try nine"
+    },
+    {
+      "id": "count-nine",
+      "type": "count",
+      "title": "How many dots?",
+      "audio": "Count the dots. Choose the matching number.",
+      "visual": {"kind": "countingDots", "count": 9, "grouped": true, "ariaLabel": "Nine blue dots inside one box.", "message": "Choose the number."},
+      "choices": [
+        {"text": "10", "correct": false, "feedback": "Check that you did not count one dot twice.", "misconception": "object_instead_of_relationship"},
+        {"text": "8", "correct": false, "feedback": "Look for a dot you may have missed. Count each dot once.", "misconception": "object_instead_of_relationship"},
+        {"text": "9", "correct": true, "feedback": "There are nine dots."}
+      ],
+      "hints": ["Start on the left. Point to each dot once.", "Count again from one through nine."],
+      "revision": 1
     },
     {
       "id": "count-ten-model",
