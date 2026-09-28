@@ -7,7 +7,7 @@
     "subject": "Arithmetic",
     "course": "Number Sense",
     "unit": "Counting",
-    "contentRevision": 4
+    "contentRevision": 5
   },
   "learning": {
     "learning_goal": "Hear, see, and connect each number from 0 through 10 to a group of objects.",
@@ -16,7 +16,8 @@
     "novice_success_criteria": [
       "say or identify the number words from zero through ten",
       "connect each numeral from 0 through 10 to its spoken name and quantity",
-      "count a group to ten by counting each object once, even when the objects move"
+      "count a group to ten by counting each object once, even when the objects move",
+      "make a requested group of dots without choosing from answer options"
     ]
   },
   "concepts": {
@@ -129,6 +130,27 @@
       "revision": 3
     },
     {
+      "id": "make-four-model",
+      "type": "observe",
+      "label": "Make a group",
+      "title": "Make four dots.",
+      "audio": "Here is a group of four dots. To make your own, start with an empty box. Add dots, one at a time. Stop when you have four.",
+      "visual": {"kind": "countingDots", "count": 4, "grouped": true, "ariaLabel": "A box containing four dots.", "message": "Four dots in one box."},
+      "nextLabel": "Make your own"
+    },
+    {
+      "id": "make-four",
+      "type": "buildGroup",
+      "label": "Your turn",
+      "title": "Make 4 dots.",
+      "audio": "Start with an empty box. Tap Add a dot until you have four dots. You can remove a dot. Then tap Check my dots.",
+      "targetCount": 4,
+      "correctFeedback": "You made four dots.",
+      "wrongFeedback": "Count the dots in your box. Add or remove a dot, then check again.",
+      "hints": ["Tap Add a dot to put a dot in the box.", "Point to each dot and count: one, two, three, four. Stop at four."],
+      "revision": 1
+    },
+    {
       "id": "count-five-model",
       "type": "observe",
       "label": "Number 5",
@@ -205,6 +227,18 @@
       "audio": "Count each dot once. The last number is the total. Total means the number of dots in the whole group."
     },
     {
+      "id": "make-seven",
+      "type": "buildGroup",
+      "label": "Make a group",
+      "title": "Make 7 dots.",
+      "audio": "Make a new group of seven dots. Tap Add a dot to put dots in the box. Check your group when you are ready.",
+      "targetCount": 7,
+      "correctFeedback": "You made seven dots.",
+      "wrongFeedback": "Count the dots in your box. Add or remove a dot, then check again.",
+      "hints": ["Point to every dot once. Say its number as you point.", "Keep adding or removing until your count ends at seven."],
+      "revision": 1
+    },
+    {
       "id": "rearranged-model",
       "type": "observe",
       "label": "New shape",
@@ -232,14 +266,14 @@
       "type": "independentPractice",
       "title": "Count this group.",
       "audio": "Count the dots in the box. Choose the number that matches the group.",
-      "visual": {"kind": "countingDots", "count": 10, "grouped": true, "ariaLabel": "Ten blue dots together inside one box.", "message": "Choose the number."},
+      "visual": {"kind": "countingDots", "count": 10, "layout": "scattered", "grouped": true, "ariaLabel": "Ten blue dots spread out inside one box.", "message": "Choose the number."},
       "choices": [
         {"text": "9", "correct": false, "feedback": "You may have missed a dot. Start on the left and count again.", "misconception": "object_instead_of_relationship"},
         {"text": "10", "correct": true, "feedback": "There are ten dots in this group."},
         {"text": "11", "correct": false, "feedback": "You may have counted a dot twice.", "misconception": "object_instead_of_relationship"}
       ],
       "hints": ["Start on the left. Count each dot once.", "Count slowly from one through ten."],
-      "revision": 3
+      "revision": 4
     },
     {
       "id": "recall",
