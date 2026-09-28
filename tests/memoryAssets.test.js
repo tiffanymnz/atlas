@@ -15,12 +15,12 @@ test("memory assets are deterministic, bilingual, and traceable",async()=>{
     "index.html","manifest.json","memory-assets.json"
   ]);
   const data=JSON.parse(first["memory-assets.json"]);
-  assert.equal(data.locales.en.length,13);
-  assert.equal(data.locales.es.length,13);
+  assert.equal(data.locales.en.length,15);
+  assert.equal(data.locales.es.length,15);
   assert.notEqual(data.locales.en[0].title,data.locales.es[0].title);
   for(const locale of ["en","es"]){
     for(const lesson of data.locales[locale]){
-      assert.match(lesson.lessonId,/^MATH-(?:NS-FOUND-000(?:0|A)|NS-COMP-000[1-4]|NS-DIV-0005|NS-FRAC-0006|NS-PCT-0007|GEO-AREA-0008|GEO-PERIM-0009|ALG-INEQ-001[01])$/);
+      assert.match(lesson.lessonId,/^MATH-(?:NS-FOUND-000(?:0|A|B|C)|NS-COMP-000[1-4]|NS-DIV-0005|NS-FRAC-0006|NS-PCT-0007|GEO-AREA-0008|GEO-PERIM-0009|ALG-INEQ-001[01])$/);
       assert.ok(lesson.conceptId);
       assert.ok(lesson.memoryHook.hook);
       assert.ok(lesson.independent.answer);
@@ -29,8 +29,8 @@ test("memory assets are deterministic, bilingual, and traceable",async()=>{
     }
   }
   const manifest=JSON.parse(first["manifest.json"]);
-  assert.equal(manifest.sources.length,26);
-  assert.equal(manifest.lessonIds.length,13);
+  assert.equal(manifest.sources.length,30);
+  assert.equal(manifest.lessonIds.length,15);
   for(const [path,hash] of Object.entries(manifest.outputs)) assert.equal(hash,digest(first[path]));
 });
 

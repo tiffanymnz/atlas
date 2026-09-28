@@ -87,6 +87,27 @@ test("counting model speaks number words without using robotic full-screen narra
   assert.match(engine,/audioUnavailable/);
 });
 
+test("11 through 20 follow ten with immediate checks and stable mobile trays",()=>{
+  for(const [suffix,begin,end,build] of [["b",11,15,12],["c",16,20,18]]){
+    const lesson=read(`curriculum/lessons/lesson000${suffix}.json`);
+    const spanish=applyTranslation(lesson,read(`curriculum/translations/es/lesson000${suffix}.json`));
+    assert.equal(lesson.metadata.audioStrategy,"number_words_only");
+    assert.deepEqual(spanish.screens.map(screen=>screen.id),lesson.screens.map(screen=>screen.id));
+    for(let number=begin;number<=end;number++){
+      const index=lesson.screens.findIndex(screen=>screen.id===`number-${number}`);
+      assert.equal(lesson.screens[index]?.visual.count,number);
+      assert.equal(lesson.screens[index+1]?.id,`count-${number}`);
+      assert.equal(lesson.screens[index+1]?.choices.find(choice=>choice.correct).text,String(number));
+      assert.notEqual(spanish.screens[index].title,lesson.screens[index].title);
+    }
+    assert.equal(lesson.screens.find(screen=>screen.id===`make-${build}`).targetCount,build);
+    assert.equal(lesson.screens.find(screen=>screen.type==="independentPractice").visual.layout,"scattered");
+    assert.equal(lesson.screens.find(screen=>screen.type==="transfer").visual.layout,"scattered");
+    assert.match(renderCountingDots(lesson.screens[1].visual),/class="countingTens"/);
+    assert.equal((renderCountingDots(lesson.screens[1].visual).match(/class="countingDot countTap"/g)||[]).length,begin);
+  }
+});
+
 test("lesson001 moves from counting to formed pairs, difference language, and subtraction",()=>{
   const lesson=read("curriculum/lessons/lesson001.json");
   const screens=lesson.screens;
