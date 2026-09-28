@@ -185,6 +185,14 @@
       "hints": ["Empieza a la izquierda. Señala cada punto una vez.", "Cuenta de nuevo del uno al siete."]
     },
     {
+      "label": "Forma un grupo",
+      "title": "Forma 7 puntos.",
+      "audio": "Forma un grupo nuevo de siete puntos. Toca Agregar un punto para poner puntos en el recuadro. Comprueba el grupo cuando estés listo.",
+      "correctFeedback": "Formaste siete puntos.",
+      "wrongFeedback": "Cuenta los puntos en tu recuadro. Agrega o quita un punto y vuelve a comprobar.",
+      "hints": ["Señala cada punto una vez. Di su número al señalarlo.", "Agrega o quita puntos hasta que termines de contar en siete."]
+    },
+    {
       "label": "Número 8",
       "title": "8 — ocho",
       "audio": "Este es el ocho. Ocho puntos. Toca los puntos en orden del uno al ocho.",
@@ -228,18 +236,21 @@
       "nextLabel": "Intenta contar diez"
     },
     {
+      "title": "¿Cuántos puntos hay?",
+      "audio": "Cuenta los puntos. Elige el número que corresponde.",
+      "visual": {"ariaLabel": "Diez puntos azules dentro de un recuadro.", "message": "Elige el número."},
+      "choices": [
+        {"text": "9", "feedback": "Busca un punto que quizás no contaste. Cuenta cada punto una vez."},
+        {"text": "10", "feedback": "Hay diez puntos."},
+        {"text": "8", "feedback": "Cuenta cada punto una vez. Busca dos puntos que quizás no contaste."}
+      ],
+      "hints": ["Empieza a la izquierda. Señala cada punto una vez.", "Cuenta de nuevo del uno al diez."]
+    },
+    {
       "title": "El total es el grupo completo.",
       "hook": "Cuenta cada punto una vez.",
       "body": "El último número es el total. Total significa la cantidad de puntos en el grupo.",
       "audio": "Cuenta cada punto una vez. El último número es el total. Total significa la cantidad de puntos en todo el grupo."
-    },
-    {
-      "label": "Forma un grupo",
-      "title": "Forma 7 puntos.",
-      "audio": "Forma un grupo nuevo de siete puntos. Toca Agregar un punto para poner puntos en el recuadro. Comprueba el grupo cuando estés listo.",
-      "correctFeedback": "Formaste siete puntos.",
-      "wrongFeedback": "Cuenta los puntos en tu recuadro. Agrega o quita un punto y vuelve a comprobar.",
-      "hints": ["Señala cada punto una vez. Di su número al señalarlo.", "Agrega o quita puntos hasta que termines de contar en siete."]
     },
     {
       "label": "Otra forma",
