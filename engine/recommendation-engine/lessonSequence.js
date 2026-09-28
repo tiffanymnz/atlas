@@ -1,8 +1,8 @@
-// Only these adjacent lessons build directly on the preceding lesson's idea.
-// The picker remains available to start a different topic independently.
+// Next-lesson shortcuts stay within a taught category. The counting and
+// matching foundations are still incomplete, so they cannot automatically
+// promote a learner to the next category. The picker supports independent
+// review and test access.
 const NEXT=new Map([
-  ["counting","one_to_one_matching"],
-  ["one_to_one_matching","comparison.more"],
   ["comparison.more","comparison.fewer"],
   ["comparison.fewer","difference"],
   ["difference","compare_unknown"],
