@@ -18,12 +18,13 @@ export function renderComparisonBlocks(visual,label="Comparison model"){
   return `<div class="stage" role="img" aria-label="${visual?.ariaLabel || label}"><div class="comparisonRows">${row(top,false)}${row(bottom,true)}</div><div class="visualMsg">${msg}</div></div>`;
 }
 export function renderCountingDots(visual,label="Dots to count"){
-  const count=Math.min(10,Math.max(1,Number(visual?.count)||1));
+  const raw=Number(visual?.count);
+  const count=Math.min(20,Math.max(0,Number.isFinite(raw)?Math.trunc(raw):1));
   const interactive=!!visual?.interactive;
   const dots=Array.from({length:count},(_,i)=>interactive
     ? `<button class="countingDot countTap" type="button" data-count="${i+1}" aria-label="${i+1}"><i aria-hidden="true"></i><b>${i+1}</b></button>`
     : `<span class="countingDot" aria-hidden="true"><i></i>${visual?.numbered?`<b>${i+1}</b>`:""}</span>`).join("");
-  const group=visual?.grouped?" grouped":"";
+  const group=`${visual?.grouped?" grouped":""}${visual?.layout==="scattered"?" scattered":""}`;
   const output=interactive?`<div class="countSpeech" id="countSpeech" role="status" aria-live="polite"></div>`:"";
   return `<div class="stage countingStage" role="${interactive?"group":"img"}" aria-label="${visual?.ariaLabel||label}"><div class="countingRow${group}">${dots}</div>${output}<div class="visualMsg">${visual?.message||""}</div></div>`;
 }

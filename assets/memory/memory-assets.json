@@ -5,8 +5,8 @@
       {
         "lessonId": "MATH-NS-FOUND-0000",
         "conceptId": "counting",
-        "title": "Meet the numbers 1 through 10",
-        "learningGoal": "Hear, see, and connect each number from 1 through 10 to a group of objects.",
+        "title": "Meet the numbers 0 through 10",
+        "learningGoal": "Hear, see, and connect each number from 0 through 10 to a group of objects.",
         "memoryHook": {
           "title": "The total is the whole group.",
           "hook": "Count each dot once.",
@@ -436,8 +436,8 @@
       {
         "lessonId": "MATH-NS-FOUND-0000",
         "conceptId": "counting",
-        "title": "Conoce los números del 1 al 10",
-        "learningGoal": "Escucha, mira y relaciona cada número del 1 al 10 con un grupo de objetos.",
+        "title": "Conoce los números del 0 al 10",
+        "learningGoal": "Escucha, mira y relaciona cada número del 0 al 10 con un grupo de objetos.",
         "memoryHook": {
           "title": "El total es el grupo completo.",
           "hook": "Cuenta cada punto una vez.",

@@ -13,7 +13,7 @@ test("counting foundation establishes quantities and group before pairing",()=>{
   assert.equal(f.screens.find(s=>s.id==="count-ten").visual.count,10);
   assert.deepEqual(
     f.screens.filter(s=>s.type==="observe"&&/^number-\d+$/.test(s.id)||s.id==="count-model"||s.id==="count-four-model"||s.id==="count-five-model"||s.id==="count-ten-model").map(s=>s.visual.count),
-    [1,2,3,4,5,6,7,8,9,10]
+    [0,1,2,3,4,5,6,7,8,9,10]
   );
   assert.ok(f.screens.some(s=>s.visual?.interactive));
   assert.ok(f.screens.some(s=>s.visual?.grouped));
@@ -27,6 +27,17 @@ test("counting foundation establishes quantities and group before pairing",()=>{
   for(const screen of f.screens){
     assert.doesNotMatch(JSON.stringify(screen),/say one number|count outlines|touch each dot|tell how many|make pairs/i);
   }
+});
+
+test("zero is empty, and an unassisted transfer checks rearranged dots in both languages",()=>{
+  const lesson=read("curriculum/lessons/lesson000.json");
+  const spanish=applyTranslation(lesson,read("curriculum/translations/es/lesson000.json"));
+  assert.doesNotMatch(renderCountingDots(lesson.screens.find(s=>s.id==="number-0").visual),/class="countingDot/);
+  assert.equal(lesson.screens.find(s=>s.id==="count-zero").choices.find(c=>c.correct).text,"0");
+  assert.equal(lesson.screens.find(s=>s.id==="transfer").visual.layout,"scattered");
+  assert.equal(spanish.screens.find(s=>s.id==="transfer").visual.layout,"scattered");
+  assert.match(renderCountingDots(lesson.screens.find(s=>s.id==="transfer").visual),/countingRow grouped scattered/);
+  assert.ok(spanish.screens.every(s=>s.audio),"pre-readers need both languages narrated");
 });
 
 test("counting model offers number audio plus full-screen read-aloud support",()=>{

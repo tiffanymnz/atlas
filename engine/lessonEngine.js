@@ -1,4 +1,4 @@
-import { renderConceptVisual, renderChoiceScreen, localizeChoiceState, renderLanguage, renderEquation, renderComplete } from "../sdk/components/lessonComponents.js?v=2.6";
+import { renderConceptVisual, renderChoiceScreen, localizeChoiceState, renderLanguage, renderEquation, renderComplete } from "../sdk/components/lessonComponents.js?v=2.8";
 import { createAnalytics, showAnalytics } from "./analytics-engine/analyticsEngine.js";
 import { recommendNext } from "./recommendation-engine/recommendationEngine.js";
 import { assessNextLessonReadiness } from "./recommendation-engine/readiness.js";
