@@ -84,7 +84,7 @@ for path in sorted(lesson_dir.glob("*.json")):
     if data.get("schema_version") != "3.0": errors.append(f"{path.name}: schema_version must be 3.0")
     expected_types=required_types
     if path.name=="lesson000.json":
-        expected_types=["intro","observe","count","observe","observe","observe","count","observe","observe","guidedPractice","observe","buildGroup","observe","count","observe","observe","observe","observe","observe","memoryHook","buildGroup","observe","guidedPractice","independentPractice","recall","transfer","reflection","complete"]
+        expected_types=["intro","observe","count","observe","count","observe","count","observe","count","observe","observe","guidedPractice","observe","buildGroup","observe","count","observe","count","observe","count","observe","count","observe","count","observe","memoryHook","buildGroup","observe","guidedPractice","independentPractice","recall","transfer","reflection","complete"]
     if path.name=="lesson000a.json":
         expected_types=["intro","observe","observe","guidedPractice","observe","independentPractice","memoryHook","recall","transfer","complete"]
     if path.name=="lesson001.json":
