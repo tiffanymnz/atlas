@@ -15,7 +15,7 @@
     {
       "label": "Empieza aquí",
       "title": "Conoce los números del 0 al 10.",
-      "body": "Toca Escuchar cuando quieras oír la pantalla.",
+      "body": "Toca los puntos. Escucha cada número.",
       "audio": "Aprenderemos los números del cero al diez. Verás cada número, escucharás su nombre y contarás esa cantidad de puntos."
     },
     {
@@ -44,11 +44,33 @@
       "nextLabel": "Siguiente número"
     },
     {
+      "title": "¿Cuántos puntos hay?",
+      "audio": "Cuenta los puntos. Elige el número que corresponde.",
+      "visual": {"ariaLabel": "Un punto azul dentro de un recuadro.", "message": "Elige el número."},
+      "choices": [
+        {"text": "0", "feedback": "Cero significa que no hay puntos. Este recuadro tiene un punto."},
+        {"text": "1", "feedback": "Hay un punto."},
+        {"text": "2", "feedback": "Dos significa que habría dos puntos. Cuenta este punto una vez."}
+      ],
+      "hints": ["Mira dentro del recuadro. Señala el punto una vez.", "Un punto corresponde al número 1."]
+    },
+    {
       "label": "Número 2",
       "title": "2 — dos",
       "audio": "Este es el dos. Dos puntos. Toca los puntos en orden: uno, dos.",
       "visual": {"ariaLabel": "Dos puntos azules marcados con 1 y 2.", "message": "2 puntos"},
       "nextLabel": "Siguiente número"
+    },
+    {
+      "title": "¿Cuántos puntos hay?",
+      "audio": "Cuenta los puntos. Elige el número que corresponde.",
+      "visual": {"ariaLabel": "Dos puntos azules dentro de un recuadro.", "message": "Elige el número."},
+      "choices": [
+        {"text": "1", "feedback": "Mira los dos puntos. Cuenta cada uno una vez."},
+        {"text": "3", "feedback": "Tres significa que habría un punto más. Cuenta de nuevo."},
+        {"text": "2", "feedback": "Hay dos puntos."}
+      ],
+      "hints": ["Empieza con el punto de la izquierda. Después cuenta el punto de la derecha.", "Cuenta de nuevo: uno, dos."]
     },
     {
       "label": "Número 3",
@@ -131,28 +153,72 @@
       "title": "6 — seis",
       "audio": "Este es el seis. Seis puntos. Toca los puntos en orden del uno al seis.",
       "visual": {"ariaLabel": "Seis puntos azules marcados del 1 al 6.", "message": "6 puntos"},
-      "nextLabel": "Siguiente número"
+      "nextLabel": "Intenta con seis"
+    },
+    {
+      "title": "¿Cuántos puntos hay?",
+      "audio": "Cuenta los puntos. Elige el número que corresponde.",
+      "visual": {"ariaLabel": "Seis puntos azules dentro de un recuadro.", "message": "Elige el número."},
+      "choices": [
+        {"text": "5", "feedback": "Busca un punto que quizás no contaste. Cuenta cada punto una vez."},
+        {"text": "6", "feedback": "Hay seis puntos."},
+        {"text": "7", "feedback": "Comprueba que no hayas contado un punto dos veces."}
+      ],
+      "hints": ["Empieza a la izquierda. Señala cada punto una vez.", "Cuenta de nuevo: uno, dos, tres, cuatro, cinco, seis."]
     },
     {
       "label": "Número 7",
       "title": "7 — siete",
       "audio": "Este es el siete. Siete puntos. Toca los puntos en orden del uno al siete.",
       "visual": {"ariaLabel": "Siete puntos azules marcados del 1 al 7.", "message": "7 puntos"},
-      "nextLabel": "Siguiente número"
+      "nextLabel": "Intenta con siete"
+    },
+    {
+      "title": "¿Cuántos puntos hay?",
+      "audio": "Cuenta los puntos. Elige el número que corresponde.",
+      "visual": {"ariaLabel": "Siete puntos azules dentro de un recuadro.", "message": "Elige el número."},
+      "choices": [
+        {"text": "8", "feedback": "Comprueba que no hayas contado un punto dos veces."},
+        {"text": "6", "feedback": "Busca un punto que quizás no contaste. Cuenta cada punto una vez."},
+        {"text": "7", "feedback": "Hay siete puntos."}
+      ],
+      "hints": ["Empieza a la izquierda. Señala cada punto una vez.", "Cuenta de nuevo del uno al siete."]
     },
     {
       "label": "Número 8",
       "title": "8 — ocho",
       "audio": "Este es el ocho. Ocho puntos. Toca los puntos en orden del uno al ocho.",
       "visual": {"ariaLabel": "Ocho puntos azules marcados del 1 al 8.", "message": "8 puntos"},
-      "nextLabel": "Siguiente número"
+      "nextLabel": "Intenta con ocho"
+    },
+    {
+      "title": "¿Cuántos puntos hay?",
+      "audio": "Cuenta los puntos. Elige el número que corresponde.",
+      "visual": {"ariaLabel": "Ocho puntos azules dentro de un recuadro.", "message": "Elige el número."},
+      "choices": [
+        {"text": "7", "feedback": "Busca un punto que quizás no contaste. Cuenta cada punto una vez."},
+        {"text": "8", "feedback": "Hay ocho puntos."},
+        {"text": "9", "feedback": "Comprueba que no hayas contado un punto dos veces."}
+      ],
+      "hints": ["Empieza a la izquierda. Señala cada punto una vez.", "Cuenta de nuevo del uno al ocho."]
     },
     {
       "label": "Número 9",
       "title": "9 — nueve",
       "audio": "Este es el nueve. Nueve puntos. Toca los puntos en orden del uno al nueve.",
       "visual": {"ariaLabel": "Nueve puntos azules marcados del 1 al 9.", "message": "9 puntos"},
-      "nextLabel": "Siguiente número"
+      "nextLabel": "Intenta con nueve"
+    },
+    {
+      "title": "¿Cuántos puntos hay?",
+      "audio": "Cuenta los puntos. Elige el número que corresponde.",
+      "visual": {"ariaLabel": "Nueve puntos azules dentro de un recuadro.", "message": "Elige el número."},
+      "choices": [
+        {"text": "10", "feedback": "Comprueba que no hayas contado un punto dos veces."},
+        {"text": "8", "feedback": "Busca un punto que quizás no contaste. Cuenta cada punto una vez."},
+        {"text": "9", "feedback": "Hay nueve puntos."}
+      ],
+      "hints": ["Empieza a la izquierda. Señala cada punto una vez.", "Cuenta de nuevo del uno al nueve."]
     },
     {
       "label": "Número 10",
