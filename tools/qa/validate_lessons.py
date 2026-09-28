@@ -31,7 +31,7 @@ def validate_translation(data,translation,path_name):
         return
     for index,(screen,translated) in enumerate(zip(base_screens,translated_screens)):
         location=f"{path_name} screen {index}"
-        for key in ["label","stage","title","body","callout","nextLabel","prompt","guidance","phraseMeaning","nextRecommendation","hook","boundary","boundaryLabel","audio"]:
+        for key in ["label","stage","title","body","callout","nextLabel","prompt","guidance","phraseMeaning","nextRecommendation","hook","boundary","boundaryLabel","audio","correctFeedback","wrongFeedback"]:
             require_translation(screen,translated,key,location)
         require_translation(screen.get("visual",{}),translated.get("visual",{}),"message",location)
         require_translation(screen.get("visual",{}),translated.get("visual",{}),"ariaLabel",location)
@@ -84,7 +84,7 @@ for path in sorted(lesson_dir.glob("*.json")):
     if data.get("schema_version") != "3.0": errors.append(f"{path.name}: schema_version must be 3.0")
     expected_types=required_types
     if path.name=="lesson000.json":
-        expected_types=["intro","observe","count","observe","observe","observe","count","observe","observe","guidedPractice","observe","count","observe","observe","observe","observe","observe","memoryHook","observe","guidedPractice","independentPractice","recall","transfer","reflection","complete"]
+        expected_types=["intro","observe","count","observe","observe","observe","count","observe","observe","guidedPractice","observe","buildGroup","observe","count","observe","observe","observe","observe","observe","memoryHook","buildGroup","observe","guidedPractice","independentPractice","recall","transfer","reflection","complete"]
     if path.name=="lesson000a.json":
         expected_types=["intro","observe","observe","guidedPractice","observe","independentPractice","memoryHook","recall","transfer","complete"]
     if path.name=="lesson001.json":
@@ -95,6 +95,9 @@ for path in sorted(lesson_dir.glob("*.json")):
     if not screens or screens[0].get("type") != "intro": errors.append(f"{path.name}: first screen must be intro")
     if not screens or screens[-1].get("type") != "complete": errors.append(f"{path.name}: last screen must be complete")
     for i,screen in enumerate(data.get("screens",[])):
+        if screen.get("type")=="buildGroup":
+            if not isinstance(screen.get("targetCount"),int) or not 0<=screen["targetCount"]<=10: errors.append(f"{path.name} screen {i}: targetCount must be 0–10")
+            if len(screen.get("hints",[]))<2 or not all(screen.get(key) for key in ["audio","correctFeedback","wrongFeedback"]): errors.append(f"{path.name} screen {i}: buildGroup needs narrated instructions and feedback")
         if screen.get("type") in ["count","misconception","discover","symbol","guidedPractice","independentPractice","recall","transfer","reflection"]:
             choices=screen.get("choices",[])
             if sum(choice.get("correct") is True for choice in choices) != 1: errors.append(f"{path.name} screen {i}: expected exactly one correct choice")
