@@ -7,7 +7,7 @@
     "subject": "Arithmetic",
     "course": "Number Sense",
     "unit": "Counting",
-    "contentRevision": 6,
+    "contentRevision": 7,
     "audioStrategy": "number_words_only"
   },
   "learning": {
@@ -249,6 +249,18 @@
       "revision": 1
     },
     {
+      "id": "make-seven",
+      "type": "buildGroup",
+      "label": "Make a group",
+      "title": "Make 7 dots.",
+      "audio": "Make a new group of seven dots. Tap Add a dot to put dots in the box. Check your group when you are ready.",
+      "targetCount": 7,
+      "correctFeedback": "You made seven dots.",
+      "wrongFeedback": "Count the dots in your box. Add or remove a dot, then check again.",
+      "hints": ["Point to every dot once. Say its number as you point.", "Keep adding or removing until your count ends at seven."],
+      "revision": 1
+    },
+    {
       "id": "number-8",
       "type": "observe",
       "label": "Number 8",
@@ -304,24 +316,26 @@
       "nextLabel": "Try ten"
     },
     {
+      "id": "count-ten-first",
+      "type": "count",
+      "title": "How many dots?",
+      "audio": "Count the dots. Choose the matching number.",
+      "visual": {"kind": "countingDots", "count": 10, "grouped": true, "ariaLabel": "Ten blue dots inside one box.", "message": "Choose the number."},
+      "choices": [
+        {"text": "9", "correct": false, "feedback": "Look for a dot you may have missed. Count each dot once.", "misconception": "object_instead_of_relationship"},
+        {"text": "10", "correct": true, "feedback": "There are ten dots."},
+        {"text": "8", "correct": false, "feedback": "Count each dot once. Check for two dots you may have missed.", "misconception": "object_instead_of_relationship"}
+      ],
+      "hints": ["Start on the left. Point to each dot once.", "Count again from one through ten."],
+      "revision": 1
+    },
+    {
       "id": "memory-hook",
       "type": "memoryHook",
       "title": "The total is the whole group.",
       "hook": "Count each dot once.",
       "body": "The last number is the total. Total means the number of dots in the group.",
       "audio": "Count each dot once. The last number is the total. Total means the number of dots in the whole group."
-    },
-    {
-      "id": "make-seven",
-      "type": "buildGroup",
-      "label": "Make a group",
-      "title": "Make 7 dots.",
-      "audio": "Make a new group of seven dots. Tap Add a dot to put dots in the box. Check your group when you are ready.",
-      "targetCount": 7,
-      "correctFeedback": "You made seven dots.",
-      "wrongFeedback": "Count the dots in your box. Add or remove a dot, then check again.",
-      "hints": ["Point to every dot once. Say its number as you point.", "Keep adding or removing until your count ends at seven."],
-      "revision": 1
     },
     {
       "id": "rearranged-model",
