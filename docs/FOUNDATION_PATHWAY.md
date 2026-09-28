@@ -1,14 +1,14 @@
 # Before the comparison unit
 
-The learner app now opens with **Start here — Meet numbers 1–10**, followed by **Make a pair**, then **Comparison 1 — How many more?** The counting lesson presents each number from 1 through 10 separately, connecting its numeral, spoken name, and quantity. Every screen has a Listen control that reads its directions and choices aloud, while tappable dots speak individual number words when browser speech is available. Visible text remains available as reinforcement and as a fallback when speech is unavailable. Pairing is taught with one blue and one red dot before asking learners to count several pairs. These are test-branch lessons pending direct first-exposure observation, not a validated mathematics curriculum.
+The learner app now opens with **Start here — Meet numbers 0–10**, followed by **Make a pair**, then **Comparison 1 — How many more?** The counting lesson presents each number from 0 through 10 separately, connecting its numeral, spoken name, and quantity. Every screen has a Listen control that reads its directions and choices aloud, while tappable dots speak individual number words when browser speech is available. Visible text remains available as reinforcement and as a fallback when speech is unavailable. Pairing is taught with one blue and one red dot before asking learners to count several pairs. These are test-branch lessons pending direct first-exposure observation, not a validated mathematics curriculum.
 
 The remaining path below is still needed before Atlas can claim a complete beginning-to-comparison course. The first two entries are partly implemented in bilingual JSON lessons; later foundations are planned. A completed lesson records an attempt, not mastery of the whole category. The app does not automatically send a learner from counting to matching or from matching to comparison while those category gates remain incomplete.
 
 | Foundation | Learner action and evidence before moving on |
 | --- | --- |
-| F1: Small groups and number words | Lesson 000 introduces each number from one through ten with tap-to-hear models. Recognition without counting still needs more varied practice and observation. |
-| F2: Count and name the total | Lesson 000 checks counting to ten and the final count as the total. Counting to twenty and rearranged objects are not taught yet. |
-| F3: Numerals and quantities | Lesson 000 connects spoken words, written numerals, and pictured dots. Zero and making a requested size are not taught yet. |
+| F1: Small groups and number words | Lesson 000 introduces zero through ten with spoken models. Recognition without counting still needs more varied practice and observation. |
+| F2: Count and name the total | Lesson 000 checks counting to ten, the final count as the total, and a spread-out group. Counting to twenty and different arrangements still need development and observation. |
+| F3: Numerals and quantities | Lesson 000 connects spoken words, written numerals, and pictured dots, including an empty group for zero. Making a requested size is not taught yet. |
 | F4: Match and compare groups | Lesson 000a introduces a pair and matching across two groups. Same number, more/fewer, and different spacing need additional practice and observation. |
 | Comparison 1: How many more? | Compare two already-counted groups, find the unmatched amount, and connect “how many more” with “difference” and a subtraction sentence. |
 | F5: Join and separate | Model addition by joining groups and subtraction by separating a group. Connect the actions to + and − without making either word a one-step keyword rule. This can be developed alongside the comparison unit before symbolic subtraction is expected. |
