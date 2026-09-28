@@ -15,8 +15,8 @@ let modalReturnFocus = null;
 const root = document.getElementById("lessonRoot");
 const lessonSelect = document.getElementById("lessonSelect");
 const COPY={
-  en:{language:"Español",dark:"Dark mode",light:"Light mode",bigger:"Bigger text",normal:"Normal text",reduce:"Reduce motion",allow:"Allow motion",summary:"Learning summary",memoryAssets:"Memory practice",progress:"Progress",progressBar:"Lesson progress",skip:"Skip to lesson",chooseLesson:"Choose a lesson",choices:"Answer choices",close:"Close",lesson:"Lesson",continue:"Continue",back:"Back",next:"Next",reflect:"Reflect",hint:"Hint",checkAnswer:"Check answer",correct:"Correct.",lookAgain:"Look again.",fallbackHint:"Look at what the problem is asking you to find.",start:"Start lesson",resume:"Resume lesson",review:"Review lesson",complete:"Complete",nextLesson:"Next lesson",reviewVisualGap:"Review visual gap",reviewModel:"Review the model",restartLesson:"Restart lesson",newAttempt:"Try lesson again (new answers)",completed:"Completed",inProgress:"In progress",listen:"Listen",stopAudio:"Stop audio",audioUnavailable:"Audio unavailable",choice:"Choice"},
-  es:{language:"English",dark:"Modo oscuro",light:"Modo claro",bigger:"Texto más grande",normal:"Texto normal",reduce:"Reducir movimiento",allow:"Permitir movimiento",summary:"Resumen de aprendizaje",memoryAssets:"Práctica de memoria",progress:"Progreso",progressBar:"Progreso de la lección",skip:"Saltar a la lección",chooseLesson:"Elige una lección",choices:"Opciones de respuesta",close:"Cerrar",lesson:"Lección",continue:"Continuar",back:"Atrás",next:"Siguiente",reflect:"Reflexionar",hint:"Pista",checkAnswer:"Comprobar respuesta",correct:"Correcto.",lookAgain:"Inténtalo de nuevo.",fallbackHint:"Observa lo que el problema te pide encontrar.",start:"Comenzar lección",resume:"Continuar lección",review:"Repasar lección",complete:"Completada",nextLesson:"Próxima lección",reviewVisualGap:"Repasar la diferencia visual",reviewModel:"Repasar el modelo",restartLesson:"Reiniciar lección",newAttempt:"Intentar de nuevo (respuestas nuevas)",completed:"Completada",inProgress:"En progreso",listen:"Escuchar",stopAudio:"Detener audio",audioUnavailable:"Audio no disponible",choice:"Opción"}
+  en:{language:"Español",dark:"Dark mode",light:"Light mode",bigger:"Bigger text",normal:"Normal text",reduce:"Reduce motion",allow:"Allow motion",summary:"Learning summary",memoryAssets:"Memory practice",progress:"Progress",progressBar:"Lesson progress",skip:"Skip to lesson",chooseLesson:"Choose a lesson",choices:"Answer choices",close:"Close",lesson:"Lesson",continue:"Continue",back:"Back",next:"Next",reflect:"Reflect",hint:"Hint",checkAnswer:"Check answer",correct:"Correct.",lookAgain:"Look again.",fallbackHint:"Look at what the problem is asking you to find.",start:"Start lesson",resume:"Resume lesson",review:"Review lesson",complete:"Complete",nextLesson:"Next lesson",reviewVisualGap:"Review visual gap",reviewModel:"Review the model",restartLesson:"Restart lesson",newAttempt:"Try lesson again (new answers)",completed:"Completed",inProgress:"In progress",listen:"Listen",stopAudio:"Stop audio",audioUnavailable:"Audio unavailable",choice:"Choice",addDot:"Add a dot",removeDot:"Remove a dot",checkGroup:"Check my dots",groupCount:"Dots in your box"},
+  es:{language:"English",dark:"Modo oscuro",light:"Modo claro",bigger:"Texto más grande",normal:"Texto normal",reduce:"Reducir movimiento",allow:"Permitir movimiento",summary:"Resumen de aprendizaje",memoryAssets:"Práctica de memoria",progress:"Progreso",progressBar:"Progreso de la lección",skip:"Saltar a la lección",chooseLesson:"Elige una lección",choices:"Opciones de respuesta",close:"Cerrar",lesson:"Lección",continue:"Continuar",back:"Atrás",next:"Siguiente",reflect:"Reflexionar",hint:"Pista",checkAnswer:"Comprobar respuesta",correct:"Correcto.",lookAgain:"Inténtalo de nuevo.",fallbackHint:"Observa lo que el problema te pide encontrar.",start:"Comenzar lección",resume:"Continuar lección",review:"Repasar lección",complete:"Completada",nextLesson:"Próxima lección",reviewVisualGap:"Repasar la diferencia visual",reviewModel:"Repasar el modelo",restartLesson:"Reiniciar lección",newAttempt:"Intentar de nuevo (respuestas nuevas)",completed:"Completada",inProgress:"En progreso",listen:"Escuchar",stopAudio:"Detener audio",audioUnavailable:"Audio no disponible",choice:"Opción",addDot:"Agregar un punto",removeDot:"Quitar un punto",checkGroup:"Comprobar mis puntos",groupCount:"Puntos en tu recuadro"}
 };
 function copy(){ return COPY[language]; }
 function el(id){ return document.getElementById(id); }
@@ -72,7 +72,7 @@ function reviewVisualGap(){
 function focusLesson(){ root.focus({preventScroll:true}); }
 function audioButton(){ return `<button class="btn listenBtn" type="button" id="listenBtn" aria-pressed="false">🔊 ${copy().listen}</button>`; }
 function base(screen){ const progress=pct(); return `<div class="screenTools"><span class="badge">${screen.label || screen.stage || copy().lesson}</span>${audioButton()}</div><div class="progress" role="progressbar" aria-label="${copy().progressBar}" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${progress}"><span style="width:${progress}%"></span></div><h1 id="screenTitle">${screen.title}</h1>`; }
-const NUMBER_WORDS={en:["one","two","three","four","five","six","seven","eight","nine","ten"],es:["uno","dos","tres","cuatro","cinco","seis","siete","ocho","nueve","diez"]};
+const NUMBER_WORDS={en:["zero","one","two","three","four","five","six","seven","eight","nine","ten"],es:["cero","uno","dos","tres","cuatro","cinco","seis","siete","ocho","nueve","diez"]};
 let screenUtterance=null;
 function screenSpeechText(screen){
   const parts=[screen.audio || [screen.title,screen.body,screen.prompt,screen.visual?.message,screen.hook].filter(Boolean).join(". ")];
@@ -121,7 +121,7 @@ function bindCountingAudio(){
   if(!canSpeak) el("countSpeech").textContent=language==="es"?"Toca un punto para ver su número.":"Tap a dot to see its number.";
   for(const tap of taps){
     const number=Number(tap.dataset.count);
-    const word=NUMBER_WORDS[language][number-1];
+    const word=NUMBER_WORDS[language][number];
     tap.setAttribute("aria-label",`${number}, ${word}`);
     tap.onclick=()=>{
       if(number===1 && nextNumber>taps.length){
@@ -129,7 +129,7 @@ function bindCountingAudio(){
         nextNumber=1;
       }
       if(number!==nextNumber){
-        const expected=NUMBER_WORDS[language][nextNumber-1];
+        const expected=NUMBER_WORDS[language][nextNumber];
         el("countSpeech").textContent=language==="es"?`Sigue con ${nextNumber} — ${expected}.`:`Next, tap ${nextNumber} — ${expected}.`;
         return;
       }
@@ -152,6 +152,54 @@ function bindCountingAudio(){
   }
 }
 function stopCountingAudio(){ if("speechSynthesis" in window) window.speechSynthesis.cancel(); screenUtterance=null; }
+
+function buildCount(state,limit){
+  return Number.isInteger(state.builtCount)?Math.min(limit,Math.max(0,state.builtCount)):0;
+}
+function renderBuildGroup(screen){
+  const state=currentState(), limit=10, count=buildCount(state,limit);
+  state.builtCount=count;
+  const finished=state.submittedCorrect===true;
+  const visual={kind:"countingDots",count,grouped:true,ariaLabel:`${copy().groupCount}: ${count}`,message:`${copy().groupCount}: ${count}`};
+  root.innerHTML=base(screen)+renderConceptVisual(visual,screen.title)+
+    `<div class="toolbar"><button class="btn secondary" type="button" id="removeDot" ${count===0||finished?"disabled":""}>${copy().removeDot}</button><button class="btn secondary" type="button" id="addDot" ${count===limit||finished?"disabled":""}>${copy().addDot}</button></div>`+
+    `<div class="toolbar"><button class="btn secondary" type="button" id="hintBtn" ${finished?"disabled":""}>${copy().hint}</button><button class="btn primary" type="button" id="checkGroup">${finished?copy().continue:copy().checkGroup}</button></div>`+
+    `<div class="hint" id="hintBox" role="note" aria-live="polite"></div><div class="feedback" id="feedback" role="status" aria-live="polite" aria-atomic="true"></div>`;
+  bindScreenAudio(screen);
+  if(state.hintShown){const box=el("hintBox");box.style.display="block";box.textContent=screen.hints?.[Math.min(Math.max((state.hintIndex||1)-1,0),screen.hints.length-1)]||"";}
+  if(state.feedback){const box=el("feedback");box.style.display="block";box.className=`feedback ${finished?"success":"warn"}`;box.textContent=finished?`${copy().correct} ${screen.correctFeedback}`:`${copy().lookAgain} ${screen.wrongFeedback}`;}
+  el("removeDot").onclick=()=>changeBuildGroup(-1);
+  el("addDot").onclick=()=>changeBuildGroup(1);
+  el("hintBtn").onclick=()=>{
+    const step=Math.min(state.hintIndex||0,screen.hints.length-1);
+    state.hintIndex=(state.hintIndex||0)+1;state.hintShown=true;
+    persist();emit("hint",{hint:screen.hints[step]});renderBuildGroup(screen);
+    el("hintBtn").focus();
+  };
+  el("checkGroup").onclick=()=>{
+    if(finished){next();return;}
+    const good=count===screen.targetCount;
+    state.feedback={kind:good?"success":"warning"};state.submittedCorrect=good;
+    emit("submit",{correct:good,evidence:good?"constructed_group":null});
+    renderBuildGroup(screen);el("checkGroup").focus();
+  };
+}
+function changeBuildGroup(delta){
+  const screen=current(),state=currentState();
+  if(state.submittedCorrect) return;
+  const count=buildCount(state,10),nextCount=Math.min(10,Math.max(0,count+delta));
+  if(count===nextCount) return;
+  state.builtCount=nextCount;state.feedback=null;persist();emit("build_group",{count:nextCount});
+  renderBuildGroup(screen);
+  const control=el(delta>0?"addDot":"removeDot");
+  (control.disabled?el(delta>0?"removeDot":"addDot"):control).focus();
+  if("speechSynthesis" in window&&"SpeechSynthesisUtterance" in window){
+    window.speechSynthesis.cancel();screenUtterance=null;resetListenButton();
+    const spoken=new SpeechSynthesisUtterance(NUMBER_WORDS[language][nextCount]);
+    spoken.lang=language==="es"?"es-ES":"en-US";spoken.rate=0.85;
+    window.speechSynthesis.speak(spoken);
+  }
+}
 
 function applyPreferences(){
   document.body.setAttribute("data-theme",dark?"dark":"light");
@@ -280,6 +328,7 @@ function render(){
     bindCountingAudio();
     el("backBtn").onclick = back; el("nextBtn").onclick = next; return;
   }
+  if(screen.type==="buildGroup"){renderBuildGroup(screen);return;}
   if(["count","misconception","discover","symbol","guidedPractice","independentPractice","recall","transfer","reflection"].includes(screen.type)){
     const visual = screen.visual ? `${screen.prompt?`<p>${screen.prompt}</p>`:""}${renderConceptVisual(screen.visual,screen.title)}` : `<p>${screen.prompt || ""}</p>`;
     const support=screen.supportVisual?`<div id="supportModel" hidden>${renderConceptVisual(screen.supportVisual,screen.title)}</div>`:"";
