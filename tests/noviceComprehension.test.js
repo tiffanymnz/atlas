@@ -24,9 +24,19 @@ test("counting foundation establishes quantities and group before pairing",()=>{
   assert.ok(pair.screens.find(s=>s.id==="one-pair").visual.topCount===1);
   assert.ok(pair.screens.some(s=>s.visual?.step==="pair"));
   assert.ok(f.screens.find(s=>s.id==="pair-model").visual.grouped);
-  const checks=["count-zero","count-one","count-two","count-four","pair-check","count-five","count-six","count-seven","count-eight","count-nine","count-ten"]
+  const checks=["count-zero","count-one","count-two","count-four","pair-check","count-five","count-six","count-seven","count-eight","count-nine","count-ten-first"]
     .map(id=>f.screens.find(screen=>screen.id===id)?.choices?.find(choice=>choice.correct)?.text);
   assert.deepEqual(checks,["0","1","2","3","4","5","6","7","8","9","10"]);
+  const modelIds=["number-0","number-1","number-2","count-model","count-four-model","count-five-model","number-6","number-7","number-8","number-9","count-ten-model"];
+  const checkIds=["count-zero","count-one","count-two","count-four","pair-check","count-five","count-six","count-seven","count-eight","count-nine","count-ten-first"];
+  for(let number=0;number<=10;number++){
+    const modelIndex=f.screens.findIndex(screen=>screen.id===modelIds[number]);
+    assert.equal(f.screens[modelIndex+1]?.id,checkIds[number],`number ${number} needs its own check before the next idea`);
+    assert.equal(f.screens[modelIndex+1]?.visual?.count,number);
+  }
+  assert.equal(f.screens.findIndex(screen=>screen.id==="make-seven"),f.screens.findIndex(screen=>screen.id==="count-seven")+1);
+  assert.ok(f.screens.findIndex(screen=>screen.id==="count-ten-first")<f.screens.findIndex(screen=>screen.id==="memory-hook"));
+  assert.ok(f.screens.findIndex(screen=>screen.id==="rearranged-model")<f.screens.findIndex(screen=>screen.id==="count-ten"));
   for(const screen of f.screens){
     assert.doesNotMatch(JSON.stringify(screen),/say one number|count outlines|touch each dot|tell how many|make pairs/i);
   }

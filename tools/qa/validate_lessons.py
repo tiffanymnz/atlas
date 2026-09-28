@@ -84,12 +84,21 @@ for path in sorted(lesson_dir.glob("*.json")):
     if data.get("schema_version") != "3.0": errors.append(f"{path.name}: schema_version must be 3.0")
     expected_types=required_types
     if path.name=="lesson000.json":
-        expected_types=["intro","observe","count","observe","count","observe","count","observe","count","observe","observe","guidedPractice","observe","buildGroup","observe","count","observe","count","observe","count","observe","count","observe","count","observe","memoryHook","buildGroup","observe","guidedPractice","independentPractice","recall","transfer","reflection","complete"]
+        expected_types=None
+        first_checks={0:"count-zero",1:"count-one",2:"count-two",3:"count-four",4:"pair-check",5:"count-five",6:"count-six",7:"count-seven",8:"count-eight",9:"count-nine",10:"count-ten-first"}
+        models={0:"number-0",1:"number-1",2:"number-2",3:"count-model",4:"count-four-model",5:"count-five-model",6:"number-6",7:"number-7",8:"number-8",9:"number-9",10:"count-ten-model"}
+        for number,model_id in models.items():
+            model_index=next((i for i,screen in enumerate(screens) if screen.get("id")==model_id),-1)
+            check_index=next((i for i,screen in enumerate(screens) if screen.get("id")==first_checks[number]),-1)
+            if model_index<0 or check_index!=model_index+1 or screens[check_index].get("visual",{}).get("count")!=number:
+                errors.append(f"{path.name}: number {number} must be followed immediately by its quantity check")
+        if screen_ids.index("make-seven")!=screen_ids.index("count-seven")+1:
+            errors.append(f"{path.name}: seven-dot construction must follow the seven-dot check")
     if path.name=="lesson000a.json":
         expected_types=["intro","observe","observe","guidedPractice","observe","independentPractice","memoryHook","recall","transfer","complete"]
     if path.name=="lesson001.json":
         expected_types=["intro","count","count","observe","discover","language","memoryHook","misconception","symbol","equationReveal","guidedPractice","independentPractice","recall","transfer","reflection","complete"]
-    if screen_types != expected_types: errors.append(f"{path.name}: screen sequence must be {' -> '.join(expected_types)}")
+    if expected_types is not None and screen_types != expected_types: errors.append(f"{path.name}: screen sequence must be {' -> '.join(expected_types)}")
     if any(not isinstance(screen_id,str) or not screen_id for screen_id in screen_ids): errors.append(f"{path.name}: every screen needs a stable id")
     if len(set(screen_ids)) != len(screen_ids): errors.append(f"{path.name}: screen ids must be unique")
     if not screens or screens[0].get("type") != "intro": errors.append(f"{path.name}: first screen must be intro")
