@@ -25,6 +25,8 @@ test("next-lesson shortcuts stop at topic boundaries",()=>{
   for(const [from,to] of [[0,1],[1,2],[2,3],[3,4],[5,6],[6,7],[8,9],[10,11]]){
     assert.equal(continuesConceptSequence(lessons[from],lessons[to]),from===0?false:true);
   }
-  assert.equal(continuesConceptSequence(lessons[0],pairLesson),true);
-  assert.equal(continuesConceptSequence(pairLesson,lessons[1]),true);
+  assert.equal(continuesConceptSequence(lessons[0],pairLesson),false);
+  assert.equal(continuesConceptSequence(pairLesson,lessons[1]),false);
+  assert.equal(nextConceptId(lessons[0]),null);
+  assert.equal(nextConceptId(pairLesson),null);
 });
