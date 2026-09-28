@@ -6,7 +6,7 @@ import { applyTranslation } from "../../engine/i18n/lessonLocale.js";
 
 const root=resolve(dirname(fileURLToPath(import.meta.url)),"../..");
 const outputRoot=resolve(root,"assets/memory");
-const lessonNames=["lesson000.json","lesson000a.json","lesson001.json","lesson002.json","lesson003.json","lesson004.json","lesson005.json","lesson006.json","lesson007.json","lesson008.json","lesson009.json","lesson010.json","lesson011.json"];
+const lessonNames=["lesson000.json","lesson000b.json","lesson000c.json","lesson000a.json","lesson001.json","lesson002.json","lesson003.json","lesson004.json","lesson005.json","lesson006.json","lesson007.json","lesson008.json","lesson009.json","lesson010.json","lesson011.json"];
 const inputPaths=lessonNames.flatMap(name=>[
   `curriculum/lessons/${name}`,
   `curriculum/translations/es/${name}`
