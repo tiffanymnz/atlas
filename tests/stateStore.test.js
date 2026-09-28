@@ -55,6 +55,21 @@ test("each lesson restores its own screen and attempt state",()=>{
   assert.equal(getAllLessonRecords().length,2);
 });
 
+test("a partly built group survives reopening and switching lessons",()=>{
+  const counting=lesson("counting");
+  counting.screens=[{id:"intro"},{id:"make-four"}];
+  let record=ensureLessonRecord(counting,"counting.json");
+  record.screenId="make-four";
+  record.index=1;
+  record.screenStates["make-four"]={builtCount:3,submittedCorrect:false};
+  saveLessonRecord("counting",record);
+  ensureLessonRecord(lesson("other"),"other.json");
+  record=ensureLessonRecord(counting,"counting.json");
+  assert.equal(resolveLessonPosition(record,counting),1);
+  assert.equal(record.screenStates["make-four"].builtCount,3);
+  assert.equal(record.currentAttempt.completed,false);
+});
+
 test("completed attempts remain separate from a fresh current attempt",()=>{
   let record=ensureLessonRecord(lesson("one"),"one.json");
   const completedId=record.currentAttempt.id;
