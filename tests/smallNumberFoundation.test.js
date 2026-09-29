@@ -31,3 +31,27 @@ test("audio has replayable short prompts and speaks choices without reading a lo
   assert.match(engine,/screen\.choices\[selected\]\.text/);
   assert.match(engine,/numberOnlyAudio\(\) && !isNumberModel\(screen\)/);
 });
+
+test("each number from four through ten returns in a changed arrangement",()=>{
+  const next=read("curriculum/lessons/lesson000.json");
+  const translated=applyTranslation(next,read("curriculum/translations/es/lesson000.json"));
+  for(const number of [4,5,6,7,8,9,10]){
+    const checks=next.screens.filter(screen=>screen.visual?.count===number && screen.choices);
+    assert.ok(checks.length>=2,`${number} needs an immediate check and later practice`);
+    assert.ok(checks.some(screen=>screen.visual.layout==="scattered"),`${number} needs a changed arrangement`);
+    assert.ok(translated.screens.some(screen=>screen.visual?.count===number && screen.visual.layout==="scattered"));
+  }
+});
+
+test("each number from eleven through twenty is checked again without printed count labels",()=>{
+  for(const [filename,start,end] of [["lesson000b.json",11,15],["lesson000c.json",16,20]]){
+    const next=read(`curriculum/lessons/${filename}`);
+    const translated=applyTranslation(next,read(`curriculum/translations/es/${filename}`));
+    for(let number=start;number<=end;number++){
+      const checks=next.screens.filter(screen=>screen.visual?.count===number && screen.choices);
+      assert.ok(checks.length>=2,`${number} needs later practice`);
+      assert.ok(checks.some(screen=>screen.visual.layout==="scattered" && !screen.visual.numbered),`${number} needs an unlabeled changed arrangement`);
+      assert.ok(translated.screens.some(screen=>screen.visual?.count===number && screen.visual.layout==="scattered"));
+    }
+  }
+});

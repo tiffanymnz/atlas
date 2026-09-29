@@ -289,6 +289,24 @@
       "audio": "Diez, luego sigue."
     },
     {
+      "title":"Cuenta estos puntos.","audio":"Estos puntos están en otros lugares. Cuéntalos. ¿Cuántos hay?",
+      "visual":{"ariaLabel":"Dieciséis puntos separados, sin números escritos.","message":"¿Cuántos puntos hay?"},
+      "choices":[{"text":"15","feedback":"Busca otro punto."},{"text":"17","feedback":"Comprueba que contaste cada punto solo una vez."},{"text":"16","feedback":"Dieciséis puntos en total."}],
+      "hints":["Señala cada punto una vez mientras cuentas.","Cuenta diez puntos y luego seis más."]
+    },
+    {
+      "title":"Cuenta un grupo nuevo.","audio":"Cuenta estos puntos en otros lugares. ¿Cuántos hay?",
+      "visual":{"ariaLabel":"Diecisiete puntos separados, sin números escritos.","message":"¿Cuántos puntos hay?"},
+      "choices":[{"text":"17","feedback":"Diecisiete puntos en total."},{"text":"18","feedback":"Comprueba que no contaste uno dos veces."},{"text":"16","feedback":"Busca un punto que te faltó."}],
+      "hints":["Señala cada punto una vez mientras cuentas.","Cuenta diez puntos y luego siete más."]
+    },
+    {
+      "title":"Cuenta un grupo nuevo.","audio":"Cuenta cada punto una vez. ¿Cuántos hay?",
+      "visual":{"ariaLabel":"Dieciocho puntos separados, sin números escritos.","message":"¿Cuántos puntos hay?"},
+      "choices":[{"text":"19","feedback":"Comprueba que no contaste uno dos veces."},{"text":"18","feedback":"Dieciocho puntos en total."},{"text":"17","feedback":"Busca un punto que te faltó."}],
+      "hints":["Señala cada punto una vez mientras cuentas.","Cuenta diez puntos y luego ocho más."]
+    },
+    {
       "title": "Cuenta otra forma.",
       "audio": "Cuenta los puntos. Elige el total.",
       "visual": {

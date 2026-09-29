@@ -1,10 +1,10 @@
 # Small-number foundation: release boundary
 
 The learner picker now begins with `lesson000p.json` (1–3) before the preserved
-0–10 and 11–20 lessons. The first lesson revisits each number in a changed
-arrangement, asks learners to construct 2 and 3, and includes independent,
-recall, and transfer checks. It is a teaching prototype, not evidence that a
-previously unexposed child has learned numbers independently.
+0–10 and 11–20 lessons. Each number from 1–20 now has an immediate quantity
+check and a later check in a changed arrangement. The first lesson also asks
+learners to construct 2 and 3. This is a teaching prototype, not evidence that
+a previously unexposed child has learned numbers independently.
 
 ## Design basis
 
@@ -25,9 +25,10 @@ previously unexposed child has learned numbers independently.
    feedback, controls, and number names in each claimed language. The browser
    speech fallback in the prototype is device-dependent and is not an approved
    child-facing voice. Provide a non-audio route for deaf learners.
-2. Expand the varied number cycle across 4–10, then 11–20. Do not infer that
-   completing the current 0–20 route establishes mastery; those lessons still
-   have only one immediate check for most numbers.
+2. Go beyond two same-session checks: include construction and meaningful
+   contexts for more numbers, adaptive responses to specific counting errors,
+   and retrieval on a later day. Do not infer that completing the current
+   0–20 route establishes mastery.
 3. Observe consenting first-time learners without coaching. Test whether each
    can navigate, count an unfamiliar arrangement once per object, make a
    requested amount, connect the spoken word with a numeral, and repeat on a

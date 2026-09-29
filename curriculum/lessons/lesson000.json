@@ -361,6 +361,50 @@
       "revision": 1
     },
     {
+      "id": "revisit-four", "type": "guidedPractice", "title": "Count a new group of dots.",
+      "audio": "These dots have moved. Count each dot once. How many?",
+      "visual": {"kind":"countingDots","count":4,"layout":"scattered","grouped":true,"ariaLabel":"Four dots in new places with no number labels.","message":"How many dots?"},
+      "choices": [
+        {"text":"5","correct":false,"feedback":"Check that you did not count a dot twice.","misconception":"counting_one_to_one"},
+        {"text":"4","correct":true,"feedback":"Four dots. Moving them did not change how many."},
+        {"text":"3","correct":false,"feedback":"Look for a dot you missed.","misconception":"counting_one_to_one"}
+      ],
+      "hints": ["Point to a dot when you count it. Then move to another.","Count all four dots, once each."]
+    },
+    {
+      "id": "revisit-seven", "type": "guidedPractice", "title": "Count these dots.",
+      "audio": "Count these dots in new places. How many?",
+      "visual": {"kind":"countingDots","count":7,"layout":"scattered","grouped":true,"ariaLabel":"Seven dots in new places with no number labels.","message":"How many dots?"},
+      "choices": [
+        {"text":"6","correct":false,"feedback":"Look for one more dot.","misconception":"counting_one_to_one"},
+        {"text":"8","correct":false,"feedback":"Check that you counted each dot only once.","misconception":"counting_one_to_one"},
+        {"text":"7","correct":true,"feedback":"Seven dots in all."}
+      ],
+      "hints": ["Point to each dot once as you count.","Count from one to seven, once per dot."]
+    },
+    {
+      "id": "revisit-eight", "type": "guidedPractice", "title": "Count these dots.",
+      "audio": "The dots are spread out. Count each one. How many?",
+      "visual": {"kind":"countingDots","count":8,"layout":"scattered","grouped":true,"ariaLabel":"Eight dots spread out with no number labels.","message":"How many dots?"},
+      "choices": [
+        {"text":"8","correct":true,"feedback":"Eight dots in all."},
+        {"text":"9","correct":false,"feedback":"You may have counted a dot twice.","misconception":"counting_one_to_one"},
+        {"text":"7","correct":false,"feedback":"Find the dot you missed.","misconception":"counting_one_to_one"}
+      ],
+      "hints": ["Point to each dot once as you count.","Count from one to eight, once per dot."]
+    },
+    {
+      "id": "revisit-nine", "type": "guidedPractice", "title": "Count these dots.",
+      "audio": "Count this new group. How many dots?",
+      "visual": {"kind":"countingDots","count":9,"layout":"scattered","grouped":true,"ariaLabel":"Nine dots in new places with no number labels.","message":"How many dots?"},
+      "choices": [
+        {"text":"8","correct":false,"feedback":"Look for one more dot.","misconception":"counting_one_to_one"},
+        {"text":"9","correct":true,"feedback":"Nine dots in all."},
+        {"text":"10","correct":false,"feedback":"Check that you did not count one dot twice.","misconception":"counting_one_to_one"}
+      ],
+      "hints": ["Point to each dot once as you count.","Count from one to nine, once per dot."]
+    },
+    {
       "id": "count-ten",
       "type": "independentPractice",
       "title": "Count this group.",

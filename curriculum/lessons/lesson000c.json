@@ -362,6 +362,39 @@
       "audio": "Ten, then count on."
     },
     {
+      "id": "revisit-16", "type": "guidedPractice", "title": "Count these dots.",
+      "audio": "These dots are in new places. Count them. How many?",
+      "visual": {"kind":"countingDots","count":16,"layout":"scattered","grouped":true,"ariaLabel":"Sixteen dots spread out without number labels.","message":"How many dots?"},
+      "choices": [
+        {"text":"15","correct":false,"feedback":"Look for one more dot.","misconception":"counting_one_to_one"},
+        {"text":"17","correct":false,"feedback":"Check that you counted each dot only once.","misconception":"counting_one_to_one"},
+        {"text":"16","correct":true,"feedback":"Sixteen dots in all."}
+      ],
+      "hints": ["Point to each dot once as you count.","Count ten dots and then six more."]
+    },
+    {
+      "id": "revisit-17", "type": "guidedPractice", "title": "Count a new group.",
+      "audio": "Count these dots in new places. How many?",
+      "visual": {"kind":"countingDots","count":17,"layout":"scattered","grouped":true,"ariaLabel":"Seventeen dots spread out without number labels.","message":"How many dots?"},
+      "choices": [
+        {"text":"17","correct":true,"feedback":"Seventeen dots in all."},
+        {"text":"18","correct":false,"feedback":"Check that you did not count one twice.","misconception":"counting_one_to_one"},
+        {"text":"16","correct":false,"feedback":"Look for a dot you missed.","misconception":"counting_one_to_one"}
+      ],
+      "hints": ["Point to each dot once as you count.","Count ten dots and then seven more."]
+    },
+    {
+      "id": "revisit-18", "type": "guidedPractice", "title": "Count a new group.",
+      "audio": "Count each dot once. How many?",
+      "visual": {"kind":"countingDots","count":18,"layout":"scattered","grouped":true,"ariaLabel":"Eighteen dots spread out without number labels.","message":"How many dots?"},
+      "choices": [
+        {"text":"19","correct":false,"feedback":"Check that you did not count one twice.","misconception":"counting_one_to_one"},
+        {"text":"18","correct":true,"feedback":"Eighteen dots in all."},
+        {"text":"17","correct":false,"feedback":"Look for a dot you missed.","misconception":"counting_one_to_one"}
+      ],
+      "hints": ["Point to each dot once as you count.","Count ten dots and then eight more."]
+    },
+    {
       "id": "independent",
       "type": "independentPractice",
       "title": "Count a new shape.",
