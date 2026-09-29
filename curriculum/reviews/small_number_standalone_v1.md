@@ -1,8 +1,8 @@
 # Small-number foundation: release boundary
 
 The learner picker now begins with `lesson000p.json` (1–3) before the preserved
-0–10 and 11–20 lessons. Each number from 1–20 now has an immediate quantity
-check and a later check in a changed arrangement. The first lesson also asks
+0–10 and 11–20 lessons. Each number from 0–20 now has an immediate quantity
+check and a later check; 1–20 use a changed arrangement. The first lesson also asks
 learners to construct 2 and 3. This is a teaching prototype, not evidence that
 a previously unexposed child has learned numbers independently.
 

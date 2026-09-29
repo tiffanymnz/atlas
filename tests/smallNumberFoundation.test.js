@@ -35,6 +35,7 @@ test("audio has replayable short prompts and speaks choices without reading a lo
 test("each number from four through ten returns in a changed arrangement",()=>{
   const next=read("curriculum/lessons/lesson000.json");
   const translated=applyTranslation(next,read("curriculum/translations/es/lesson000.json"));
+  assert.equal(next.screens.filter(screen=>screen.visual?.count===0 && screen.choices).length,2,"zero must be revisited after its first check");
   for(const number of [4,5,6,7,8,9,10]){
     const checks=next.screens.filter(screen=>screen.visual?.count===number && screen.choices);
     assert.ok(checks.length>=2,`${number} needs an immediate check and later practice`);

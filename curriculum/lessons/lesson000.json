@@ -361,6 +361,17 @@
       "revision": 1
     },
     {
+      "id": "revisit-zero", "type": "guidedPractice", "title": "How many dots are in this box?",
+      "audio": "This box is empty. How many dots are in it?",
+      "visual": {"kind":"countingDots","count":0,"grouped":true,"ariaLabel":"A different empty box with no dots.","message":"How many dots?"},
+      "choices": [
+        {"text":"2","correct":false,"feedback":"Look inside the box. There are no dots.","misconception":"counting_one_to_one"},
+        {"text":"0","correct":true,"feedback":"No dots. Zero dots."},
+        {"text":"1","correct":false,"feedback":"There is no dot in the box.","misconception":"counting_one_to_one"}
+      ],
+      "hints": ["Look inside the box. Do you see a dot?","No dots means zero dots."]
+    },
+    {
       "id": "revisit-four", "type": "guidedPractice", "title": "Count a new group of dots.",
       "audio": "These dots have moved. Count each dot once. How many?",
       "visual": {"kind":"countingDots","count":4,"layout":"scattered","grouped":true,"ariaLabel":"Four dots in new places with no number labels.","message":"How many dots?"},

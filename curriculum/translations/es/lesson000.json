@@ -271,6 +271,12 @@
       "hints": ["Empieza a la izquierda y señala cada punto una vez.", "Di uno, dos, tres, cuatro, cinco mientras señalas."]
     },
     {
+      "title":"¿Cuántos puntos hay en este recuadro?","audio":"Este recuadro está vacío. ¿Cuántos puntos hay?",
+      "visual":{"ariaLabel":"Otro recuadro vacío sin puntos.","message":"¿Cuántos puntos hay?"},
+      "choices":[{"text":"2","feedback":"Mira dentro del recuadro. No hay puntos."},{"text":"0","feedback":"No hay puntos. Cero puntos."},{"text":"1","feedback":"No hay ningún punto en el recuadro."}],
+      "hints":["Mira dentro del recuadro. ¿Ves algún punto?","Sin puntos significa cero puntos."]
+    },
+    {
       "title":"Cuenta otro grupo de puntos.","audio":"Estos puntos cambiaron de lugar. Cuenta cada uno una vez. ¿Cuántos hay?",
       "visual":{"ariaLabel":"Cuatro puntos en otros lugares, sin números escritos.","message":"¿Cuántos puntos hay?"},
       "choices":[{"text":"5","feedback":"Comprueba que no contaste un punto dos veces."},{"text":"4","feedback":"Cuatro puntos. Cambiar de lugar no cambia la cantidad."},{"text":"3","feedback":"Busca un punto que te faltó."}],
