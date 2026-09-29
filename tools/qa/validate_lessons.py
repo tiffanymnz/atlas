@@ -31,7 +31,7 @@ def validate_translation(data,translation,path_name):
         return
     for index,(screen,translated) in enumerate(zip(base_screens,translated_screens)):
         location=f"{path_name} screen {index}"
-        for key in ["label","stage","title","body","callout","nextLabel","prompt","guidance","phraseMeaning","nextRecommendation","hook","boundary","boundaryLabel","audio","correctFeedback","wrongFeedback"]:
+        for key in ["label","stage","title","body","callout","nextLabel","prompt","guidance","phraseMeaning","nextRecommendation","hook","boundary","boundaryLabel","audio","correctFeedback","wrongFeedback","tooManyFeedback","tooFewFeedback"]:
             require_translation(screen,translated,key,location)
         require_translation(screen.get("visual",{}),translated.get("visual",{}),"message",location)
         require_translation(screen.get("visual",{}),translated.get("visual",{}),"ariaLabel",location)
@@ -77,7 +77,7 @@ for path in sorted(lesson_dir.glob("*.json")):
     primary_concept=data.get("concepts",{}).get("primary_concept")
     if not primary_concept: errors.append(f"{path.name}: missing primary concept")
     elif primary_concept not in concept_ids: errors.append(f"{path.name}: unknown primary concept {primary_concept}")
-    elif primary_concept in primary_concepts and not (primary_concept=="counting" and path.name in {"lesson000p.json","lesson000b.json","lesson000c.json"}): errors.append(f"{path.name}: duplicate primary concept {primary_concept}")
+    elif primary_concept in primary_concepts and not (primary_concept=="counting" and path.name in {"lesson000p.json","lesson000r.json","lesson000b.json","lesson000c.json"}): errors.append(f"{path.name}: duplicate primary concept {primary_concept}")
     primary_concepts.add(primary_concept)
     screens=data.get("screens",[])
     required_types=["intro","misconception","observe","discover","language","memoryHook","symbol","equationReveal","guidedPractice","independentPractice","recall","transfer","reflection","complete"]
@@ -104,6 +104,8 @@ for path in sorted(lesson_dir.glob("*.json")):
                 errors.append(f"{path.name}: {number} needs an immediate quantity check")
         for required in ["buildGroup","guidedPractice","independentPractice","recall","transfer","complete"]:
             if required not in screen_types: errors.append(f"{path.name}: missing {required}")
+    if path.name=="lesson000r.json":
+        expected_types=["intro","independentPractice","buildGroup","independentPractice","buildGroup","recall","complete"]
     if path.name=="lesson000a.json":
         expected_types=["intro","observe","observe","guidedPractice","observe","independentPractice","memoryHook","recall","transfer","complete"]
     if path.name in {"lesson000b.json","lesson000c.json"}:

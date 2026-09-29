@@ -9,12 +9,14 @@ const lessons=Array.from({length:12},(_,i)=>{
 });
 const pairLesson=JSON.parse(fs.readFileSync(new URL("../curriculum/lessons/lesson000a.json",import.meta.url)));
 const firstLesson=JSON.parse(fs.readFileSync(new URL("../curriculum/lessons/lesson000p.json",import.meta.url)));
+const returnLesson=JSON.parse(fs.readFileSync(new URL("../curriculum/lessons/lesson000r.json",import.meta.url)));
 const countingContinuations=["b","c"].map(suffix=>JSON.parse(fs.readFileSync(new URL(`../curriculum/lessons/lesson000${suffix}.json`,import.meta.url))));
 const picker=fs.readFileSync(new URL("../apps/learner/index.html",import.meta.url),"utf8");
 
 test("the lesson picker identifies the concept actually taught by each option",()=>{
   const options=[...picker.matchAll(/<option[^>]+data-concept="([^"]+)"/g)].map(match=>match[1]);
-  assert.deepEqual(options,[firstLesson.concepts.primary_concept,lessons[0].concepts.primary_concept,...countingContinuations.map(lesson=>lesson.concepts.primary_concept),pairLesson.concepts.primary_concept,...lessons.slice(1).map(lesson=>lesson.concepts.primary_concept)]);
+  assert.deepEqual(options,[firstLesson.concepts.primary_concept,returnLesson.concepts.primary_concept,lessons[0].concepts.primary_concept,...countingContinuations.map(lesson=>lesson.concepts.primary_concept),pairLesson.concepts.primary_concept,...lessons.slice(1).map(lesson=>lesson.concepts.primary_concept)]);
+  assert.match(picker,/lesson000r\.json" data-concept="counting" data-review="true"/);
   assert.match(picker,/data-en="Comparison 1 — How many more\?"/);
   assert.match(picker,/data-es="Comparación 1 — ¿Cuántos más\?"/);
 });

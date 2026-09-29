@@ -3,7 +3,7 @@ import { createAnalytics, showAnalytics } from "./analytics-engine/analyticsEngi
 import { recommendNext } from "./recommendation-engine/recommendationEngine.js";
 import { assessNextLessonReadiness } from "./recommendation-engine/readiness.js";
 import { nextConceptId } from "./recommendation-engine/lessonSequence.js";
-import { getPreferences, savePreferences, ensureLessonRecord, saveLessonRecord, getAllLessonRecords, archiveCompletedAttempt, newLessonAttempt, resolveLessonPosition, getLastLessonPath, saveLastLessonPath } from "./state-store/stateStore.js?v=1.5";
+import { getPreferences, savePreferences, ensureLessonRecord, saveLessonRecord, getAllLessonRecords, reviewSuggested, archiveCompletedAttempt, newLessonAttempt, resolveLessonPosition, getLastLessonPath, saveLastLessonPath } from "./state-store/stateStore.js?v=1.6";
 import { loadLocalizedLesson } from "./i18n/lessonLocale.js";
 
 let lesson = null, lessonPath = null, index = 0, selected = null, hintIndex = 0;
@@ -45,7 +45,7 @@ function persist(){
 }
 function emit(type,payload={}){ analytics.record({type, screen:index, component:current()?.type, payload}); syncAttemptEvents(); persist(); }
 function hasNextLesson(){
-  const next=lessonSelect.options[lessonSelect.selectedIndex+1];
+  const next=[...lessonSelect.options].slice(lessonSelect.selectedIndex+1).find(option=>!option.dataset.review);
   if(!next) return false;
   const nextId=nextConceptId(lesson);
   return !!nextId && next.dataset.concept===nextId;
@@ -55,11 +55,12 @@ function refreshLessonOptions(){
   for(const option of lessonSelect.options){
     const baseLabel=option.dataset[language] || option.dataset.en || option.textContent;
     const status=records.get(option.value)?.status;
-    option.textContent=baseLabel+(status==="completed"?` — ${copy().completed}`:status==="in_progress"?` — ${copy().inProgress}`:"");
+    const suggestion=option.dataset.review && reviewSuggested(records.get("../../curriculum/lessons/lesson000p.json"),records.get(option.value));
+    option.textContent=baseLabel+(suggestion?(language==="es"?" — Para hoy":" — Ready today"):status==="completed"?` — ${copy().completed}`:status==="in_progress"?` — ${copy().inProgress}`:"");
   }
   el("newAttemptBtn").hidden = lessonRecord?.status!=="completed";
 }
-function goToNextLesson(){ if(hasNextLesson()){ persist(); lessonSelect.selectedIndex += 1; loadLesson(lessonSelect.value); } }
+function goToNextLesson(){ if(hasNextLesson()){ persist(); const next=[...lessonSelect.options].slice(lessonSelect.selectedIndex+1).find(option=>!option.dataset.review); lessonSelect.value=next.value; loadLesson(next.value); } }
 function reviewVisualGap(){
   let target = lesson.screens.findIndex(screen => screen.visual && screen.visual.revealGap === true);
   if(target < 0) target = lesson.screens.findIndex(screen => screen.type === "observe" && screen.visual);
@@ -179,7 +180,7 @@ function renderBuildGroup(screen){
     `<div class="hint" id="hintBox" role="note" aria-live="polite"></div><div class="feedback" id="feedback" role="status" aria-live="polite" aria-atomic="true"></div>`;
   bindScreenAudio(screen);
   if(state.hintShown){const box=el("hintBox");box.style.display="block";box.textContent=screen.hints?.[Math.min(Math.max((state.hintIndex||1)-1,0),screen.hints.length-1)]||"";}
-  if(state.feedback){const box=el("feedback");box.style.display="block";box.className=`feedback ${finished?"success":"warn"}`;box.textContent=finished?`${copy().correct} ${screen.correctFeedback}`:`${copy().lookAgain} ${screen.wrongFeedback}`;}
+  if(state.feedback){const box=el("feedback");box.style.display="block";box.className=`feedback ${finished?"success":"warn"}`;const detail=finished?screen.correctFeedback:count>screen.targetCount?(screen.tooManyFeedback||screen.wrongFeedback):count<screen.targetCount?(screen.tooFewFeedback||screen.wrongFeedback):screen.wrongFeedback;box.textContent=`${finished?copy().correct:copy().lookAgain} ${detail}`;}
   el("removeDot").onclick=()=>changeBuildGroup(-1);
   el("addDot").onclick=()=>changeBuildGroup(1);
   el("hintBtn").onclick=()=>{

@@ -56,3 +56,16 @@ test("each number from eleven through twenty is checked again without printed co
     }
   }
 });
+
+test("a separate return lesson practices small numbers without using the original attempt",()=>{
+  const review=read("curriculum/lessons/lesson000r.json");
+  const translated=applyTranslation(review,read("curriculum/translations/es/lesson000r.json"));
+  assert.notEqual(review.metadata.id,lesson.metadata.id);
+  assert.deepEqual(review.screens.filter(screen=>screen.type==="buildGroup").map(screen=>screen.targetCount),[3,2]);
+  assert.ok(review.screens.some(screen=>screen.visual?.count===2 && screen.visual.layout==="staggered"));
+  assert.ok(review.screens.every(screen=>screen.audio));
+  assert.deepEqual(translated.screens.map(screen=>screen.id),review.screens.map(screen=>screen.id));
+  for(const screen of review.screens.filter(screen=>screen.type==="buildGroup")){
+    assert.ok(screen.tooManyFeedback && screen.tooFewFeedback);
+  }
+});

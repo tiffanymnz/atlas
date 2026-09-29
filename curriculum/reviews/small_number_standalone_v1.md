@@ -1,7 +1,13 @@
 # Small-number foundation: release boundary
 
-The learner picker now begins with `lesson000p.json` (1–3) before the preserved
-0–10 and 11–20 lessons. Each number from 0–20 now has an immediate quantity
+The learner picker now begins with `lesson000p.json` (1–3), with an optional
+`lesson000r.json` return practice, before the preserved 0–10 and 11–20 lessons.
+The return practice is suggested after the local calendar day changes, but it
+can be opened sooner; its progress and attempts have a separate lesson record.
+It uses a different dot arrangement, asks for groups of 3 and 2, and gives
+specific feedback for too many or too few dots. This is an opportunity for
+later retrieval, not evidence that a learner actually returned or retained it.
+Each number from 0–20 now has an immediate quantity
 check and a later check; 1–20 use a changed arrangement. The first lesson also asks
 learners to construct 2 and 3. This is a teaching prototype, not evidence that
 a previously unexposed child has learned numbers independently.
@@ -25,10 +31,10 @@ a previously unexposed child has learned numbers independently.
    feedback, controls, and number names in each claimed language. The browser
    speech fallback in the prototype is device-dependent and is not an approved
    child-facing voice. Provide a non-audio route for deaf learners.
-2. Go beyond two same-session checks: include construction and meaningful
-   contexts for more numbers, adaptive responses to specific counting errors,
-   and retrieval on a later day. Do not infer that completing the current
-   0–20 route establishes mastery.
+2. Extend construction, useful contexts, and specific error recovery to more
+   numbers. Verify return practice occurred on a later day and that the child
+   counted an unfamiliar arrangement without coaching. Completion of the
+   current 0–20 route does not establish mastery.
 3. Observe consenting first-time learners without coaching. Test whether each
    can navigate, count an unfamiliar arrangement once per object, make a
    requested amount, connect the spoken word with a numeral, and repeat on a

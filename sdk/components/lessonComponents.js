@@ -24,7 +24,7 @@ export function renderCountingDots(visual,label="Dots to count"){
   const dots=Array.from({length:count},(_,i)=>interactive
     ? `<button class="countingDot countTap" type="button" data-count="${i+1}" aria-label="${i+1}"><i aria-hidden="true"></i><b>${i+1}</b></button>`
     : `<span class="countingDot" aria-hidden="true"><i></i>${visual?.numbered?`<b>${i+1}</b>`:""}</span>`).join("");
-  const group=`${visual?.grouped?" grouped":""}${visual?.layout==="scattered"?" scattered":""}`;
+  const group=`${visual?.grouped?" grouped":""}${["scattered","staggered"].includes(visual?.layout)?` ${visual.layout}`:""}`;
   const output=interactive?`<div class="countSpeech" id="countSpeech" role="status" aria-live="polite"></div>`:"";
   const dotList=visual?.layout==="tenRows"&&count>0
     ? `<div class="countingTens"><div class="countingTray"><span>${visual?.firstLabel||"First ten"}</span><div class="countingGrid">${Array.from({length:Math.min(10,count)},(_,i)=>interactive?`<button class="countingDot countTap" type="button" data-count="${i+1}" aria-label="${i+1}"><i aria-hidden="true"></i><b>${i+1}</b></button>`:`<span class="countingDot" aria-hidden="true"><i></i>${visual?.numbered?`<b>${i+1}</b>`:""}</span>`).join("")}</div></div>${count>10?`<div class="countingTray"><span>${visual?.moreLabel||"More dots"}</span><div class="countingGrid">${Array.from({length:count-10},(_,i)=>interactive?`<button class="countingDot countTap" type="button" data-count="${i+11}" aria-label="${i+11}"><i aria-hidden="true"></i><b>${i+11}</b></button>`:`<span class="countingDot" aria-hidden="true"><i></i>${visual?.numbered?`<b>${i+11}</b>`:""}</span>`).join("")}</div></div>`:""}</div>`
