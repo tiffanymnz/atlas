@@ -71,6 +71,7 @@ function reviewVisualGap(){
 }
 function focusLesson(){ root.focus({preventScroll:true}); }
 function numberOnlyAudio(){ return lesson?.metadata?.audioStrategy==="number_words_only"; }
+function shortGuidanceAudio(){ return lesson?.metadata?.audioStrategy==="short_guidance"; }
 function isNumberModel(screen){ return screen?.type==="observe" && screen.visual?.kind==="countingDots" && Number.isInteger(screen.visual.count) && (screen.visual.numbered || screen.visual.count===0); }
 function audioButton(screen){
   if(numberOnlyAudio() && !isNumberModel(screen)) return "";
@@ -82,6 +83,10 @@ const NUMBER_WORDS={en:["zero","one","two","three","four","five","six","seven","
 let screenUtterance=null;
 function screenSpeechText(screen){
   if(numberOnlyAudio() && isNumberModel(screen)) return NUMBER_WORDS[language][screen.visual.count];
+  if(shortGuidanceAudio()){
+    const support=[el("hintBox"),el("feedback")].filter(node=>node&&node.style.display==="block").map(node=>node.textContent.trim());
+    return [screen.audio,...support].filter(Boolean).join(". ");
+  }
   const parts=[screen.audio || [screen.title,screen.body,screen.prompt,screen.visual?.message,screen.hook].filter(Boolean).join(". ")];
   if(screen.choices?.length) parts.push(screen.choices.map((choice,index)=>`${copy().choice} ${index+1}: ${choice.text}`).join(". "));
   const visibleSupport=[el("hintBox"),el("feedback")].filter(node=>node&&node.style.display==="block").map(node=>node.textContent.trim()).filter(Boolean);
@@ -389,6 +394,13 @@ function bindChoiceScreen(screen){
       const state=currentState();
       if(state.submittedCorrect) return;
       selected = Number(btn.dataset.i);
+      if(shortGuidanceAudio() && "speechSynthesis" in window && "SpeechSynthesisUtterance" in window){
+        window.speechSynthesis.cancel();
+        screenUtterance=new SpeechSynthesisUtterance(screen.choices[selected].text);
+        screenUtterance.lang=language==="es"?"es-ES":"en-US";
+        screenUtterance.rate=0.85;
+        window.speechSynthesis.speak(screenUtterance);
+      }
       state.selected=selected;
       if(state.feedback?.kind==="warning"){state.feedback=null;el("feedback").style.display="none";}
       buttons.forEach(b=>{ b.classList.remove("selected"); b.setAttribute("aria-checked","false"); b.tabIndex=-1; });

@@ -100,6 +100,7 @@
     }
   ],
   "misconceptions": {
+    "counting_one_to_one": "Learner skips an object, counts one twice, or confuses a count with the size of the whole group.",
     "combine_instead_of_compare": "Learner adds both groups when the task asks for a gap.",
     "reversed_subtraction": "Learner subtracts in the wrong order.",
     "object_instead_of_relationship": "Learner chooses a group instead of the relationship.",
