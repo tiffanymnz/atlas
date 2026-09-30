@@ -60,7 +60,7 @@ function refreshLessonOptions(){
   for(const option of lessonSelect.options){
     const baseLabel=option.dataset[language] || option.dataset.en || option.textContent;
     const status=records.get(option.value)?.status;
-    const suggestion=option.dataset.review && reviewSuggested(records.get("../../curriculum/lessons/lesson000p.json"),records.get(option.value));
+    const suggestion=option.dataset.review && reviewSuggested(records.get(option.dataset.reviewSource || "../../curriculum/lessons/lesson000p.json"),records.get(option.value));
     option.textContent=baseLabel+(suggestion?(language==="es"?" — Para hoy":" — Ready today"):status==="completed"?` — ${copy().completed}`:status==="in_progress"?` — ${copy().inProgress}`:"");
   }
   el("newAttemptBtn").hidden = lessonRecord?.status!=="completed";

@@ -77,7 +77,7 @@ for path in sorted(lesson_dir.glob("*.json")):
     primary_concept=data.get("concepts",{}).get("primary_concept")
     if not primary_concept: errors.append(f"{path.name}: missing primary concept")
     elif primary_concept not in concept_ids: errors.append(f"{path.name}: unknown primary concept {primary_concept}")
-    elif primary_concept in primary_concepts and not (primary_concept=="counting" and path.name in {"lesson000p.json","lesson000r.json","lesson000b.json","lesson000c.json"}): errors.append(f"{path.name}: duplicate primary concept {primary_concept}")
+    elif primary_concept in primary_concepts and not (primary_concept=="counting" and path.name in {"lesson000p.json","lesson000r.json","lesson000r4.json","lesson000r7.json","lesson000r11.json","lesson000r16.json","lesson000b.json","lesson000c.json"}): errors.append(f"{path.name}: duplicate primary concept {primary_concept}")
     primary_concepts.add(primary_concept)
     screens=data.get("screens",[])
     required_types=["intro","misconception","observe","discover","language","memoryHook","symbol","equationReveal","guidedPractice","independentPractice","recall","transfer","reflection","complete"]
@@ -106,6 +106,13 @@ for path in sorted(lesson_dir.glob("*.json")):
             if required not in screen_types: errors.append(f"{path.name}: missing {required}")
     if path.name=="lesson000r.json":
         expected_types=["intro","independentPractice","buildGroup","independentPractice","buildGroup","buildGroup","independentPractice","recall","recall","recall","complete"]
+    review_ranges={"lesson000r4.json":(4,6),"lesson000r7.json":(7,10),"lesson000r11.json":(11,15),"lesson000r16.json":(16,20)}
+    if path.name in review_ranges:
+        begin,end=review_ranges[path.name]
+        expected_types=["intro"]+[kind for number in range(begin,end+1) for kind in ["independentPractice","buildGroup"]]+["complete"]
+        for number in range(begin,end+1):
+            if not any(s.get("visual",{}).get("count")==number and s.get("choices") for s in screens) or not any(s.get("targetCount")==number for s in screens):
+                errors.append(f"{path.name}: {number} needs both counting and construction")
     if path.name=="lesson000a.json":
         expected_types=["intro","observe","observe","guidedPractice","observe","independentPractice","memoryHook","recall","transfer","complete"]
     if path.name in {"lesson000b.json","lesson000c.json"}:

@@ -1,0 +1,180 @@
+{
+  "metadata": {
+    "title": "Practica del 7 al 10"
+  },
+  "learning": {
+    "learning_goal": "Vuelve a contar y formar grupos del 7 al 10.",
+    "big_idea": "Cuenta cada punto una vez.",
+    "assumed_prior_knowledge": [
+      "Ya conoció y contó los números del 7 al 10."
+    ],
+    "novice_success_criteria": [
+      "Contar cada punto una vez en otra posición.",
+      "Formar la cantidad de puntos indicada."
+    ]
+  },
+  "screens": [
+    {
+      "title": "Practica del 7 al 10.",
+      "body": "Cuenta los puntos. Después pon tus propios puntos. Puedes descansar.",
+      "audio": "Cuenta los puntos. Después pon tus propios puntos. Puedes descansar."
+    },
+    {
+      "title": "¿Cuántos puntos hay?",
+      "audio": "Cuenta los puntos. Toca el número que indica cuántos puntos hay.",
+      "visual": {
+        "ariaLabel": "Siete puntos sin números escritos.",
+        "message": "¿Cuántos puntos hay?"
+      },
+      "choices": [
+        {
+          "text": "6",
+          "feedback": "Cuenta cada punto una vez. Revisa si saltaste un punto o lo contaste dos veces."
+        },
+        {
+          "text": "7",
+          "feedback": "7 puntos."
+        },
+        {
+          "text": "8",
+          "feedback": "Cuenta cada punto una vez. Revisa si saltaste un punto o lo contaste dos veces."
+        }
+      ],
+      "hints": [
+        "Empieza por la izquierda. Toca cada punto mientras cuentas.",
+        "Cuenta cada punto una vez. Después toca el número al que llegaste."
+      ]
+    },
+    {
+      "title": "Pon 7 puntos.",
+      "audio": "Pon siete puntos. Agrega puntos y después comprueba.",
+      "correctFeedback": "Pusiste 7 puntos.",
+      "wrongFeedback": "Cuenta otra vez. Necesitas 7 puntos.",
+      "tooFewFeedback": "Necesitas 7 puntos. Agrega un punto y cuenta otra vez.",
+      "hints": [
+        "Cuenta mientras agregas puntos.",
+        "Detente en 7."
+      ],
+      "tooManyFeedback": "Necesitas 7 puntos. Quita un punto y cuenta otra vez."
+    },
+    {
+      "title": "¿Cuántos puntos hay?",
+      "audio": "Cuenta los puntos. Toca el número que indica cuántos puntos hay.",
+      "visual": {
+        "ariaLabel": "Ocho puntos sin números escritos.",
+        "message": "¿Cuántos puntos hay?"
+      },
+      "choices": [
+        {
+          "text": "8",
+          "feedback": "8 puntos."
+        },
+        {
+          "text": "9",
+          "feedback": "Cuenta cada punto una vez. Revisa si saltaste un punto o lo contaste dos veces."
+        },
+        {
+          "text": "7",
+          "feedback": "Cuenta cada punto una vez. Revisa si saltaste un punto o lo contaste dos veces."
+        }
+      ],
+      "hints": [
+        "Empieza por la izquierda. Toca cada punto mientras cuentas.",
+        "Cuenta cada punto una vez. Después toca el número al que llegaste."
+      ]
+    },
+    {
+      "title": "Pon 8 puntos.",
+      "audio": "Pon ocho puntos. Agrega puntos y después comprueba.",
+      "correctFeedback": "Pusiste 8 puntos.",
+      "wrongFeedback": "Cuenta otra vez. Necesitas 8 puntos.",
+      "tooFewFeedback": "Necesitas 8 puntos. Agrega un punto y cuenta otra vez.",
+      "hints": [
+        "Cuenta mientras agregas puntos.",
+        "Detente en 8."
+      ],
+      "tooManyFeedback": "Necesitas 8 puntos. Quita un punto y cuenta otra vez."
+    },
+    {
+      "title": "¿Cuántos puntos hay?",
+      "audio": "Cuenta los puntos. Toca el número que indica cuántos puntos hay.",
+      "visual": {
+        "ariaLabel": "Nueve puntos sin números escritos.",
+        "message": "¿Cuántos puntos hay?"
+      },
+      "choices": [
+        {
+          "text": "10",
+          "feedback": "Cuenta cada punto una vez. Revisa si saltaste un punto o lo contaste dos veces."
+        },
+        {
+          "text": "8",
+          "feedback": "Cuenta cada punto una vez. Revisa si saltaste un punto o lo contaste dos veces."
+        },
+        {
+          "text": "9",
+          "feedback": "9 puntos."
+        }
+      ],
+      "hints": [
+        "Empieza por la izquierda. Toca cada punto mientras cuentas.",
+        "Cuenta cada punto una vez. Después toca el número al que llegaste."
+      ]
+    },
+    {
+      "title": "Pon 9 puntos.",
+      "audio": "Pon nueve puntos. Agrega puntos y después comprueba.",
+      "correctFeedback": "Pusiste 9 puntos.",
+      "wrongFeedback": "Cuenta otra vez. Necesitas 9 puntos.",
+      "tooFewFeedback": "Necesitas 9 puntos. Agrega un punto y cuenta otra vez.",
+      "hints": [
+        "Cuenta mientras agregas puntos.",
+        "Detente en 9."
+      ],
+      "tooManyFeedback": "Necesitas 9 puntos. Quita un punto y cuenta otra vez."
+    },
+    {
+      "title": "¿Cuántos puntos hay?",
+      "audio": "Cuenta los puntos. Toca el número que indica cuántos puntos hay.",
+      "visual": {
+        "ariaLabel": "Diez puntos sin números escritos.",
+        "message": "¿Cuántos puntos hay?"
+      },
+      "choices": [
+        {
+          "text": "9",
+          "feedback": "Cuenta cada punto una vez. Revisa si saltaste un punto o lo contaste dos veces."
+        },
+        {
+          "text": "10",
+          "feedback": "10 puntos."
+        },
+        {
+          "text": "11",
+          "feedback": "Cuenta cada punto una vez. Revisa si saltaste un punto o lo contaste dos veces."
+        }
+      ],
+      "hints": [
+        "Empieza por la izquierda. Toca cada punto mientras cuentas.",
+        "Cuenta cada punto una vez. Después toca el número al que llegaste."
+      ]
+    },
+    {
+      "title": "Pon 10 puntos.",
+      "audio": "Pon diez puntos. Agrega puntos y después comprueba.",
+      "correctFeedback": "Pusiste 10 puntos.",
+      "wrongFeedback": "Cuenta otra vez. Necesitas 10 puntos.",
+      "tooFewFeedback": "Necesitas 10 puntos. Agrega un punto y cuenta otra vez.",
+      "hints": [
+        "Cuenta mientras agregas puntos.",
+        "Detente en 10."
+      ],
+      "tooManyFeedback": "Necesitas 10 puntos. Quita un punto y cuenta otra vez."
+    },
+    {
+      "title": "Practicaste otra vez.",
+      "body": "Inténtalo de nuevo otro día.",
+      "audio": "Practicaste otra vez. Inténtalo de nuevo otro día."
+    }
+  ]
+}

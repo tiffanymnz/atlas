@@ -1,0 +1,255 @@
+{
+  "schema_version": "3.0",
+  "metadata": {
+    "id": "MATH-NS-FOUND-000R7",
+    "title": "Practice 7–10",
+    "domain": "Mathematics",
+    "subject": "Arithmetic",
+    "course": "Number Sense",
+    "unit": "Counting",
+    "contentRevision": 1,
+    "audioStrategy": "short_guidance"
+  },
+  "learning": {
+    "learning_goal": "Count and make groups from 7 through 10 again.",
+    "big_idea": "Count every dot once.",
+    "assumed_prior_knowledge": [
+      "Previously met and counted numbers 7 through 10."
+    ],
+    "novice_success_criteria": [
+      "Count each dot once in a changed arrangement.",
+      "Make a requested number of dots."
+    ]
+  },
+  "concepts": {
+    "primary_concept": "counting",
+    "supporting_concepts": [
+      "counting",
+      "cardinality"
+    ]
+  },
+  "screens": [
+    {
+      "id": "intro",
+      "type": "intro",
+      "title": "Practice 7–10.",
+      "body": "Count the dots. Then make your own. You can take a break.",
+      "audio": "Count the dots. Then make your own. You can take a break."
+    },
+    {
+      "id": "count-7",
+      "type": "independentPractice",
+      "title": "How many dots?",
+      "audio": "Count the dots. Tap the number that shows how many dots there are.",
+      "visual": {
+        "kind": "countingDots",
+        "count": 7,
+        "layout": "scattered",
+        "grouped": true,
+        "ariaLabel": "Seven dots without number labels.",
+        "message": "How many dots?"
+      },
+      "choices": [
+        {
+          "text": "6",
+          "correct": false,
+          "feedback": "Count every dot once. Check for a dot you missed or counted twice.",
+          "misconception": "counting_one_to_one"
+        },
+        {
+          "text": "7",
+          "correct": true,
+          "feedback": "7 dots."
+        },
+        {
+          "text": "8",
+          "correct": false,
+          "feedback": "Count every dot once. Check for a dot you missed or counted twice.",
+          "misconception": "counting_one_to_one"
+        }
+      ],
+      "hints": [
+        "Start at the left. Touch each dot as you count.",
+        "Count each dot once. Then tap the number you reached."
+      ]
+    },
+    {
+      "id": "make-7",
+      "type": "buildGroup",
+      "title": "Make 7 dots.",
+      "audio": "Make seven dots. Add dots, then check.",
+      "targetCount": 7,
+      "correctFeedback": "You made 7 dots.",
+      "wrongFeedback": "Count again. You need 7 dots.",
+      "tooFewFeedback": "You need 7 dots. Add a dot, then count again.",
+      "hints": [
+        "Count as you add dots.",
+        "Stop at 7."
+      ],
+      "tooManyFeedback": "You need 7 dots. Remove a dot, then count again."
+    },
+    {
+      "id": "count-8",
+      "type": "independentPractice",
+      "title": "How many dots?",
+      "audio": "Count the dots. Tap the number that shows how many dots there are.",
+      "visual": {
+        "kind": "countingDots",
+        "count": 8,
+        "layout": "staggered",
+        "grouped": true,
+        "ariaLabel": "Eight dots without number labels.",
+        "message": "How many dots?"
+      },
+      "choices": [
+        {
+          "text": "8",
+          "correct": true,
+          "feedback": "8 dots."
+        },
+        {
+          "text": "9",
+          "correct": false,
+          "feedback": "Count every dot once. Check for a dot you missed or counted twice.",
+          "misconception": "counting_one_to_one"
+        },
+        {
+          "text": "7",
+          "correct": false,
+          "feedback": "Count every dot once. Check for a dot you missed or counted twice.",
+          "misconception": "counting_one_to_one"
+        }
+      ],
+      "hints": [
+        "Start at the left. Touch each dot as you count.",
+        "Count each dot once. Then tap the number you reached."
+      ]
+    },
+    {
+      "id": "make-8",
+      "type": "buildGroup",
+      "title": "Make 8 dots.",
+      "audio": "Make eight dots. Add dots, then check.",
+      "targetCount": 8,
+      "correctFeedback": "You made 8 dots.",
+      "wrongFeedback": "Count again. You need 8 dots.",
+      "tooFewFeedback": "You need 8 dots. Add a dot, then count again.",
+      "hints": [
+        "Count as you add dots.",
+        "Stop at 8."
+      ],
+      "tooManyFeedback": "You need 8 dots. Remove a dot, then count again."
+    },
+    {
+      "id": "count-9",
+      "type": "independentPractice",
+      "title": "How many dots?",
+      "audio": "Count the dots. Tap the number that shows how many dots there are.",
+      "visual": {
+        "kind": "countingDots",
+        "count": 9,
+        "layout": "scattered",
+        "grouped": true,
+        "ariaLabel": "Nine dots without number labels.",
+        "message": "How many dots?"
+      },
+      "choices": [
+        {
+          "text": "10",
+          "correct": false,
+          "feedback": "Count every dot once. Check for a dot you missed or counted twice.",
+          "misconception": "counting_one_to_one"
+        },
+        {
+          "text": "8",
+          "correct": false,
+          "feedback": "Count every dot once. Check for a dot you missed or counted twice.",
+          "misconception": "counting_one_to_one"
+        },
+        {
+          "text": "9",
+          "correct": true,
+          "feedback": "9 dots."
+        }
+      ],
+      "hints": [
+        "Start at the left. Touch each dot as you count.",
+        "Count each dot once. Then tap the number you reached."
+      ]
+    },
+    {
+      "id": "make-9",
+      "type": "buildGroup",
+      "title": "Make 9 dots.",
+      "audio": "Make nine dots. Add dots, then check.",
+      "targetCount": 9,
+      "correctFeedback": "You made 9 dots.",
+      "wrongFeedback": "Count again. You need 9 dots.",
+      "tooFewFeedback": "You need 9 dots. Add a dot, then count again.",
+      "hints": [
+        "Count as you add dots.",
+        "Stop at 9."
+      ],
+      "tooManyFeedback": "You need 9 dots. Remove a dot, then count again."
+    },
+    {
+      "id": "count-10",
+      "type": "independentPractice",
+      "title": "How many dots?",
+      "audio": "Count the dots. Tap the number that shows how many dots there are.",
+      "visual": {
+        "kind": "countingDots",
+        "count": 10,
+        "layout": "staggered",
+        "grouped": true,
+        "ariaLabel": "Ten dots without number labels.",
+        "message": "How many dots?"
+      },
+      "choices": [
+        {
+          "text": "9",
+          "correct": false,
+          "feedback": "Count every dot once. Check for a dot you missed or counted twice.",
+          "misconception": "counting_one_to_one"
+        },
+        {
+          "text": "10",
+          "correct": true,
+          "feedback": "10 dots."
+        },
+        {
+          "text": "11",
+          "correct": false,
+          "feedback": "Count every dot once. Check for a dot you missed or counted twice.",
+          "misconception": "counting_one_to_one"
+        }
+      ],
+      "hints": [
+        "Start at the left. Touch each dot as you count.",
+        "Count each dot once. Then tap the number you reached."
+      ]
+    },
+    {
+      "id": "make-10",
+      "type": "buildGroup",
+      "title": "Make 10 dots.",
+      "audio": "Make ten dots. Add dots, then check.",
+      "targetCount": 10,
+      "correctFeedback": "You made 10 dots.",
+      "wrongFeedback": "Count again. You need 10 dots.",
+      "tooFewFeedback": "You need 10 dots. Add a dot, then count again.",
+      "hints": [
+        "Count as you add dots.",
+        "Stop at 10."
+      ],
+      "tooManyFeedback": "You need 10 dots. Remove a dot, then count again."
+    },
+    {
+      "id": "complete",
+      "type": "complete",
+      "title": "You practiced again.",
+      "body": "Try again another day.",
+      "audio": "You practiced again. Try again another day."
+    }
+  ]
+}

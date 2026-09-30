@@ -7,6 +7,30 @@ const read=path=>JSON.parse(fs.readFileSync(new URL(`../${path}`,import.meta.url
 const lesson=read("curriculum/lessons/lesson000p.json");
 const spanish=applyTranslation(lesson,read("curriculum/translations/es/lesson000p.json"));
 
+test("return sessions cover every number 4–20 with bilingual counting and construction",()=>{
+  const picker=fs.readFileSync(new URL("../apps/learner/index.html",import.meta.url),"utf8");
+  for(const [suffix,start,end,source] of [["r4",4,6,"lesson000"],["r7",7,10,"lesson000"],["r11",11,15,"lesson000b"],["r16",16,20,"lesson000c"]]){
+    const review=read(`curriculum/lessons/lesson000${suffix}.json`);
+    const translated=applyTranslation(review,read(`curriculum/translations/es/lesson000${suffix}.json`));
+    assert.ok(picker.includes(`lesson000${suffix}.json" data-concept="counting" data-review="true" data-review-source="../../curriculum/lessons/${source}.json"`));
+    assert.ok(review.screens.length<=12);
+    for(const localized of [review,translated]){
+      assert.ok(localized.screens.every(screen=>screen.audio));
+      for(let number=start;number<=end;number++){
+        const check=localized.screens.find(screen=>screen.visual?.count===number);
+        assert.equal(check.visual.numbered,undefined);
+        assert.equal(check.visual.interactive,undefined);
+        assert.equal(check.choices.filter(choice=>choice.correct).length,1);
+        assert.equal(check.choices.find(choice=>choice.correct).text,String(number));
+        assert.equal(new Set(check.choices.map(choice=>choice.text)).size,3);
+        const build=localized.screens.find(screen=>screen.targetCount===number);
+        assert.ok(build.tooFewFeedback);
+        if(number<20) assert.ok(build.tooManyFeedback);
+      }
+    }
+  }
+});
+
 test("small numbers precede the existing 0–20 route and are each revisited",()=>{
   const picker=fs.readFileSync(new URL("../apps/learner/index.html",import.meta.url),"utf8");
   assert.ok(picker.indexOf("lesson000p.json")<picker.indexOf("lesson000.json"));

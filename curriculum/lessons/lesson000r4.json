@@ -1,0 +1,203 @@
+{
+  "schema_version": "3.0",
+  "metadata": {
+    "id": "MATH-NS-FOUND-000R4",
+    "title": "Practice 4–6",
+    "domain": "Mathematics",
+    "subject": "Arithmetic",
+    "course": "Number Sense",
+    "unit": "Counting",
+    "contentRevision": 1,
+    "audioStrategy": "short_guidance"
+  },
+  "learning": {
+    "learning_goal": "Count and make groups from 4 through 6 again.",
+    "big_idea": "Count every dot once.",
+    "assumed_prior_knowledge": [
+      "Previously met and counted numbers 4 through 6."
+    ],
+    "novice_success_criteria": [
+      "Count each dot once in a changed arrangement.",
+      "Make a requested number of dots."
+    ]
+  },
+  "concepts": {
+    "primary_concept": "counting",
+    "supporting_concepts": [
+      "counting",
+      "cardinality"
+    ]
+  },
+  "screens": [
+    {
+      "id": "intro",
+      "type": "intro",
+      "title": "Practice 4–6.",
+      "body": "Count the dots. Then make your own. You can take a break.",
+      "audio": "Count the dots. Then make your own. You can take a break."
+    },
+    {
+      "id": "count-4",
+      "type": "independentPractice",
+      "title": "How many dots?",
+      "audio": "Count the dots. Tap the number that shows how many dots there are.",
+      "visual": {
+        "kind": "countingDots",
+        "count": 4,
+        "layout": "staggered",
+        "grouped": true,
+        "ariaLabel": "Four dots without number labels.",
+        "message": "How many dots?"
+      },
+      "choices": [
+        {
+          "text": "3",
+          "correct": false,
+          "feedback": "Count every dot once. Check for a dot you missed or counted twice.",
+          "misconception": "counting_one_to_one"
+        },
+        {
+          "text": "4",
+          "correct": true,
+          "feedback": "4 dots."
+        },
+        {
+          "text": "5",
+          "correct": false,
+          "feedback": "Count every dot once. Check for a dot you missed or counted twice.",
+          "misconception": "counting_one_to_one"
+        }
+      ],
+      "hints": [
+        "Start at the left. Touch each dot as you count.",
+        "Count each dot once. Then tap the number you reached."
+      ]
+    },
+    {
+      "id": "make-4",
+      "type": "buildGroup",
+      "title": "Make 4 dots.",
+      "audio": "Make four dots. Add dots, then check.",
+      "targetCount": 4,
+      "correctFeedback": "You made 4 dots.",
+      "wrongFeedback": "Count again. You need 4 dots.",
+      "tooFewFeedback": "You need 4 dots. Add a dot, then count again.",
+      "hints": [
+        "Count as you add dots.",
+        "Stop at 4."
+      ],
+      "tooManyFeedback": "You need 4 dots. Remove a dot, then count again."
+    },
+    {
+      "id": "count-5",
+      "type": "independentPractice",
+      "title": "How many dots?",
+      "audio": "Count the dots. Tap the number that shows how many dots there are.",
+      "visual": {
+        "kind": "countingDots",
+        "count": 5,
+        "layout": "scattered",
+        "grouped": true,
+        "ariaLabel": "Five dots without number labels.",
+        "message": "How many dots?"
+      },
+      "choices": [
+        {
+          "text": "5",
+          "correct": true,
+          "feedback": "5 dots."
+        },
+        {
+          "text": "6",
+          "correct": false,
+          "feedback": "Count every dot once. Check for a dot you missed or counted twice.",
+          "misconception": "counting_one_to_one"
+        },
+        {
+          "text": "4",
+          "correct": false,
+          "feedback": "Count every dot once. Check for a dot you missed or counted twice.",
+          "misconception": "counting_one_to_one"
+        }
+      ],
+      "hints": [
+        "Start at the left. Touch each dot as you count.",
+        "Count each dot once. Then tap the number you reached."
+      ]
+    },
+    {
+      "id": "make-5",
+      "type": "buildGroup",
+      "title": "Make 5 dots.",
+      "audio": "Make five dots. Add dots, then check.",
+      "targetCount": 5,
+      "correctFeedback": "You made 5 dots.",
+      "wrongFeedback": "Count again. You need 5 dots.",
+      "tooFewFeedback": "You need 5 dots. Add a dot, then count again.",
+      "hints": [
+        "Count as you add dots.",
+        "Stop at 5."
+      ],
+      "tooManyFeedback": "You need 5 dots. Remove a dot, then count again."
+    },
+    {
+      "id": "count-6",
+      "type": "independentPractice",
+      "title": "How many dots?",
+      "audio": "Count the dots. Tap the number that shows how many dots there are.",
+      "visual": {
+        "kind": "countingDots",
+        "count": 6,
+        "layout": "staggered",
+        "grouped": true,
+        "ariaLabel": "Six dots without number labels.",
+        "message": "How many dots?"
+      },
+      "choices": [
+        {
+          "text": "7",
+          "correct": false,
+          "feedback": "Count every dot once. Check for a dot you missed or counted twice.",
+          "misconception": "counting_one_to_one"
+        },
+        {
+          "text": "5",
+          "correct": false,
+          "feedback": "Count every dot once. Check for a dot you missed or counted twice.",
+          "misconception": "counting_one_to_one"
+        },
+        {
+          "text": "6",
+          "correct": true,
+          "feedback": "6 dots."
+        }
+      ],
+      "hints": [
+        "Start at the left. Touch each dot as you count.",
+        "Count each dot once. Then tap the number you reached."
+      ]
+    },
+    {
+      "id": "make-6",
+      "type": "buildGroup",
+      "title": "Make 6 dots.",
+      "audio": "Make six dots. Add dots, then check.",
+      "targetCount": 6,
+      "correctFeedback": "You made 6 dots.",
+      "wrongFeedback": "Count again. You need 6 dots.",
+      "tooFewFeedback": "You need 6 dots. Add a dot, then count again.",
+      "hints": [
+        "Count as you add dots.",
+        "Stop at 6."
+      ],
+      "tooManyFeedback": "You need 6 dots. Remove a dot, then count again."
+    },
+    {
+      "id": "complete",
+      "type": "complete",
+      "title": "You practiced again.",
+      "body": "Try again another day.",
+      "audio": "You practiced again. Try again another day."
+    }
+  ]
+}

@@ -65,3 +65,16 @@ number for each of 1, 2, and 3. Directions have short audio scripts; playback
 still uses device speech rather than approved natural recordings. The session
 contains eleven screens and remains optional. Fixed screens do not provide
 randomized practice or establish mastery.
+
+## Return practice through twenty
+
+Four optional sessions cover 4–6, 7–10, 11–15, and 16–20. Each number has an
+unnumbered arrangement check followed by construction. Sessions have 8–12
+screens, short English and Spanish audio scripts, and separate lesson IDs.
+Later-day suggestions use completion of the corresponding source lesson.
+They are skipped by forward lesson navigation and remain accessible early.
+
+These are fixed review sets, not randomized assessments. Dot constructions
+can still be solved by tapping repeatedly; actual counting needs observation.
+Numeral recognition without visible quantities is not assessed for every
+number in these new sessions. Device narration remains an interim solution.
