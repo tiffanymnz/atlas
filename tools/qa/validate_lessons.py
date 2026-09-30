@@ -105,7 +105,7 @@ for path in sorted(lesson_dir.glob("*.json")):
         for required in ["buildGroup","guidedPractice","independentPractice","recall","transfer","complete"]:
             if required not in screen_types: errors.append(f"{path.name}: missing {required}")
     if path.name=="lesson000r.json":
-        expected_types=["intro","independentPractice","buildGroup","independentPractice","buildGroup","recall","complete"]
+        expected_types=["intro","independentPractice","buildGroup","independentPractice","buildGroup","buildGroup","independentPractice","recall","recall","recall","complete"]
     if path.name=="lesson000a.json":
         expected_types=["intro","observe","observe","guidedPractice","observe","independentPractice","memoryHook","recall","transfer","complete"]
     if path.name in {"lesson000b.json","lesson000c.json"}:

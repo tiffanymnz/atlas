@@ -90,13 +90,13 @@ test("completed attempts remain separate from a fresh current attempt",()=>{
 });
 
 test("return practice is suggested on a later day and resets after another completion",()=>{
-  const original={currentAttempt:{completed:true,completedAt:"2026-09-28T14:00:00Z"}};
-  const reviewed={currentAttempt:{completed:true,completedAt:"2026-09-29T14:00:00Z"}};
-  assert.equal(reviewSuggested(original,null,new Date("2026-09-28T20:00:00Z")),false);
-  assert.equal(reviewSuggested(original,null,new Date("2026-09-29T13:00:00Z")),true);
-  assert.equal(reviewSuggested(original,reviewed,new Date("2026-09-29T20:00:00Z")),false);
-  assert.equal(reviewSuggested(original,reviewed,new Date("2026-09-30T14:00:00Z")),true);
-  assert.equal(reviewSuggested(null,null,new Date("2026-09-30T14:00:00Z")),false);
+  const original={currentAttempt:{completed:true,completedAt:new Date(2026,8,28,14).toISOString()}};
+  const reviewed={currentAttempt:{completed:true,completedAt:new Date(2026,8,29,14).toISOString()}};
+  assert.equal(reviewSuggested(original,null,new Date(2026,8,28,20)),false);
+  assert.equal(reviewSuggested(original,null,new Date(2026,8,29,13)),true);
+  assert.equal(reviewSuggested(original,reviewed,new Date(2026,8,29,20)),false);
+  assert.equal(reviewSuggested(original,reviewed,new Date(2026,8,30,14)),true);
+  assert.equal(reviewSuggested(null,null,new Date(2026,8,30,14)),false);
 });
 
 test("the selected lesson survives reopen",()=>{

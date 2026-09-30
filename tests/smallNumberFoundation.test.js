@@ -63,7 +63,11 @@ test("a separate return lesson practices small numbers without using the origina
   const review=read("curriculum/lessons/lesson000r.json");
   const translated=applyTranslation(review,read("curriculum/translations/es/lesson000r.json"));
   assert.notEqual(review.metadata.id,lesson.metadata.id);
-  assert.deepEqual(review.screens.filter(screen=>screen.type==="buildGroup").map(screen=>screen.targetCount),[3,2]);
+  assert.deepEqual(review.screens.filter(screen=>screen.type==="buildGroup").map(screen=>screen.targetCount),[3,2,1]);
+  for(const number of [1,2,3]){
+    assert.ok(review.screens.some(screen=>screen.visual?.count===number && screen.choices),`count ${number} on return`);
+    assert.ok(review.screens.some(screen=>screen.type==="recall" && screen.choices.some(choice=>choice.correct && choice.text===String(number))),`hear and recognize ${number} on return`);
+  }
   assert.ok(review.screens.some(screen=>screen.visual?.count===2 && screen.visual.layout==="staggered"));
   assert.ok(review.screens.every(screen=>screen.audio));
   assert.deepEqual(translated.screens.map(screen=>screen.id),review.screens.map(screen=>screen.id));

@@ -57,3 +57,11 @@ Feedback directs learners to add or remove a dot as appropriate. The
 Both lessons advance their content revision to preserve earlier completed
 attempts separately. Natural narration and first-time learner observation
 remain outstanding; these additions do not establish mastery.
+
+## Complete small-number return coverage
+
+Return practice now checks counting, constructing, and recognizing a spoken
+number for each of 1, 2, and 3. Directions have short audio scripts; playback
+still uses device speech rather than approved natural recordings. The session
+contains eleven screens and remains optional. Fixed screens do not provide
+randomized practice or establish mastery.
