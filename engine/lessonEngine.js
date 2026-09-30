@@ -5,6 +5,9 @@ import { assessNextLessonReadiness } from "./recommendation-engine/readiness.js"
 import { nextConceptId } from "./recommendation-engine/lessonSequence.js";
 import { getPreferences, savePreferences, ensureLessonRecord, saveLessonRecord, getAllLessonRecords, reviewSuggested, archiveCompletedAttempt, newLessonAttempt, resolveLessonPosition, getLastLessonPath, saveLastLessonPath } from "./state-store/stateStore.js?v=1.6";
 import { loadLocalizedLesson } from "./i18n/lessonLocale.js";
+import { createRecordedNarration, recordedNarrationUrl } from "./recordedNarration.js";
+
+const narration=createRecordedNarration();
 
 let lesson = null, lessonPath = null, index = 0, selected = null, hintIndex = 0;
 let dark = false, big = false, reduce = false, language = "en";
@@ -75,8 +78,8 @@ function numberOnlyAudio(){ return lesson?.metadata?.audioStrategy==="number_wor
 function shortGuidanceAudio(){ return lesson?.metadata?.audioStrategy==="short_guidance"; }
 function isNumberModel(screen){ return screen?.type==="observe" && screen.visual?.kind==="countingDots" && Number.isInteger(screen.visual.count) && (screen.visual.numbered || screen.visual.count===0); }
 function audioButton(screen){
-  if(numberOnlyAudio() && !isNumberModel(screen)) return "";
-  const label=numberOnlyAudio()?copy().hearNumber:copy().listen;
+  if(numberOnlyAudio() && !isNumberModel(screen) && !recordedNarrationUrl(screen,language,import.meta.url)) return "";
+  const label=numberOnlyAudio() && isNumberModel(screen)?copy().hearNumber:copy().listen;
   return `<button class="btn listenBtn" type="button" id="listenBtn" aria-pressed="false">🔊 ${label}</button>`;
 }
 function base(screen){ const progress=pct(); return `<div class="screenTools"><span class="badge">${screen.label || screen.stage || copy().lesson}</span>${audioButton(screen)}</div><div class="progress" role="progressbar" aria-label="${copy().progressBar}" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${progress}"><span style="width:${progress}%"></span></div><h1 id="screenTitle">${screen.title}</h1>`; }
@@ -96,12 +99,26 @@ function screenSpeechText(screen){
 function resetListenButton(){
   const button=el("listenBtn");
   if(!button) return;
-  button.textContent=`🔊 ${numberOnlyAudio()?copy().hearNumber:copy().listen}`;
+  button.textContent=`🔊 ${numberOnlyAudio() && isNumberModel(lesson?.screens[index])?copy().hearNumber:copy().listen}`;
   button.setAttribute("aria-pressed","false");
 }
 function bindScreenAudio(screen){
   const button=el("listenBtn");
   if(!button) return;
+  const recording=recordedNarrationUrl(screen,language,import.meta.url);
+  if(recording){
+    button.onclick=()=>{
+      if(narration.playing){ narration.stop(); resetListenButton(); return; }
+      stopCountingAudio();
+      button.textContent=`■ ${copy().stopAudio}`;
+      button.setAttribute("aria-pressed","true");
+      narration.play(recording,resetListenButton,()=>{
+        resetListenButton();
+        button.textContent=copy().audioUnavailable;
+      });
+    };
+    return;
+  }
   const canSpeak="speechSynthesis" in window && "SpeechSynthesisUtterance" in window;
   if(!canSpeak){
     button.disabled=true;
@@ -110,11 +127,13 @@ function bindScreenAudio(screen){
   }
   button.onclick=()=>{
     if(screenUtterance && window.speechSynthesis.speaking){
+      narration.stop();
       window.speechSynthesis.cancel();
       screenUtterance=null;
       resetListenButton();
       return;
     }
+    narration.stop();
     window.speechSynthesis.cancel();
     screenUtterance=new SpeechSynthesisUtterance(screenSpeechText(screen));
     screenUtterance.lang=language==="es"?"es-ES":"en-US";
@@ -153,6 +172,7 @@ function bindCountingAudio(){
         ? language==="es"?`${number} — ${word}. Hay ${word} puntos.`:`${number} — ${word}. There are ${word} dots.`
         : `${number} — ${word}`;
       if(canSpeak){
+        narration.stop();
         window.speechSynthesis.cancel();
         screenUtterance=null;
         resetListenButton();
@@ -164,7 +184,7 @@ function bindCountingAudio(){
     };
   }
 }
-function stopCountingAudio(){ if("speechSynthesis" in window) window.speechSynthesis.cancel(); screenUtterance=null; }
+function stopCountingAudio(){ narration.stop(); if("speechSynthesis" in window) window.speechSynthesis.cancel(); screenUtterance=null; }
 
 function buildCount(state,limit){
   return Number.isInteger(state.builtCount)?Math.min(limit,Math.max(0,state.builtCount)):0;
@@ -209,6 +229,7 @@ function changeBuildGroup(delta){
   const control=el(delta>0?"addDot":"removeDot");
   (control.disabled?el(delta>0?"removeDot":"addDot"):control).focus();
   if("speechSynthesis" in window&&"SpeechSynthesisUtterance" in window){
+    narration.stop();
     window.speechSynthesis.cancel();screenUtterance=null;resetListenButton();
     const spoken=new SpeechSynthesisUtterance(NUMBER_WORDS[language][nextCount]);
     spoken.lang=language==="es"?"es-ES":"en-US";spoken.rate=0.85;
@@ -397,6 +418,7 @@ function bindChoiceScreen(screen){
       if(state.submittedCorrect) return;
       selected = Number(btn.dataset.i);
       if(shortGuidanceAudio() && "speechSynthesis" in window && "SpeechSynthesisUtterance" in window){
+        narration.stop();
         window.speechSynthesis.cancel();
         screenUtterance=new SpeechSynthesisUtterance(screen.choices[selected].text);
         screenUtterance.lang=language==="es"?"es-ES":"en-US";
