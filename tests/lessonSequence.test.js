@@ -38,3 +38,15 @@ test("next-lesson shortcuts stop at topic boundaries",()=>{
   assert.equal(continuesConceptSequence(countingContinuations[1],pairLesson),false);
   assert.equal(nextConceptId(pairLesson),null);
 });
+
+test("the 0–10 lesson introduces quantities before asking for construction",()=>{
+  const counting=lessons[0];
+  assert.equal(counting.metadata.contentRevision,8);
+  for(const number of [4,5,7,8,10]){
+    const model=counting.screens.findIndex(screen=>screen.visual?.count===number && screen.visual?.interactive);
+    const build=counting.screens.findIndex(screen=>screen.type==="buildGroup" && screen.targetCount===number);
+    assert.ok(model>=0 && build>model,`${number} must be modeled before it is built`);
+    const screen=counting.screens[build];
+    assert.ok(screen.tooFewFeedback && screen.tooManyFeedback,`${number} needs distinct error guidance`);
+  }
+});

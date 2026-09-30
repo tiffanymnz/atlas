@@ -42,6 +42,8 @@ test("each number from four through ten returns in a changed arrangement",()=>{
     assert.ok(checks.some(screen=>screen.visual.layout==="scattered"),`${number} needs a changed arrangement`);
     assert.ok(translated.screens.some(screen=>screen.visual?.count===number && screen.visual.layout==="scattered"));
   }
+  assert.deepEqual(next.screens.filter(screen=>screen.type==="buildGroup").map(screen=>screen.targetCount),[4,5,7,8,10]);
+  assert.deepEqual(translated.screens.filter(screen=>screen.type==="buildGroup").map(screen=>screen.targetCount),[4,5,7,8,10]);
 });
 
 test("each number from eleven through twenty is checked again without printed count labels",()=>{

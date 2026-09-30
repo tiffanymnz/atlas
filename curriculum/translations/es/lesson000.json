@@ -128,6 +128,8 @@
       "audio": "Empieza con un recuadro vacío. Toca Agregar un punto hasta tener cuatro puntos. Puedes quitar un punto. Después toca Comprobar mis puntos.",
       "correctFeedback": "Formaste cuatro puntos.",
       "wrongFeedback": "Cuenta los puntos en tu recuadro. Agrega o quita un punto y vuelve a comprobar.",
+      "tooManyFeedback": "Hay más de cuatro puntos. Quita uno y vuelve a contar.",
+      "tooFewFeedback": "Hay menos de cuatro puntos. Agrega uno y vuelve a contar.",
       "hints": ["Toca Agregar un punto para poner un punto en el recuadro.", "Señala cada punto y cuenta: uno, dos, tres, cuatro. Detente en cuatro."]
     },
     {
@@ -147,6 +149,14 @@
         {"text": "5", "feedback": "Hay cinco puntos en este grupo."}
       ],
       "hints": ["Empieza a la izquierda. Cuenta cada punto una vez.", "Cuenta de nuevo: uno, dos, tres, cuatro, cinco."]
+    },
+    {
+      "label": "Tu turno", "title": "Pon 5 puntos.",
+      "audio": "Pon cinco puntos. Agrégalos de uno en uno. Después comprueba.",
+      "correctFeedback": "Pusiste cinco puntos.", "wrongFeedback": "Cuenta tus puntos y prueba otra vez.",
+      "tooManyFeedback": "Hay más de cinco puntos. Quita uno y vuelve a contar.",
+      "tooFewFeedback": "Hay menos de cinco puntos. Agrega uno y vuelve a contar.",
+      "hints": ["Toca y cuenta cada punto de tu recuadro.", "Uno, dos, tres, cuatro, cinco. Detente en cinco."]
     },
     {
       "label": "Número 6",
@@ -190,6 +200,8 @@
       "audio": "Forma un grupo nuevo de siete puntos. Toca Agregar un punto para poner puntos en el recuadro. Comprueba el grupo cuando estés listo.",
       "correctFeedback": "Formaste siete puntos.",
       "wrongFeedback": "Cuenta los puntos en tu recuadro. Agrega o quita un punto y vuelve a comprobar.",
+      "tooManyFeedback": "Hay más de siete puntos. Quita uno y vuelve a contar.",
+      "tooFewFeedback": "Hay menos de siete puntos. Agrega uno y vuelve a contar.",
       "hints": ["Señala cada punto una vez. Di su número al señalarlo.", "Agrega o quita puntos hasta que termines de contar en siete."]
     },
     {
@@ -209,6 +221,14 @@
         {"text": "9", "feedback": "Comprueba que no hayas contado un punto dos veces."}
       ],
       "hints": ["Empieza a la izquierda. Señala cada punto una vez.", "Cuenta de nuevo del uno al ocho."]
+    },
+    {
+      "label": "Tu turno", "title": "Pon 8 puntos.",
+      "audio": "Pon ocho puntos. Cuenta mientras los agregas. Después comprueba.",
+      "correctFeedback": "Pusiste ocho puntos.", "wrongFeedback": "Cuenta tus puntos y prueba otra vez.",
+      "tooManyFeedback": "Hay más de ocho puntos. Quita uno y vuelve a contar.",
+      "tooFewFeedback": "Hay menos de ocho puntos. Agrega uno y vuelve a contar.",
+      "hints": ["Toca y cuenta cada punto de tu recuadro.", "Cuenta del uno al ocho. Detente en ocho."]
     },
     {
       "label": "Número 9",
@@ -245,6 +265,14 @@
         {"text": "8", "feedback": "Cuenta cada punto una vez. Busca dos puntos que quizás no contaste."}
       ],
       "hints": ["Empieza a la izquierda. Señala cada punto una vez.", "Cuenta de nuevo del uno al diez."]
+    },
+    {
+      "label": "Tu turno", "title": "Pon 10 puntos.",
+      "audio": "Pon diez puntos. Cuenta mientras los agregas. Después comprueba.",
+      "correctFeedback": "Pusiste diez puntos.", "wrongFeedback": "Cuenta tus puntos y prueba otra vez.",
+      "tooManyFeedback": "Hay más de diez puntos. Quita uno y vuelve a contar.",
+      "tooFewFeedback": "Hay menos de diez puntos. Agrega uno y vuelve a contar.",
+      "hints": ["Toca y cuenta cada punto de tu recuadro.", "Cuenta del uno al diez. Detente en diez."]
     },
     {
       "title": "El total es el grupo completo.",

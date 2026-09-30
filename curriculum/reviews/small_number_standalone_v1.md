@@ -11,6 +11,9 @@ Each number from 0–20 now has an immediate quantity
 check and a later check; 1–20 use a changed arrangement. The first lesson also asks
 learners to construct 2 and 3. This is a teaching prototype, not evidence that
 a previously unexposed child has learned numbers independently.
+The 0–10 lesson now asks learners to make 4, 5, 7, 8, and 10 after seeing each
+quantity, with specific too-many and too-few feedback. It remains long and needs
+observation to see whether children should pause between smaller sections.
 
 ## Design basis
 

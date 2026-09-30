@@ -7,7 +7,7 @@
     "subject": "Arithmetic",
     "course": "Number Sense",
     "unit": "Counting",
-    "contentRevision": 7,
+    "contentRevision": 8,
     "audioStrategy": "number_words_only"
   },
   "learning": {
@@ -176,6 +176,8 @@
       "targetCount": 4,
       "correctFeedback": "You made four dots.",
       "wrongFeedback": "Count the dots in your box. Add or remove a dot, then check again.",
+      "tooManyFeedback": "There are more than four dots. Remove one, then count again.",
+      "tooFewFeedback": "There are fewer than four dots. Add one, then count again.",
       "hints": ["Tap Add a dot to put a dot in the box.", "Point to each dot and count: one, two, three, four. Stop at four."],
       "revision": 1
     },
@@ -201,6 +203,14 @@
       ],
       "hints": ["Start on the left. Count each dot once.", "Count again: one, two, three, four, five."],
       "revision": 3
+    },
+    {
+      "id": "make-five", "type": "buildGroup", "label": "Your turn", "title": "Make 5 dots.",
+      "audio": "Make five dots. Add them one at a time. Then check.", "targetCount": 5,
+      "correctFeedback": "You made five dots.", "wrongFeedback": "Count your dots and try again.",
+      "tooManyFeedback": "There are more than five dots. Remove one, then count again.",
+      "tooFewFeedback": "There are fewer than five dots. Add one, then count again.",
+      "hints": ["Touch and count each dot in your box.", "One, two, three, four, five. Stop at five."]
     },
     {
       "id": "number-6",
@@ -257,6 +267,8 @@
       "targetCount": 7,
       "correctFeedback": "You made seven dots.",
       "wrongFeedback": "Count the dots in your box. Add or remove a dot, then check again.",
+      "tooManyFeedback": "There are more than seven dots. Remove one, then count again.",
+      "tooFewFeedback": "There are fewer than seven dots. Add one, then count again.",
       "hints": ["Point to every dot once. Say its number as you point.", "Keep adding or removing until your count ends at seven."],
       "revision": 1
     },
@@ -282,6 +294,14 @@
       ],
       "hints": ["Start on the left. Point to each dot once.", "Count again from one through eight."],
       "revision": 1
+    },
+    {
+      "id": "make-eight", "type": "buildGroup", "label": "Your turn", "title": "Make 8 dots.",
+      "audio": "Make eight dots. Count as you add them. Then check.", "targetCount": 8,
+      "correctFeedback": "You made eight dots.", "wrongFeedback": "Count your dots and try again.",
+      "tooManyFeedback": "There are more than eight dots. Remove one, then count again.",
+      "tooFewFeedback": "There are fewer than eight dots. Add one, then count again.",
+      "hints": ["Touch and count each dot in your box.", "Count from one to eight. Stop at eight."]
     },
     {
       "id": "number-9",
@@ -328,6 +348,14 @@
       ],
       "hints": ["Start on the left. Point to each dot once.", "Count again from one through ten."],
       "revision": 1
+    },
+    {
+      "id": "make-ten", "type": "buildGroup", "label": "Your turn", "title": "Make 10 dots.",
+      "audio": "Make ten dots. Count as you add them. Then check.", "targetCount": 10,
+      "correctFeedback": "You made ten dots.", "wrongFeedback": "Count your dots and try again.",
+      "tooManyFeedback": "There are more than ten dots. Remove one, then count again.",
+      "tooFewFeedback": "There are fewer than ten dots. Add one, then count again.",
+      "hints": ["Touch and count each dot in your box.", "Count from one to ten. Stop at ten."]
     },
     {
       "id": "memory-hook",

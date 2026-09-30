@@ -169,11 +169,12 @@ function stopCountingAudio(){ if("speechSynthesis" in window) window.speechSynth
 function buildCount(state,limit){
   return Number.isInteger(state.builtCount)?Math.min(limit,Math.max(0,state.builtCount)):0;
 }
+function buildLimit(target){ return Math.min(20,Math.max(10,target+2)); }
 function renderBuildGroup(screen){
-  const state=currentState(), limit=screen.targetCount>10?20:10, count=buildCount(state,limit);
+  const state=currentState(), limit=buildLimit(screen.targetCount), count=buildCount(state,limit);
   state.builtCount=count;
   const finished=state.submittedCorrect===true;
-  const visual={kind:"countingDots",count,grouped:true,layout:screen.targetCount>10?"tenRows":undefined,firstLabel:language==="es"?"Primeros diez":"First ten",moreLabel:language==="es"?"Más puntos":"More dots",ariaLabel:`${copy().groupCount}: ${count}`,message:`${copy().groupCount}: ${count}`};
+  const visual={kind:"countingDots",count,grouped:true,layout:count>10?"tenRows":undefined,firstLabel:language==="es"?"Primeros diez":"First ten",moreLabel:language==="es"?"Más puntos":"More dots",ariaLabel:`${copy().groupCount}: ${count}`,message:`${copy().groupCount}: ${count}`};
   root.innerHTML=base(screen)+renderConceptVisual(visual,screen.title)+
     `<div class="toolbar"><button class="btn secondary" type="button" id="removeDot" ${count===0||finished?"disabled":""}>${copy().removeDot}</button><button class="btn secondary" type="button" id="addDot" ${count===limit||finished?"disabled":""}>${copy().addDot}</button></div>`+
     `<div class="toolbar"><button class="btn secondary" type="button" id="hintBtn" ${finished?"disabled":""}>${copy().hint}</button><button class="btn primary" type="button" id="checkGroup">${finished?copy().continue:copy().checkGroup}</button></div>`+
@@ -200,7 +201,7 @@ function renderBuildGroup(screen){
 function changeBuildGroup(delta){
   const screen=current(),state=currentState();
   if(state.submittedCorrect) return;
-  const limit=screen.targetCount>10?20:10;
+  const limit=buildLimit(screen.targetCount);
   const count=buildCount(state,limit),nextCount=Math.min(limit,Math.max(0,count+delta));
   if(count===nextCount) return;
   state.builtCount=nextCount;state.feedback=null;persist();emit("build_group",{count:nextCount});
