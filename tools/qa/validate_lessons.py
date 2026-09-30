@@ -77,7 +77,7 @@ for path in sorted(lesson_dir.glob("*.json")):
     primary_concept=data.get("concepts",{}).get("primary_concept")
     if not primary_concept: errors.append(f"{path.name}: missing primary concept")
     elif primary_concept not in concept_ids: errors.append(f"{path.name}: unknown primary concept {primary_concept}")
-    elif primary_concept in primary_concepts and not (primary_concept=="counting" and path.name in {"lesson000p.json","lesson000r.json","lesson000r4.json","lesson000r7.json","lesson000r11.json","lesson000r16.json","lesson000b.json","lesson000c.json"}): errors.append(f"{path.name}: duplicate primary concept {primary_concept}")
+    elif primary_concept in primary_concepts and not (primary_concept=="counting" and path.name in {"lesson000p.json","lesson000r.json","lesson000n0.json","lesson000n4.json","lesson000n7.json","lesson000n11.json","lesson000n16.json","lesson000r4.json","lesson000r7.json","lesson000r11.json","lesson000r16.json","lesson000b.json","lesson000c.json"}): errors.append(f"{path.name}: duplicate primary concept {primary_concept}")
     primary_concepts.add(primary_concept)
     screens=data.get("screens",[])
     required_types=["intro","misconception","observe","discover","language","memoryHook","symbol","equationReveal","guidedPractice","independentPractice","recall","transfer","reflection","complete"]
@@ -113,6 +113,13 @@ for path in sorted(lesson_dir.glob("*.json")):
         for number in range(begin,end+1):
             if not any(s.get("visual",{}).get("count")==number and s.get("choices") for s in screens) or not any(s.get("targetCount")==number for s in screens):
                 errors.append(f"{path.name}: {number} needs both counting and construction")
+    numeral_ranges={"lesson000n0.json":(0,3),"lesson000n4.json":(4,6),"lesson000n7.json":(7,10),"lesson000n11.json":(11,15),"lesson000n16.json":(16,20)}
+    if path.name in numeral_ranges:
+        begin,end=numeral_ranges[path.name]
+        expected_types=["intro"]+["recall"]*(end-begin+1)+["complete"]
+        for screen in screens[1:-1]:
+            if screen.get("visual") or screen.get("speakChoices") is not False or not screen.get("audio"):
+                errors.append(f"{path.name}: recognition requires audio, no dot model, and no automatic choice speech")
     if path.name=="lesson000a.json":
         expected_types=["intro","observe","observe","guidedPractice","observe","independentPractice","memoryHook","recall","transfer","complete"]
     if path.name in {"lesson000b.json","lesson000c.json"}:

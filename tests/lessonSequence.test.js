@@ -15,7 +15,7 @@ const picker=fs.readFileSync(new URL("../apps/learner/index.html",import.meta.ur
 
 test("the lesson picker identifies the concept actually taught by each option",()=>{
   const options=[...picker.matchAll(/<option[^>]+data-concept="([^"]+)"/g)].map(match=>match[1]);
-  assert.deepEqual(options,[firstLesson.concepts.primary_concept,returnLesson.concepts.primary_concept,lessons[0].concepts.primary_concept,...countingContinuations.map(lesson=>lesson.concepts.primary_concept),...Array(4).fill("counting"),pairLesson.concepts.primary_concept,...lessons.slice(1).map(lesson=>lesson.concepts.primary_concept)]);
+  assert.deepEqual(options,[firstLesson.concepts.primary_concept,returnLesson.concepts.primary_concept,lessons[0].concepts.primary_concept,...countingContinuations.map(lesson=>lesson.concepts.primary_concept),...Array(9).fill("counting"),pairLesson.concepts.primary_concept,...lessons.slice(1).map(lesson=>lesson.concepts.primary_concept)]);
   assert.match(picker,/lesson000r\.json" data-concept="counting" data-review="true"/);
   assert.match(picker,/data-en="Comparison 1 — How many more\?"/);
   assert.match(picker,/data-es="Comparación 1 — ¿Cuántos más\?"/);

@@ -417,7 +417,7 @@ function bindChoiceScreen(screen){
       const state=currentState();
       if(state.submittedCorrect) return;
       selected = Number(btn.dataset.i);
-      if(shortGuidanceAudio() && "speechSynthesis" in window && "SpeechSynthesisUtterance" in window){
+      if(shortGuidanceAudio() && screen.speakChoices!==false && "speechSynthesis" in window && "SpeechSynthesisUtterance" in window){
         narration.stop();
         window.speechSynthesis.cancel();
         screenUtterance=new SpeechSynthesisUtterance(screen.choices[selected].text);

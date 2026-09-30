@@ -1,0 +1,119 @@
+{
+  "metadata": {
+    "title": "Escucha y busca del 7 al 10"
+  },
+  "learning": {
+    "learning_goal": "Relacionar los nombres de los números del 7 al 10 con sus cifras.",
+    "big_idea": "Cada número tiene un nombre y un símbolo escrito.",
+    "assumed_prior_knowledge": [
+      "Ya conoció los nombres y símbolos del 7 al 10."
+    ],
+    "novice_success_criteria": [
+      "Elegir la cifra de un número que escucha sin ver puntos."
+    ]
+  },
+  "screens": [
+    {
+      "title": "Escucha. Busca el número.",
+      "body": "Toca Escuchar. Después toca el número que oyes.",
+      "audio": "Toca Escuchar. Después toca el número que oyes."
+    },
+    {
+      "title": "Escucha. Busca el número.",
+      "audio": "Busca el ocho.",
+      "prompt": "Toca Escuchar. Después elige.",
+      "choices": [
+        {
+          "text": "7",
+          "feedback": "Escucha otra vez. Prueba con otro número."
+        },
+        {
+          "text": "8",
+          "feedback": "8 es ocho."
+        },
+        {
+          "text": "9",
+          "feedback": "Escucha otra vez. Prueba con otro número."
+        }
+      ],
+      "hints": [
+        "Toca Escuchar para oír el número otra vez.",
+        "Este es el ocho: 8."
+      ]
+    },
+    {
+      "title": "Escucha. Busca el número.",
+      "audio": "Busca el diez.",
+      "prompt": "Toca Escuchar. Después elige.",
+      "choices": [
+        {
+          "text": "11",
+          "feedback": "Escucha otra vez. Prueba con otro número."
+        },
+        {
+          "text": "9",
+          "feedback": "Escucha otra vez. Prueba con otro número."
+        },
+        {
+          "text": "10",
+          "feedback": "10 es diez."
+        }
+      ],
+      "hints": [
+        "Toca Escuchar para oír el número otra vez.",
+        "Este es el diez: 10."
+      ]
+    },
+    {
+      "title": "Escucha. Busca el número.",
+      "audio": "Busca el siete.",
+      "prompt": "Toca Escuchar. Después elige.",
+      "choices": [
+        {
+          "text": "8",
+          "feedback": "Escucha otra vez. Prueba con otro número."
+        },
+        {
+          "text": "6",
+          "feedback": "Escucha otra vez. Prueba con otro número."
+        },
+        {
+          "text": "7",
+          "feedback": "7 es siete."
+        }
+      ],
+      "hints": [
+        "Toca Escuchar para oír el número otra vez.",
+        "Este es el siete: 7."
+      ]
+    },
+    {
+      "title": "Escucha. Busca el número.",
+      "audio": "Busca el nueve.",
+      "prompt": "Toca Escuchar. Después elige.",
+      "choices": [
+        {
+          "text": "9",
+          "feedback": "9 es nueve."
+        },
+        {
+          "text": "10",
+          "feedback": "Escucha otra vez. Prueba con otro número."
+        },
+        {
+          "text": "8",
+          "feedback": "Escucha otra vez. Prueba con otro número."
+        }
+      ],
+      "hints": [
+        "Toca Escuchar para oír el número otra vez.",
+        "Este es el nueve: 9."
+      ]
+    },
+    {
+      "title": "Practicaste los nombres de los números.",
+      "body": "Inténtalo de nuevo otro día.",
+      "audio": "Practicaste los nombres de los números. Inténtalo de nuevo otro día."
+    }
+  ]
+}

@@ -1,0 +1,169 @@
+{
+  "schema_version": "3.0",
+  "metadata": {
+    "id": "MATH-NS-FOUND-000N0",
+    "title": "Hear and find 0–3",
+    "domain": "Mathematics",
+    "subject": "Arithmetic",
+    "course": "Number Sense",
+    "unit": "Counting",
+    "contentRevision": 1,
+    "audioStrategy": "short_guidance"
+  },
+  "learning": {
+    "learning_goal": "Connect spoken number names 0 through 3 to their numerals.",
+    "big_idea": "Each number has a name and a written symbol.",
+    "assumed_prior_knowledge": [
+      "Previously met number names and symbols 0 through 3."
+    ],
+    "novice_success_criteria": [
+      "Choose the numeral for a spoken number without a dot model."
+    ]
+  },
+  "concepts": {
+    "primary_concept": "counting",
+    "supporting_concepts": [
+      "counting"
+    ]
+  },
+  "screens": [
+    {
+      "id": "intro",
+      "type": "intro",
+      "title": "Listen. Find the number.",
+      "body": "Tap Listen. Then tap the number you hear.",
+      "audio": "Tap Listen. Then tap the number you hear."
+    },
+    {
+      "id": "hear-1",
+      "type": "recall",
+      "title": "Listen. Find the number.",
+      "audio": "Find one.",
+      "prompt": "Tap Listen. Then choose.",
+      "speakChoices": false,
+      "choices": [
+        {
+          "text": "2",
+          "correct": false,
+          "feedback": "Listen again. Try another number.",
+          "misconception": "counting_one_to_one"
+        },
+        {
+          "text": "0",
+          "correct": false,
+          "feedback": "Listen again. Try another number.",
+          "misconception": "counting_one_to_one"
+        },
+        {
+          "text": "1",
+          "correct": true,
+          "feedback": "1 is one."
+        }
+      ],
+      "hints": [
+        "Tap Listen to hear the number again.",
+        "This is one: 1."
+      ]
+    },
+    {
+      "id": "hear-3",
+      "type": "recall",
+      "title": "Listen. Find the number.",
+      "audio": "Find three.",
+      "prompt": "Tap Listen. Then choose.",
+      "speakChoices": false,
+      "choices": [
+        {
+          "text": "3",
+          "correct": true,
+          "feedback": "3 is three."
+        },
+        {
+          "text": "4",
+          "correct": false,
+          "feedback": "Listen again. Try another number.",
+          "misconception": "counting_one_to_one"
+        },
+        {
+          "text": "2",
+          "correct": false,
+          "feedback": "Listen again. Try another number.",
+          "misconception": "counting_one_to_one"
+        }
+      ],
+      "hints": [
+        "Tap Listen to hear the number again.",
+        "This is three: 3."
+      ]
+    },
+    {
+      "id": "hear-0",
+      "type": "recall",
+      "title": "Listen. Find the number.",
+      "audio": "Find zero.",
+      "prompt": "Tap Listen. Then choose.",
+      "speakChoices": false,
+      "choices": [
+        {
+          "text": "0",
+          "correct": true,
+          "feedback": "0 is zero."
+        },
+        {
+          "text": "1",
+          "correct": false,
+          "feedback": "Listen again. Try another number.",
+          "misconception": "counting_one_to_one"
+        },
+        {
+          "text": "2",
+          "correct": false,
+          "feedback": "Listen again. Try another number.",
+          "misconception": "counting_one_to_one"
+        }
+      ],
+      "hints": [
+        "Tap Listen to hear the number again.",
+        "This is zero: 0."
+      ]
+    },
+    {
+      "id": "hear-2",
+      "type": "recall",
+      "title": "Listen. Find the number.",
+      "audio": "Find two.",
+      "prompt": "Tap Listen. Then choose.",
+      "speakChoices": false,
+      "choices": [
+        {
+          "text": "1",
+          "correct": false,
+          "feedback": "Listen again. Try another number.",
+          "misconception": "counting_one_to_one"
+        },
+        {
+          "text": "2",
+          "correct": true,
+          "feedback": "2 is two."
+        },
+        {
+          "text": "3",
+          "correct": false,
+          "feedback": "Listen again. Try another number.",
+          "misconception": "counting_one_to_one"
+        }
+      ],
+      "hints": [
+        "Tap Listen to hear the number again.",
+        "This is two: 2."
+      ]
+    },
+    {
+      "id": "complete",
+      "type": "complete",
+      "title": "You practiced number names.",
+      "body": "Try again another day.",
+      "audio": "You practiced number names. Try again another day."
+    }
+  ]
+}

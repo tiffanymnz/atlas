@@ -78,3 +78,20 @@ These are fixed review sets, not randomized assessments. Dot constructions
 can still be solved by tapping repeatedly; actual counting needs observation.
 Numeral recognition without visible quantities is not assessed for every
 number in these new sessions. Device narration remains an interim solution.
+
+## Spoken-number recognition and length audit
+
+Five separate optional sessions cover numeral recognition for 0–3, 4–6,
+7–10, 11–15, and 16–20. Each has 5–7 screens. Checks have spoken targets,
+no quantity model, no target digit in the title or prompt, and no automatic
+choice speech. Mixed target order reduces count-sequence guessing. Hints
+remain available and are recorded as help; fixed choices are still guessable.
+These are additional practice, not proof of independent comprehension.
+
+The existing teaching routes have 16 screens (1–3), 43 (0–10), and 21 each
+(11–15 and 16–20). The construction reviews have 8–12 screens. Screen counts
+do not measure appropriate session duration, but the 43-screen teaching route
+is a clear pacing concern. Its persistence permits breaks; that does not
+resolve pacing. A future change should provide shorter teaching segments
+while retaining the original lessons, saved attempts, and useful practice.
+No child-session duration or attention claim is supported by this code audit.

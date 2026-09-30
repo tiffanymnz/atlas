@@ -1,0 +1,142 @@
+{
+  "metadata": {
+    "title": "Escucha y busca del 16 al 20"
+  },
+  "learning": {
+    "learning_goal": "Relacionar los nombres de los números del 16 al 20 con sus cifras.",
+    "big_idea": "Cada número tiene un nombre y un símbolo escrito.",
+    "assumed_prior_knowledge": [
+      "Ya conoció los nombres y símbolos del 16 al 20."
+    ],
+    "novice_success_criteria": [
+      "Elegir la cifra de un número que escucha sin ver puntos."
+    ]
+  },
+  "screens": [
+    {
+      "title": "Escucha. Busca el número.",
+      "body": "Toca Escuchar. Después toca el número que oyes.",
+      "audio": "Toca Escuchar. Después toca el número que oyes."
+    },
+    {
+      "title": "Escucha. Busca el número.",
+      "audio": "Busca el diecisiete.",
+      "prompt": "Toca Escuchar. Después elige.",
+      "choices": [
+        {
+          "text": "16",
+          "feedback": "Escucha otra vez. Prueba con otro número."
+        },
+        {
+          "text": "17",
+          "feedback": "17 es diecisiete."
+        },
+        {
+          "text": "18",
+          "feedback": "Escucha otra vez. Prueba con otro número."
+        }
+      ],
+      "hints": [
+        "Toca Escuchar para oír el número otra vez.",
+        "Este es el diecisiete: 17."
+      ]
+    },
+    {
+      "title": "Escucha. Busca el número.",
+      "audio": "Busca el diecinueve.",
+      "prompt": "Toca Escuchar. Después elige.",
+      "choices": [
+        {
+          "text": "20",
+          "feedback": "Escucha otra vez. Prueba con otro número."
+        },
+        {
+          "text": "18",
+          "feedback": "Escucha otra vez. Prueba con otro número."
+        },
+        {
+          "text": "19",
+          "feedback": "19 es diecinueve."
+        }
+      ],
+      "hints": [
+        "Toca Escuchar para oír el número otra vez.",
+        "Este es el diecinueve: 19."
+      ]
+    },
+    {
+      "title": "Escucha. Busca el número.",
+      "audio": "Busca el dieciséis.",
+      "prompt": "Toca Escuchar. Después elige.",
+      "choices": [
+        {
+          "text": "17",
+          "feedback": "Escucha otra vez. Prueba con otro número."
+        },
+        {
+          "text": "15",
+          "feedback": "Escucha otra vez. Prueba con otro número."
+        },
+        {
+          "text": "16",
+          "feedback": "16 es dieciséis."
+        }
+      ],
+      "hints": [
+        "Toca Escuchar para oír el número otra vez.",
+        "Este es el dieciséis: 16."
+      ]
+    },
+    {
+      "title": "Escucha. Busca el número.",
+      "audio": "Busca el dieciocho.",
+      "prompt": "Toca Escuchar. Después elige.",
+      "choices": [
+        {
+          "text": "18",
+          "feedback": "18 es dieciocho."
+        },
+        {
+          "text": "19",
+          "feedback": "Escucha otra vez. Prueba con otro número."
+        },
+        {
+          "text": "17",
+          "feedback": "Escucha otra vez. Prueba con otro número."
+        }
+      ],
+      "hints": [
+        "Toca Escuchar para oír el número otra vez.",
+        "Este es el dieciocho: 18."
+      ]
+    },
+    {
+      "title": "Escucha. Busca el número.",
+      "audio": "Busca el veinte.",
+      "prompt": "Toca Escuchar. Después elige.",
+      "choices": [
+        {
+          "text": "19",
+          "feedback": "Escucha otra vez. Prueba con otro número."
+        },
+        {
+          "text": "20",
+          "feedback": "20 es veinte."
+        },
+        {
+          "text": "18",
+          "feedback": "Escucha otra vez. Prueba con otro número."
+        }
+      ],
+      "hints": [
+        "Toca Escuchar para oír el número otra vez.",
+        "Este es el veinte: 20."
+      ]
+    },
+    {
+      "title": "Practicaste los nombres de los números.",
+      "body": "Inténtalo de nuevo otro día.",
+      "audio": "Practicaste los nombres de los números. Inténtalo de nuevo otro día."
+    }
+  ]
+}

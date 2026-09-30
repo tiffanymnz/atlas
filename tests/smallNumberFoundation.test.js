@@ -7,6 +7,31 @@ const read=path=>JSON.parse(fs.readFileSync(new URL(`../${path}`,import.meta.url
 const lesson=read("curriculum/lessons/lesson000p.json");
 const spanish=applyTranslation(lesson,read("curriculum/translations/es/lesson000p.json"));
 
+test("short recognition sessions assess all number names without dot or title answers",()=>{
+  const seen=[];
+  for(const [start,end] of [[0,3],[4,6],[7,10],[11,15],[16,20]]){
+    const review=read(`curriculum/lessons/lesson000n${start}.json`);
+    const es=applyTranslation(review,read(`curriculum/translations/es/lesson000n${start}.json`));
+    assert.ok(review.screens.length<=7);
+    for(const localized of [review,es]){
+      const checks=localized.screens.filter(screen=>screen.type==="recall");
+      assert.deepEqual(checks.map(screen=>Number(screen.choices.find(choice=>choice.correct).text)).sort((a,b)=>a-b),Array.from({length:end-start+1},(_,i)=>i+start));
+      for(const screen of checks){
+        assert.equal(screen.visual,undefined);
+        assert.equal(screen.speakChoices,false);
+        assert.ok(screen.audio);
+        assert.doesNotMatch(screen.title+screen.prompt,/\d/);
+        assert.equal(screen.choices.filter(choice=>choice.correct).length,1);
+        assert.equal(new Set(screen.choices.map(choice=>choice.text)).size,3);
+      }
+    }
+    seen.push(...review.screens.filter(screen=>screen.type==="recall").map(screen=>Number(screen.choices.find(choice=>choice.correct).text)));
+  }
+  assert.deepEqual(seen.sort((a,b)=>a-b),Array.from({length:21},(_,i)=>i));
+  const engine=fs.readFileSync(new URL("../engine/lessonEngine.js",import.meta.url),"utf8");
+  assert.match(engine,/shortGuidanceAudio\(\) && screen\.speakChoices!==false/);
+});
+
 test("return sessions cover every number 4–20 with bilingual counting and construction",()=>{
   const picker=fs.readFileSync(new URL("../apps/learner/index.html",import.meta.url),"utf8");
   for(const [suffix,start,end,source] of [["r4",4,6,"lesson000"],["r7",7,10,"lesson000"],["r11",11,15,"lesson000b"],["r16",16,20,"lesson000c"]]){
