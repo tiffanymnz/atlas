@@ -7,6 +7,8 @@ import { getPreferences, savePreferences, ensureLessonRecord, saveLessonRecord, 
 import { loadLocalizedLesson } from "./i18n/lessonLocale.js";
 import { createRecordedNarration, recordedNarrationUrl } from "./recordedNarration.js";
 
+import { configureSpeech } from "./speechVoice.js";
+
 const narration=createRecordedNarration();
 
 let lesson = null, lessonPath = null, index = 0, selected = null, hintIndex = 0;
@@ -136,8 +138,7 @@ function bindScreenAudio(screen){
     narration.stop();
     window.speechSynthesis.cancel();
     screenUtterance=new SpeechSynthesisUtterance(screenSpeechText(screen));
-    screenUtterance.lang=language==="es"?"es-ES":"en-US";
-    screenUtterance.rate=0.82;
+    configureSpeech(screenUtterance,language,window.speechSynthesis,numberOnlyAudio());
     screenUtterance.onend=()=>{screenUtterance=null;resetListenButton();};
     screenUtterance.onerror=()=>{screenUtterance=null;resetListenButton();};
     button.textContent=`■ ${copy().stopAudio}`;
@@ -177,8 +178,7 @@ function bindCountingAudio(){
         screenUtterance=null;
         resetListenButton();
         const spoken=new SpeechSynthesisUtterance(word);
-        spoken.lang=language==="es"?"es-ES":"en-US";
-        spoken.rate=0.85;
+        configureSpeech(spoken,language,window.speechSynthesis,true);
         window.speechSynthesis.speak(spoken);
       }
     };
@@ -232,7 +232,7 @@ function changeBuildGroup(delta){
     narration.stop();
     window.speechSynthesis.cancel();screenUtterance=null;resetListenButton();
     const spoken=new SpeechSynthesisUtterance(NUMBER_WORDS[language][nextCount]);
-    spoken.lang=language==="es"?"es-ES":"en-US";spoken.rate=0.85;
+    configureSpeech(spoken,language,window.speechSynthesis,true);
     window.speechSynthesis.speak(spoken);
   }
 }
@@ -421,8 +421,7 @@ function bindChoiceScreen(screen){
         narration.stop();
         window.speechSynthesis.cancel();
         screenUtterance=new SpeechSynthesisUtterance(screen.choices[selected].text);
-        screenUtterance.lang=language==="es"?"es-ES":"en-US";
-        screenUtterance.rate=0.85;
+        configureSpeech(screenUtterance,language,window.speechSynthesis);
         window.speechSynthesis.speak(screenUtterance);
       }
       state.selected=selected;

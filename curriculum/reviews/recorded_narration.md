@@ -31,3 +31,17 @@ gentle pace, and lack of background music. Verify English and Spanish with
 appropriate reviewers and test on iPhone as well as a desktop browser.
 Do not describe the lessons as naturally narrated until the files exist and
 play correctly in the learner interface.
+
+## Interim device voice
+
+Device speech now selects a matching English or Spanish voice on each request.
+Names containing natural, neural, premium, or enhanced are preferred; then
+locale and device-default status break ties. These names are vendor labels,
+not a verified quality score. No voice downloads or account changes occur.
+Sentence playback uses rate 0.95, and number words use 0.9. If the voice list
+is initially empty, the browser chooses its default; later requests recheck
+the list. Recordings still take priority when configured.
+
+This improves selection but cannot guarantee natural speech on every device.
+Listen to actual directions and numbers on iPhone before accepting the voice.
+Number-only lessons retain that strategy; this does not add missing narration.
