@@ -47,3 +47,13 @@ observation to see whether children should pause between smaller sections.
 
 Code tests validate structure and behavior, not child comprehension. A fixed
 number of screens or repetitions is not itself a mastery standard.
+
+## Construction through twenty
+
+The 11–15 and 16–20 lessons now include making groups of 12, 15, 18,
+and 20 after the corresponding number has been introduced and counted.
+Feedback directs learners to add or remove a dot as appropriate. The
+20-dot activity allows adding up to twenty, so it has no excess-dot path.
+Both lessons advance their content revision to preserve earlier completed
+attempts separately. Natural narration and first-time learner observation
+remain outstanding; these additions do not establish mastery.
