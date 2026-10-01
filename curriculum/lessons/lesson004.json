@@ -7,7 +7,7 @@
     "subject": "Arithmetic",
     "course": "Number Sense",
     "unit": "Comparison",
-    "contentRevision": 3
+    "contentRevision": 4
   },
   "learning": {
     "learning_goal": "Find a missing smaller group when the larger group and the difference are known.",
@@ -251,7 +251,7 @@
           "misconception": "gap_as_unknown"
         },
         {
-          "text": "26",
+          "text": "Put both groups together",
           "correct": false,
           "misconception": "combine_instead_of_compare"
         }

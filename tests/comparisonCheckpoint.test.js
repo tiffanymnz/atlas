@@ -34,6 +34,11 @@ test("comparison prerequisites and transfer arithmetic stay within the counting 
     assert.ok(lesson.metadata.contentRevision>=2);
     for(const localized of [lesson,es]){
       assert.ok(localized.learning.assumed_prior_knowledge.length>=2);
+      for(const screen of localized.screens){
+        for(const choice of screen.choices||[]){
+          assert.ok((choice.text.match(/\d+/g)||[]).every(number=>Number(number)<=20),`${n} ${screen.id}: choice exceeds taught counting range`);
+        }
+      }
       const transfer=localized.screens.find(screen=>screen.type==="transfer");
       const numbers=(transfer.prompt.match(/\d+/g)||[]).map(Number);
       assert.ok(numbers.length>=2);

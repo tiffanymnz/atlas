@@ -7,7 +7,7 @@
     "subject": "Arithmetic",
     "course": "Number Sense",
     "unit": "Comparison",
-    "contentRevision": 2
+    "contentRevision": 3
   },
   "learning": {
     "learning_goal": "Find the difference between two counts by pairing or subtracting.",
@@ -49,7 +49,7 @@
           "misconception": "object_instead_of_relationship"
         },
         {
-          "text": "29, because both scores are used",
+          "text": "Put both groups together",
           "correct": false,
           "misconception": "combine_instead_of_compare"
         },
@@ -246,7 +246,7 @@
           "misconception": "object_instead_of_relationship"
         },
         {
-          "text": "33",
+          "text": "Put both groups together",
           "correct": false,
           "misconception": "combine_instead_of_compare"
         }

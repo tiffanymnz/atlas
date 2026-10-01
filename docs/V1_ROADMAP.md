@@ -38,7 +38,7 @@ sign-off below applies to earlier releases only.
 - Recovery testing for malformed and versioned saved data.
 - Full end-to-end completion and restart checks in both languages.
 
-The current local suite passes 116 tests plus curriculum, knowledge, research,
+The current local suite passes 120 tests plus curriculum, knowledge, research,
 memory, and release audits. Production deployment and smoke verification remain
 required for each release commit. Automated checks do not prove novice comprehension.
 

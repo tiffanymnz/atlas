@@ -39,7 +39,7 @@ def validate_translation(data,translation,path_name):
             require_translation(screen.get("visual",{}),translated.get("visual",{}),key,location)
         for key in ["message","ariaLabel","topLabel","bottomLabel"]:
             require_translation(screen.get("supportVisual",{}),translated.get("supportVisual",{}),key,location)
-        for key in ["hints","phrases","rebuildSteps"]:
+        for key in ["hints","phrases","phraseMeanings","rebuildSteps"]:
             if key in screen:
                 values=translated.get(key,[])
                 if len(values) != len(screen[key]) or any(not isinstance(value,str) or not value.strip() for value in values):
@@ -144,6 +144,10 @@ for path in sorted(lesson_dir.glob("*.json")):
     if not screens or screens[0].get("type") != "intro": errors.append(f"{path.name}: first screen must be intro")
     if not screens or screens[-1].get("type") != "complete": errors.append(f"{path.name}: last screen must be complete")
     for i,screen in enumerate(data.get("screens",[])):
+        if "phraseMeanings" in screen:
+            meanings=screen["phraseMeanings"]
+            if not isinstance(meanings,list) or len(meanings)!=len(screen.get("phrases",[])) or any(not isinstance(value,str) or not value.strip() for value in meanings):
+                errors.append(f"{path.name} screen {i}: phraseMeanings must explain every phrase")
         if screen.get("type")=="buildGroup":
             if not isinstance(screen.get("targetCount"),int) or not 0<=screen["targetCount"]<=20: errors.append(f"{path.name} screen {i}: targetCount must be 0–20")
             if len(screen.get("hints",[]))<2 or not all(screen.get(key) for key in ["audio","correctFeedback","wrongFeedback"]): errors.append(f"{path.name} screen {i}: buildGroup needs narrated instructions and feedback")

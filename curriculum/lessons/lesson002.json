@@ -7,7 +7,7 @@
     "subject": "Arithmetic",
     "course": "Number Sense",
     "unit": "Comparison",
-    "contentRevision": 2
+    "contentRevision": 3
   },
   "learning": {
     "learning_goal": "Understand that 'how many fewer' asks how many items the smaller group is missing compared with the larger group.",
@@ -49,7 +49,7 @@
           "misconception": "object_instead_of_relationship"
         },
         {
-          "text": "25, because both groups are mentioned",
+          "text": "Put both groups together",
           "correct": false,
           "misconception": "combine_instead_of_compare"
         },
@@ -214,7 +214,7 @@
           "misconception": "object_instead_of_relationship"
         },
         {
-          "text": "22",
+          "text": "Put both groups together",
           "correct": false,
           "misconception": "combine_instead_of_compare"
         }
@@ -243,7 +243,7 @@
           "misconception": "object_instead_of_relationship"
         },
         {
-          "text": "29",
+          "text": "Put both groups together",
           "correct": false,
           "misconception": "combine_instead_of_compare"
         }
