@@ -7,14 +7,14 @@
     "subject": "Arithmetic",
     "course": "Number Sense",
     "unit": "Comparison",
-    "contentRevision": 4
+    "contentRevision": 5
   },
   "learning": {
     "learning_goal": "Compare two groups by pairing them, then name the difference and write a subtraction.",
     "big_idea": "Pair one blue dot with one red dot. Count the blue dots left over to find how many more.",
     "assumed_prior_knowledge": [
-      "Count objects one by one up to 10 and know the last number said is the total.",
-      "Match one item from one group with one item from another group."
+      "Count objects through 20.",
+      "Make a pair with one item from each group."
     ]
   },
   "concepts": {
@@ -73,7 +73,7 @@
       ],
       "hints": [
         "Touch each blue dot as you count.",
-        "Start at the left blue dot. Say one number for each dot."
+        "Start on the left. Touch each blue dot once as you count."
       ],
       "revision": 4
     },
@@ -115,7 +115,7 @@
       ],
       "hints": [
         "Touch each red dot as you count.",
-        "Start at the left red dot. Say one number for each dot."
+        "Start on the left. Touch each red dot once as you count."
       ],
       "revision": 4
     },
@@ -124,7 +124,7 @@
       "legacyIndex": 1,
       "type": "observe",
       "label": "Watch",
-      "title": "Put one blue with one red.",
+      "title": "One blue dot and one red dot make a pair.",
       "visual": {
         "kind": "comparisonButtons",
         "topCount": 6,
@@ -134,7 +134,7 @@
         "topLabel": "Blue dots",
         "bottomLabel": "Red dots",
         "ariaLabel": "Four outlined pairs, each with one blue dot above one red dot; two blue dots remain outside the outlines.",
-        "message": "Each outline holds one blue dot and one red dot."
+        "message": "Each ring shows a pair: one blue dot and one red dot."
       },
       "nextLabel": "See what is left"
     },
@@ -211,7 +211,7 @@
       "label": "Remember",
       "title": "How many more? Find the difference.",
       "hook": "6 blue. 4 red. 4 pairs. 2 extra blue.",
-      "body": "The difference is 2. Write it as 6 − 4 = 2. This is subtraction."
+      "body": "6 − 4 = 2 means six minus four equals two. − means subtract. = means both sides have the same value."
     },
     {
       "id": "misconception",
@@ -295,7 +295,7 @@
       ],
       "hints": [
         "Start with all 6 blue dots. Four have a red partner.",
-        "Which choice starts at 6 and removes the 4 paired dots?"
+        "Which choice subtracts 4 from 6? Look for the minus sign: −."
       ],
       "revision": 4
     },
@@ -355,7 +355,7 @@
         }
       ],
       "hints": [
-        "Find each outlined pair.",
+        "Look for one blue dot above one red dot. They make a pair.",
         "After the last pair, count the blue dots without red partners."
       ],
       "revision": 4
@@ -440,7 +440,7 @@
       "type": "transfer",
       "label": "Transfer",
       "title": "Try it with prices.",
-      "prompt": "One notebook costs $10. Another costs $8. What is the difference in price?",
+      "prompt": "Prices are in dollars ($). One notebook costs $10. Another costs $8. What is the difference in price?",
       "choices": [
         {
           "text": "$2",

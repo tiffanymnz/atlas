@@ -6,11 +6,17 @@
     "domain": "Mathematics",
     "subject": "Arithmetic",
     "course": "Number Sense",
-    "unit": "Comparison"
+    "unit": "Comparison",
+    "contentRevision": 2
   },
   "learning": {
     "learning_goal": "Understand that 'how many fewer' asks how many items the smaller group is missing compared with the larger group.",
-    "big_idea": "Pair the groups. Count the items in the larger group that have no partner. That is how many fewer are in the smaller group."
+    "big_idea": "Pair the groups. Count the items in the larger group that have no partner. That is how many fewer are in the smaller group.",
+    "assumed_prior_knowledge": [
+      "Count objects through 20.",
+      "Make a pair with one item from each group.",
+      "Complete the previous comparison lesson."
+    ]
   },
   "concepts": {
     "primary_concept": "comparison.fewer",
@@ -28,7 +34,7 @@
       "type": "intro",
       "label": "Lesson 002",
       "title": "How many fewer?",
-      "body": "Pair one item from each group. Some items in the larger group will have no partner. Count those items. The answer tells how many fewer are in the smaller group."
+      "body": "The bottom row has fewer blocks. Find how many blocks it needs to have as many as the top row."
     },
     {
       "id": "misconception",
@@ -37,11 +43,27 @@
       "title": "Is the smaller amount the answer?",
       "prompt": "There are 16 apples and 9 oranges. How many fewer oranges are there than apples?",
       "choices": [
-        {"text": "9, because oranges are the smaller group", "correct": false, "misconception": "object_instead_of_relationship"},
-        {"text": "25, because both groups are mentioned", "correct": false, "misconception": "combine_instead_of_compare"},
-        {"text": "7, because 7 apples are left without orange partners", "correct": true, "evidence": "identified_gap", "feedback": "Pair the 9 oranges with 9 of the 16 apples. Seven apples are left without partners, so there are 7 fewer oranges."}
+        {
+          "text": "9, because oranges are the smaller group",
+          "correct": false,
+          "misconception": "object_instead_of_relationship"
+        },
+        {
+          "text": "25, because both groups are mentioned",
+          "correct": false,
+          "misconception": "combine_instead_of_compare"
+        },
+        {
+          "text": "7, because 7 apples are left without orange partners",
+          "correct": true,
+          "evidence": "identified_gap",
+          "feedback": "Pair the 9 oranges with 9 of the 16 apples. Seven apples are left without partners, so there are 7 fewer oranges."
+        }
       ],
-      "hints": ["Pair each of the 9 oranges with one of the 16 apples.", "After making 9 pairs, 7 apples are left without partners. That means there are 7 fewer oranges."]
+      "hints": [
+        "Pair each of the 9 oranges with one of the 16 apples.",
+        "After making 9 pairs, 7 apples are left without partners. That means there are 7 fewer oranges."
+      ]
     },
     {
       "id": "visual-model",
@@ -109,7 +131,7 @@
         "How many fewer?"
       ],
       "phraseMeaning": "Pair the groups. Count what the smaller group is missing.",
-      "guidance": "The smaller group itself is not the answer. The answer is the number of partners it would need to become equal to the larger group."
+      "guidance": "There are 15 top blocks and 9 bottom blocks. The bottom row needs 6 more to reach 15. It has 6 fewer. The difference is 6."
     },
     {
       "id": "memory-hook",
@@ -173,13 +195,34 @@
       "type": "guidedPractice",
       "label": "Guided practice",
       "title": "How many fewer are in the shorter row?",
-      "visual": {"topCount": 14, "bottomCount": 8, "revealGap": true, "message": "Match eight blocks in each row. The unmatched blocks show how many fewer."},
+      "visual": {
+        "topCount": 14,
+        "bottomCount": 8,
+        "revealGap": true,
+        "message": "Match eight blocks in each row. The unmatched blocks show how many fewer."
+      },
       "choices": [
-        {"text": "6", "correct": true, "evidence": "identified_gap", "feedback": "14 − 8 = 6, so the shorter row has 6 fewer blocks."},
-        {"text": "8", "correct": false, "misconception": "object_instead_of_relationship"},
-        {"text": "22", "correct": false, "misconception": "combine_instead_of_compare"}
+        {
+          "text": "6",
+          "correct": true,
+          "evidence": "identified_gap",
+          "feedback": "14 − 8 = 6, so the shorter row has 6 fewer blocks."
+        },
+        {
+          "text": "8",
+          "correct": false,
+          "misconception": "object_instead_of_relationship"
+        },
+        {
+          "text": "22",
+          "correct": false,
+          "misconception": "combine_instead_of_compare"
+        }
       ],
-      "hints": ["Pair each of the 8 bottom blocks with one top block.", "Six top blocks are left without partners. You can calculate 14 − 8 = 6."]
+      "hints": [
+        "Pair each of the 8 bottom blocks with one top block.",
+        "Six top blocks are left without partners. You can calculate 14 − 8 = 6."
+      ]
     },
     {
       "id": "independent-practice",
@@ -188,11 +231,27 @@
       "title": "Solve without the model.",
       "prompt": "A bus has 17 adults and 12 children. How many fewer children are there than adults?",
       "choices": [
-        {"text": "5", "correct": true, "evidence": "subtraction_as_comparison", "feedback": "17 − 12 = 5, so there are 5 fewer children."},
-        {"text": "12", "correct": false, "misconception": "object_instead_of_relationship"},
-        {"text": "29", "correct": false, "misconception": "combine_instead_of_compare"}
+        {
+          "text": "5",
+          "correct": true,
+          "evidence": "subtraction_as_comparison",
+          "feedback": "17 − 12 = 5, so there are 5 fewer children."
+        },
+        {
+          "text": "12",
+          "correct": false,
+          "misconception": "object_instead_of_relationship"
+        },
+        {
+          "text": "29",
+          "correct": false,
+          "misconception": "combine_instead_of_compare"
+        }
       ],
-      "hints": ["Pair the 12 children with 12 of the 17 adults.", "Five adults are left without partners. You can calculate 17 − 12 = 5."]
+      "hints": [
+        "Pair the 12 children with 12 of the 17 adults.",
+        "Five adults are left without partners. You can calculate 17 − 12 = 5."
+      ]
     },
     {
       "id": "recall",
@@ -201,24 +260,56 @@
       "title": "What does fewer ask you to find?",
       "prompt": "Choose the rule that works for a how-many-fewer comparison.",
       "choices": [
-        {"text": "Choose the smaller amount", "correct": false, "misconception": "object_instead_of_relationship"},
-        {"text": "Add the two amounts", "correct": false, "misconception": "combine_instead_of_compare"},
-        {"text": "Pair the groups and count what the smaller group is missing", "correct": true, "evidence": "identified_gap", "feedback": "Correct. The unpaired items in the larger group show how many fewer are in the smaller group."}
+        {
+          "text": "Choose the smaller amount",
+          "correct": false,
+          "misconception": "object_instead_of_relationship"
+        },
+        {
+          "text": "Add the two amounts",
+          "correct": false,
+          "misconception": "combine_instead_of_compare"
+        },
+        {
+          "text": "Pair the groups and count what the smaller group is missing",
+          "correct": true,
+          "evidence": "identified_gap",
+          "feedback": "Correct. The unpaired items in the larger group show how many fewer are in the smaller group."
+        }
       ],
-      "hints": ["Do not choose the smaller group’s number. Pair the groups first.", "Count the items in the larger group that do not receive partners."]
+      "hints": [
+        "Do not choose the smaller group’s number. Pair the groups first.",
+        "Count the items in the larger group that do not receive partners."
+      ]
     },
     {
       "id": "transfer",
       "type": "transfer",
       "label": "Transfer",
       "title": "Use the idea in a new setting.",
-      "prompt": "Jamal walked 23 blocks and Priya walked 15 blocks. How many fewer blocks did Priya walk?",
+      "prompt": "Jamal walked 19 blocks. Priya walked 11 blocks. How many fewer blocks did Priya walk?",
       "choices": [
-        {"text": "8", "correct": true, "evidence": "subtraction_as_comparison", "feedback": "23 − 15 = 8, so Priya walked 8 fewer blocks."},
-        {"text": "15", "correct": false, "misconception": "object_instead_of_relationship"},
-        {"text": "38", "correct": false, "misconception": "combine_instead_of_compare"}
+        {
+          "text": "8",
+          "correct": true,
+          "evidence": "subtraction_as_comparison",
+          "feedback": "19 − 11 = 8. Priya walked 8 fewer blocks."
+        },
+        {
+          "text": "11",
+          "correct": false,
+          "misconception": "object_instead_of_relationship"
+        },
+        {
+          "text": "19",
+          "correct": false,
+          "misconception": "object_instead_of_relationship"
+        }
       ],
-      "hints": ["Pair Priya’s 15 blocks with 15 of Jamal’s 23 blocks.", "Eight of Jamal’s blocks are left. You can calculate 23 − 15 = 8."]
+      "hints": [
+        "Start with 19. Subtract 11 to find the difference.",
+        "19 − 11 = 8. The difference is 8."
+      ]
     },
     {
       "id": "reflection",

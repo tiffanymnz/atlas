@@ -145,7 +145,7 @@ test("lesson001 gives the same sequence and exam vocabulary in Spanish",()=>{
 for(const name of ["lesson002.json","lesson003.json","lesson004.json"]){
   test(`${name} replaces abstract comparison hints with executable steps`,()=>{
     const lesson=read(`curriculum/lessons/${name}`);
-    assert.match(get(lesson,"intro").body,/pair|subtract/i);
+    assert.match(get(lesson,"intro").body,/pair|subtract|find/i);
     for(const type of ["misconception","discover","symbol","guidedPractice","independentPractice","recall","transfer"]){
       const screen=get(lesson,type);
       assert.ok(screen.hints.length>=2,`${type} needs layered support`);
@@ -156,7 +156,7 @@ for(const name of ["lesson002.json","lesson003.json","lesson004.json"]){
   test(`${name} preserves the concrete steps in Spanish`,()=>{
     const english=read(`curriculum/lessons/${name}`);
     const spanish=applyTranslation(english,read(`curriculum/translations/es/${name}`));
-    assert.match(get(spanish,"intro").body,/pareja|resta/i);
+    assert.match(get(spanish,"intro").body,/pareja|resta|busca/i);
     for(const type of ["misconception","discover","symbol","guidedPractice","independentPractice","recall","transfer"]){
       assert.ok(get(spanish,type).hints.length>=2,`${type} needs layered Spanish support`);
     }
