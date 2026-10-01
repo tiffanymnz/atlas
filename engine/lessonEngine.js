@@ -2,7 +2,7 @@ import { renderConceptVisual, renderChoiceScreen, localizeChoiceState, renderLan
 import { createAnalytics, showAnalytics } from "./analytics-engine/analyticsEngine.js";
 import { recommendNext } from "./recommendation-engine/recommendationEngine.js";
 import { assessNextLessonReadiness } from "./recommendation-engine/readiness.js";
-import { nextConceptId } from "./recommendation-engine/lessonSequence.js";
+import { nextTeachingOption } from "./recommendation-engine/lessonSequence.js";
 import { getPreferences, savePreferences, ensureLessonRecord, saveLessonRecord, getAllLessonRecords, reviewSuggested, archiveCompletedAttempt, newLessonAttempt, resolveLessonPosition, getLastLessonPath, saveLastLessonPath } from "./state-store/stateStore.js?v=1.6";
 import { loadLocalizedLesson } from "./i18n/lessonLocale.js";
 import { createRecordedNarration, recordedNarrationUrl } from "./recordedNarration.js";
@@ -50,10 +50,7 @@ function persist(){
 }
 function emit(type,payload={}){ analytics.record({type, screen:index, component:current()?.type, payload}); syncAttemptEvents(); persist(); }
 function hasNextLesson(){
-  const next=[...lessonSelect.options].slice(lessonSelect.selectedIndex+1).find(option=>!option.dataset.review);
-  if(!next) return false;
-  const nextId=nextConceptId(lesson);
-  return !!nextId && next.dataset.concept===nextId;
+  return !!nextTeachingOption(lesson,lessonSelect.options,lessonSelect.selectedIndex);
 }
 function refreshLessonOptions(){
   const records=new Map(getAllLessonRecords().map(record=>[record.path,record]));
@@ -65,7 +62,7 @@ function refreshLessonOptions(){
   }
   el("newAttemptBtn").hidden = lessonRecord?.status!=="completed";
 }
-function goToNextLesson(){ if(hasNextLesson()){ persist(); const next=[...lessonSelect.options].slice(lessonSelect.selectedIndex+1).find(option=>!option.dataset.review); lessonSelect.value=next.value; loadLesson(next.value); } }
+function goToNextLesson(){ const next=nextTeachingOption(lesson,lessonSelect.options,lessonSelect.selectedIndex); if(next){ persist(); lessonSelect.value=next.value; loadLesson(next.value); } }
 function reviewVisualGap(){
   let target = lesson.screens.findIndex(screen => screen.visual && screen.visual.revealGap === true);
   if(target < 0) target = lesson.screens.findIndex(screen => screen.type === "observe" && screen.visual);

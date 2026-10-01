@@ -58,7 +58,7 @@ test("short recognition sessions assess all number names without dot or title an
 
 test("return sessions cover every number 4–20 with bilingual counting and construction",()=>{
   const picker=fs.readFileSync(new URL("../apps/learner/index.html",import.meta.url),"utf8");
-  for(const [suffix,start,end,source] of [["r4",4,6,"lesson000t4"],["r7",7,10,"lesson000t9"],["r11",11,15,"lesson000b"],["r16",16,20,"lesson000c"]]){
+  for(const [suffix,start,end,source] of [["r4",4,6,"lesson000t4"],["r7",7,10,"lesson000t9"],["r11",11,15,"lesson000t13"],["r16",16,20,"lesson000t18"]]){
     const review=read(`curriculum/lessons/lesson000${suffix}.json`);
     const translated=applyTranslation(review,read(`curriculum/translations/es/lesson000${suffix}.json`));
     assert.ok(picker.includes(`lesson000${suffix}.json" data-concept="counting" data-review="true" data-review-source="../../curriculum/lessons/${source}.json"`));
