@@ -2,8 +2,31 @@ import test from "node:test";
 import assert from "node:assert/strict";
 import fs from "node:fs";
 import {applyTranslation} from "../engine/i18n/lessonLocale.js";
+import {renderLanguage} from "../sdk/components/lessonComponents.js";
 
 const read=path=>JSON.parse(fs.readFileSync(new URL(`../${path}`,import.meta.url)));
+test("missing-amount language cards explain each statement separately in both languages",()=>{
+  const lesson=read("curriculum/lessons/lesson004.json");
+  const translated=applyTranslation(lesson,read("curriculum/translations/es/lesson004.json"));
+  for(const localized of [lesson,translated]){
+    const screen=localized.screens.find(screen=>screen.type==="language");
+    assert.equal(screen.phraseMeanings.length,screen.phrases.length);
+    assert.equal(new Set(screen.phraseMeanings).size,screen.phrases.length);
+    const html=renderLanguage(screen);
+    screen.phrases.forEach((phrase,index)=>assert.ok(html.includes(`${phrase}<span>${screen.phraseMeanings[index]}</span>`)));
+    assert.doesNotMatch(screen.visual.message,/still missing|todavía falta/);
+  }
+  assert.match(renderLanguage({phrases:["How many more?"],phraseMeaning:"Find the difference."}),/Find the difference/);
+});
+test("count-up hints show the actual steps rather than assuming the strategy",()=>{
+  const lesson=read("curriculum/lessons/lesson001.json");
+  const independent=lesson.screens.find(screen=>screen.type==="independentPractice");
+  const transfer=lesson.screens.find(screen=>screen.type==="transfer");
+  assert.match(independent.hints[1],/6, 7, 8, 9/);
+  assert.match(independent.hints[1],/4 steps/);
+  assert.match(transfer.hints[1],/9: one step/);
+  assert.match(transfer.hints[1],/10: two steps/);
+});
 test("comparison prerequisites and transfer arithmetic stay within the counting checkpoint",()=>{
   for(const n of ["001","002","003","004"]){
     const lesson=read(`curriculum/lessons/lesson${n}.json`);

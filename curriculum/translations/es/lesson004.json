@@ -74,7 +74,7 @@
       "label": "Lenguaje",
       "title": "¿Qué indica cada número?",
       "visual": {
-        "message": "Doce indica cuántos tiene Mia. Cinco indica cuántos menos tiene Noah. El número de Noah todavía falta."
+        "message": "Mia tiene 12 bloques. Noah tiene 7. Mia tiene 5 más que Noah."
       },
       "phrases": [
         "Mia tiene 12",
@@ -83,7 +83,13 @@
         "¿Cuántos tiene Noah?"
       ],
       "phraseMeaning": "Encuentra el número de Noah",
-      "guidance": "No elijas 5 solamente porque aparece en el problema. Cinco indica lo que le falta a Noah de los 12 de Mia. Resta 5 de 12 para encontrar los 7 de Noah."
+      "guidance": "La diferencia es 5. La cantidad de bloques de Noah es 7. Son respuestas distintas a preguntas distintas.",
+      "phraseMeanings": [
+        "12 es la cantidad de bloques de Mia.",
+        "Noah tiene 5 menos que Mia, no 5 bloques.",
+        "5 indica cuántos bloques más tiene Mia.",
+        "Busca la cantidad de bloques de Noah: 12 − 5 = 7."
+      ]
     },
     {
       "label": "Recuerda",

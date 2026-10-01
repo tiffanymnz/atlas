@@ -7,7 +7,7 @@
     "subject": "Arithmetic",
     "course": "Number Sense",
     "unit": "Comparison",
-    "contentRevision": 2
+    "contentRevision": 3
   },
   "learning": {
     "learning_goal": "Find a missing smaller group when the larger group and the difference are known.",
@@ -124,7 +124,7 @@
         "topCount": 12,
         "bottomCount": 7,
         "revealGap": true,
-        "message": "Twelve tells how many Mia has. Five tells how many fewer Noah has. Noah’s number is still missing."
+        "message": "Mia has 12 blocks. Noah has 7. Mia has 5 more than Noah."
       },
       "phrases": [
         "Mia has 12",
@@ -133,7 +133,13 @@
         "How many does Noah have?"
       ],
       "phraseMeaning": "Find Noah’s missing number",
-      "guidance": "Do not choose 5 just because it appears in the story. Five tells what Noah is missing from Mia’s 12. Subtract 5 from 12 to find Noah’s 7."
+      "guidance": "The difference is 5. Noah’s number of blocks is 7. These are different answers to different questions.",
+      "phraseMeanings": [
+        "12 is Mia’s number of blocks.",
+        "Noah has 5 less than Mia, not 5 blocks.",
+        "5 tells how many more Mia has.",
+        "Find Noah’s number of blocks: 12 − 5 = 7."
+      ]
     },
     {
       "id": "memory-hook",

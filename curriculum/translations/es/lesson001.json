@@ -295,12 +295,12 @@
         },
         {
           "text": "5",
-          "feedback": "Cinco es la cantidad de Theo. Cuenta desde cinco hasta nueve."
+          "feedback": "5 es la cantidad de páginas de Theo. Resta 5 de 9 para saber cuántas páginas más leyó Nia."
         }
       ],
       "hints": [
         "Cada punto de abajo representa una página. Busca los puntos de Nia sin pareja.",
-        "O cuenta desde 5 hasta 9. ¿Cuántos pasos diste?"
+        "Otra forma: empieza en 5. Cuenta 6, 7, 8, 9. Son 4 pasos, así que la diferencia es 4."
       ],
       "revision": 3,
       "supportVisual": {
@@ -354,12 +354,12 @@
         },
         {
           "text": "$10",
-          "feedback": "Diez es un precio, no la diferencia. Cuenta de ocho a diez."
+          "feedback": "10 dólares es un precio. Resta 8 de 10 para encontrar la diferencia."
         }
       ],
       "hints": [
         "La diferencia de precio dice cuánto más cuesta uno.",
-        "Empieza en $8. Cuenta hasta $10. ¿Cuánto sumaste?"
+        "Empieza en 8 dólares. Cuenta 9: un paso. Cuenta 10: dos pasos. La diferencia es 2 dólares."
       ],
       "revision": 3
     },

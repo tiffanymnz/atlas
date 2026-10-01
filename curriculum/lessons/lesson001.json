@@ -7,7 +7,7 @@
     "subject": "Arithmetic",
     "course": "Number Sense",
     "unit": "Comparison",
-    "contentRevision": 5
+    "contentRevision": 6
   },
   "learning": {
     "learning_goal": "Compare two groups by pairing them, then name the difference and write a subtraction.",
@@ -383,12 +383,12 @@
           "text": "5",
           "correct": false,
           "misconception": "object_instead_of_relationship",
-          "feedback": "Five is Theo’s count. Count from five to nine."
+          "feedback": "5 is Theo’s number of pages. Subtract 5 from 9 to find how many more Nia read."
         }
       ],
       "hints": [
         "Each dot below stands for one page. Find Nia’s dots without a partner.",
-        "Or count from 5 up to 9. How many steps?"
+        "Another way: start at 5. Count 6, 7, 8, 9. That is 4 steps, so the difference is 4."
       ],
       "revision": 4,
       "supportVisual": {
@@ -458,12 +458,12 @@
           "text": "$10",
           "correct": false,
           "misconception": "object_instead_of_relationship",
-          "feedback": "Ten is one price, not the difference. Count from eight to ten."
+          "feedback": "10 dollars is one price. Subtract 8 from 10 to find the difference."
         }
       ],
       "hints": [
         "A difference in price tells how much more one costs.",
-        "Start at $8. Count up to $10. How much did you add?"
+        "Start at 8 dollars. Count 9: one step. Count 10: two steps. The difference is 2 dollars."
       ],
       "revision": 4
     },

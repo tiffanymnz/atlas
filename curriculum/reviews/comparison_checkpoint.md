@@ -16,12 +16,17 @@ The full screen order and stable screen IDs remain intact. Content revisions
 increase so earlier completion does not silently certify revised instruction.
 Generated memory assets are rebuilt from the revised curriculum.
 
+Follow-up changes: lesson 001's count-up hints now show each counted number
+and the resulting step count. Lesson 004 uses a separate explanation for each
+statement and distinguishes the given difference from the requested amount.
+Its visual caption no longer calls a visible answer missing. Existing language
+cards retain their shared-meaning rendering when separate meanings are absent.
+
 Remaining limits: pairing is a model for comparing counts, not a universal
-definition of subtraction. Count-up strategies elsewhere in the lessons still
-need direct demonstration before being relied on as instruction. Some distractors
+definition of subtraction. Count-up support is a worked textual hint, not an
+interactive number-line demonstration. Some distractors
 in earlier checks exceed 20; those should be reviewed in the next targeted pass.
-The uniform phrase-meaning cards in lesson 004 remain potentially ambiguous
-because individual statements have different roles. The earlier lesson audit
+The earlier lesson audit
 tests are structural checks, despite names that refer to novice understanding.
 Do not interpret their passing status as proof of comprehension.
 

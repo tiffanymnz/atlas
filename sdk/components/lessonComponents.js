@@ -125,7 +125,7 @@ export function localizeChoiceState(screen,state,copy){
 }
 export function renderLanguage(screen){
   let html = `<div class="phraseGrid">`;
-  screen.phrases.forEach(p => html += `<div class="phrase">${p}<span>${screen.phraseMeaning || "Same idea"}</span></div>`);
+  screen.phrases.forEach((p,index) => html += `<div class="phrase">${p}<span>${screen.phraseMeanings?.[index] || screen.phraseMeaning || "Same idea"}</span></div>`);
   html += `</div>`;
   if(screen.definitions?.length) html += `<div class="definitionGrid">${screen.definitions.map(item=>`<div class="definition"><strong>${item.term}</strong><span>${item.meaning}</span></div>`).join("")}</div>`;
   return html;
