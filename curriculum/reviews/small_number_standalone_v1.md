@@ -95,3 +95,17 @@ is a clear pacing concern. Its persistence permits breaks; that does not
 resolve pacing. A future change should provide shorter teaching segments
 while retaining the original lessons, saved attempts, and useful practice.
 No child-session duration or attention claim is supported by this code audit.
+
+## Short teaching parts for 0–10
+
+The default picker route now follows 1–3 with zero, 4–6, 7–8, and 9–10.
+The new parts contain 7, 15, 11, and 10 screens respectively. Each preserves
+number demonstrations followed immediately by quantity checks, with later
+independent, spoken-number, and transfer checks. The full 43-screen lesson
+remains an optional review with its original ID, contents, and saved history.
+New parts have separate IDs and do not inherit completion from the full lesson.
+Review reminders now reference the corresponding short part.
+
+Shorter parts are a pacing improvement, not evidence of an appropriate
+duration for a particular child. The 1–3 and 11–20 teaching lessons still
+need pacing review. All existing optional practice remains available.

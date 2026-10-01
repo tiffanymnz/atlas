@@ -1,0 +1,188 @@
+{
+  "metadata": {
+    "title": "Conoce del 9 al 10"
+  },
+  "learning": {
+    "learning_goal": "Relacionar nombres, cifras y cantidades del 9 al 10.",
+    "big_idea": "Un número indica cuántos puntos hay.",
+    "assumed_prior_knowledge": [
+      "Ya aprendió los números hasta el 8."
+    ],
+    "novice_success_criteria": [
+      "Contar cada punto una vez.",
+      "Reconocer un nombre de número y contar otra distribución."
+    ]
+  },
+  "screens": [
+    {
+      "title": "Conoce del 9 al 10.",
+      "body": "Escucha. Cuenta. Inténtalo tú.",
+      "audio": "Escucha los números. Cuenta los puntos. Después inténtalo tú."
+    },
+    {
+      "label": "Número 9",
+      "title": "9 — nueve",
+      "audio": "Este es el nueve. Nueve puntos. Toca los puntos en orden del uno al nueve.",
+      "visual": {
+        "ariaLabel": "Nueve puntos azules marcados del 1 al 9.",
+        "message": "9 puntos"
+      },
+      "nextLabel": "Intenta con nueve"
+    },
+    {
+      "title": "¿Cuántos puntos hay?",
+      "audio": "Cuenta los puntos. Elige el número que corresponde.",
+      "visual": {
+        "ariaLabel": "Nueve puntos azules dentro de un recuadro.",
+        "message": "Elige el número."
+      },
+      "choices": [
+        {
+          "text": "10",
+          "feedback": "Comprueba que no hayas contado un punto dos veces."
+        },
+        {
+          "text": "8",
+          "feedback": "Busca un punto que quizás no contaste. Cuenta cada punto una vez."
+        },
+        {
+          "text": "9",
+          "feedback": "Hay nueve puntos."
+        }
+      ],
+      "hints": [
+        "Empieza a la izquierda. Señala cada punto una vez.",
+        "Cuenta de nuevo del uno al nueve."
+      ]
+    },
+    {
+      "label": "Número 10",
+      "title": "10 — diez",
+      "audio": "Este es el diez. Diez puntos. Toca los puntos en orden del uno al diez.",
+      "visual": {
+        "ariaLabel": "Diez puntos azules marcados del 1 al 10.",
+        "message": "10 puntos"
+      },
+      "nextLabel": "Intenta contar diez"
+    },
+    {
+      "title": "¿Cuántos puntos hay?",
+      "audio": "Cuenta los puntos. Elige el número que corresponde.",
+      "visual": {
+        "ariaLabel": "Diez puntos azules dentro de un recuadro.",
+        "message": "Elige el número."
+      },
+      "choices": [
+        {
+          "text": "9",
+          "feedback": "Busca un punto que quizás no contaste. Cuenta cada punto una vez."
+        },
+        {
+          "text": "10",
+          "feedback": "Hay diez puntos."
+        },
+        {
+          "text": "8",
+          "feedback": "Cuenta cada punto una vez. Busca dos puntos que quizás no contaste."
+        }
+      ],
+      "hints": [
+        "Empieza a la izquierda. Señala cada punto una vez.",
+        "Cuenta de nuevo del uno al diez."
+      ]
+    },
+    {
+      "label": "Tu turno",
+      "title": "Pon 10 puntos.",
+      "audio": "Pon diez puntos. Cuenta mientras los agregas. Después comprueba.",
+      "correctFeedback": "Pusiste diez puntos.",
+      "wrongFeedback": "Cuenta tus puntos y prueba otra vez.",
+      "tooManyFeedback": "Hay más de diez puntos. Quita uno y vuelve a contar.",
+      "tooFewFeedback": "Hay menos de diez puntos. Agrega uno y vuelve a contar.",
+      "hints": [
+        "Toca y cuenta cada punto de tu recuadro.",
+        "Cuenta del uno al diez. Detente en diez."
+      ]
+    },
+    {
+      "title": "¿Cuántos puntos hay?",
+      "audio": "Cuenta los puntos. Toca el número que indica cuántos puntos hay.",
+      "visual": {
+        "ariaLabel": "Nueve puntos sin números escritos.",
+        "message": "¿Cuántos puntos hay?"
+      },
+      "choices": [
+        {
+          "text": "10",
+          "feedback": "Cuenta cada punto una vez. Revisa si saltaste un punto o lo contaste dos veces."
+        },
+        {
+          "text": "8",
+          "feedback": "Cuenta cada punto una vez. Revisa si saltaste un punto o lo contaste dos veces."
+        },
+        {
+          "text": "9",
+          "feedback": "9 puntos."
+        }
+      ],
+      "hints": [
+        "Empieza por la izquierda. Toca cada punto mientras cuentas.",
+        "Cuenta cada punto una vez. Después toca el número al que llegaste."
+      ]
+    },
+    {
+      "title": "¿Cuántos puntos hay?",
+      "audio": "Cuenta los puntos. Toca el número que indica cuántos puntos hay.",
+      "visual": {
+        "ariaLabel": "Diez puntos sin números escritos.",
+        "message": "¿Cuántos puntos hay?"
+      },
+      "choices": [
+        {
+          "text": "9",
+          "feedback": "Cuenta cada punto una vez. Revisa si saltaste un punto o lo contaste dos veces."
+        },
+        {
+          "text": "10",
+          "feedback": "10 puntos."
+        },
+        {
+          "text": "11",
+          "feedback": "Cuenta cada punto una vez. Revisa si saltaste un punto o lo contaste dos veces."
+        }
+      ],
+      "hints": [
+        "Empieza por la izquierda. Toca cada punto mientras cuentas.",
+        "Cuenta cada punto una vez. Después toca el número al que llegaste."
+      ]
+    },
+    {
+      "title": "Escucha. Busca el número.",
+      "audio": "Busca el diez.",
+      "prompt": "Toca Escuchar. Después elige.",
+      "choices": [
+        {
+          "text": "11",
+          "feedback": "Escucha otra vez. Prueba con otro número."
+        },
+        {
+          "text": "9",
+          "feedback": "Escucha otra vez. Prueba con otro número."
+        },
+        {
+          "text": "10",
+          "feedback": "10 es diez."
+        }
+      ],
+      "hints": [
+        "Toca Escuchar para oír el número otra vez.",
+        "Este es el diez: 10."
+      ]
+    },
+    {
+      "title": "Terminaste esta parte.",
+      "body": "Puedes descansar. Vuelve a practicar después.",
+      "audio": "Terminaste esta parte. Puedes descansar. Vuelve a practicar después."
+    }
+  ]
+}

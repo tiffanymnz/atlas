@@ -7,6 +7,30 @@ const read=path=>JSON.parse(fs.readFileSync(new URL(`../${path}`,import.meta.url
 const lesson=read("curriculum/lessons/lesson000p.json");
 const spanish=applyTranslation(lesson,read("curriculum/translations/es/lesson000p.json"));
 
+test("short teaching parts preserve 0–10 models and later checks while keeping full review",()=>{
+  const picker=fs.readFileSync(new URL("../apps/learner/index.html",import.meta.url),"utf8");
+  const modeled=new Set([1,2,3]);
+  for(const suffix of ["t0","t4","t7","t9"]){
+    const part=read(`curriculum/lessons/lesson000${suffix}.json`);
+    const es=applyTranslation(part,read(`curriculum/translations/es/lesson000${suffix}.json`));
+    assert.ok(part.screens.length<=15);
+    assert.equal(part.screens[0].type,"intro");
+    assert.equal(part.screens.at(-1).type,"complete");
+    for(const type of ["independentPractice","recall","transfer"]) assert.ok(part.screens.some(screen=>screen.type===type));
+    assert.deepEqual(es.screens.map(screen=>screen.id),part.screens.map(screen=>screen.id));
+    part.screens.forEach((screen,index)=>{
+      if(screen.type==="observe" && (screen.visual?.numbered || screen.visual?.count===0)){
+        modeled.add(screen.visual.count);
+        assert.equal(part.screens[index+1].visual?.count,screen.visual.count);
+        assert.ok(part.screens[index+1].choices);
+      }
+    });
+  }
+  assert.deepEqual([...modeled].sort((a,b)=>a-b),Array.from({length:11},(_,i)=>i));
+  assert.match(picker,/lesson000\.json" data-concept="counting" data-review="true"/);
+  assert.equal(read("curriculum/lessons/lesson000.json").screens.length,43);
+});
+
 test("short recognition sessions assess all number names without dot or title answers",()=>{
   const seen=[];
   for(const [start,end] of [[0,3],[4,6],[7,10],[11,15],[16,20]]){
@@ -34,7 +58,7 @@ test("short recognition sessions assess all number names without dot or title an
 
 test("return sessions cover every number 4–20 with bilingual counting and construction",()=>{
   const picker=fs.readFileSync(new URL("../apps/learner/index.html",import.meta.url),"utf8");
-  for(const [suffix,start,end,source] of [["r4",4,6,"lesson000"],["r7",7,10,"lesson000"],["r11",11,15,"lesson000b"],["r16",16,20,"lesson000c"]]){
+  for(const [suffix,start,end,source] of [["r4",4,6,"lesson000t4"],["r7",7,10,"lesson000t9"],["r11",11,15,"lesson000b"],["r16",16,20,"lesson000c"]]){
     const review=read(`curriculum/lessons/lesson000${suffix}.json`);
     const translated=applyTranslation(review,read(`curriculum/translations/es/lesson000${suffix}.json`));
     assert.ok(picker.includes(`lesson000${suffix}.json" data-concept="counting" data-review="true" data-review-source="../../curriculum/lessons/${source}.json"`));

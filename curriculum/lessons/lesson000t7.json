@@ -1,0 +1,291 @@
+{
+  "schema_version": "3.0",
+  "metadata": {
+    "id": "MATH-NS-FOUND-000T7",
+    "title": "Meet 7–8",
+    "domain": "Mathematics",
+    "subject": "Arithmetic",
+    "course": "Number Sense",
+    "unit": "Counting",
+    "contentRevision": 1,
+    "audioStrategy": "short_guidance"
+  },
+  "learning": {
+    "learning_goal": "Connect number names, numerals, and quantities from 7 to 8.",
+    "big_idea": "A number tells how many dots there are.",
+    "assumed_prior_knowledge": [
+      "Previously learned numbers through 6."
+    ],
+    "novice_success_criteria": [
+      "Count each dot once.",
+      "Recognize a number name and count a new arrangement."
+    ]
+  },
+  "concepts": {
+    "primary_concept": "counting",
+    "supporting_concepts": [
+      "counting",
+      "cardinality"
+    ]
+  },
+  "screens": [
+    {
+      "id": "intro",
+      "type": "intro",
+      "title": "Meet 7–8.",
+      "body": "Listen. Count. Try it yourself.",
+      "audio": "Listen to the numbers. Count the dots. Then try it yourself."
+    },
+    {
+      "id": "number-7",
+      "type": "observe",
+      "label": "Number 7",
+      "title": "7 — seven",
+      "audio": "This is seven. Seven dots. Tap the dots in order from one through seven.",
+      "visual": {
+        "kind": "countingDots",
+        "count": 7,
+        "numbered": true,
+        "interactive": true,
+        "ariaLabel": "Seven blue dots labeled 1 through 7.",
+        "message": "7 dots"
+      },
+      "nextLabel": "Try seven"
+    },
+    {
+      "id": "count-seven",
+      "type": "count",
+      "title": "How many dots?",
+      "audio": "Count the dots. Choose the matching number.",
+      "visual": {
+        "kind": "countingDots",
+        "count": 7,
+        "grouped": true,
+        "ariaLabel": "Seven blue dots inside one box.",
+        "message": "Choose the number."
+      },
+      "choices": [
+        {
+          "text": "8",
+          "correct": false,
+          "feedback": "Check that you did not count one dot twice.",
+          "misconception": "object_instead_of_relationship"
+        },
+        {
+          "text": "6",
+          "correct": false,
+          "feedback": "Look for a dot you may have missed. Count each dot once.",
+          "misconception": "object_instead_of_relationship"
+        },
+        {
+          "text": "7",
+          "correct": true,
+          "feedback": "There are seven dots."
+        }
+      ],
+      "hints": [
+        "Start on the left. Point to each dot once.",
+        "Count again from one through seven."
+      ],
+      "revision": 1
+    },
+    {
+      "id": "make-seven",
+      "type": "buildGroup",
+      "label": "Make a group",
+      "title": "Make 7 dots.",
+      "audio": "Make a new group of seven dots. Tap Add a dot to put dots in the box. Check your group when you are ready.",
+      "targetCount": 7,
+      "correctFeedback": "You made seven dots.",
+      "wrongFeedback": "Count the dots in your box. Add or remove a dot, then check again.",
+      "tooManyFeedback": "There are more than seven dots. Remove one, then count again.",
+      "tooFewFeedback": "There are fewer than seven dots. Add one, then count again.",
+      "hints": [
+        "Point to every dot once. Say its number as you point.",
+        "Keep adding or removing until your count ends at seven."
+      ],
+      "revision": 1
+    },
+    {
+      "id": "number-8",
+      "type": "observe",
+      "label": "Number 8",
+      "title": "8 — eight",
+      "audio": "This is eight. Eight dots. Tap the dots in order from one through eight.",
+      "visual": {
+        "kind": "countingDots",
+        "count": 8,
+        "numbered": true,
+        "interactive": true,
+        "ariaLabel": "Eight blue dots labeled 1 through 8.",
+        "message": "8 dots"
+      },
+      "nextLabel": "Try eight"
+    },
+    {
+      "id": "count-eight",
+      "type": "count",
+      "title": "How many dots?",
+      "audio": "Count the dots. Choose the matching number.",
+      "visual": {
+        "kind": "countingDots",
+        "count": 8,
+        "grouped": true,
+        "ariaLabel": "Eight blue dots inside one box.",
+        "message": "Choose the number."
+      },
+      "choices": [
+        {
+          "text": "7",
+          "correct": false,
+          "feedback": "Look for a dot you may have missed. Count each dot once.",
+          "misconception": "object_instead_of_relationship"
+        },
+        {
+          "text": "8",
+          "correct": true,
+          "feedback": "There are eight dots."
+        },
+        {
+          "text": "9",
+          "correct": false,
+          "feedback": "Check that you did not count one dot twice.",
+          "misconception": "object_instead_of_relationship"
+        }
+      ],
+      "hints": [
+        "Start on the left. Point to each dot once.",
+        "Count again from one through eight."
+      ],
+      "revision": 1
+    },
+    {
+      "id": "make-eight",
+      "type": "buildGroup",
+      "label": "Your turn",
+      "title": "Make 8 dots.",
+      "audio": "Make eight dots. Count as you add them. Then check.",
+      "targetCount": 8,
+      "correctFeedback": "You made eight dots.",
+      "wrongFeedback": "Count your dots and try again.",
+      "tooManyFeedback": "There are more than eight dots. Remove one, then count again.",
+      "tooFewFeedback": "There are fewer than eight dots. Add one, then count again.",
+      "hints": [
+        "Touch and count each dot in your box.",
+        "Count from one to eight. Stop at eight."
+      ]
+    },
+    {
+      "id": "independentPractice-check",
+      "type": "independentPractice",
+      "title": "How many dots?",
+      "audio": "Count the dots. Tap the number that shows how many dots there are.",
+      "visual": {
+        "kind": "countingDots",
+        "count": 7,
+        "layout": "scattered",
+        "grouped": true,
+        "ariaLabel": "Seven dots without number labels.",
+        "message": "How many dots?"
+      },
+      "choices": [
+        {
+          "text": "6",
+          "correct": false,
+          "feedback": "Count every dot once. Check for a dot you missed or counted twice.",
+          "misconception": "counting_one_to_one"
+        },
+        {
+          "text": "7",
+          "correct": true,
+          "feedback": "7 dots."
+        },
+        {
+          "text": "8",
+          "correct": false,
+          "feedback": "Count every dot once. Check for a dot you missed or counted twice.",
+          "misconception": "counting_one_to_one"
+        }
+      ],
+      "hints": [
+        "Start at the left. Touch each dot as you count.",
+        "Count each dot once. Then tap the number you reached."
+      ]
+    },
+    {
+      "id": "transfer-check",
+      "type": "transfer",
+      "title": "How many dots?",
+      "audio": "Count the dots. Tap the number that shows how many dots there are.",
+      "visual": {
+        "kind": "countingDots",
+        "count": 8,
+        "layout": "staggered",
+        "grouped": true,
+        "ariaLabel": "Eight dots without number labels.",
+        "message": "How many dots?"
+      },
+      "choices": [
+        {
+          "text": "8",
+          "correct": true,
+          "feedback": "8 dots."
+        },
+        {
+          "text": "9",
+          "correct": false,
+          "feedback": "Count every dot once. Check for a dot you missed or counted twice.",
+          "misconception": "counting_one_to_one"
+        },
+        {
+          "text": "7",
+          "correct": false,
+          "feedback": "Count every dot once. Check for a dot you missed or counted twice.",
+          "misconception": "counting_one_to_one"
+        }
+      ],
+      "hints": [
+        "Start at the left. Touch each dot as you count.",
+        "Count each dot once. Then tap the number you reached."
+      ]
+    },
+    {
+      "id": "recall-number",
+      "type": "recall",
+      "title": "Listen. Find the number.",
+      "audio": "Find eight.",
+      "prompt": "Tap Listen. Then choose.",
+      "speakChoices": false,
+      "choices": [
+        {
+          "text": "7",
+          "correct": false,
+          "feedback": "Listen again. Try another number.",
+          "misconception": "counting_one_to_one"
+        },
+        {
+          "text": "8",
+          "correct": true,
+          "feedback": "8 is eight."
+        },
+        {
+          "text": "9",
+          "correct": false,
+          "feedback": "Listen again. Try another number.",
+          "misconception": "counting_one_to_one"
+        }
+      ],
+      "hints": [
+        "Tap Listen to hear the number again.",
+        "This is eight: 8."
+      ]
+    },
+    {
+      "id": "complete",
+      "type": "complete",
+      "title": "You finished this part.",
+      "body": "You can take a break. Come back to practice again.",
+      "audio": "You finished this part. You can take a break. Come back to practice again."
+    }
+  ]
+}

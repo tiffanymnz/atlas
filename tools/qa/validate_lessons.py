@@ -77,7 +77,7 @@ for path in sorted(lesson_dir.glob("*.json")):
     primary_concept=data.get("concepts",{}).get("primary_concept")
     if not primary_concept: errors.append(f"{path.name}: missing primary concept")
     elif primary_concept not in concept_ids: errors.append(f"{path.name}: unknown primary concept {primary_concept}")
-    elif primary_concept in primary_concepts and not (primary_concept=="counting" and path.name in {"lesson000p.json","lesson000r.json","lesson000n0.json","lesson000n4.json","lesson000n7.json","lesson000n11.json","lesson000n16.json","lesson000r4.json","lesson000r7.json","lesson000r11.json","lesson000r16.json","lesson000b.json","lesson000c.json"}): errors.append(f"{path.name}: duplicate primary concept {primary_concept}")
+    elif primary_concept in primary_concepts and not (primary_concept=="counting" and path.name in {"lesson000p.json","lesson000r.json","lesson000t0.json","lesson000t4.json","lesson000t7.json","lesson000t9.json","lesson000n0.json","lesson000n4.json","lesson000n7.json","lesson000n11.json","lesson000n16.json","lesson000r4.json","lesson000r7.json","lesson000r11.json","lesson000r16.json","lesson000b.json","lesson000c.json"}): errors.append(f"{path.name}: duplicate primary concept {primary_concept}")
     primary_concepts.add(primary_concept)
     screens=data.get("screens",[])
     required_types=["intro","misconception","observe","discover","language","memoryHook","symbol","equationReveal","guidedPractice","independentPractice","recall","transfer","reflection","complete"]
@@ -120,6 +120,11 @@ for path in sorted(lesson_dir.glob("*.json")):
         for screen in screens[1:-1]:
             if screen.get("visual") or screen.get("speakChoices") is not False or not screen.get("audio"):
                 errors.append(f"{path.name}: recognition requires audio, no dot model, and no automatic choice speech")
+    if path.name in {"lesson000t0.json","lesson000t4.json","lesson000t7.json","lesson000t9.json"}:
+        expected_types=None
+        if len(screens)>15: errors.append(f"{path.name}: short teaching part exceeds 15 screens")
+        for required in ["observe","independentPractice","recall","transfer","complete"]:
+            if required not in screen_types: errors.append(f"{path.name}: missing {required}")
     if path.name=="lesson000a.json":
         expected_types=["intro","observe","observe","guidedPractice","observe","independentPractice","memoryHook","recall","transfer","complete"]
     if path.name in {"lesson000b.json","lesson000c.json"}:

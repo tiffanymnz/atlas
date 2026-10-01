@@ -1,0 +1,274 @@
+{
+  "schema_version": "3.0",
+  "metadata": {
+    "id": "MATH-NS-FOUND-000T9",
+    "title": "Meet 9–10",
+    "domain": "Mathematics",
+    "subject": "Arithmetic",
+    "course": "Number Sense",
+    "unit": "Counting",
+    "contentRevision": 1,
+    "audioStrategy": "short_guidance"
+  },
+  "learning": {
+    "learning_goal": "Connect number names, numerals, and quantities from 9 to 10.",
+    "big_idea": "A number tells how many dots there are.",
+    "assumed_prior_knowledge": [
+      "Previously learned numbers through 8."
+    ],
+    "novice_success_criteria": [
+      "Count each dot once.",
+      "Recognize a number name and count a new arrangement."
+    ]
+  },
+  "concepts": {
+    "primary_concept": "counting",
+    "supporting_concepts": [
+      "counting",
+      "cardinality"
+    ]
+  },
+  "screens": [
+    {
+      "id": "intro",
+      "type": "intro",
+      "title": "Meet 9–10.",
+      "body": "Listen. Count. Try it yourself.",
+      "audio": "Listen to the numbers. Count the dots. Then try it yourself."
+    },
+    {
+      "id": "number-9",
+      "type": "observe",
+      "label": "Number 9",
+      "title": "9 — nine",
+      "audio": "This is nine. Nine dots. Tap the dots in order from one through nine.",
+      "visual": {
+        "kind": "countingDots",
+        "count": 9,
+        "numbered": true,
+        "interactive": true,
+        "ariaLabel": "Nine blue dots labeled 1 through 9.",
+        "message": "9 dots"
+      },
+      "nextLabel": "Try nine"
+    },
+    {
+      "id": "count-nine",
+      "type": "count",
+      "title": "How many dots?",
+      "audio": "Count the dots. Choose the matching number.",
+      "visual": {
+        "kind": "countingDots",
+        "count": 9,
+        "grouped": true,
+        "ariaLabel": "Nine blue dots inside one box.",
+        "message": "Choose the number."
+      },
+      "choices": [
+        {
+          "text": "10",
+          "correct": false,
+          "feedback": "Check that you did not count one dot twice.",
+          "misconception": "object_instead_of_relationship"
+        },
+        {
+          "text": "8",
+          "correct": false,
+          "feedback": "Look for a dot you may have missed. Count each dot once.",
+          "misconception": "object_instead_of_relationship"
+        },
+        {
+          "text": "9",
+          "correct": true,
+          "feedback": "There are nine dots."
+        }
+      ],
+      "hints": [
+        "Start on the left. Point to each dot once.",
+        "Count again from one through nine."
+      ],
+      "revision": 1
+    },
+    {
+      "id": "count-ten-model",
+      "type": "observe",
+      "label": "Number 10",
+      "title": "10 — ten",
+      "audio": "This is ten. Ten dots. Tap the dots in order from one through ten.",
+      "visual": {
+        "kind": "countingDots",
+        "count": 10,
+        "numbered": true,
+        "interactive": true,
+        "ariaLabel": "Ten blue dots labeled 1 through 10.",
+        "message": "10 dots"
+      },
+      "nextLabel": "Try ten"
+    },
+    {
+      "id": "count-ten-first",
+      "type": "count",
+      "title": "How many dots?",
+      "audio": "Count the dots. Choose the matching number.",
+      "visual": {
+        "kind": "countingDots",
+        "count": 10,
+        "grouped": true,
+        "ariaLabel": "Ten blue dots inside one box.",
+        "message": "Choose the number."
+      },
+      "choices": [
+        {
+          "text": "9",
+          "correct": false,
+          "feedback": "Look for a dot you may have missed. Count each dot once.",
+          "misconception": "object_instead_of_relationship"
+        },
+        {
+          "text": "10",
+          "correct": true,
+          "feedback": "There are ten dots."
+        },
+        {
+          "text": "8",
+          "correct": false,
+          "feedback": "Count each dot once. Check for two dots you may have missed.",
+          "misconception": "object_instead_of_relationship"
+        }
+      ],
+      "hints": [
+        "Start on the left. Point to each dot once.",
+        "Count again from one through ten."
+      ],
+      "revision": 1
+    },
+    {
+      "id": "make-ten",
+      "type": "buildGroup",
+      "label": "Your turn",
+      "title": "Make 10 dots.",
+      "audio": "Make ten dots. Count as you add them. Then check.",
+      "targetCount": 10,
+      "correctFeedback": "You made ten dots.",
+      "wrongFeedback": "Count your dots and try again.",
+      "tooManyFeedback": "There are more than ten dots. Remove one, then count again.",
+      "tooFewFeedback": "There are fewer than ten dots. Add one, then count again.",
+      "hints": [
+        "Touch and count each dot in your box.",
+        "Count from one to ten. Stop at ten."
+      ]
+    },
+    {
+      "id": "independentPractice-check",
+      "type": "independentPractice",
+      "title": "How many dots?",
+      "audio": "Count the dots. Tap the number that shows how many dots there are.",
+      "visual": {
+        "kind": "countingDots",
+        "count": 9,
+        "layout": "scattered",
+        "grouped": true,
+        "ariaLabel": "Nine dots without number labels.",
+        "message": "How many dots?"
+      },
+      "choices": [
+        {
+          "text": "10",
+          "correct": false,
+          "feedback": "Count every dot once. Check for a dot you missed or counted twice.",
+          "misconception": "counting_one_to_one"
+        },
+        {
+          "text": "8",
+          "correct": false,
+          "feedback": "Count every dot once. Check for a dot you missed or counted twice.",
+          "misconception": "counting_one_to_one"
+        },
+        {
+          "text": "9",
+          "correct": true,
+          "feedback": "9 dots."
+        }
+      ],
+      "hints": [
+        "Start at the left. Touch each dot as you count.",
+        "Count each dot once. Then tap the number you reached."
+      ]
+    },
+    {
+      "id": "transfer-check",
+      "type": "transfer",
+      "title": "How many dots?",
+      "audio": "Count the dots. Tap the number that shows how many dots there are.",
+      "visual": {
+        "kind": "countingDots",
+        "count": 10,
+        "layout": "staggered",
+        "grouped": true,
+        "ariaLabel": "Ten dots without number labels.",
+        "message": "How many dots?"
+      },
+      "choices": [
+        {
+          "text": "9",
+          "correct": false,
+          "feedback": "Count every dot once. Check for a dot you missed or counted twice.",
+          "misconception": "counting_one_to_one"
+        },
+        {
+          "text": "10",
+          "correct": true,
+          "feedback": "10 dots."
+        },
+        {
+          "text": "11",
+          "correct": false,
+          "feedback": "Count every dot once. Check for a dot you missed or counted twice.",
+          "misconception": "counting_one_to_one"
+        }
+      ],
+      "hints": [
+        "Start at the left. Touch each dot as you count.",
+        "Count each dot once. Then tap the number you reached."
+      ]
+    },
+    {
+      "id": "recall-number",
+      "type": "recall",
+      "title": "Listen. Find the number.",
+      "audio": "Find ten.",
+      "prompt": "Tap Listen. Then choose.",
+      "speakChoices": false,
+      "choices": [
+        {
+          "text": "11",
+          "correct": false,
+          "feedback": "Listen again. Try another number.",
+          "misconception": "counting_one_to_one"
+        },
+        {
+          "text": "9",
+          "correct": false,
+          "feedback": "Listen again. Try another number.",
+          "misconception": "counting_one_to_one"
+        },
+        {
+          "text": "10",
+          "correct": true,
+          "feedback": "10 is ten."
+        }
+      ],
+      "hints": [
+        "Tap Listen to hear the number again.",
+        "This is ten: 10."
+      ]
+    },
+    {
+      "id": "complete",
+      "type": "complete",
+      "title": "You finished this part.",
+      "body": "You can take a break. Come back to practice again.",
+      "audio": "You finished this part. You can take a break. Come back to practice again."
+    }
+  ]
+}
