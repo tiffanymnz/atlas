@@ -18,3 +18,8 @@ export function continuesConceptSequence(current,next){
 }
 
 export function nextConceptId(current){ return NEXT.get(current?.concepts?.primary_concept) ?? null; }
+
+export function nextTeachingOption(current,options,selectedIndex){
+  const next=Array.from(options).slice(selectedIndex+1).find(option=>!option.dataset.review);
+  return next && next.dataset.concept===nextConceptId(current)?next:null;
+}

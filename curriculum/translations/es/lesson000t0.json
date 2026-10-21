@@ -1,0 +1,139 @@
+{
+  "metadata": {
+    "title": "Conoce el cero"
+  },
+  "learning": {
+    "learning_goal": "Relacionar nombres, cifras y cantidades del 0 al 0.",
+    "big_idea": "Un número indica cuántos puntos hay.",
+    "assumed_prior_knowledge": [
+      "Ya aprendió el 1, el 2 y el 3."
+    ],
+    "novice_success_criteria": [
+      "Contar cada punto una vez.",
+      "Reconocer un nombre de número y contar otra distribución."
+    ]
+  },
+  "screens": [
+    {
+      "title": "Conoce el cero.",
+      "body": "Escucha. Cuenta. Inténtalo tú.",
+      "audio": "Escucha los números. Cuenta los puntos. Después inténtalo tú."
+    },
+    {
+      "label": "Número 0",
+      "title": "0 — cero",
+      "audio": "Este es el cero. El recuadro no tiene puntos. Cero significa ninguno. Mira dentro del recuadro.",
+      "visual": {
+        "ariaLabel": "Un recuadro vacío sin puntos. Cero puntos.",
+        "message": "No hay puntos. 0 puntos."
+      },
+      "nextLabel": "Intenta con cero"
+    },
+    {
+      "title": "¿Cuántos puntos hay?",
+      "audio": "Mira el recuadro vacío. ¿Cuántos puntos hay dentro? Elige un número.",
+      "visual": {
+        "ariaLabel": "Un recuadro vacío. No hay puntos dentro.",
+        "message": "¿Cuántos puntos hay?"
+      },
+      "choices": [
+        {
+          "text": "1",
+          "feedback": "Uno significaría que hay un punto dentro. Mira otra vez."
+        },
+        {
+          "text": "0",
+          "feedback": "El recuadro no tiene puntos. Eso es cero."
+        },
+        {
+          "text": "2",
+          "feedback": "Dos significaría que hay dos puntos dentro. Mira otra vez."
+        }
+      ],
+      "hints": [
+        "Mira dentro del recuadro. ¿Ves algún punto?",
+        "Sin puntos significa cero puntos."
+      ]
+    },
+    {
+      "title": "¿Cuántos puntos hay?",
+      "audio": "Mira el recuadro vacío. ¿Cuántos puntos hay dentro? Elige un número.",
+      "visual": {
+        "ariaLabel": "Un recuadro vacío. No hay puntos dentro.",
+        "message": "¿Cuántos puntos hay?"
+      },
+      "choices": [
+        {
+          "text": "1",
+          "feedback": "Uno significaría que hay un punto dentro. Mira otra vez."
+        },
+        {
+          "text": "0",
+          "feedback": "El recuadro no tiene puntos. Eso es cero."
+        },
+        {
+          "text": "2",
+          "feedback": "Dos significaría que hay dos puntos dentro. Mira otra vez."
+        }
+      ],
+      "hints": [
+        "Mira dentro del recuadro. ¿Ves algún punto?",
+        "Sin puntos significa cero puntos."
+      ]
+    },
+    {
+      "title": "¿Cuántos puntos hay?",
+      "audio": "Mira el recuadro vacío. ¿Cuántos puntos hay dentro? Elige un número.",
+      "visual": {
+        "ariaLabel": "Un recuadro vacío. No hay puntos dentro.",
+        "message": "¿Cuántos puntos hay?"
+      },
+      "choices": [
+        {
+          "text": "1",
+          "feedback": "Uno significaría que hay un punto dentro. Mira otra vez."
+        },
+        {
+          "text": "0",
+          "feedback": "El recuadro no tiene puntos. Eso es cero."
+        },
+        {
+          "text": "2",
+          "feedback": "Dos significaría que hay dos puntos dentro. Mira otra vez."
+        }
+      ],
+      "hints": [
+        "Mira dentro del recuadro. ¿Ves algún punto?",
+        "Sin puntos significa cero puntos."
+      ]
+    },
+    {
+      "title": "Escucha. Busca el número.",
+      "audio": "Busca el cero.",
+      "prompt": "Toca Escuchar. Después elige.",
+      "choices": [
+        {
+          "text": "0",
+          "feedback": "0 es cero."
+        },
+        {
+          "text": "1",
+          "feedback": "Escucha otra vez. Prueba con otro número."
+        },
+        {
+          "text": "2",
+          "feedback": "Escucha otra vez. Prueba con otro número."
+        }
+      ],
+      "hints": [
+        "Toca Escuchar para oír el número otra vez.",
+        "Este es el cero: 0."
+      ]
+    },
+    {
+      "title": "Terminaste esta parte.",
+      "body": "Puedes descansar. Vuelve a practicar después.",
+      "audio": "Terminaste esta parte. Puedes descansar. Vuelve a practicar después."
+    }
+  ]
+}

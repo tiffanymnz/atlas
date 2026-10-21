@@ -1,0 +1,142 @@
+{
+  "metadata": {
+    "title": "Practica del 4 al 6"
+  },
+  "learning": {
+    "learning_goal": "Vuelve a contar y formar grupos del 4 al 6.",
+    "big_idea": "Cuenta cada punto una vez.",
+    "assumed_prior_knowledge": [
+      "Ya conoció y contó los números del 4 al 6."
+    ],
+    "novice_success_criteria": [
+      "Contar cada punto una vez en otra posición.",
+      "Formar la cantidad de puntos indicada."
+    ]
+  },
+  "screens": [
+    {
+      "title": "Practica del 4 al 6.",
+      "body": "Cuenta los puntos. Después pon tus propios puntos. Puedes descansar.",
+      "audio": "Cuenta los puntos. Después pon tus propios puntos. Puedes descansar."
+    },
+    {
+      "title": "¿Cuántos puntos hay?",
+      "audio": "Cuenta los puntos. Toca el número que indica cuántos puntos hay.",
+      "visual": {
+        "ariaLabel": "Cuatro puntos sin números escritos.",
+        "message": "¿Cuántos puntos hay?"
+      },
+      "choices": [
+        {
+          "text": "3",
+          "feedback": "Cuenta cada punto una vez. Revisa si saltaste un punto o lo contaste dos veces."
+        },
+        {
+          "text": "4",
+          "feedback": "4 puntos."
+        },
+        {
+          "text": "5",
+          "feedback": "Cuenta cada punto una vez. Revisa si saltaste un punto o lo contaste dos veces."
+        }
+      ],
+      "hints": [
+        "Empieza por la izquierda. Toca cada punto mientras cuentas.",
+        "Cuenta cada punto una vez. Después toca el número al que llegaste."
+      ]
+    },
+    {
+      "title": "Pon 4 puntos.",
+      "audio": "Pon cuatro puntos. Agrega puntos y después comprueba.",
+      "correctFeedback": "Pusiste 4 puntos.",
+      "wrongFeedback": "Cuenta otra vez. Necesitas 4 puntos.",
+      "tooFewFeedback": "Necesitas 4 puntos. Agrega un punto y cuenta otra vez.",
+      "hints": [
+        "Cuenta mientras agregas puntos.",
+        "Detente en 4."
+      ],
+      "tooManyFeedback": "Necesitas 4 puntos. Quita un punto y cuenta otra vez."
+    },
+    {
+      "title": "¿Cuántos puntos hay?",
+      "audio": "Cuenta los puntos. Toca el número que indica cuántos puntos hay.",
+      "visual": {
+        "ariaLabel": "Cinco puntos sin números escritos.",
+        "message": "¿Cuántos puntos hay?"
+      },
+      "choices": [
+        {
+          "text": "5",
+          "feedback": "5 puntos."
+        },
+        {
+          "text": "6",
+          "feedback": "Cuenta cada punto una vez. Revisa si saltaste un punto o lo contaste dos veces."
+        },
+        {
+          "text": "4",
+          "feedback": "Cuenta cada punto una vez. Revisa si saltaste un punto o lo contaste dos veces."
+        }
+      ],
+      "hints": [
+        "Empieza por la izquierda. Toca cada punto mientras cuentas.",
+        "Cuenta cada punto una vez. Después toca el número al que llegaste."
+      ]
+    },
+    {
+      "title": "Pon 5 puntos.",
+      "audio": "Pon cinco puntos. Agrega puntos y después comprueba.",
+      "correctFeedback": "Pusiste 5 puntos.",
+      "wrongFeedback": "Cuenta otra vez. Necesitas 5 puntos.",
+      "tooFewFeedback": "Necesitas 5 puntos. Agrega un punto y cuenta otra vez.",
+      "hints": [
+        "Cuenta mientras agregas puntos.",
+        "Detente en 5."
+      ],
+      "tooManyFeedback": "Necesitas 5 puntos. Quita un punto y cuenta otra vez."
+    },
+    {
+      "title": "¿Cuántos puntos hay?",
+      "audio": "Cuenta los puntos. Toca el número que indica cuántos puntos hay.",
+      "visual": {
+        "ariaLabel": "Seis puntos sin números escritos.",
+        "message": "¿Cuántos puntos hay?"
+      },
+      "choices": [
+        {
+          "text": "7",
+          "feedback": "Cuenta cada punto una vez. Revisa si saltaste un punto o lo contaste dos veces."
+        },
+        {
+          "text": "5",
+          "feedback": "Cuenta cada punto una vez. Revisa si saltaste un punto o lo contaste dos veces."
+        },
+        {
+          "text": "6",
+          "feedback": "6 puntos."
+        }
+      ],
+      "hints": [
+        "Empieza por la izquierda. Toca cada punto mientras cuentas.",
+        "Cuenta cada punto una vez. Después toca el número al que llegaste."
+      ]
+    },
+    {
+      "title": "Pon 6 puntos.",
+      "audio": "Pon seis puntos. Agrega puntos y después comprueba.",
+      "correctFeedback": "Pusiste 6 puntos.",
+      "wrongFeedback": "Cuenta otra vez. Necesitas 6 puntos.",
+      "tooFewFeedback": "Necesitas 6 puntos. Agrega un punto y cuenta otra vez.",
+      "hints": [
+        "Cuenta mientras agregas puntos.",
+        "Detente en 6."
+      ],
+      "tooManyFeedback": "Necesitas 6 puntos. Quita un punto y cuenta otra vez."
+    },
+    {
+      "title": "Practicaste otra vez.",
+      "body": "Inténtalo de nuevo otro día.",
+      "audio": "Practicaste otra vez. Inténtalo de nuevo otro día."
+    }
+  ]
+}

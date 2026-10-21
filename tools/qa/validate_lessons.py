@@ -31,7 +31,7 @@ def validate_translation(data,translation,path_name):
         return
     for index,(screen,translated) in enumerate(zip(base_screens,translated_screens)):
         location=f"{path_name} screen {index}"
-        for key in ["label","stage","title","body","callout","nextLabel","prompt","guidance","phraseMeaning","nextRecommendation","hook","boundary","boundaryLabel","audio","correctFeedback","wrongFeedback"]:
+        for key in ["label","stage","title","body","callout","nextLabel","prompt","guidance","phraseMeaning","nextRecommendation","hook","boundary","boundaryLabel","audio","correctFeedback","wrongFeedback","tooManyFeedback","tooFewFeedback"]:
             require_translation(screen,translated,key,location)
         require_translation(screen.get("visual",{}),translated.get("visual",{}),"message",location)
         require_translation(screen.get("visual",{}),translated.get("visual",{}),"ariaLabel",location)
@@ -39,7 +39,7 @@ def validate_translation(data,translation,path_name):
             require_translation(screen.get("visual",{}),translated.get("visual",{}),key,location)
         for key in ["message","ariaLabel","topLabel","bottomLabel"]:
             require_translation(screen.get("supportVisual",{}),translated.get("supportVisual",{}),key,location)
-        for key in ["hints","phrases","rebuildSteps"]:
+        for key in ["hints","phrases","phraseMeanings","rebuildSteps"]:
             if key in screen:
                 values=translated.get(key,[])
                 if len(values) != len(screen[key]) or any(not isinstance(value,str) or not value.strip() for value in values):
@@ -77,7 +77,7 @@ for path in sorted(lesson_dir.glob("*.json")):
     primary_concept=data.get("concepts",{}).get("primary_concept")
     if not primary_concept: errors.append(f"{path.name}: missing primary concept")
     elif primary_concept not in concept_ids: errors.append(f"{path.name}: unknown primary concept {primary_concept}")
-    elif primary_concept in primary_concepts and not (primary_concept=="counting" and path.name in {"lesson000b.json","lesson000c.json"}): errors.append(f"{path.name}: duplicate primary concept {primary_concept}")
+    elif primary_concept in primary_concepts and not (primary_concept=="counting" and path.name in {"lesson000p.json","lesson000r.json","lesson000t0.json","lesson000t4.json","lesson000t7.json","lesson000t9.json","lesson000t11.json","lesson000t13.json","lesson000t16.json","lesson000t18.json","lesson000n0.json","lesson000n4.json","lesson000n7.json","lesson000n11.json","lesson000n16.json","lesson000r4.json","lesson000r7.json","lesson000r11.json","lesson000r16.json","lesson000b.json","lesson000c.json"}): errors.append(f"{path.name}: duplicate primary concept {primary_concept}")
     primary_concepts.add(primary_concept)
     screens=data.get("screens",[])
     required_types=["intro","misconception","observe","discover","language","memoryHook","symbol","equationReveal","guidedPractice","independentPractice","recall","transfer","reflection","complete"]
@@ -96,6 +96,35 @@ for path in sorted(lesson_dir.glob("*.json")):
                 errors.append(f"{path.name}: number {number} must be followed immediately by its quantity check")
         if screen_ids.index("make-seven")!=screen_ids.index("count-seven")+1:
             errors.append(f"{path.name}: seven-dot construction must follow the seven-dot check")
+    if path.name=="lesson000p.json":
+        expected_types=None
+        for number,name in [(1,"one"),(2,"two"),(3,"three")]:
+            model=next((i for i,s in enumerate(screens) if s.get("id")==f"model-{name}"),-1)
+            if model<0 or model+1>=len(screens) or screens[model+1].get("id")!=f"check-{name}" or screens[model+1].get("visual",{}).get("count")!=number:
+                errors.append(f"{path.name}: {number} needs an immediate quantity check")
+        for required in ["buildGroup","guidedPractice","independentPractice","recall","transfer","complete"]:
+            if required not in screen_types: errors.append(f"{path.name}: missing {required}")
+    if path.name=="lesson000r.json":
+        expected_types=["intro","independentPractice","buildGroup","independentPractice","buildGroup","buildGroup","independentPractice","recall","recall","recall","complete"]
+    review_ranges={"lesson000r4.json":(4,6),"lesson000r7.json":(7,10),"lesson000r11.json":(11,15),"lesson000r16.json":(16,20)}
+    if path.name in review_ranges:
+        begin,end=review_ranges[path.name]
+        expected_types=["intro"]+[kind for number in range(begin,end+1) for kind in ["independentPractice","buildGroup"]]+["complete"]
+        for number in range(begin,end+1):
+            if not any(s.get("visual",{}).get("count")==number and s.get("choices") for s in screens) or not any(s.get("targetCount")==number for s in screens):
+                errors.append(f"{path.name}: {number} needs both counting and construction")
+    numeral_ranges={"lesson000n0.json":(0,3),"lesson000n4.json":(4,6),"lesson000n7.json":(7,10),"lesson000n11.json":(11,15),"lesson000n16.json":(16,20)}
+    if path.name in numeral_ranges:
+        begin,end=numeral_ranges[path.name]
+        expected_types=["intro"]+["recall"]*(end-begin+1)+["complete"]
+        for screen in screens[1:-1]:
+            if screen.get("visual") or screen.get("speakChoices") is not False or not screen.get("audio"):
+                errors.append(f"{path.name}: recognition requires audio, no dot model, and no automatic choice speech")
+    if path.name in {"lesson000t0.json","lesson000t4.json","lesson000t7.json","lesson000t9.json","lesson000t11.json","lesson000t13.json","lesson000t16.json","lesson000t18.json"}:
+        expected_types=None
+        if len(screens)>15: errors.append(f"{path.name}: short teaching part exceeds 15 screens")
+        for required in ["observe","independentPractice","recall","transfer","complete"]:
+            if required not in screen_types: errors.append(f"{path.name}: missing {required}")
     if path.name=="lesson000a.json":
         expected_types=["intro","observe","observe","guidedPractice","observe","independentPractice","memoryHook","recall","transfer","complete"]
     if path.name in {"lesson000b.json","lesson000c.json"}:
@@ -115,6 +144,10 @@ for path in sorted(lesson_dir.glob("*.json")):
     if not screens or screens[0].get("type") != "intro": errors.append(f"{path.name}: first screen must be intro")
     if not screens or screens[-1].get("type") != "complete": errors.append(f"{path.name}: last screen must be complete")
     for i,screen in enumerate(data.get("screens",[])):
+        if "phraseMeanings" in screen:
+            meanings=screen["phraseMeanings"]
+            if not isinstance(meanings,list) or len(meanings)!=len(screen.get("phrases",[])) or any(not isinstance(value,str) or not value.strip() for value in meanings):
+                errors.append(f"{path.name} screen {i}: phraseMeanings must explain every phrase")
         if screen.get("type")=="buildGroup":
             if not isinstance(screen.get("targetCount"),int) or not 0<=screen["targetCount"]<=20: errors.append(f"{path.name} screen {i}: targetCount must be 0–20")
             if len(screen.get("hints",[]))<2 or not all(screen.get(key) for key in ["audio","correctFeedback","wrongFeedback"]): errors.append(f"{path.name} screen {i}: buildGroup needs narrated instructions and feedback")

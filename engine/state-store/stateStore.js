@@ -69,6 +69,15 @@ export function ensureLessonRecord(lesson,path){
 }
 export function saveLessonRecord(id,record){ const state=learningState(); record.lastAccessedAt=new Date().toISOString(); state.lessons[id]=record; return write(LEARNING_KEY,state); }
 export function getAllLessonRecords(){ return Object.values(learningState().lessons).filter(object); }
+// Suggest a return on a later local calendar day, without locking early practice.
+export function reviewSuggested(original,review,now=new Date()){
+  const completions=[original,review].flatMap(record=>[record?.currentAttempt,...(record?.priorCompletedAttempts||[])])
+    .filter(item=>item?.completed && !Number.isNaN(Date.parse(item.completedAt)))
+    .map(item=>Date.parse(item.completedAt));
+  if(!completions.length) return false;
+  const latest=new Date(Math.max(...completions));
+  return new Date(now).toDateString()!==latest.toDateString() && new Date(now)>latest;
+}
 export function archiveCompletedAttempt(record,summary){ record.currentAttempt=normalizeAttempt(record.currentAttempt); record.currentAttempt.completed=true; record.currentAttempt.completedAt||=new Date().toISOString(); record.currentAttempt.summary=summary; return record; }
 export function newLessonAttempt(record){
   const completed=normalizeAttempt(record.currentAttempt);

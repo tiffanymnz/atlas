@@ -1,0 +1,142 @@
+{
+  "metadata": {
+    "title": "Escucha y busca del 11 al 15"
+  },
+  "learning": {
+    "learning_goal": "Relacionar los nombres de los números del 11 al 15 con sus cifras.",
+    "big_idea": "Cada número tiene un nombre y un símbolo escrito.",
+    "assumed_prior_knowledge": [
+      "Ya conoció los nombres y símbolos del 11 al 15."
+    ],
+    "novice_success_criteria": [
+      "Elegir la cifra de un número que escucha sin ver puntos."
+    ]
+  },
+  "screens": [
+    {
+      "title": "Escucha. Busca el número.",
+      "body": "Toca Escuchar. Después toca el número que oyes.",
+      "audio": "Toca Escuchar. Después toca el número que oyes."
+    },
+    {
+      "title": "Escucha. Busca el número.",
+      "audio": "Busca el doce.",
+      "prompt": "Toca Escuchar. Después elige.",
+      "choices": [
+        {
+          "text": "12",
+          "feedback": "12 es doce."
+        },
+        {
+          "text": "13",
+          "feedback": "Escucha otra vez. Prueba con otro número."
+        },
+        {
+          "text": "11",
+          "feedback": "Escucha otra vez. Prueba con otro número."
+        }
+      ],
+      "hints": [
+        "Toca Escuchar para oír el número otra vez.",
+        "Este es el doce: 12."
+      ]
+    },
+    {
+      "title": "Escucha. Busca el número.",
+      "audio": "Busca el catorce.",
+      "prompt": "Toca Escuchar. Después elige.",
+      "choices": [
+        {
+          "text": "13",
+          "feedback": "Escucha otra vez. Prueba con otro número."
+        },
+        {
+          "text": "14",
+          "feedback": "14 es catorce."
+        },
+        {
+          "text": "15",
+          "feedback": "Escucha otra vez. Prueba con otro número."
+        }
+      ],
+      "hints": [
+        "Toca Escuchar para oír el número otra vez.",
+        "Este es el catorce: 14."
+      ]
+    },
+    {
+      "title": "Escucha. Busca el número.",
+      "audio": "Busca el once.",
+      "prompt": "Toca Escuchar. Después elige.",
+      "choices": [
+        {
+          "text": "10",
+          "feedback": "Escucha otra vez. Prueba con otro número."
+        },
+        {
+          "text": "11",
+          "feedback": "11 es once."
+        },
+        {
+          "text": "12",
+          "feedback": "Escucha otra vez. Prueba con otro número."
+        }
+      ],
+      "hints": [
+        "Toca Escuchar para oír el número otra vez.",
+        "Este es el once: 11."
+      ]
+    },
+    {
+      "title": "Escucha. Busca el número.",
+      "audio": "Busca el trece.",
+      "prompt": "Toca Escuchar. Después elige.",
+      "choices": [
+        {
+          "text": "14",
+          "feedback": "Escucha otra vez. Prueba con otro número."
+        },
+        {
+          "text": "12",
+          "feedback": "Escucha otra vez. Prueba con otro número."
+        },
+        {
+          "text": "13",
+          "feedback": "13 es trece."
+        }
+      ],
+      "hints": [
+        "Toca Escuchar para oír el número otra vez.",
+        "Este es el trece: 13."
+      ]
+    },
+    {
+      "title": "Escucha. Busca el número.",
+      "audio": "Busca el quince.",
+      "prompt": "Toca Escuchar. Después elige.",
+      "choices": [
+        {
+          "text": "15",
+          "feedback": "15 es quince."
+        },
+        {
+          "text": "16",
+          "feedback": "Escucha otra vez. Prueba con otro número."
+        },
+        {
+          "text": "14",
+          "feedback": "Escucha otra vez. Prueba con otro número."
+        }
+      ],
+      "hints": [
+        "Toca Escuchar para oír el número otra vez.",
+        "Este es el quince: 15."
+      ]
+    },
+    {
+      "title": "Practicaste los nombres de los números.",
+      "body": "Inténtalo de nuevo otro día.",
+      "audio": "Practicaste los nombres de los números. Inténtalo de nuevo otro día."
+    }
+  ]
+}

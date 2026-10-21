@@ -4,6 +4,12 @@ Target release: October 18, 2026.
 
 Atlas V1 is a focused, memory-first bilingual GED comparison-learning release. The broader product vision remains valid, but approximately 150 concept pages, mobile apps, Atlas Studio, and a teacher dashboard are outside this V1 deadline.
 
+Current checkpoint (October 1, 2026 UTC): the novice counting foundation is
+being prepared on `sprint-18-small-number-foundation`. It adds a prerequisite
+route before comparison; it does not expand V1 into a complete early-childhood
+curriculum. These local changes are not yet published. Earlier production
+sign-off below applies to earlier releases only.
+
 ## Release scope
 
 1. A GitHub Pages learner that works in English and Spanish with equal access to every current lesson.
@@ -32,13 +38,43 @@ Atlas V1 is a focused, memory-first bilingual GED comparison-learning release. T
 - Recovery testing for malformed and versioned saved data.
 - Full end-to-end completion and restart checks in both languages.
 
-The automated release gate now covers 33 behavior, accessibility, persistence, bilingual, curriculum, asset, route, reference, and static-path checks. Production deployment and smoke verification remain required for each release commit.
+The current local suite passes 120 tests plus curriculum, knowledge, research,
+memory, and release audits. Production deployment and smoke verification remain
+required for each release commit. Automated checks do not prove novice comprehension.
 
-### V1 — Release ready
+### Earlier release baseline — previously signed off
 
 - Deterministic release metadata and route/link/import/hash auditing.
 - Release notes, known limitations, go/no-go gates, and rollback instructions.
 - Production Chromium and physical iPhone/Safari sign-off completed. Unavailable Firefox desktop and Chrome/Android checks were explicitly accepted as release risks.
+
+### Counting checkpoint — local review complete; release pending
+
+- Short teaching route: 1–3, zero, 4–6, 7–8, 9–10, 11–12, 13–15, 16–17, 18–20.
+- Original full counting lessons and saved attempts remain intact as optional reviews.
+- Optional return and spoken-number practice remain separately saved.
+- Device speech selects matching enhanced voices when exposed. Recorded narration
+  support exists; approved natural recordings are not included.
+- Route tests cover optional-review skipping, stopping before pairing, readiness,
+  lesson switching, reopening, and preservation of previous full-lesson completion.
+- No new features are needed to reach the next review checkpoint.
+
+Remaining release work, in order:
+
+1. Publish the preserved branch through an authorized working GitHub path.
+   The cloud-browser commit action was blocked and Git credentials are unavailable;
+   no merge or deployment is implied by local commits.
+2. Smoke-test the published counting route, mobile layouts, interim voice,
+   refresh/reopen, language switching, and completion on the actual build.
+3. Review Spanish independently and revise specific findings.
+4. Recheck Lessons 001–004 against the newer novice-language standard, including
+   prerequisite explanations and the bridge from everyday language to technical terms.
+5. Merge/deploy only within the authorized scope and verify the exact production commit.
+
+Standalone learning effectiveness remains unverified without first-time learner
+observation. Do not market code-review success as proof that children can learn
+independently. The lesson picker has accumulated many optional practice entries;
+review its usability during smoke testing before adding more curriculum.
 
 ## V1 acceptance criteria
 

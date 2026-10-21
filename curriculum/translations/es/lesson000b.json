@@ -130,7 +130,9 @@
       "hints": [
         "Cuenta cada punto una vez.",
         "Detente en doce."
-      ]
+      ],
+      "tooFewFeedback": "Necesitas 12 puntos. Añade un punto y cuenta otra vez.",
+      "tooManyFeedback": "Necesitas 12 puntos. Quita un punto y cuenta otra vez."
     },
     {
       "label": "Número 13",
@@ -283,10 +285,101 @@
       ]
     },
     {
+      "label": "Forma un grupo",
+      "title": "Forma 15 puntos.",
+      "audio": "Añade puntos hasta tener quince. Después comprueba.",
+      "correctFeedback": "Formaste 15 puntos.",
+      "wrongFeedback": "Cuenta tus puntos otra vez. Necesitas 15.",
+      "tooFewFeedback": "Necesitas 15 puntos. Añade un punto y cuenta otra vez.",
+      "hints": [
+        "Toca cada punto mientras cuentas.",
+        "Detente en 15."
+      ],
+      "tooManyFeedback": "Necesitas 15 puntos. Quita un punto y cuenta otra vez."
+    },
+    {
       "title": "Sigue contando después de diez.",
       "hook": "Diez, luego sigue.",
       "body": "Cuenta los primeros diez. Sigue contando cada punto extra una vez.",
       "audio": "Diez, luego sigue."
+    },
+    {
+      "title": "Cuenta estos puntos.",
+      "audio": "Estos puntos no están en filas. Cuéntalos. ¿Cuántos hay?",
+      "visual": {
+        "ariaLabel": "Once puntos separados, sin números escritos.",
+        "message": "¿Cuántos puntos hay?"
+      },
+      "choices": [
+        {
+          "text": "10",
+          "feedback": "Busca otro punto."
+        },
+        {
+          "text": "11",
+          "feedback": "Once puntos en total."
+        },
+        {
+          "text": "12",
+          "feedback": "Comprueba que no contaste uno dos veces."
+        }
+      ],
+      "hints": [
+        "Señala cada punto una vez mientras cuentas.",
+        "Cuenta diez puntos y luego uno más."
+      ]
+    },
+    {
+      "title": "Cuenta un grupo nuevo.",
+      "audio": "Cuenta estos puntos en otros lugares. ¿Cuántos hay?",
+      "visual": {
+        "ariaLabel": "Doce puntos separados, sin números escritos.",
+        "message": "¿Cuántos puntos hay?"
+      },
+      "choices": [
+        {
+          "text": "13",
+          "feedback": "Cuenta cada punto solo una vez."
+        },
+        {
+          "text": "11",
+          "feedback": "Busca un punto que te faltó."
+        },
+        {
+          "text": "12",
+          "feedback": "Doce puntos en total."
+        }
+      ],
+      "hints": [
+        "Señala cada punto una vez mientras cuentas.",
+        "Cuenta diez puntos y luego dos más."
+      ]
+    },
+    {
+      "title": "Cuenta un grupo nuevo.",
+      "audio": "Cuenta cada punto una vez. ¿Cuántos hay?",
+      "visual": {
+        "ariaLabel": "Trece puntos separados, sin números escritos.",
+        "message": "¿Cuántos puntos hay?"
+      },
+      "choices": [
+        {
+          "text": "12",
+          "feedback": "Busca otro punto."
+        },
+        {
+          "text": "13",
+          "feedback": "Trece puntos en total."
+        },
+        {
+          "text": "14",
+          "feedback": "Comprueba que no contaste uno dos veces."
+        }
+      ],
+      "hints": [
+        "Señala cada punto una vez mientras cuentas.",
+        "Cuenta diez puntos y luego tres más."
+      ]
     },
     {
       "title": "Cuenta otra forma.",

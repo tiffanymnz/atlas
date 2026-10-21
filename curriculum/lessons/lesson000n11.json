@@ -1,0 +1,200 @@
+{
+  "schema_version": "3.0",
+  "metadata": {
+    "id": "MATH-NS-FOUND-000N11",
+    "title": "Hear and find 11–15",
+    "domain": "Mathematics",
+    "subject": "Arithmetic",
+    "course": "Number Sense",
+    "unit": "Counting",
+    "contentRevision": 1,
+    "audioStrategy": "short_guidance"
+  },
+  "learning": {
+    "learning_goal": "Connect spoken number names 11 through 15 to their numerals.",
+    "big_idea": "Each number has a name and a written symbol.",
+    "assumed_prior_knowledge": [
+      "Previously met number names and symbols 11 through 15."
+    ],
+    "novice_success_criteria": [
+      "Choose the numeral for a spoken number without a dot model."
+    ]
+  },
+  "concepts": {
+    "primary_concept": "counting",
+    "supporting_concepts": [
+      "counting"
+    ]
+  },
+  "screens": [
+    {
+      "id": "intro",
+      "type": "intro",
+      "title": "Listen. Find the number.",
+      "body": "Tap Listen. Then tap the number you hear.",
+      "audio": "Tap Listen. Then tap the number you hear."
+    },
+    {
+      "id": "hear-12",
+      "type": "recall",
+      "title": "Listen. Find the number.",
+      "audio": "Find twelve.",
+      "prompt": "Tap Listen. Then choose.",
+      "speakChoices": false,
+      "choices": [
+        {
+          "text": "12",
+          "correct": true,
+          "feedback": "12 is twelve."
+        },
+        {
+          "text": "13",
+          "correct": false,
+          "feedback": "Listen again. Try another number.",
+          "misconception": "counting_one_to_one"
+        },
+        {
+          "text": "11",
+          "correct": false,
+          "feedback": "Listen again. Try another number.",
+          "misconception": "counting_one_to_one"
+        }
+      ],
+      "hints": [
+        "Tap Listen to hear the number again.",
+        "This is twelve: 12."
+      ]
+    },
+    {
+      "id": "hear-14",
+      "type": "recall",
+      "title": "Listen. Find the number.",
+      "audio": "Find fourteen.",
+      "prompt": "Tap Listen. Then choose.",
+      "speakChoices": false,
+      "choices": [
+        {
+          "text": "13",
+          "correct": false,
+          "feedback": "Listen again. Try another number.",
+          "misconception": "counting_one_to_one"
+        },
+        {
+          "text": "14",
+          "correct": true,
+          "feedback": "14 is fourteen."
+        },
+        {
+          "text": "15",
+          "correct": false,
+          "feedback": "Listen again. Try another number.",
+          "misconception": "counting_one_to_one"
+        }
+      ],
+      "hints": [
+        "Tap Listen to hear the number again.",
+        "This is fourteen: 14."
+      ]
+    },
+    {
+      "id": "hear-11",
+      "type": "recall",
+      "title": "Listen. Find the number.",
+      "audio": "Find eleven.",
+      "prompt": "Tap Listen. Then choose.",
+      "speakChoices": false,
+      "choices": [
+        {
+          "text": "10",
+          "correct": false,
+          "feedback": "Listen again. Try another number.",
+          "misconception": "counting_one_to_one"
+        },
+        {
+          "text": "11",
+          "correct": true,
+          "feedback": "11 is eleven."
+        },
+        {
+          "text": "12",
+          "correct": false,
+          "feedback": "Listen again. Try another number.",
+          "misconception": "counting_one_to_one"
+        }
+      ],
+      "hints": [
+        "Tap Listen to hear the number again.",
+        "This is eleven: 11."
+      ]
+    },
+    {
+      "id": "hear-13",
+      "type": "recall",
+      "title": "Listen. Find the number.",
+      "audio": "Find thirteen.",
+      "prompt": "Tap Listen. Then choose.",
+      "speakChoices": false,
+      "choices": [
+        {
+          "text": "14",
+          "correct": false,
+          "feedback": "Listen again. Try another number.",
+          "misconception": "counting_one_to_one"
+        },
+        {
+          "text": "12",
+          "correct": false,
+          "feedback": "Listen again. Try another number.",
+          "misconception": "counting_one_to_one"
+        },
+        {
+          "text": "13",
+          "correct": true,
+          "feedback": "13 is thirteen."
+        }
+      ],
+      "hints": [
+        "Tap Listen to hear the number again.",
+        "This is thirteen: 13."
+      ]
+    },
+    {
+      "id": "hear-15",
+      "type": "recall",
+      "title": "Listen. Find the number.",
+      "audio": "Find fifteen.",
+      "prompt": "Tap Listen. Then choose.",
+      "speakChoices": false,
+      "choices": [
+        {
+          "text": "15",
+          "correct": true,
+          "feedback": "15 is fifteen."
+        },
+        {
+          "text": "16",
+          "correct": false,
+          "feedback": "Listen again. Try another number.",
+          "misconception": "counting_one_to_one"
+        },
+        {
+          "text": "14",
+          "correct": false,
+          "feedback": "Listen again. Try another number.",
+          "misconception": "counting_one_to_one"
+        }
+      ],
+      "hints": [
+        "Tap Listen to hear the number again.",
+        "This is fifteen: 15."
+      ]
+    },
+    {
+      "id": "complete",
+      "type": "complete",
+      "title": "You practiced number names.",
+      "body": "Try again another day.",
+      "audio": "You practiced number names. Try again another day."
+    }
+  ]
+}

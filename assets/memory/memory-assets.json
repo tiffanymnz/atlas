@@ -142,7 +142,7 @@
         "memoryHook": {
           "title": "How many more? Find the difference.",
           "hook": "6 blue. 4 red. 4 pairs. 2 extra blue.",
-          "body": "The difference is 2. Write it as 6 − 4 = 2. This is subtraction."
+          "body": "6 − 4 = 2 means six minus four equals two. − means subtract. = means both sides have the same value."
         },
         "independent": {
           "prompt": "Nia read 9 pages. Theo read 5 pages. How many more pages did Nia read?",
@@ -158,7 +158,7 @@
           "answer": "What is the difference?"
         },
         "transfer": {
-          "prompt": "One notebook costs $10. Another costs $8. What is the difference in price?",
+          "prompt": "Prices are in dollars ($). One notebook costs $10. Another costs $8. What is the difference in price?",
           "choices": [
             "$2",
             "$18",
@@ -191,11 +191,11 @@
           "answer": "Pair the groups and count what the smaller group is missing"
         },
         "transfer": {
-          "prompt": "Jamal walked 23 blocks and Priya walked 15 blocks. How many fewer blocks did Priya walk?",
+          "prompt": "Jamal walked 19 blocks. Priya walked 11 blocks. How many fewer blocks did Priya walk?",
           "choices": [
             "8",
-            "15",
-            "38"
+            "11",
+            "19"
           ],
           "answer": "8"
         }
@@ -204,11 +204,11 @@
         "lessonId": "MATH-NS-COMP-0003",
         "conceptId": "difference",
         "title": "Difference",
-        "learningGoal": "Understand that difference names how many items are left after two groups are paired.",
+        "learningGoal": "Find the difference between two counts by pairing or subtracting.",
         "memoryHook": {
-          "title": "Difference is what is left after pairing.",
+          "title": "Subtract to find the difference.",
           "hook": "Larger number − smaller number = difference",
-          "body": "The difference is not either starting number. It is the number left after the smaller group is paired with part of the larger group."
+          "body": "13 − 8 = 5. The difference between 13 and 8 is 5. Pairing the dots shows why."
         },
         "independent": {
           "prompt": "What is the difference between 20 and 13?",
@@ -224,13 +224,13 @@
           "answer": "the number left after the groups are paired"
         },
         "transfer": {
-          "prompt": "The high temperature was 72°F and the low was 64°F. What was the difference?",
+          "prompt": "One team scored 18 points. Another scored 10 points. What is the difference?",
           "choices": [
-            "8°F",
-            "64°F",
-            "136°F"
+            "8",
+            "10",
+            "18"
           ],
-          "answer": "8°F"
+          "answer": "8"
         }
       },
       {
@@ -257,11 +257,11 @@
           "answer": "Subtract the gap from the larger amount"
         },
         "transfer": {
-          "prompt": "Maya read 24 pages. Eli read 9 fewer pages than Maya. How many pages did Eli read?",
+          "prompt": "Maya read 20 pages. Eli read 5 fewer pages than Maya. How many pages did Eli read?",
           "choices": [
             "15",
-            "9",
-            "33"
+            "5",
+            "20"
           ],
           "answer": "15"
         }
@@ -639,7 +639,7 @@
         "memoryHook": {
           "title": "¿Cuántos más? Halla la diferencia.",
           "hook": "6 azules. 4 rojos. 4 parejas. 2 azules de más.",
-          "body": "La diferencia es 2. Escríbelo así: 6 − 4 = 2. Esto es una resta."
+          "body": "6 − 4 = 2 se lee seis menos cuatro es igual a dos. − significa restar. = indica que ambos lados tienen el mismo valor."
         },
         "independent": {
           "prompt": "Nia leyó 9 páginas. Theo leyó 5. ¿Cuántas páginas más leyó Nia?",
@@ -655,7 +655,7 @@
           "answer": "¿Cuál es la diferencia?"
         },
         "transfer": {
-          "prompt": "Un cuaderno cuesta $10. Otro cuesta $8. ¿Cuál es la diferencia de precio?",
+          "prompt": "Los precios están en dólares ($). Un cuaderno cuesta $10. Otro cuesta $8. ¿Cuál es la diferencia de precio?",
           "choices": [
             "$2",
             "$18",
@@ -688,11 +688,11 @@
           "answer": "Formar parejas y contar lo que le falta al grupo menor"
         },
         "transfer": {
-          "prompt": "Jamal caminó 23 cuadras y Priya caminó 15 cuadras. ¿Cuántas cuadras menos caminó Priya?",
+          "prompt": "Jamal caminó 19 cuadras. Priya caminó 11 cuadras. ¿Cuántas cuadras menos caminó Priya?",
           "choices": [
             "8",
-            "15",
-            "38"
+            "11",
+            "19"
           ],
           "answer": "8"
         }
@@ -701,11 +701,11 @@
         "lessonId": "MATH-NS-COMP-0003",
         "conceptId": "difference",
         "title": "Diferencia",
-        "learningGoal": "Comprender que diferencia es el nombre del número de elementos que quedan después de formar parejas entre dos grupos.",
+        "learningGoal": "Encontrar la diferencia entre dos cantidades formando parejas o restando.",
         "memoryHook": {
-          "title": "La diferencia es lo que queda después de formar parejas.",
+          "title": "Resta para encontrar la diferencia.",
           "hook": "Número mayor − número menor = diferencia",
-          "body": "La diferencia no es ninguno de los números iniciales. Es el número que queda después de emparejar el grupo menor con parte del grupo mayor."
+          "body": "13 − 8 = 5. La diferencia entre 13 y 8 es 5. Las parejas de puntos muestran por qué."
         },
         "independent": {
           "prompt": "¿Cuál es la diferencia entre 20 y 13?",
@@ -721,13 +721,13 @@
           "answer": "el número que queda después de formar parejas"
         },
         "transfer": {
-          "prompt": "La temperatura máxima fue 72 °F y la mínima fue 64 °F. ¿Cuál fue la diferencia?",
+          "prompt": "Un equipo anotó 18 puntos. Otro anotó 10 puntos. ¿Cuál es la diferencia?",
           "choices": [
-            "8 °F",
-            "64 °F",
-            "136 °F"
+            "8",
+            "10",
+            "18"
           ],
-          "answer": "8 °F"
+          "answer": "8"
         }
       },
       {
@@ -754,11 +754,11 @@
           "answer": "Restar cuántos menos del número mayor"
         },
         "transfer": {
-          "prompt": "Maya leyó 24 páginas. Eli leyó 9 páginas menos que Maya. ¿Cuántas páginas leyó Eli?",
+          "prompt": "Maya leyó 20 páginas. Eli leyó 5 páginas menos que Maya. ¿Cuántas páginas leyó Eli?",
           "choices": [
             "15",
-            "9",
-            "33"
+            "5",
+            "20"
           ],
           "answer": "15"
         }

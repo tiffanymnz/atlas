@@ -1,0 +1,266 @@
+{
+  "metadata": {
+    "title": "Conoce del 13 al 15"
+  },
+  "learning": {
+    "learning_goal": "Relacionar nombres, cifras y grupos del 13 al 15.",
+    "big_idea": "Un número indica cuántos puntos hay.",
+    "assumed_prior_knowledge": [
+      "Ya aprendió los números hasta el 12."
+    ],
+    "novice_success_criteria": [
+      "Contar cada punto una vez.",
+      "Reconocer un nombre de número y contar otra distribución."
+    ]
+  },
+  "screens": [
+    {
+      "title": "Conoce del 13 al 15.",
+      "body": "Escucha. Cuenta. Inténtalo tú.",
+      "audio": "Escucha los números. Cuenta los puntos. Después inténtalo tú."
+    },
+    {
+      "label": "Número 13",
+      "title": "13 — trece",
+      "audio": "Este es trece. Toca los puntos para escucharlos en orden.",
+      "visual": {
+        "kind": "countingDots",
+        "count": 13,
+        "layout": "tenRows",
+        "numbered": true,
+        "interactive": true,
+        "firstLabel": "Primeros diez",
+        "moreLabel": "Más puntos",
+        "ariaLabel": "13 puntos azules. Diez primero y 3 más.",
+        "message": "Diez y 3 puntos más."
+      },
+      "nextLabel": "Tu turno"
+    },
+    {
+      "title": "¿Cuántos puntos hay?",
+      "audio": "Cuenta cada punto una vez. Elige el número.",
+      "visual": {
+        "kind": "countingDots",
+        "count": 13,
+        "layout": "tenRows",
+        "numbered": false,
+        "interactive": false,
+        "firstLabel": "Primeros diez",
+        "moreLabel": "Más puntos",
+        "ariaLabel": "13 puntos azules. Diez primero y 3 más.",
+        "message": "Diez y 3 puntos más."
+      },
+      "choices": [
+        {
+          "text": "12",
+          "feedback": "Cuenta los primeros diez. Después cuenta los puntos de abajo."
+        },
+        {
+          "text": "13",
+          "feedback": "Sí. Diez y 3 más son 13."
+        },
+        {
+          "text": "11",
+          "feedback": "Cuenta los primeros diez. Después cuenta los puntos de abajo."
+        }
+      ],
+      "hints": [
+        "Cuenta los primeros diez. Después cuenta los puntos de abajo.",
+        "Cuenta desde diez hasta trece."
+      ]
+    },
+    {
+      "label": "Número 14",
+      "title": "14 — catorce",
+      "audio": "Este es catorce. Toca los puntos para escucharlos en orden.",
+      "visual": {
+        "kind": "countingDots",
+        "count": 14,
+        "layout": "tenRows",
+        "numbered": true,
+        "interactive": true,
+        "firstLabel": "Primeros diez",
+        "moreLabel": "Más puntos",
+        "ariaLabel": "14 puntos azules. Diez primero y 4 más.",
+        "message": "Diez y 4 puntos más."
+      },
+      "nextLabel": "Tu turno"
+    },
+    {
+      "title": "¿Cuántos puntos hay?",
+      "audio": "Cuenta cada punto una vez. Elige el número.",
+      "visual": {
+        "kind": "countingDots",
+        "count": 14,
+        "layout": "tenRows",
+        "numbered": false,
+        "interactive": false,
+        "firstLabel": "Primeros diez",
+        "moreLabel": "Más puntos",
+        "ariaLabel": "14 puntos azules. Diez primero y 4 más.",
+        "message": "Diez y 4 puntos más."
+      },
+      "choices": [
+        {
+          "text": "13",
+          "feedback": "Cuenta los primeros diez. Después cuenta los puntos de abajo."
+        },
+        {
+          "text": "14",
+          "feedback": "Sí. Diez y 4 más son 14."
+        },
+        {
+          "text": "12",
+          "feedback": "Cuenta los primeros diez. Después cuenta los puntos de abajo."
+        }
+      ],
+      "hints": [
+        "Cuenta los primeros diez. Después cuenta los puntos de abajo.",
+        "Cuenta desde diez hasta catorce."
+      ]
+    },
+    {
+      "label": "Número 15",
+      "title": "15 — quince",
+      "audio": "Este es quince. Toca los puntos para escucharlos en orden.",
+      "visual": {
+        "kind": "countingDots",
+        "count": 15,
+        "layout": "tenRows",
+        "numbered": true,
+        "interactive": true,
+        "firstLabel": "Primeros diez",
+        "moreLabel": "Más puntos",
+        "ariaLabel": "15 puntos azules. Diez primero y 5 más.",
+        "message": "Diez y 5 puntos más."
+      },
+      "nextLabel": "Tu turno"
+    },
+    {
+      "title": "¿Cuántos puntos hay?",
+      "audio": "Cuenta cada punto una vez. Elige el número.",
+      "visual": {
+        "kind": "countingDots",
+        "count": 15,
+        "layout": "tenRows",
+        "numbered": false,
+        "interactive": false,
+        "firstLabel": "Primeros diez",
+        "moreLabel": "Más puntos",
+        "ariaLabel": "15 puntos azules. Diez primero y 5 más.",
+        "message": "Diez y 5 puntos más."
+      },
+      "choices": [
+        {
+          "text": "14",
+          "feedback": "Cuenta los primeros diez. Después cuenta los puntos de abajo."
+        },
+        {
+          "text": "15",
+          "feedback": "Sí. Diez y 5 más son 15."
+        },
+        {
+          "text": "13",
+          "feedback": "Cuenta los primeros diez. Después cuenta los puntos de abajo."
+        }
+      ],
+      "hints": [
+        "Cuenta los primeros diez. Después cuenta los puntos de abajo.",
+        "Cuenta desde diez hasta quince."
+      ]
+    },
+    {
+      "label": "Forma un grupo",
+      "title": "Forma 15 puntos.",
+      "audio": "Añade puntos hasta tener quince. Después comprueba.",
+      "correctFeedback": "Formaste 15 puntos.",
+      "wrongFeedback": "Cuenta tus puntos otra vez. Necesitas 15.",
+      "tooFewFeedback": "Necesitas 15 puntos. Añade un punto y cuenta otra vez.",
+      "hints": [
+        "Toca cada punto mientras cuentas.",
+        "Detente en 15."
+      ],
+      "tooManyFeedback": "Necesitas 15 puntos. Quita un punto y cuenta otra vez."
+    },
+    {
+      "title": "¿Cuántos puntos hay?",
+      "audio": "Cuenta los puntos. Toca el número que indica cuántos puntos hay.",
+      "visual": {
+        "ariaLabel": "Trece puntos sin números escritos.",
+        "message": "¿Cuántos puntos hay?"
+      },
+      "choices": [
+        {
+          "text": "12",
+          "feedback": "Cuenta cada punto una vez. Revisa si saltaste un punto o lo contaste dos veces."
+        },
+        {
+          "text": "13",
+          "feedback": "13 puntos."
+        },
+        {
+          "text": "14",
+          "feedback": "Cuenta cada punto una vez. Revisa si saltaste un punto o lo contaste dos veces."
+        }
+      ],
+      "hints": [
+        "Empieza por la izquierda. Toca cada punto mientras cuentas.",
+        "Cuenta cada punto una vez. Después toca el número al que llegaste."
+      ]
+    },
+    {
+      "title": "¿Cuántos puntos hay?",
+      "audio": "Cuenta los puntos. Toca el número que indica cuántos puntos hay.",
+      "visual": {
+        "ariaLabel": "Quince puntos sin números escritos.",
+        "message": "¿Cuántos puntos hay?"
+      },
+      "choices": [
+        {
+          "text": "16",
+          "feedback": "Cuenta cada punto una vez. Revisa si saltaste un punto o lo contaste dos veces."
+        },
+        {
+          "text": "14",
+          "feedback": "Cuenta cada punto una vez. Revisa si saltaste un punto o lo contaste dos veces."
+        },
+        {
+          "text": "15",
+          "feedback": "15 puntos."
+        }
+      ],
+      "hints": [
+        "Empieza por la izquierda. Toca cada punto mientras cuentas.",
+        "Cuenta cada punto una vez. Después toca el número al que llegaste."
+      ]
+    },
+    {
+      "title": "Escucha. Busca el número.",
+      "audio": "Busca el quince.",
+      "prompt": "Toca Escuchar. Después elige.",
+      "choices": [
+        {
+          "text": "15",
+          "feedback": "15 es quince."
+        },
+        {
+          "text": "16",
+          "feedback": "Escucha otra vez. Prueba con otro número."
+        },
+        {
+          "text": "14",
+          "feedback": "Escucha otra vez. Prueba con otro número."
+        }
+      ],
+      "hints": [
+        "Toca Escuchar para oír el número otra vez.",
+        "Este es el quince: 15."
+      ]
+    },
+    {
+      "title": "Terminaste esta parte.",
+      "body": "Puedes descansar. Vuelve a practicar después.",
+      "audio": "Terminaste esta parte. Puedes descansar. Vuelve a practicar después."
+    }
+  ]
+}

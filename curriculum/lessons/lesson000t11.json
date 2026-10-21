@@ -1,0 +1,289 @@
+{
+  "schema_version": "3.0",
+  "metadata": {
+    "id": "MATH-NS-FOUND-000T11",
+    "title": "Meet 11–12",
+    "domain": "Mathematics",
+    "subject": "Arithmetic",
+    "course": "Number Sense",
+    "unit": "Counting",
+    "contentRevision": 1,
+    "audioStrategy": "short_guidance"
+  },
+  "learning": {
+    "learning_goal": "Connect number names, numerals, and groups from 11 through 12.",
+    "big_idea": "A number tells how many dots there are.",
+    "assumed_prior_knowledge": [
+      "Previously learned numbers through 10."
+    ],
+    "novice_success_criteria": [
+      "Count each dot once.",
+      "Recognize a number name and count a new arrangement."
+    ]
+  },
+  "concepts": {
+    "primary_concept": "counting",
+    "supporting_concepts": [
+      "counting",
+      "cardinality"
+    ]
+  },
+  "screens": [
+    {
+      "id": "intro",
+      "type": "intro",
+      "title": "Meet 11–12.",
+      "body": "Listen. Count. Try it yourself.",
+      "audio": "Listen to the numbers. Count the dots. Then try it yourself."
+    },
+    {
+      "id": "number-11",
+      "type": "observe",
+      "label": "Number 11",
+      "title": "11 — eleven",
+      "audio": "This is eleven. Tap the dots to hear them in order.",
+      "visual": {
+        "kind": "countingDots",
+        "count": 11,
+        "layout": "tenRows",
+        "numbered": true,
+        "interactive": true,
+        "firstLabel": "First ten",
+        "moreLabel": "More dots",
+        "ariaLabel": "11 blue dots. First ten, then 1 more.",
+        "message": "Ten and 1 more dots."
+      },
+      "nextLabel": "Your turn"
+    },
+    {
+      "id": "count-11",
+      "type": "count",
+      "title": "How many dots?",
+      "audio": "Count every dot once. Choose the number.",
+      "visual": {
+        "kind": "countingDots",
+        "count": 11,
+        "layout": "tenRows",
+        "numbered": false,
+        "interactive": false,
+        "firstLabel": "First ten",
+        "moreLabel": "More dots",
+        "ariaLabel": "11 blue dots. First ten, then 1 more.",
+        "message": "Ten and 1 more dots."
+      },
+      "choices": [
+        {
+          "text": "10",
+          "correct": false,
+          "feedback": "Count the first ten. Then count the dots below.",
+          "misconception": "object_instead_of_relationship"
+        },
+        {
+          "text": "11",
+          "correct": true,
+          "feedback": "Yes. Ten and 1 more make 11."
+        },
+        {
+          "text": "9",
+          "correct": false,
+          "feedback": "Count the first ten. Then count the dots below.",
+          "misconception": "object_instead_of_relationship"
+        }
+      ],
+      "hints": [
+        "Count the first ten. Then count the dots below.",
+        "Count on from ten to eleven."
+      ],
+      "revision": 1
+    },
+    {
+      "id": "number-12",
+      "type": "observe",
+      "label": "Number 12",
+      "title": "12 — twelve",
+      "audio": "This is twelve. Tap the dots to hear them in order.",
+      "visual": {
+        "kind": "countingDots",
+        "count": 12,
+        "layout": "tenRows",
+        "numbered": true,
+        "interactive": true,
+        "firstLabel": "First ten",
+        "moreLabel": "More dots",
+        "ariaLabel": "12 blue dots. First ten, then 2 more.",
+        "message": "Ten and 2 more dots."
+      },
+      "nextLabel": "Your turn"
+    },
+    {
+      "id": "count-12",
+      "type": "count",
+      "title": "How many dots?",
+      "audio": "Count every dot once. Choose the number.",
+      "visual": {
+        "kind": "countingDots",
+        "count": 12,
+        "layout": "tenRows",
+        "numbered": false,
+        "interactive": false,
+        "firstLabel": "First ten",
+        "moreLabel": "More dots",
+        "ariaLabel": "12 blue dots. First ten, then 2 more.",
+        "message": "Ten and 2 more dots."
+      },
+      "choices": [
+        {
+          "text": "11",
+          "correct": false,
+          "feedback": "Count the first ten. Then count the dots below.",
+          "misconception": "object_instead_of_relationship"
+        },
+        {
+          "text": "12",
+          "correct": true,
+          "feedback": "Yes. Ten and 2 more make 12."
+        },
+        {
+          "text": "10",
+          "correct": false,
+          "feedback": "Count the first ten. Then count the dots below.",
+          "misconception": "object_instead_of_relationship"
+        }
+      ],
+      "hints": [
+        "Count the first ten. Then count the dots below.",
+        "Count on from ten to twelve."
+      ],
+      "revision": 1
+    },
+    {
+      "id": "make-12",
+      "type": "buildGroup",
+      "label": "Make a group",
+      "title": "Make 12 dots.",
+      "audio": "Tap Add a dot until you have twelve dots. Check your dots.",
+      "targetCount": 12,
+      "correctFeedback": "You made twelve dots.",
+      "wrongFeedback": "Count again. Add or remove a dot.",
+      "hints": [
+        "Count each dot once.",
+        "Stop at twelve."
+      ],
+      "revision": 1,
+      "tooFewFeedback": "You need 12 dots. Add a dot, then count again.",
+      "tooManyFeedback": "You need 12 dots. Remove a dot, then count again."
+    },
+    {
+      "id": "independentPractice-check",
+      "type": "independentPractice",
+      "title": "How many dots?",
+      "audio": "Count the dots. Tap the number that shows how many dots there are.",
+      "visual": {
+        "kind": "countingDots",
+        "count": 11,
+        "layout": "scattered",
+        "grouped": true,
+        "ariaLabel": "Eleven dots without number labels.",
+        "message": "How many dots?"
+      },
+      "choices": [
+        {
+          "text": "11",
+          "correct": true,
+          "feedback": "11 dots."
+        },
+        {
+          "text": "12",
+          "correct": false,
+          "feedback": "Count every dot once. Check for a dot you missed or counted twice.",
+          "misconception": "counting_one_to_one"
+        },
+        {
+          "text": "10",
+          "correct": false,
+          "feedback": "Count every dot once. Check for a dot you missed or counted twice.",
+          "misconception": "counting_one_to_one"
+        }
+      ],
+      "hints": [
+        "Start at the left. Touch each dot as you count.",
+        "Count each dot once. Then tap the number you reached."
+      ]
+    },
+    {
+      "id": "transfer-check",
+      "type": "transfer",
+      "title": "How many dots?",
+      "audio": "Count the dots. Tap the number that shows how many dots there are.",
+      "visual": {
+        "kind": "countingDots",
+        "count": 12,
+        "layout": "staggered",
+        "grouped": true,
+        "ariaLabel": "Twelve dots without number labels.",
+        "message": "How many dots?"
+      },
+      "choices": [
+        {
+          "text": "13",
+          "correct": false,
+          "feedback": "Count every dot once. Check for a dot you missed or counted twice.",
+          "misconception": "counting_one_to_one"
+        },
+        {
+          "text": "11",
+          "correct": false,
+          "feedback": "Count every dot once. Check for a dot you missed or counted twice.",
+          "misconception": "counting_one_to_one"
+        },
+        {
+          "text": "12",
+          "correct": true,
+          "feedback": "12 dots."
+        }
+      ],
+      "hints": [
+        "Start at the left. Touch each dot as you count.",
+        "Count each dot once. Then tap the number you reached."
+      ]
+    },
+    {
+      "id": "recall-number",
+      "type": "recall",
+      "title": "Listen. Find the number.",
+      "audio": "Find twelve.",
+      "prompt": "Tap Listen. Then choose.",
+      "speakChoices": false,
+      "choices": [
+        {
+          "text": "12",
+          "correct": true,
+          "feedback": "12 is twelve."
+        },
+        {
+          "text": "13",
+          "correct": false,
+          "feedback": "Listen again. Try another number.",
+          "misconception": "counting_one_to_one"
+        },
+        {
+          "text": "11",
+          "correct": false,
+          "feedback": "Listen again. Try another number.",
+          "misconception": "counting_one_to_one"
+        }
+      ],
+      "hints": [
+        "Tap Listen to hear the number again.",
+        "This is twelve: 12."
+      ]
+    },
+    {
+      "id": "complete",
+      "type": "complete",
+      "title": "You finished this part.",
+      "body": "You can take a break. Come back to practice again.",
+      "audio": "You finished this part. You can take a break. Come back to practice again."
+    }
+  ]
+}

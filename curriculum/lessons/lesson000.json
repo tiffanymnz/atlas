@@ -7,7 +7,7 @@
     "subject": "Arithmetic",
     "course": "Number Sense",
     "unit": "Counting",
-    "contentRevision": 7,
+    "contentRevision": 8,
     "audioStrategy": "number_words_only"
   },
   "learning": {
@@ -176,6 +176,8 @@
       "targetCount": 4,
       "correctFeedback": "You made four dots.",
       "wrongFeedback": "Count the dots in your box. Add or remove a dot, then check again.",
+      "tooManyFeedback": "There are more than four dots. Remove one, then count again.",
+      "tooFewFeedback": "There are fewer than four dots. Add one, then count again.",
       "hints": ["Tap Add a dot to put a dot in the box.", "Point to each dot and count: one, two, three, four. Stop at four."],
       "revision": 1
     },
@@ -201,6 +203,14 @@
       ],
       "hints": ["Start on the left. Count each dot once.", "Count again: one, two, three, four, five."],
       "revision": 3
+    },
+    {
+      "id": "make-five", "type": "buildGroup", "label": "Your turn", "title": "Make 5 dots.",
+      "audio": "Make five dots. Add them one at a time. Then check.", "targetCount": 5,
+      "correctFeedback": "You made five dots.", "wrongFeedback": "Count your dots and try again.",
+      "tooManyFeedback": "There are more than five dots. Remove one, then count again.",
+      "tooFewFeedback": "There are fewer than five dots. Add one, then count again.",
+      "hints": ["Touch and count each dot in your box.", "One, two, three, four, five. Stop at five."]
     },
     {
       "id": "number-6",
@@ -257,6 +267,8 @@
       "targetCount": 7,
       "correctFeedback": "You made seven dots.",
       "wrongFeedback": "Count the dots in your box. Add or remove a dot, then check again.",
+      "tooManyFeedback": "There are more than seven dots. Remove one, then count again.",
+      "tooFewFeedback": "There are fewer than seven dots. Add one, then count again.",
       "hints": ["Point to every dot once. Say its number as you point.", "Keep adding or removing until your count ends at seven."],
       "revision": 1
     },
@@ -282,6 +294,14 @@
       ],
       "hints": ["Start on the left. Point to each dot once.", "Count again from one through eight."],
       "revision": 1
+    },
+    {
+      "id": "make-eight", "type": "buildGroup", "label": "Your turn", "title": "Make 8 dots.",
+      "audio": "Make eight dots. Count as you add them. Then check.", "targetCount": 8,
+      "correctFeedback": "You made eight dots.", "wrongFeedback": "Count your dots and try again.",
+      "tooManyFeedback": "There are more than eight dots. Remove one, then count again.",
+      "tooFewFeedback": "There are fewer than eight dots. Add one, then count again.",
+      "hints": ["Touch and count each dot in your box.", "Count from one to eight. Stop at eight."]
     },
     {
       "id": "number-9",
@@ -330,6 +350,14 @@
       "revision": 1
     },
     {
+      "id": "make-ten", "type": "buildGroup", "label": "Your turn", "title": "Make 10 dots.",
+      "audio": "Make ten dots. Count as you add them. Then check.", "targetCount": 10,
+      "correctFeedback": "You made ten dots.", "wrongFeedback": "Count your dots and try again.",
+      "tooManyFeedback": "There are more than ten dots. Remove one, then count again.",
+      "tooFewFeedback": "There are fewer than ten dots. Add one, then count again.",
+      "hints": ["Touch and count each dot in your box.", "Count from one to ten. Stop at ten."]
+    },
+    {
       "id": "memory-hook",
       "type": "memoryHook",
       "title": "The total is the whole group.",
@@ -359,6 +387,61 @@
       ],
       "hints": ["Start at the left and point to each dot once.", "Say one, two, three, four, five as you point."],
       "revision": 1
+    },
+    {
+      "id": "revisit-zero", "type": "guidedPractice", "title": "How many dots are in this box?",
+      "audio": "This box is empty. How many dots are in it?",
+      "visual": {"kind":"countingDots","count":0,"grouped":true,"ariaLabel":"A different empty box with no dots.","message":"How many dots?"},
+      "choices": [
+        {"text":"2","correct":false,"feedback":"Look inside the box. There are no dots.","misconception":"counting_one_to_one"},
+        {"text":"0","correct":true,"feedback":"No dots. Zero dots."},
+        {"text":"1","correct":false,"feedback":"There is no dot in the box.","misconception":"counting_one_to_one"}
+      ],
+      "hints": ["Look inside the box. Do you see a dot?","No dots means zero dots."]
+    },
+    {
+      "id": "revisit-four", "type": "guidedPractice", "title": "Count a new group of dots.",
+      "audio": "These dots have moved. Count each dot once. How many?",
+      "visual": {"kind":"countingDots","count":4,"layout":"scattered","grouped":true,"ariaLabel":"Four dots in new places with no number labels.","message":"How many dots?"},
+      "choices": [
+        {"text":"5","correct":false,"feedback":"Check that you did not count a dot twice.","misconception":"counting_one_to_one"},
+        {"text":"4","correct":true,"feedback":"Four dots. Moving them did not change how many."},
+        {"text":"3","correct":false,"feedback":"Look for a dot you missed.","misconception":"counting_one_to_one"}
+      ],
+      "hints": ["Point to a dot when you count it. Then move to another.","Count all four dots, once each."]
+    },
+    {
+      "id": "revisit-seven", "type": "guidedPractice", "title": "Count these dots.",
+      "audio": "Count these dots in new places. How many?",
+      "visual": {"kind":"countingDots","count":7,"layout":"scattered","grouped":true,"ariaLabel":"Seven dots in new places with no number labels.","message":"How many dots?"},
+      "choices": [
+        {"text":"6","correct":false,"feedback":"Look for one more dot.","misconception":"counting_one_to_one"},
+        {"text":"8","correct":false,"feedback":"Check that you counted each dot only once.","misconception":"counting_one_to_one"},
+        {"text":"7","correct":true,"feedback":"Seven dots in all."}
+      ],
+      "hints": ["Point to each dot once as you count.","Count from one to seven, once per dot."]
+    },
+    {
+      "id": "revisit-eight", "type": "guidedPractice", "title": "Count these dots.",
+      "audio": "The dots are spread out. Count each one. How many?",
+      "visual": {"kind":"countingDots","count":8,"layout":"scattered","grouped":true,"ariaLabel":"Eight dots spread out with no number labels.","message":"How many dots?"},
+      "choices": [
+        {"text":"8","correct":true,"feedback":"Eight dots in all."},
+        {"text":"9","correct":false,"feedback":"You may have counted a dot twice.","misconception":"counting_one_to_one"},
+        {"text":"7","correct":false,"feedback":"Find the dot you missed.","misconception":"counting_one_to_one"}
+      ],
+      "hints": ["Point to each dot once as you count.","Count from one to eight, once per dot."]
+    },
+    {
+      "id": "revisit-nine", "type": "guidedPractice", "title": "Count these dots.",
+      "audio": "Count this new group. How many dots?",
+      "visual": {"kind":"countingDots","count":9,"layout":"scattered","grouped":true,"ariaLabel":"Nine dots in new places with no number labels.","message":"How many dots?"},
+      "choices": [
+        {"text":"8","correct":false,"feedback":"Look for one more dot.","misconception":"counting_one_to_one"},
+        {"text":"9","correct":true,"feedback":"Nine dots in all."},
+        {"text":"10","correct":false,"feedback":"Check that you did not count one dot twice.","misconception":"counting_one_to_one"}
+      ],
+      "hints": ["Point to each dot once as you count.","Count from one to nine, once per dot."]
     },
     {
       "id": "count-ten",

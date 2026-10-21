@@ -8,6 +8,7 @@ import {
   getPreferences,
   newLessonAttempt,
   recoverLearningState,
+  reviewSuggested,
   resolveLessonPosition,
   saveLastLessonPath,
   saveLessonRecord,
@@ -86,6 +87,16 @@ test("completed attempts remain separate from a fresh current attempt",()=>{
   assert.equal(record.currentAttempt.completed,false);
   assert.deepEqual(record.currentAttempt.events,[]);
   assert.equal(record.status,"not_started");
+});
+
+test("return practice is suggested on a later day and resets after another completion",()=>{
+  const original={currentAttempt:{completed:true,completedAt:new Date(2026,8,28,14).toISOString()}};
+  const reviewed={currentAttempt:{completed:true,completedAt:new Date(2026,8,29,14).toISOString()}};
+  assert.equal(reviewSuggested(original,null,new Date(2026,8,28,20)),false);
+  assert.equal(reviewSuggested(original,null,new Date(2026,8,29,13)),true);
+  assert.equal(reviewSuggested(original,reviewed,new Date(2026,8,29,20)),false);
+  assert.equal(reviewSuggested(original,reviewed,new Date(2026,8,30,14)),true);
+  assert.equal(reviewSuggested(null,null,new Date(2026,8,30,14)),false);
 });
 
 test("the selected lesson survives reopen",()=>{

@@ -7,7 +7,7 @@
     "subject": "Arithmetic",
     "course": "Number Sense",
     "unit": "Counting",
-    "contentRevision": 1,
+    "contentRevision": 2,
     "audioStrategy": "number_words_only"
   },
   "learning": {
@@ -231,7 +231,9 @@
         "Count each dot once.",
         "Stop at eighteen."
       ],
-      "revision": 1
+      "revision": 1,
+      "tooFewFeedback": "You need 18 dots. Add a dot, then count again.",
+      "tooManyFeedback": "You need 18 dots. Remove a dot, then count again."
     },
     {
       "id": "number-19",
@@ -354,12 +356,139 @@
       "revision": 1
     },
     {
+      "id": "make-20",
+      "type": "buildGroup",
+      "label": "Make a group",
+      "title": "Make 20 dots.",
+      "audio": "Add dots until you have twenty. Then check.",
+      "targetCount": 20,
+      "correctFeedback": "You made 20 dots.",
+      "wrongFeedback": "Count your dots again. You need 20.",
+      "tooFewFeedback": "You need 20 dots. Add a dot, then count again.",
+      "hints": [
+        "Touch each dot as you count.",
+        "Stop at 20."
+      ],
+      "revision": 1
+    },
+    {
       "id": "memory-hook",
       "type": "memoryHook",
       "title": "Keep counting after ten.",
       "hook": "Ten, then count on.",
       "body": "Count the first ten. Keep counting each extra dot once.",
       "audio": "Ten, then count on."
+    },
+    {
+      "id": "revisit-16",
+      "type": "guidedPractice",
+      "title": "Count these dots.",
+      "audio": "These dots are in new places. Count them. How many?",
+      "visual": {
+        "kind": "countingDots",
+        "count": 16,
+        "layout": "scattered",
+        "grouped": true,
+        "ariaLabel": "Sixteen dots spread out without number labels.",
+        "message": "How many dots?"
+      },
+      "choices": [
+        {
+          "text": "15",
+          "correct": false,
+          "feedback": "Look for one more dot.",
+          "misconception": "counting_one_to_one"
+        },
+        {
+          "text": "17",
+          "correct": false,
+          "feedback": "Check that you counted each dot only once.",
+          "misconception": "counting_one_to_one"
+        },
+        {
+          "text": "16",
+          "correct": true,
+          "feedback": "Sixteen dots in all."
+        }
+      ],
+      "hints": [
+        "Point to each dot once as you count.",
+        "Count ten dots and then six more."
+      ]
+    },
+    {
+      "id": "revisit-17",
+      "type": "guidedPractice",
+      "title": "Count a new group.",
+      "audio": "Count these dots in new places. How many?",
+      "visual": {
+        "kind": "countingDots",
+        "count": 17,
+        "layout": "scattered",
+        "grouped": true,
+        "ariaLabel": "Seventeen dots spread out without number labels.",
+        "message": "How many dots?"
+      },
+      "choices": [
+        {
+          "text": "17",
+          "correct": true,
+          "feedback": "Seventeen dots in all."
+        },
+        {
+          "text": "18",
+          "correct": false,
+          "feedback": "Check that you did not count one twice.",
+          "misconception": "counting_one_to_one"
+        },
+        {
+          "text": "16",
+          "correct": false,
+          "feedback": "Look for a dot you missed.",
+          "misconception": "counting_one_to_one"
+        }
+      ],
+      "hints": [
+        "Point to each dot once as you count.",
+        "Count ten dots and then seven more."
+      ]
+    },
+    {
+      "id": "revisit-18",
+      "type": "guidedPractice",
+      "title": "Count a new group.",
+      "audio": "Count each dot once. How many?",
+      "visual": {
+        "kind": "countingDots",
+        "count": 18,
+        "layout": "scattered",
+        "grouped": true,
+        "ariaLabel": "Eighteen dots spread out without number labels.",
+        "message": "How many dots?"
+      },
+      "choices": [
+        {
+          "text": "19",
+          "correct": false,
+          "feedback": "Check that you did not count one twice.",
+          "misconception": "counting_one_to_one"
+        },
+        {
+          "text": "18",
+          "correct": true,
+          "feedback": "Eighteen dots in all."
+        },
+        {
+          "text": "17",
+          "correct": false,
+          "feedback": "Look for a dot you missed.",
+          "misconception": "counting_one_to_one"
+        }
+      ],
+      "hints": [
+        "Point to each dot once as you count.",
+        "Count ten dots and then eight more."
+      ]
     },
     {
       "id": "independent",

@@ -1,0 +1,138 @@
+{
+  "schema_version": "3.0",
+  "metadata": {
+    "id": "MATH-NS-FOUND-000N4",
+    "title": "Hear and find 4–6",
+    "domain": "Mathematics",
+    "subject": "Arithmetic",
+    "course": "Number Sense",
+    "unit": "Counting",
+    "contentRevision": 1,
+    "audioStrategy": "short_guidance"
+  },
+  "learning": {
+    "learning_goal": "Connect spoken number names 4 through 6 to their numerals.",
+    "big_idea": "Each number has a name and a written symbol.",
+    "assumed_prior_knowledge": [
+      "Previously met number names and symbols 4 through 6."
+    ],
+    "novice_success_criteria": [
+      "Choose the numeral for a spoken number without a dot model."
+    ]
+  },
+  "concepts": {
+    "primary_concept": "counting",
+    "supporting_concepts": [
+      "counting"
+    ]
+  },
+  "screens": [
+    {
+      "id": "intro",
+      "type": "intro",
+      "title": "Listen. Find the number.",
+      "body": "Tap Listen. Then tap the number you hear.",
+      "audio": "Tap Listen. Then tap the number you hear."
+    },
+    {
+      "id": "hear-5",
+      "type": "recall",
+      "title": "Listen. Find the number.",
+      "audio": "Find five.",
+      "prompt": "Tap Listen. Then choose.",
+      "speakChoices": false,
+      "choices": [
+        {
+          "text": "4",
+          "correct": false,
+          "feedback": "Listen again. Try another number.",
+          "misconception": "counting_one_to_one"
+        },
+        {
+          "text": "5",
+          "correct": true,
+          "feedback": "5 is five."
+        },
+        {
+          "text": "6",
+          "correct": false,
+          "feedback": "Listen again. Try another number.",
+          "misconception": "counting_one_to_one"
+        }
+      ],
+      "hints": [
+        "Tap Listen to hear the number again.",
+        "This is five: 5."
+      ]
+    },
+    {
+      "id": "hear-4",
+      "type": "recall",
+      "title": "Listen. Find the number.",
+      "audio": "Find four.",
+      "prompt": "Tap Listen. Then choose.",
+      "speakChoices": false,
+      "choices": [
+        {
+          "text": "5",
+          "correct": false,
+          "feedback": "Listen again. Try another number.",
+          "misconception": "counting_one_to_one"
+        },
+        {
+          "text": "3",
+          "correct": false,
+          "feedback": "Listen again. Try another number.",
+          "misconception": "counting_one_to_one"
+        },
+        {
+          "text": "4",
+          "correct": true,
+          "feedback": "4 is four."
+        }
+      ],
+      "hints": [
+        "Tap Listen to hear the number again.",
+        "This is four: 4."
+      ]
+    },
+    {
+      "id": "hear-6",
+      "type": "recall",
+      "title": "Listen. Find the number.",
+      "audio": "Find six.",
+      "prompt": "Tap Listen. Then choose.",
+      "speakChoices": false,
+      "choices": [
+        {
+          "text": "6",
+          "correct": true,
+          "feedback": "6 is six."
+        },
+        {
+          "text": "7",
+          "correct": false,
+          "feedback": "Listen again. Try another number.",
+          "misconception": "counting_one_to_one"
+        },
+        {
+          "text": "5",
+          "correct": false,
+          "feedback": "Listen again. Try another number.",
+          "misconception": "counting_one_to_one"
+        }
+      ],
+      "hints": [
+        "Tap Listen to hear the number again.",
+        "This is six: 6."
+      ]
+    },
+    {
+      "id": "complete",
+      "type": "complete",
+      "title": "You practiced number names.",
+      "body": "Try again another day.",
+      "audio": "You practiced number names. Try again another day."
+    }
+  ]
+}

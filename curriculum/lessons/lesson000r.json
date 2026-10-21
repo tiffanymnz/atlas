@@ -1,0 +1,295 @@
+{
+  "schema_version": "3.0",
+  "metadata": {
+    "id": "MATH-NS-FOUND-000R",
+    "title": "Come back to 1, 2, and 3",
+    "domain": "Mathematics",
+    "subject": "Arithmetic",
+    "course": "Number Sense",
+    "unit": "Counting",
+    "contentRevision": 2,
+    "audioStrategy": "short_guidance"
+  },
+  "learning": {
+    "learning_goal": "Count and make groups of one, two, and three again in a new session.",
+    "big_idea": "The number of dots stays the same when the dots move.",
+    "assumed_prior_knowledge": [
+      "counting one, two, and three in the first lesson"
+    ],
+    "novice_success_criteria": [
+      "count new groups without a model on the screen",
+      "make two and three dots without seeing the answer first",
+      "choose the numeral for a spoken number"
+    ]
+  },
+  "concepts": {
+    "primary_concept": "counting",
+    "supporting_concepts": [
+      "counting",
+      "cardinality"
+    ]
+  },
+  "screens": [
+    {
+      "id": "intro",
+      "type": "intro",
+      "label": "Come back later",
+      "title": "Count again.",
+      "body": "Try new groups of 1, 2, and 3. Come back on another day, too.",
+      "audio": "Let's count again. Try these new dots. You can come back another day, too."
+    },
+    {
+      "id": "count-two",
+      "type": "independentPractice",
+      "title": "How many dots?",
+      "audio": "Look at these dots. Count them. How many?",
+      "visual": {
+        "kind": "countingDots",
+        "count": 2,
+        "grouped": true,
+        "layout": "staggered",
+        "ariaLabel": "Two dots in different places, with no numbers shown.",
+        "message": "How many?"
+      },
+      "choices": [
+        {
+          "text": "3",
+          "correct": false,
+          "misconception": "counting_one_to_one",
+          "feedback": "Touch each dot once. You can stop after the second dot."
+        },
+        {
+          "text": "1",
+          "correct": false,
+          "misconception": "counting_one_to_one",
+          "feedback": "There is another dot. Touch both."
+        },
+        {
+          "text": "2",
+          "correct": true,
+          "feedback": "Two dots."
+        }
+      ],
+      "hints": [
+        "Touch a dot, then the other dot.",
+        "One, two. There are two dots."
+      ]
+    },
+    {
+      "id": "make-three",
+      "type": "buildGroup",
+      "title": "Make 3 dots.",
+      "audio": "Make three dots. Tap Add a dot until there are three. Then check.",
+      "targetCount": 3,
+      "correctFeedback": "Three dots. You made them.",
+      "wrongFeedback": "Count the dots you made. Try again.",
+      "tooManyFeedback": "There are more than three. Remove a dot, then count again.",
+      "tooFewFeedback": "There are fewer than three. Add a dot, then count again.",
+      "hints": [
+        "Tap Add a dot. Count each new dot.",
+        "One, two, three. Stop at three."
+      ]
+    },
+    {
+      "id": "count-one",
+      "type": "independentPractice",
+      "title": "How many dots?",
+      "audio": "Look at the new group. How many dots?",
+      "visual": {
+        "kind": "countingDots",
+        "count": 1,
+        "grouped": true,
+        "layout": "staggered",
+        "ariaLabel": "One dot in a new place, with no number shown.",
+        "message": "How many?"
+      },
+      "choices": [
+        {
+          "text": "2",
+          "correct": false,
+          "misconception": "counting_one_to_one",
+          "feedback": "Touch the dot you see. There is only one."
+        },
+        {
+          "text": "1",
+          "correct": true,
+          "feedback": "One dot."
+        },
+        {
+          "text": "3",
+          "correct": false,
+          "misconception": "counting_one_to_one",
+          "feedback": "Look again. There is only one dot."
+        }
+      ],
+      "hints": [
+        "Touch the dot you see.",
+        "One dot matches 1."
+      ]
+    },
+    {
+      "id": "make-two",
+      "type": "buildGroup",
+      "title": "Make 2 dots.",
+      "audio": "Make two dots. Count as you add them. Then check.",
+      "targetCount": 2,
+      "correctFeedback": "Two dots. You made them.",
+      "wrongFeedback": "Count the dots you made. Try again.",
+      "tooManyFeedback": "There are more than two. Remove a dot, then count again.",
+      "tooFewFeedback": "There are fewer than two. Add a dot, then count again.",
+      "hints": [
+        "Tap Add a dot and count it. Add another dot.",
+        "One, two. Stop at two."
+      ]
+    },
+    {
+      "id": "make-one",
+      "type": "buildGroup",
+      "title": "Make 1 dot.",
+      "audio": "Make one dot. Then check.",
+      "targetCount": 1,
+      "correctFeedback": "You made one dot.",
+      "wrongFeedback": "You need one dot. Try again.",
+      "tooManyFeedback": "You need one dot. Remove a dot, then count again.",
+      "tooFewFeedback": "There are no dots yet. Add a dot.",
+      "hints": [
+        "Tap Add a dot.",
+        "Stop when you see one dot."
+      ]
+    },
+    {
+      "id": "count-three",
+      "type": "independentPractice",
+      "title": "How many dots?",
+      "audio": "Count these dots. How many dots are there?",
+      "visual": {
+        "kind": "countingDots",
+        "count": 3,
+        "grouped": true,
+        "layout": "staggered",
+        "ariaLabel": "Three dots in different places, with no numbers shown.",
+        "message": "How many?"
+      },
+      "choices": [
+        {
+          "text": "2",
+          "correct": false,
+          "misconception": "counting_one_to_one",
+          "feedback": "Touch each dot as you count. Count all the dots."
+        },
+        {
+          "text": "3",
+          "correct": true,
+          "feedback": "Three dots."
+        },
+        {
+          "text": "1",
+          "correct": false,
+          "misconception": "counting_one_to_one",
+          "feedback": "Touch each dot as you count. Count all the dots."
+        }
+      ],
+      "hints": [
+        "Touch each dot once.",
+        "One, two, three. Three dots."
+      ]
+    },
+    {
+      "id": "hear-one",
+      "type": "recall",
+      "title": "Find 1.",
+      "audio": "Find the number one. Tap it.",
+      "prompt": "One. Tap the number.",
+      "choices": [
+        {
+          "text": "2",
+          "correct": false,
+          "misconception": "counting_one_to_one",
+          "feedback": "Listen again: one. Find 1."
+        },
+        {
+          "text": "1",
+          "correct": true,
+          "feedback": "1 means one."
+        },
+        {
+          "text": "3",
+          "correct": false,
+          "misconception": "counting_one_to_one",
+          "feedback": "Listen again: one. Find 1."
+        }
+      ],
+      "hints": [
+        "Listen again: one.",
+        "One matches 1."
+      ]
+    },
+    {
+      "id": "hear-two",
+      "type": "recall",
+      "title": "Find 2.",
+      "audio": "Find the number two. Tap it.",
+      "prompt": "Two. Tap the number.",
+      "choices": [
+        {
+          "text": "3",
+          "correct": false,
+          "misconception": "counting_one_to_one",
+          "feedback": "Listen again: two. Find 2."
+        },
+        {
+          "text": "1",
+          "correct": false,
+          "misconception": "counting_one_to_one",
+          "feedback": "Listen again: two. Find 2."
+        },
+        {
+          "text": "2",
+          "correct": true,
+          "feedback": "2 means two."
+        }
+      ],
+      "hints": [
+        "Listen again: two.",
+        "Two matches 2."
+      ]
+    },
+    {
+      "id": "hear-three",
+      "type": "recall",
+      "title": "Which number is three?",
+      "audio": "Listen: three. Which number is three? Tap it.",
+      "prompt": "Three. Tap the number.",
+      "choices": [
+        {
+          "text": "1",
+          "correct": false,
+          "misconception": "counting_one_to_one",
+          "feedback": "One is the number for one dot. Listen to three again."
+        },
+        {
+          "text": "3",
+          "correct": true,
+          "feedback": "3 means three."
+        },
+        {
+          "text": "2",
+          "correct": false,
+          "misconception": "counting_one_to_one",
+          "feedback": "Two is the number for two dots. Listen to three again."
+        }
+      ],
+      "hints": [
+        "Listen again. One, two, three.",
+        "Three matches 3."
+      ]
+    },
+    {
+      "id": "complete",
+      "type": "complete",
+      "title": "You counted again.",
+      "body": "Come back another day and try new dots again.",
+      "audio": "You counted again. Come back another day and try again."
+    }
+  ]
+}

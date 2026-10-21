@@ -1,0 +1,306 @@
+{
+  "schema_version": "3.0",
+  "metadata": {
+    "id": "MATH-NS-FOUND-000R16",
+    "title": "Practice 16–20",
+    "domain": "Mathematics",
+    "subject": "Arithmetic",
+    "course": "Number Sense",
+    "unit": "Counting",
+    "contentRevision": 1,
+    "audioStrategy": "short_guidance"
+  },
+  "learning": {
+    "learning_goal": "Count and make groups from 16 through 20 again.",
+    "big_idea": "Count every dot once.",
+    "assumed_prior_knowledge": [
+      "Previously met and counted numbers 16 through 20."
+    ],
+    "novice_success_criteria": [
+      "Count each dot once in a changed arrangement.",
+      "Make a requested number of dots."
+    ]
+  },
+  "concepts": {
+    "primary_concept": "counting",
+    "supporting_concepts": [
+      "counting",
+      "cardinality"
+    ]
+  },
+  "screens": [
+    {
+      "id": "intro",
+      "type": "intro",
+      "title": "Practice 16–20.",
+      "body": "Count the dots. Then make your own. You can take a break.",
+      "audio": "Count the dots. Then make your own. You can take a break."
+    },
+    {
+      "id": "count-16",
+      "type": "independentPractice",
+      "title": "How many dots?",
+      "audio": "Count the dots. Tap the number that shows how many dots there are.",
+      "visual": {
+        "kind": "countingDots",
+        "count": 16,
+        "layout": "staggered",
+        "grouped": true,
+        "ariaLabel": "Sixteen dots without number labels.",
+        "message": "How many dots?"
+      },
+      "choices": [
+        {
+          "text": "15",
+          "correct": false,
+          "feedback": "Count every dot once. Check for a dot you missed or counted twice.",
+          "misconception": "counting_one_to_one"
+        },
+        {
+          "text": "16",
+          "correct": true,
+          "feedback": "16 dots."
+        },
+        {
+          "text": "17",
+          "correct": false,
+          "feedback": "Count every dot once. Check for a dot you missed or counted twice.",
+          "misconception": "counting_one_to_one"
+        }
+      ],
+      "hints": [
+        "Start at the left. Touch each dot as you count.",
+        "Count each dot once. Then tap the number you reached."
+      ]
+    },
+    {
+      "id": "make-16",
+      "type": "buildGroup",
+      "title": "Make 16 dots.",
+      "audio": "Make sixteen dots. Add dots, then check.",
+      "targetCount": 16,
+      "correctFeedback": "You made 16 dots.",
+      "wrongFeedback": "Count again. You need 16 dots.",
+      "tooFewFeedback": "You need 16 dots. Add a dot, then count again.",
+      "hints": [
+        "Count as you add dots.",
+        "Stop at 16."
+      ],
+      "tooManyFeedback": "You need 16 dots. Remove a dot, then count again."
+    },
+    {
+      "id": "count-17",
+      "type": "independentPractice",
+      "title": "How many dots?",
+      "audio": "Count the dots. Tap the number that shows how many dots there are.",
+      "visual": {
+        "kind": "countingDots",
+        "count": 17,
+        "layout": "scattered",
+        "grouped": true,
+        "ariaLabel": "Seventeen dots without number labels.",
+        "message": "How many dots?"
+      },
+      "choices": [
+        {
+          "text": "17",
+          "correct": true,
+          "feedback": "17 dots."
+        },
+        {
+          "text": "18",
+          "correct": false,
+          "feedback": "Count every dot once. Check for a dot you missed or counted twice.",
+          "misconception": "counting_one_to_one"
+        },
+        {
+          "text": "16",
+          "correct": false,
+          "feedback": "Count every dot once. Check for a dot you missed or counted twice.",
+          "misconception": "counting_one_to_one"
+        }
+      ],
+      "hints": [
+        "Start at the left. Touch each dot as you count.",
+        "Count each dot once. Then tap the number you reached."
+      ]
+    },
+    {
+      "id": "make-17",
+      "type": "buildGroup",
+      "title": "Make 17 dots.",
+      "audio": "Make seventeen dots. Add dots, then check.",
+      "targetCount": 17,
+      "correctFeedback": "You made 17 dots.",
+      "wrongFeedback": "Count again. You need 17 dots.",
+      "tooFewFeedback": "You need 17 dots. Add a dot, then count again.",
+      "hints": [
+        "Count as you add dots.",
+        "Stop at 17."
+      ],
+      "tooManyFeedback": "You need 17 dots. Remove a dot, then count again."
+    },
+    {
+      "id": "count-18",
+      "type": "independentPractice",
+      "title": "How many dots?",
+      "audio": "Count the dots. Tap the number that shows how many dots there are.",
+      "visual": {
+        "kind": "countingDots",
+        "count": 18,
+        "layout": "staggered",
+        "grouped": true,
+        "ariaLabel": "Eighteen dots without number labels.",
+        "message": "How many dots?"
+      },
+      "choices": [
+        {
+          "text": "19",
+          "correct": false,
+          "feedback": "Count every dot once. Check for a dot you missed or counted twice.",
+          "misconception": "counting_one_to_one"
+        },
+        {
+          "text": "17",
+          "correct": false,
+          "feedback": "Count every dot once. Check for a dot you missed or counted twice.",
+          "misconception": "counting_one_to_one"
+        },
+        {
+          "text": "18",
+          "correct": true,
+          "feedback": "18 dots."
+        }
+      ],
+      "hints": [
+        "Start at the left. Touch each dot as you count.",
+        "Count each dot once. Then tap the number you reached."
+      ]
+    },
+    {
+      "id": "make-18",
+      "type": "buildGroup",
+      "title": "Make 18 dots.",
+      "audio": "Make eighteen dots. Add dots, then check.",
+      "targetCount": 18,
+      "correctFeedback": "You made 18 dots.",
+      "wrongFeedback": "Count again. You need 18 dots.",
+      "tooFewFeedback": "You need 18 dots. Add a dot, then count again.",
+      "hints": [
+        "Count as you add dots.",
+        "Stop at 18."
+      ],
+      "tooManyFeedback": "You need 18 dots. Remove a dot, then count again."
+    },
+    {
+      "id": "count-19",
+      "type": "independentPractice",
+      "title": "How many dots?",
+      "audio": "Count the dots. Tap the number that shows how many dots there are.",
+      "visual": {
+        "kind": "countingDots",
+        "count": 19,
+        "layout": "scattered",
+        "grouped": true,
+        "ariaLabel": "Nineteen dots without number labels.",
+        "message": "How many dots?"
+      },
+      "choices": [
+        {
+          "text": "18",
+          "correct": false,
+          "feedback": "Count every dot once. Check for a dot you missed or counted twice.",
+          "misconception": "counting_one_to_one"
+        },
+        {
+          "text": "19",
+          "correct": true,
+          "feedback": "19 dots."
+        },
+        {
+          "text": "20",
+          "correct": false,
+          "feedback": "Count every dot once. Check for a dot you missed or counted twice.",
+          "misconception": "counting_one_to_one"
+        }
+      ],
+      "hints": [
+        "Start at the left. Touch each dot as you count.",
+        "Count each dot once. Then tap the number you reached."
+      ]
+    },
+    {
+      "id": "make-19",
+      "type": "buildGroup",
+      "title": "Make 19 dots.",
+      "audio": "Make nineteen dots. Add dots, then check.",
+      "targetCount": 19,
+      "correctFeedback": "You made 19 dots.",
+      "wrongFeedback": "Count again. You need 19 dots.",
+      "tooFewFeedback": "You need 19 dots. Add a dot, then count again.",
+      "hints": [
+        "Count as you add dots.",
+        "Stop at 19."
+      ],
+      "tooManyFeedback": "You need 19 dots. Remove a dot, then count again."
+    },
+    {
+      "id": "count-20",
+      "type": "independentPractice",
+      "title": "How many dots?",
+      "audio": "Count the dots. Tap the number that shows how many dots there are.",
+      "visual": {
+        "kind": "countingDots",
+        "count": 20,
+        "layout": "staggered",
+        "grouped": true,
+        "ariaLabel": "Twenty dots without number labels.",
+        "message": "How many dots?"
+      },
+      "choices": [
+        {
+          "text": "20",
+          "correct": true,
+          "feedback": "20 dots."
+        },
+        {
+          "text": "18",
+          "correct": false,
+          "feedback": "Count every dot once. Check for a dot you missed or counted twice.",
+          "misconception": "counting_one_to_one"
+        },
+        {
+          "text": "19",
+          "correct": false,
+          "feedback": "Count every dot once. Check for a dot you missed or counted twice.",
+          "misconception": "counting_one_to_one"
+        }
+      ],
+      "hints": [
+        "Start at the left. Touch each dot as you count.",
+        "Count each dot once. Then tap the number you reached."
+      ]
+    },
+    {
+      "id": "make-20",
+      "type": "buildGroup",
+      "title": "Make 20 dots.",
+      "audio": "Make twenty dots. Add dots, then check.",
+      "targetCount": 20,
+      "correctFeedback": "You made 20 dots.",
+      "wrongFeedback": "Count again. You need 20 dots.",
+      "tooFewFeedback": "You need 20 dots. Add a dot, then count again.",
+      "hints": [
+        "Count as you add dots.",
+        "Stop at 20."
+      ]
+    },
+    {
+      "id": "complete",
+      "type": "complete",
+      "title": "You practiced again.",
+      "body": "Try again another day.",
+      "audio": "You practiced again. Try again another day."
+    }
+  ]
+}

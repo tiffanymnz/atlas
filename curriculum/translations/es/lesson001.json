@@ -6,8 +6,8 @@
     "learning_goal": "Compara dos grupos formando parejas; luego nombra la diferencia y escribe una resta.",
     "big_idea": "Une un punto azul con uno rojo. Cuenta los puntos azules que sobran para saber cuántos más hay.",
     "assumed_prior_knowledge": [
-      "Contar objetos de uno en uno hasta 10 y saber que el último número dicho es el total.",
-      "Unir un objeto de un grupo con uno del otro grupo."
+      "Contar objetos hasta 20.",
+      "Formar una pareja con un elemento de cada grupo."
     ]
   },
   "screens": [
@@ -46,7 +46,7 @@
       ],
       "hints": [
         "Toca cada punto azul mientras cuentas.",
-        "Empieza por el punto azul de la izquierda. Di un número por punto."
+        "Empieza por la izquierda. Toca cada punto azul una vez mientras cuentas."
       ],
       "revision": 3
     },
@@ -80,13 +80,13 @@
       ],
       "hints": [
         "Toca cada punto rojo mientras cuentas.",
-        "Empieza por el punto rojo de la izquierda. Di un número por punto."
+        "Empieza por la izquierda. Toca cada punto rojo una vez mientras cuentas."
       ],
       "revision": 3
     },
     {
       "label": "Mira",
-      "title": "Une un azul con un rojo.",
+      "title": "Un punto azul y uno rojo forman una pareja.",
       "visual": {
         "kind": "comparisonButtons",
         "topCount": 6,
@@ -96,7 +96,7 @@
         "topLabel": "Puntos azules",
         "bottomLabel": "Puntos rojos",
         "ariaLabel": "Cuatro parejas rodeadas, cada una con un punto azul sobre uno rojo; dos puntos azules quedan fuera.",
-        "message": "Cada contorno rodea un punto azul y uno rojo."
+        "message": "Cada aro muestra una pareja: un punto azul y uno rojo."
       },
       "nextLabel": "Ver qué sobra"
     },
@@ -159,7 +159,7 @@
       "label": "Recuerda",
       "title": "¿Cuántos más? Halla la diferencia.",
       "hook": "6 azules. 4 rojos. 4 parejas. 2 azules de más.",
-      "body": "La diferencia es 2. Escríbelo así: 6 − 4 = 2. Esto es una resta."
+      "body": "6 − 4 = 2 se lee seis menos cuatro es igual a dos. − significa restar. = indica que ambos lados tienen el mismo valor."
     },
     {
       "label": "Idea equivocada",
@@ -226,7 +226,7 @@
       ],
       "hints": [
         "Empieza con los 6 puntos azules. Cuatro tienen pareja roja.",
-        "¿Qué opción empieza con 6 y quita los 4 puntos que tienen pareja?"
+        "¿Qué opción resta 4 de 6? Busca el signo menos: −."
       ],
       "revision": 3
     },
@@ -275,7 +275,7 @@
         }
       ],
       "hints": [
-        "Busca las parejas rodeadas.",
+        "Busca un punto azul encima de uno rojo. Forman una pareja.",
         "Después de la última pareja, cuenta los puntos azules sin pareja roja."
       ],
       "revision": 3
@@ -295,12 +295,12 @@
         },
         {
           "text": "5",
-          "feedback": "Cinco es la cantidad de Theo. Cuenta desde cinco hasta nueve."
+          "feedback": "5 es la cantidad de páginas de Theo. Resta 5 de 9 para saber cuántas páginas más leyó Nia."
         }
       ],
       "hints": [
         "Cada punto de abajo representa una página. Busca los puntos de Nia sin pareja.",
-        "O cuenta desde 5 hasta 9. ¿Cuántos pasos diste?"
+        "Otra forma: empieza en 5. Cuenta 6, 7, 8, 9. Son 4 pasos, así que la diferencia es 4."
       ],
       "revision": 3,
       "supportVisual": {
@@ -342,7 +342,7 @@
     {
       "label": "Transferencia",
       "title": "Ahora con precios.",
-      "prompt": "Un cuaderno cuesta $10. Otro cuesta $8. ¿Cuál es la diferencia de precio?",
+      "prompt": "Los precios están en dólares ($). Un cuaderno cuesta $10. Otro cuesta $8. ¿Cuál es la diferencia de precio?",
       "choices": [
         {
           "text": "$2",
@@ -354,12 +354,12 @@
         },
         {
           "text": "$10",
-          "feedback": "Diez es un precio, no la diferencia. Cuenta de ocho a diez."
+          "feedback": "10 dólares es un precio. Resta 8 de 10 para encontrar la diferencia."
         }
       ],
       "hints": [
         "La diferencia de precio dice cuánto más cuesta uno.",
-        "Empieza en $8. Cuenta hasta $10. ¿Cuánto sumaste?"
+        "Empieza en 8 dólares. Cuenta 9: un paso. Cuenta 10: dos pasos. La diferencia es 2 dólares."
       ],
       "revision": 3
     },

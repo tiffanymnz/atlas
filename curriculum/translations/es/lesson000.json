@@ -128,6 +128,8 @@
       "audio": "Empieza con un recuadro vacío. Toca Agregar un punto hasta tener cuatro puntos. Puedes quitar un punto. Después toca Comprobar mis puntos.",
       "correctFeedback": "Formaste cuatro puntos.",
       "wrongFeedback": "Cuenta los puntos en tu recuadro. Agrega o quita un punto y vuelve a comprobar.",
+      "tooManyFeedback": "Hay más de cuatro puntos. Quita uno y vuelve a contar.",
+      "tooFewFeedback": "Hay menos de cuatro puntos. Agrega uno y vuelve a contar.",
       "hints": ["Toca Agregar un punto para poner un punto en el recuadro.", "Señala cada punto y cuenta: uno, dos, tres, cuatro. Detente en cuatro."]
     },
     {
@@ -147,6 +149,14 @@
         {"text": "5", "feedback": "Hay cinco puntos en este grupo."}
       ],
       "hints": ["Empieza a la izquierda. Cuenta cada punto una vez.", "Cuenta de nuevo: uno, dos, tres, cuatro, cinco."]
+    },
+    {
+      "label": "Tu turno", "title": "Pon 5 puntos.",
+      "audio": "Pon cinco puntos. Agrégalos de uno en uno. Después comprueba.",
+      "correctFeedback": "Pusiste cinco puntos.", "wrongFeedback": "Cuenta tus puntos y prueba otra vez.",
+      "tooManyFeedback": "Hay más de cinco puntos. Quita uno y vuelve a contar.",
+      "tooFewFeedback": "Hay menos de cinco puntos. Agrega uno y vuelve a contar.",
+      "hints": ["Toca y cuenta cada punto de tu recuadro.", "Uno, dos, tres, cuatro, cinco. Detente en cinco."]
     },
     {
       "label": "Número 6",
@@ -190,6 +200,8 @@
       "audio": "Forma un grupo nuevo de siete puntos. Toca Agregar un punto para poner puntos en el recuadro. Comprueba el grupo cuando estés listo.",
       "correctFeedback": "Formaste siete puntos.",
       "wrongFeedback": "Cuenta los puntos en tu recuadro. Agrega o quita un punto y vuelve a comprobar.",
+      "tooManyFeedback": "Hay más de siete puntos. Quita uno y vuelve a contar.",
+      "tooFewFeedback": "Hay menos de siete puntos. Agrega uno y vuelve a contar.",
       "hints": ["Señala cada punto una vez. Di su número al señalarlo.", "Agrega o quita puntos hasta que termines de contar en siete."]
     },
     {
@@ -209,6 +221,14 @@
         {"text": "9", "feedback": "Comprueba que no hayas contado un punto dos veces."}
       ],
       "hints": ["Empieza a la izquierda. Señala cada punto una vez.", "Cuenta de nuevo del uno al ocho."]
+    },
+    {
+      "label": "Tu turno", "title": "Pon 8 puntos.",
+      "audio": "Pon ocho puntos. Cuenta mientras los agregas. Después comprueba.",
+      "correctFeedback": "Pusiste ocho puntos.", "wrongFeedback": "Cuenta tus puntos y prueba otra vez.",
+      "tooManyFeedback": "Hay más de ocho puntos. Quita uno y vuelve a contar.",
+      "tooFewFeedback": "Hay menos de ocho puntos. Agrega uno y vuelve a contar.",
+      "hints": ["Toca y cuenta cada punto de tu recuadro.", "Cuenta del uno al ocho. Detente en ocho."]
     },
     {
       "label": "Número 9",
@@ -247,6 +267,14 @@
       "hints": ["Empieza a la izquierda. Señala cada punto una vez.", "Cuenta de nuevo del uno al diez."]
     },
     {
+      "label": "Tu turno", "title": "Pon 10 puntos.",
+      "audio": "Pon diez puntos. Cuenta mientras los agregas. Después comprueba.",
+      "correctFeedback": "Pusiste diez puntos.", "wrongFeedback": "Cuenta tus puntos y prueba otra vez.",
+      "tooManyFeedback": "Hay más de diez puntos. Quita uno y vuelve a contar.",
+      "tooFewFeedback": "Hay menos de diez puntos. Agrega uno y vuelve a contar.",
+      "hints": ["Toca y cuenta cada punto de tu recuadro.", "Cuenta del uno al diez. Detente en diez."]
+    },
+    {
       "title": "El total es el grupo completo.",
       "hook": "Cuenta cada punto una vez.",
       "body": "El último número es el total. Total significa la cantidad de puntos en el grupo.",
@@ -269,6 +297,36 @@
         {"text": "5", "feedback": "Hay cinco puntos. Separarlos no agregó ninguno."}
       ],
       "hints": ["Empieza a la izquierda y señala cada punto una vez.", "Di uno, dos, tres, cuatro, cinco mientras señalas."]
+    },
+    {
+      "title":"¿Cuántos puntos hay en este recuadro?","audio":"Este recuadro está vacío. ¿Cuántos puntos hay?",
+      "visual":{"ariaLabel":"Otro recuadro vacío sin puntos.","message":"¿Cuántos puntos hay?"},
+      "choices":[{"text":"2","feedback":"Mira dentro del recuadro. No hay puntos."},{"text":"0","feedback":"No hay puntos. Cero puntos."},{"text":"1","feedback":"No hay ningún punto en el recuadro."}],
+      "hints":["Mira dentro del recuadro. ¿Ves algún punto?","Sin puntos significa cero puntos."]
+    },
+    {
+      "title":"Cuenta otro grupo de puntos.","audio":"Estos puntos cambiaron de lugar. Cuenta cada uno una vez. ¿Cuántos hay?",
+      "visual":{"ariaLabel":"Cuatro puntos en otros lugares, sin números escritos.","message":"¿Cuántos puntos hay?"},
+      "choices":[{"text":"5","feedback":"Comprueba que no contaste un punto dos veces."},{"text":"4","feedback":"Cuatro puntos. Cambiar de lugar no cambia la cantidad."},{"text":"3","feedback":"Busca un punto que te faltó."}],
+      "hints":["Señala un punto al contarlo. Luego pasa a otro.","Cuenta los cuatro puntos, una vez cada uno."]
+    },
+    {
+      "title":"Cuenta estos puntos.","audio":"Cuenta los puntos en otros lugares. ¿Cuántos hay?",
+      "visual":{"ariaLabel":"Siete puntos en otros lugares, sin números escritos.","message":"¿Cuántos puntos hay?"},
+      "choices":[{"text":"6","feedback":"Busca otro punto."},{"text":"8","feedback":"Comprueba que contaste cada punto solo una vez."},{"text":"7","feedback":"Siete puntos en total."}],
+      "hints":["Señala cada punto una vez mientras cuentas.","Cuenta del uno al siete, una vez por punto."]
+    },
+    {
+      "title":"Cuenta estos puntos.","audio":"Los puntos están separados. Cuenta cada uno. ¿Cuántos hay?",
+      "visual":{"ariaLabel":"Ocho puntos separados, sin números escritos.","message":"¿Cuántos puntos hay?"},
+      "choices":[{"text":"8","feedback":"Ocho puntos en total."},{"text":"9","feedback":"Quizás contaste un punto dos veces."},{"text":"7","feedback":"Busca el punto que te faltó."}],
+      "hints":["Señala cada punto una vez mientras cuentas.","Cuenta del uno al ocho, una vez por punto."]
+    },
+    {
+      "title":"Cuenta estos puntos.","audio":"Cuenta este grupo nuevo. ¿Cuántos puntos hay?",
+      "visual":{"ariaLabel":"Nueve puntos en otros lugares, sin números escritos.","message":"¿Cuántos puntos hay?"},
+      "choices":[{"text":"8","feedback":"Busca otro punto."},{"text":"9","feedback":"Nueve puntos en total."},{"text":"10","feedback":"Comprueba que no contaste un punto dos veces."}],
+      "hints":["Señala cada punto una vez mientras cuentas.","Cuenta del uno al nueve, una vez por punto."]
     },
     {
       "title": "Cuenta este grupo.",

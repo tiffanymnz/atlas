@@ -1,10 +1,15 @@
-import { renderConceptVisual, renderChoiceScreen, localizeChoiceState, renderLanguage, renderEquation, renderComplete } from "../sdk/components/lessonComponents.js?v=2.8";
+import { renderConceptVisual, renderChoiceScreen, localizeChoiceState, renderLanguage, renderEquation, renderComplete } from "../sdk/components/lessonComponents.js?v=2.9";
 import { createAnalytics, showAnalytics } from "./analytics-engine/analyticsEngine.js";
 import { recommendNext } from "./recommendation-engine/recommendationEngine.js";
 import { assessNextLessonReadiness } from "./recommendation-engine/readiness.js";
-import { nextConceptId } from "./recommendation-engine/lessonSequence.js";
-import { getPreferences, savePreferences, ensureLessonRecord, saveLessonRecord, getAllLessonRecords, archiveCompletedAttempt, newLessonAttempt, resolveLessonPosition, getLastLessonPath, saveLastLessonPath } from "./state-store/stateStore.js?v=1.5";
+import { nextTeachingOption } from "./recommendation-engine/lessonSequence.js";
+import { getPreferences, savePreferences, ensureLessonRecord, saveLessonRecord, getAllLessonRecords, reviewSuggested, archiveCompletedAttempt, newLessonAttempt, resolveLessonPosition, getLastLessonPath, saveLastLessonPath } from "./state-store/stateStore.js?v=1.6";
 import { loadLocalizedLesson } from "./i18n/lessonLocale.js";
+import { createRecordedNarration, recordedNarrationUrl } from "./recordedNarration.js";
+
+import { configureSpeech } from "./speechVoice.js";
+
+const narration=createRecordedNarration();
 
 let lesson = null, lessonPath = null, index = 0, selected = null, hintIndex = 0;
 let dark = false, big = false, reduce = false, language = "en";
@@ -45,21 +50,19 @@ function persist(){
 }
 function emit(type,payload={}){ analytics.record({type, screen:index, component:current()?.type, payload}); syncAttemptEvents(); persist(); }
 function hasNextLesson(){
-  const next=lessonSelect.options[lessonSelect.selectedIndex+1];
-  if(!next) return false;
-  const nextId=nextConceptId(lesson);
-  return !!nextId && next.dataset.concept===nextId;
+  return !!nextTeachingOption(lesson,lessonSelect.options,lessonSelect.selectedIndex);
 }
 function refreshLessonOptions(){
   const records=new Map(getAllLessonRecords().map(record=>[record.path,record]));
   for(const option of lessonSelect.options){
     const baseLabel=option.dataset[language] || option.dataset.en || option.textContent;
     const status=records.get(option.value)?.status;
-    option.textContent=baseLabel+(status==="completed"?` — ${copy().completed}`:status==="in_progress"?` — ${copy().inProgress}`:"");
+    const suggestion=option.dataset.review && reviewSuggested(records.get(option.dataset.reviewSource || "../../curriculum/lessons/lesson000p.json"),records.get(option.value));
+    option.textContent=baseLabel+(suggestion?(language==="es"?" — Para hoy":" — Ready today"):status==="completed"?` — ${copy().completed}`:status==="in_progress"?` — ${copy().inProgress}`:"");
   }
   el("newAttemptBtn").hidden = lessonRecord?.status!=="completed";
 }
-function goToNextLesson(){ if(hasNextLesson()){ persist(); lessonSelect.selectedIndex += 1; loadLesson(lessonSelect.value); } }
+function goToNextLesson(){ const next=nextTeachingOption(lesson,lessonSelect.options,lessonSelect.selectedIndex); if(next){ persist(); lessonSelect.value=next.value; loadLesson(next.value); } }
 function reviewVisualGap(){
   let target = lesson.screens.findIndex(screen => screen.visual && screen.visual.revealGap === true);
   if(target < 0) target = lesson.screens.findIndex(screen => screen.type === "observe" && screen.visual);
@@ -71,10 +74,11 @@ function reviewVisualGap(){
 }
 function focusLesson(){ root.focus({preventScroll:true}); }
 function numberOnlyAudio(){ return lesson?.metadata?.audioStrategy==="number_words_only"; }
+function shortGuidanceAudio(){ return lesson?.metadata?.audioStrategy==="short_guidance"; }
 function isNumberModel(screen){ return screen?.type==="observe" && screen.visual?.kind==="countingDots" && Number.isInteger(screen.visual.count) && (screen.visual.numbered || screen.visual.count===0); }
 function audioButton(screen){
-  if(numberOnlyAudio() && !isNumberModel(screen)) return "";
-  const label=numberOnlyAudio()?copy().hearNumber:copy().listen;
+  if(numberOnlyAudio() && !isNumberModel(screen) && !recordedNarrationUrl(screen,language,import.meta.url)) return "";
+  const label=numberOnlyAudio() && isNumberModel(screen)?copy().hearNumber:copy().listen;
   return `<button class="btn listenBtn" type="button" id="listenBtn" aria-pressed="false">🔊 ${label}</button>`;
 }
 function base(screen){ const progress=pct(); return `<div class="screenTools"><span class="badge">${screen.label || screen.stage || copy().lesson}</span>${audioButton(screen)}</div><div class="progress" role="progressbar" aria-label="${copy().progressBar}" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${progress}"><span style="width:${progress}%"></span></div><h1 id="screenTitle">${screen.title}</h1>`; }
@@ -82,6 +86,10 @@ const NUMBER_WORDS={en:["zero","one","two","three","four","five","six","seven","
 let screenUtterance=null;
 function screenSpeechText(screen){
   if(numberOnlyAudio() && isNumberModel(screen)) return NUMBER_WORDS[language][screen.visual.count];
+  if(shortGuidanceAudio()){
+    const support=[el("hintBox"),el("feedback")].filter(node=>node&&node.style.display==="block").map(node=>node.textContent.trim());
+    return [screen.audio,...support].filter(Boolean).join(". ");
+  }
   const parts=[screen.audio || [screen.title,screen.body,screen.prompt,screen.visual?.message,screen.hook].filter(Boolean).join(". ")];
   if(screen.choices?.length) parts.push(screen.choices.map((choice,index)=>`${copy().choice} ${index+1}: ${choice.text}`).join(". "));
   const visibleSupport=[el("hintBox"),el("feedback")].filter(node=>node&&node.style.display==="block").map(node=>node.textContent.trim()).filter(Boolean);
@@ -90,12 +98,26 @@ function screenSpeechText(screen){
 function resetListenButton(){
   const button=el("listenBtn");
   if(!button) return;
-  button.textContent=`🔊 ${numberOnlyAudio()?copy().hearNumber:copy().listen}`;
+  button.textContent=`🔊 ${numberOnlyAudio() && isNumberModel(lesson?.screens[index])?copy().hearNumber:copy().listen}`;
   button.setAttribute("aria-pressed","false");
 }
 function bindScreenAudio(screen){
   const button=el("listenBtn");
   if(!button) return;
+  const recording=recordedNarrationUrl(screen,language,import.meta.url);
+  if(recording){
+    button.onclick=()=>{
+      if(narration.playing){ narration.stop(); resetListenButton(); return; }
+      stopCountingAudio();
+      button.textContent=`■ ${copy().stopAudio}`;
+      button.setAttribute("aria-pressed","true");
+      narration.play(recording,resetListenButton,()=>{
+        resetListenButton();
+        button.textContent=copy().audioUnavailable;
+      });
+    };
+    return;
+  }
   const canSpeak="speechSynthesis" in window && "SpeechSynthesisUtterance" in window;
   if(!canSpeak){
     button.disabled=true;
@@ -104,15 +126,16 @@ function bindScreenAudio(screen){
   }
   button.onclick=()=>{
     if(screenUtterance && window.speechSynthesis.speaking){
+      narration.stop();
       window.speechSynthesis.cancel();
       screenUtterance=null;
       resetListenButton();
       return;
     }
+    narration.stop();
     window.speechSynthesis.cancel();
     screenUtterance=new SpeechSynthesisUtterance(screenSpeechText(screen));
-    screenUtterance.lang=language==="es"?"es-ES":"en-US";
-    screenUtterance.rate=0.82;
+    configureSpeech(screenUtterance,language,window.speechSynthesis,numberOnlyAudio());
     screenUtterance.onend=()=>{screenUtterance=null;resetListenButton();};
     screenUtterance.onerror=()=>{screenUtterance=null;resetListenButton();};
     button.textContent=`■ ${copy().stopAudio}`;
@@ -147,34 +170,35 @@ function bindCountingAudio(){
         ? language==="es"?`${number} — ${word}. Hay ${word} puntos.`:`${number} — ${word}. There are ${word} dots.`
         : `${number} — ${word}`;
       if(canSpeak){
+        narration.stop();
         window.speechSynthesis.cancel();
         screenUtterance=null;
         resetListenButton();
         const spoken=new SpeechSynthesisUtterance(word);
-        spoken.lang=language==="es"?"es-ES":"en-US";
-        spoken.rate=0.85;
+        configureSpeech(spoken,language,window.speechSynthesis,true);
         window.speechSynthesis.speak(spoken);
       }
     };
   }
 }
-function stopCountingAudio(){ if("speechSynthesis" in window) window.speechSynthesis.cancel(); screenUtterance=null; }
+function stopCountingAudio(){ narration.stop(); if("speechSynthesis" in window) window.speechSynthesis.cancel(); screenUtterance=null; }
 
 function buildCount(state,limit){
   return Number.isInteger(state.builtCount)?Math.min(limit,Math.max(0,state.builtCount)):0;
 }
+function buildLimit(target){ return Math.min(20,Math.max(10,target+2)); }
 function renderBuildGroup(screen){
-  const state=currentState(), limit=screen.targetCount>10?20:10, count=buildCount(state,limit);
+  const state=currentState(), limit=buildLimit(screen.targetCount), count=buildCount(state,limit);
   state.builtCount=count;
   const finished=state.submittedCorrect===true;
-  const visual={kind:"countingDots",count,grouped:true,layout:screen.targetCount>10?"tenRows":undefined,firstLabel:language==="es"?"Primeros diez":"First ten",moreLabel:language==="es"?"Más puntos":"More dots",ariaLabel:`${copy().groupCount}: ${count}`,message:`${copy().groupCount}: ${count}`};
+  const visual={kind:"countingDots",count,grouped:true,layout:count>10?"tenRows":undefined,firstLabel:language==="es"?"Primeros diez":"First ten",moreLabel:language==="es"?"Más puntos":"More dots",ariaLabel:`${copy().groupCount}: ${count}`,message:`${copy().groupCount}: ${count}`};
   root.innerHTML=base(screen)+renderConceptVisual(visual,screen.title)+
     `<div class="toolbar"><button class="btn secondary" type="button" id="removeDot" ${count===0||finished?"disabled":""}>${copy().removeDot}</button><button class="btn secondary" type="button" id="addDot" ${count===limit||finished?"disabled":""}>${copy().addDot}</button></div>`+
     `<div class="toolbar"><button class="btn secondary" type="button" id="hintBtn" ${finished?"disabled":""}>${copy().hint}</button><button class="btn primary" type="button" id="checkGroup">${finished?copy().continue:copy().checkGroup}</button></div>`+
     `<div class="hint" id="hintBox" role="note" aria-live="polite"></div><div class="feedback" id="feedback" role="status" aria-live="polite" aria-atomic="true"></div>`;
   bindScreenAudio(screen);
   if(state.hintShown){const box=el("hintBox");box.style.display="block";box.textContent=screen.hints?.[Math.min(Math.max((state.hintIndex||1)-1,0),screen.hints.length-1)]||"";}
-  if(state.feedback){const box=el("feedback");box.style.display="block";box.className=`feedback ${finished?"success":"warn"}`;box.textContent=finished?`${copy().correct} ${screen.correctFeedback}`:`${copy().lookAgain} ${screen.wrongFeedback}`;}
+  if(state.feedback){const box=el("feedback");box.style.display="block";box.className=`feedback ${finished?"success":"warn"}`;const detail=finished?screen.correctFeedback:count>screen.targetCount?(screen.tooManyFeedback||screen.wrongFeedback):count<screen.targetCount?(screen.tooFewFeedback||screen.wrongFeedback):screen.wrongFeedback;box.textContent=`${finished?copy().correct:copy().lookAgain} ${detail}`;}
   el("removeDot").onclick=()=>changeBuildGroup(-1);
   el("addDot").onclick=()=>changeBuildGroup(1);
   el("hintBtn").onclick=()=>{
@@ -194,7 +218,7 @@ function renderBuildGroup(screen){
 function changeBuildGroup(delta){
   const screen=current(),state=currentState();
   if(state.submittedCorrect) return;
-  const limit=screen.targetCount>10?20:10;
+  const limit=buildLimit(screen.targetCount);
   const count=buildCount(state,limit),nextCount=Math.min(limit,Math.max(0,count+delta));
   if(count===nextCount) return;
   state.builtCount=nextCount;state.feedback=null;persist();emit("build_group",{count:nextCount});
@@ -202,9 +226,10 @@ function changeBuildGroup(delta){
   const control=el(delta>0?"addDot":"removeDot");
   (control.disabled?el(delta>0?"removeDot":"addDot"):control).focus();
   if("speechSynthesis" in window&&"SpeechSynthesisUtterance" in window){
+    narration.stop();
     window.speechSynthesis.cancel();screenUtterance=null;resetListenButton();
     const spoken=new SpeechSynthesisUtterance(NUMBER_WORDS[language][nextCount]);
-    spoken.lang=language==="es"?"es-ES":"en-US";spoken.rate=0.85;
+    configureSpeech(spoken,language,window.speechSynthesis,true);
     window.speechSynthesis.speak(spoken);
   }
 }
@@ -389,6 +414,13 @@ function bindChoiceScreen(screen){
       const state=currentState();
       if(state.submittedCorrect) return;
       selected = Number(btn.dataset.i);
+      if(shortGuidanceAudio() && screen.speakChoices!==false && "speechSynthesis" in window && "SpeechSynthesisUtterance" in window){
+        narration.stop();
+        window.speechSynthesis.cancel();
+        screenUtterance=new SpeechSynthesisUtterance(screen.choices[selected].text);
+        configureSpeech(screenUtterance,language,window.speechSynthesis);
+        window.speechSynthesis.speak(screenUtterance);
+      }
       state.selected=selected;
       if(state.feedback?.kind==="warning"){state.feedback=null;el("feedback").style.display="none";}
       buttons.forEach(b=>{ b.classList.remove("selected"); b.setAttribute("aria-checked","false"); b.tabIndex=-1; });
