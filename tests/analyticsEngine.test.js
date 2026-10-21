@@ -1,6 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { createAnalytics, getUnderstandingSignals, summarizeLearningHistory } from "../engine/analytics-engine/analyticsEngine.js";
+import { createAnalytics, getUnderstandingSignals, getPracticeDetails, summarizeLearningHistory } from "../engine/analytics-engine/analyticsEngine.js";
 
 test("analytics resumes from persisted current-attempt events",()=>{
   const analytics=createAnalytics([{type:"submit",payload:{correct:false}}]);
@@ -50,4 +50,20 @@ test("compare-unknown lessons report their own evidence instead of gap evidence"
     equation:true,
     conceptLabel:"Identified the unknown compared amount"
   });
+});
+
+test("counting summaries count actual successful screens without claiming comparison understanding",()=>{
+  const lesson={concepts:{primary_concept:"counting"},screens:[
+    {id:"model",type:"observe"},{id:"question",type:"count"},{id:"build",type:"buildGroup"}
+  ]};
+  const events=[{type:"select",screen:0,payload:{}},
+    {type:"submit",screen:1,payload:{correct:false}},
+    {type:"submit",screen:1,payload:{correct:true}},
+    {type:"submit",screen:1,payload:{correct:true}},
+    {type:"submit",screen:2,payload:{correct:true}}];
+  const english=getPracticeDetails(lesson,events).join("\n");
+  assert.match(english,/Questions answered correctly: 1/);
+  assert.match(english,/Groups built correctly: 1/);
+  assert.doesNotMatch(english,/subtraction|comparison|gap|master/i);
+  assert.match(getPracticeDetails(lesson,[],"es").join("\n"),/Grupos creados correctamente: 0/);
 });

@@ -37,6 +37,26 @@ export function getUnderstandingSignals(lesson,events=[],index=0){
   return {compared,concept:evidence.has("identified_gap"),equation,conceptLabel:"Identified the gap"};
 }
 
+export function getPracticeDetails(lesson,events=[],language="en"){
+  const es=language==="es";
+  const successful=new Map();
+  for(const event of events){
+    if(event?.type!=="submit"||event.payload?.correct!==true) continue;
+    const screen=lesson.screens?.[event.screen];
+    if(!screen) continue;
+    successful.set(screen.id||event.screen,screen.type);
+  }
+  const built=[...successful.values()].filter(type=>type==="buildGroup").length;
+  const answered=successful.size-built;
+  return [
+    es?"Práctica en este intento":"Practice in this attempt",
+    `${es?"Preguntas respondidas correctamente":"Questions answered correctly"}: ${answered}`,
+    ...(lesson?.concepts?.primary_concept==="counting"?[`${es?"Grupos creados correctamente":"Groups built correctly"}: ${built}`]:[]),
+    "",
+    es?"Estos resultados muestran lo que hiciste en este intento. Puedes volver a practicar.":"These results show what you did in this attempt. You can practice again."
+  ];
+}
+
 const ANALYTICS_COPY={
   en:{lessonComplete:"Lesson complete",completedAttempts:"Completed attempts",historyCorrect:"History correct",historyRetries:"History retries",historyHints:"History hints",historyAccuracy:"History accuracy",lesson:"Lesson",understanding:"Understanding",currentAttempt:"Current attempt",correct:"correct",retries:"retries",hints:"hints",compared:"Compared the two groups visually",gap:"Identified the gap",unknown:"Identified the unknown compared amount",equation:"Connected the comparison to subtraction",strength:"Strength",connected:"You connected the visual model to the equation.",keepComparing:"Keep comparing the known information with what the question asks you to find.",nextFocus:"Next Focus",practice:"Practice",practiceEquation:"Practice choosing the subtraction equation that matches the comparison.",moveNext:"Move to the next comparison lesson."},
   es:{lessonComplete:"Lección completada",completedAttempts:"Intentos completados",historyCorrect:"Correctas anteriores",historyRetries:"Reintentos anteriores",historyHints:"Pistas anteriores",historyAccuracy:"Precisión anterior",lesson:"Lección",understanding:"Comprensión",currentAttempt:"Intento actual",correct:"correctas",retries:"reintentos",hints:"pistas",compared:"Comparó visualmente los dos grupos",gap:"Identificó la diferencia",unknown:"Identificó la cantidad comparada desconocida",equation:"Relacionó la comparación con la resta",strength:"Fortaleza",connected:"Relacionaste el modelo visual con la ecuación.",keepComparing:"Sigue comparando la información conocida con lo que la pregunta pide encontrar.",nextFocus:"Próximo enfoque",practice:"Practica",practiceEquation:"Practica cómo elegir la ecuación de resta que corresponde a la comparación.",moveNext:"Continúa a la próxima lección de comparación."}
@@ -57,6 +77,15 @@ export function showAnalytics(lesson,analytics,index,progress,lessonRecords=[],l
   const conceptLabel=lesson?.concepts?.primary_concept==="compare_unknown"?copy.unknown:copy.gap;
   const lines=[`${copy.lesson}: ${lesson.metadata.title}`,"",copy.understanding];
   lines.push(`${copy.currentAttempt}: ${s.correct} ${copy.correct}, ${s.wrong} ${copy.retries}, ${s.hints} ${copy.hints}`);
+  const comparison=["comparison.more","comparison.fewer","difference","compare_unknown"].includes(lesson?.concepts?.primary_concept);
+  if(!comparison){
+    lines.splice(2,1);
+    lines.push("",...getPracticeDetails(lesson,s.events,language));
+    document.getElementById("analyticsDetails").textContent=lines.join("\n");
+    document.getElementById("analyticsModal").style.display="flex";
+    document.getElementById("analyticsModal").setAttribute("aria-hidden","false");
+    return;
+  }
   lines.push((signals.compared?"✓":"□")+` ${copy.compared}`);
   lines.push((signals.concept?"✓":"□")+` ${conceptLabel}`);
   lines.push((signals.equation?"✓":"□")+` ${copy.equation}`);
