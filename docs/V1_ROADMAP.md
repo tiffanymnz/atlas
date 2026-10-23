@@ -62,7 +62,7 @@ required for each release commit. Automated checks do not prove novice comprehen
 
 Remaining release work, in order:
 
-1. Publish the regression fixes to the existing test branch. GitHub CLI access
+1. Regression fixes are published to the existing test branch. GitHub CLI access
    now works; publication does not imply a merge or production deployment.
 2. Smoke-test the published counting route, mobile layouts, interim voice,
    refresh/reopen, language switching, and completion on the actual build.

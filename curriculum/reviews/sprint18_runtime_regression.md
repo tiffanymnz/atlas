@@ -36,9 +36,25 @@ not audible output, voice quality, or iPhone support. DOM rendering is not a
 visual layout test. Correct-answer fixtures verify software behavior, not
 whether a novice can discover the answer independently.
 
+## Published browser smoke check
+
+Runtime commit tested: `f2f713e5367730124c0659fb0b4cc148d7195f5b` on the
+commit-specific raw.githack preview with an isolated engineering practice token.
+The curriculum loaded; the first question had no selected answers and its check
+button was disabled. Keyboard arrow navigation selected an answer; submission
+and reload preserved that checked answer. English-to-Spanish switching preserved
+the result and translated feedback. The learning summary opened and closed with
+Escape. Larger text and reduced motion survived reload. At the observed
+1348-pixel viewport there was no horizontal overflow, including with larger text.
+
+Listen failed in this cloud Chromium browser and displayed the retry message.
+This is a failed playback check, not evidence of working audio. The browser
+console showed extension metadata errors; no Atlas-origin error was observed
+in that smoke-check log. No physical-device audio result is available.
+
 ## Remaining release gates
 
-- Real browser smoke check on the exact published commit.
+- Resolve the failed browser playback check and establish working audio.
 - Audible playback and acceptable voice quality on physical iPhone/Safari;
   audio-dependent lessons are not cleared for independent use without this.
 - Current mobile layout, zoom, keyboard, and assistive-technology checks.
