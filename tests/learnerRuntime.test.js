@@ -16,13 +16,21 @@ async function ready(document){
   }
   throw new Error("Lesson did not finish loading");
 }
-async function boot(language="en",storage,practice="runtime"){
+async function boot(language="en",storage,practice="runtime",speechAvailable=true){
   const window=new Window({url:`https://atlas.test/apps/learner/?practice=${practice}`,
     settings:{disableJavaScriptFileLoading:true,disableJavaScriptEvaluation:true,disableCSSFileLoading:true}});
-  const spoken=[];
+  const spoken=[],clips=[];
+  const errors=[];
+  window.addEventListener("error",event=>errors.push(event.error?.message||event.message));
   window.speechSynthesis={paused:false,speaking:false,pending:false,getVoices:()=>[],cancel(){},resume(){},
     speak(utterance){spoken.push(utterance.text);utterance.onstart?.();queueMicrotask(()=>utterance.onend?.());}};
   window.SpeechSynthesisUtterance=class{constructor(text){this.text=text;}};
+  window.Audio=class{
+    constructor(src){this.src=src;clips.push(this);}
+    pause(){this.paused=true;}
+    play(){spoken.push(this.src);this.onplaying?.();queueMicrotask(()=>this.onended?.());return Promise.resolve();}
+  };
+  if(!speechAvailable){delete window.speechSynthesis;delete window.SpeechSynthesisUtterance;}
   window.document.write(html);
   const localStorage=storage||window.localStorage;
   if(!storage) localStorage.setItem("atlas.preferences.v1",JSON.stringify({language}));
@@ -32,10 +40,10 @@ async function boot(language="en",storage,practice="runtime"){
     return {ok:true,json:async()=>JSON.parse(body)};
   };
   Object.assign(globalThis,{window,document:window.document,localStorage,location:window.location,
-    SpeechSynthesisUtterance:window.SpeechSynthesisUtterance,fetch:fetcher});
+    SpeechSynthesisUtterance:window.SpeechSynthesisUtterance,Audio:window.Audio,fetch:fetcher});
   await import(`../engine/lessonEngine.js?runtime=${++bootId}`);
   await ready(window.document);
-  return {window,document:window.document,spoken,storage:localStorage};
+  return {window,document:window.document,spoken,storage:localStorage,errors,clips};
 }
 function click(document,selector){
   const node=document.querySelector(selector);
@@ -47,7 +55,7 @@ function click(document,selector){
 test("every picker lesson renders and completes through actual controls in both languages",async()=>{
   let screensChecked=0,lessonsChecked=0;
   for(const language of ["en","es"]){
-    const {window,document,spoken}=await boot(language);
+    const {window,document,spoken,errors}=await boot(language);
     const picker=document.getElementById("lessonSelect");
     const paths=Array.from(picker.options,option=>option.value);
     for(const path of paths){
@@ -102,6 +110,7 @@ test("every picker lesson renders and completes through actual controls in both 
       assert.equal(document.querySelector("#screenTitle").textContent,lesson.screens[0].title);
       lessonsChecked++;
     }
+    assert.deepEqual(errors,[],`Uncaught learner errors in ${language}`);
     await window.happyDOM.close();
   }
   assert.equal(lessonsChecked,68);
@@ -125,16 +134,51 @@ test("refresh and language switching restore only the current attempt; new previ
   await app.window.happyDOM.close();
 });
 
-test("the actual Listen control reports speech failure and allows a successful retry",async()=>{
+test("the actual Listen control reports media failure and allows a successful retry",async()=>{
   const {window,document}=await boot();
-  window.speechSynthesis.speak=()=>{throw new Error("device refused speech");};
+  const play=window.Audio.prototype.play;
+  window.Audio.prototype.play=()=>{throw new Error("device refused audio");};
   click(document,"#listenBtn");
   assert.equal(document.getElementById("audioStatus").hidden,false);
   assert.match(document.getElementById("audioStatus").textContent,/could not play/);
   assert.equal(document.getElementById("listenBtn").getAttribute("aria-pressed"),"false");
-  window.speechSynthesis.speak=u=>{u.onstart?.();u.onend?.();};
+  window.Audio.prototype.play=play;
   click(document,"#listenBtn");
   assert.equal(document.getElementById("audioStatus").hidden,true);
   assert.equal(document.getElementById("listenBtn").disabled,false);
+  await window.happyDOM.close();
+});
+
+test("counting Listen, number taps, choices and construction work without a speech engine",async()=>{
+  const {window,document,spoken,errors}=await boot("en",undefined,"media-only",false);
+  click(document,"#listenBtn");await Promise.resolve();
+  assert.match(spoken.at(-1),/assets\/audio\/en\/.*\.mp3$/);
+  click(document,"#nextBtn");click(document,".countTap");
+  assert.match(spoken.at(-1),/assets\/audio\/en\/.*\.mp3$/);
+  click(document,"#nextBtn");click(document,'.choice[data-i="1"]');
+  assert.match(spoken.at(-1),/assets\/audio\/en\/.*\.mp3$/);
+  click(document,"#submit");click(document,"#submit");
+  click(document,"#nextBtn");click(document,'.choice[data-i="2"]');
+  click(document,"#submit");click(document,"#submit");
+  click(document,"#nextBtn");click(document,'.choice[data-i="1"]');
+  click(document,"#submit");click(document,"#submit");
+  click(document,"#addDot");click(document,"#removeDot");
+  assert.match(spoken.at(-1),/assets\/audio\/en\/.*\.mp3$/);
+  assert.deepEqual(errors,[]);
+  await window.happyDOM.close();
+});
+
+test("navigation and language switching stop an active recording",async()=>{
+  const {window,document,clips,errors}=await boot();
+  window.Audio.prototype.play=function(){this.onplaying?.();return Promise.resolve();};
+  click(document,"#listenBtn");
+  const first=clips.at(-1);
+  click(document,"#nextBtn");assert.equal(first.paused,true);
+  assert.equal(first.onended,null);
+  click(document,"#listenBtn");
+  const second=clips.at(-1);
+  click(document,"#languageBtn");await ready(document);
+  assert.equal(second.paused,true);
+  assert.deepEqual(errors,[]);
   await window.happyDOM.close();
 });

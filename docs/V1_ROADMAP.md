@@ -39,7 +39,7 @@ sign-off below applies to earlier releases only.
 - Recovery testing for malformed and versioned saved data.
 - Full end-to-end completion and restart checks in both languages.
 
-The current local suite passes 128 tests plus curriculum, knowledge, research,
+The current local suite passes 134 tests plus curriculum, knowledge, research,
 memory, and release audits. Production deployment and smoke verification remain
 required for each release commit. Automated checks do not prove novice comprehension.
 
@@ -54,8 +54,9 @@ required for each release commit. Automated checks do not prove novice comprehen
 - Short teaching route: 1–3, zero, 4–6, 7–8, 9–10, 11–12, 13–15, 16–17, 18–20.
 - Original full counting lessons and saved attempts remain intact as optional reviews.
 - Optional return and spoken-number practice remain separately saved.
-- Device speech selects matching enhanced voices when exposed. Recorded narration
-  support exists; approved natural recordings are not included.
+- Short counting lessons use bundled English/Spanish synthetic audio. Voice
+  quality and physical iPhone playback remain unverified. Later lessons still
+  depend on device speech; approved human narration is not included.
 - Route tests cover optional-review skipping, stopping before pairing, readiness,
   lesson switching, reopening, and preservation of previous full-lesson completion.
 - No new features are needed to reach the next review checkpoint.

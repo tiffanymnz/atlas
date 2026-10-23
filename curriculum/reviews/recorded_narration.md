@@ -1,5 +1,21 @@
 # Recorded narration integration
 
+## October 23 counting update
+
+Short counting lessons now use bundled synthetic MP3s for instructions, number
+names, numeric choices, hints, feedback, and group construction. Hints and
+feedback play after the learner taps the corresponding control; Listen can
+replay the prompt plus current support. There is no page-load autoplay.
+The catalog and build provenance are in `../../assets/audio/README.md`.
+Number-only optional full reviews retain that strategy. Other lessons still
+use device speech unless an explicit recording or matching bundled phrase exists.
+
+This addresses missing device voices for covered counting content. It does not
+establish acceptable voice quality, physical iPhone playback, complete interface
+narration, or independent prereader comprehension. Those remain review gates.
+
+## Explicit recording override
+
 No approved natural recordings are included yet. This interface enables
 repository-hosted screen narration without a service, account, or redesign.
 
@@ -22,9 +38,9 @@ Changing screens or starting number speech stops the recording. Failed clips
 show Audio unavailable and can be retried; they do not silently switch to
 synthetic speech. Screens without configured recordings retain existing behavior.
 
-This first integration covers screen instructions only. Dynamic hints,
-feedback, controls, choices, and individual number names still need their own
-approved recordings and playback support before a prereader audio claim.
+The explicit override below covers screen instructions. The newer bundled
+counting catalog covers dynamic counting support separately. Neither is an
+approved human recording set; a prereader audio claim still needs review.
 
 Review each recording for short familiar wording, clear number pronunciation,
 gentle pace, and lack of background music. Verify English and Spanish with

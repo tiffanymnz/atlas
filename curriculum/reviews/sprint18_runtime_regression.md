@@ -3,6 +3,37 @@
 Date: October 23, 2026. Scope: the existing learner, all 34 picker entries,
 English and Spanish. This is engineering evidence, not learner approval.
 
+## Follow-up: bundled counting audio
+
+The earlier speech failure below prompted a bundled-audio implementation.
+Counting now has 1,194 language-specific synthetic MP3 clips mapped to lesson
+scripts, number names, choices, hints, and feedback. Short counting lessons use
+media playback without requiring a browser speech engine. Optional full reviews
+retain their number-only strategy. Comparison and later prototypes continue
+to depend on device speech except where an exact bundled phrase is available.
+
+Hints and feedback play after the learner's action, with Listen replay available.
+There is no page-load autoplay. The player reuses a media element within a
+prompt/hint sequence, handles rejected playback and a 15-second loading stall,
+and stops on screen changes, language changes, restart, and page hiding.
+
+A remaining old speech call in add/remove-dot handling was found and fixed.
+The earlier DOM suite could pass despite an event-handler exception. The test
+harness now collects uncaught browser errors and fails if any occur; it also
+checks number taps, choices, and add/remove controls with speech APIs absent.
+This corrects a gap in the earlier regression evidence.
+
+The expanded suite passes 134 tests. Audio-file presence is now a required
+`npm test` gate, alongside catalog/text coverage. Full MP3 decoding is checked
+with `python3 tools/build/generate_counting_audio.py --check --decode`; all
+1,194 MP3s passed decoding. An empty clip left by an interrupted generation
+was caught by this gate and regenerated. Resume now rejects undersized files.
+Generation details and voice provenance: `../../assets/audio/README.md`.
+
+Physical iPhone playback, pronunciation, acceptable voice quality, mobile
+layout, and independent first-exposure comprehension remain unverified.
+Bundled audio does not itself establish standalone learning effectiveness.
+
 ## Findings and fixes
 
 - Preview URLs on the same host reused saved answers. A `practice` query token

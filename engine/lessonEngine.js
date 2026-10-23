@@ -6,6 +6,7 @@ import { nextTeachingOption } from "./recommendation-engine/lessonSequence.js";
 import { getPreferences, savePreferences, ensureLessonRecord, saveLessonRecord, getAllLessonRecords, reviewSuggested, archiveCompletedAttempt, newLessonAttempt, resolveLessonPosition, getLastLessonPath, saveLastLessonPath } from "./state-store/stateStore.js?v=1.7";
 import { loadLocalizedLesson } from "./i18n/lessonLocale.js";
 import { createRecordedNarration, recordedNarrationUrl } from "./recordedNarration.js";
+import {bundledAudioUrls,countingAudioParts} from "./countingAudio.js";
 
 import { createSpeechPlayback } from "./speechPlayback.js";
 
@@ -66,6 +67,7 @@ function refreshLessonOptions(){
 }
 function goToNextLesson(){ const next=nextTeachingOption(lesson,lessonSelect.options,lessonSelect.selectedIndex); if(next){ persist(); lessonSelect.value=next.value; loadLesson(next.value); } }
 function reviewVisualGap(){
+  stopCountingAudio();
   let target = lesson.screens.findIndex(screen => screen.visual && screen.visual.revealGap === true);
   if(target < 0) target = lesson.screens.findIndex(screen => screen.type === "observe" && screen.visual);
   index = target >= 0 ? target : Math.max(0, lesson.screens.length - 2);
@@ -97,6 +99,8 @@ function reportAudioError(){
 function playSpeech(text,numberOnly=false){
   narration.stop();
   const status=el("audioStatus");if(status) status.hidden=true;
+  const clips=bundledAudioUrls([text],language,import.meta.url);
+  if(clips){speech.stop();void narration.play(clips,resetListenButton,reportAudioError);return;}
   speech.play(text,language,{numberOnly,onFinish:resetListenButton,onError:reportAudioError});
 }
 function screenSpeechText(screen){
@@ -120,15 +124,18 @@ function bindScreenAudio(screen){
   const button=el("listenBtn");
   if(!button) return;
   const recording=recordedNarrationUrl(screen,language,import.meta.url);
-  if(recording){
+  const clipsForScreen=()=>numberOnlyAudio()&&isNumberModel(screen)
+    ?bundledAudioUrls([NUMBER_WORDS[language][screen.visual.count]],language,import.meta.url)
+    :shortGuidanceAudio()?bundledAudioUrls(countingAudioParts(screen,currentState()),language,import.meta.url):null;
+  if(recording||clipsForScreen()){
     button.onclick=()=>{
       if(narration.playing){ narration.stop(); resetListenButton(); return; }
       stopCountingAudio();
+      const status=el("audioStatus");if(status) status.hidden=true;
       button.textContent=`■ ${copy().stopAudio}`;
       button.setAttribute("aria-pressed","true");
-      narration.play(recording,resetListenButton,()=>{
+      narration.play(recording?[recording]:clipsForScreen(),resetListenButton,()=>{
         reportAudioError();
-        button.textContent=copy().audioUnavailable;
       });
     };
     return;
@@ -136,9 +143,9 @@ function bindScreenAudio(screen){
   const canSpeak="speechSynthesis" in window && "SpeechSynthesisUtterance" in window;
   if(!canSpeak){
     button.disabled=true;
-    button.textContent=copy().audioUnavailable;
     reportAudioError();
     button.textContent=copy().audioUnavailable;
+    const status=el("audioStatus");if(status) status.textContent=language==="es"?"El audio no está disponible en este navegador.":"Audio is unavailable in this browser.";
     return;
   }
   button.onclick=()=>{
@@ -158,7 +165,7 @@ function bindCountingAudio(){
   if(!taps.length) return;
   let nextNumber=1;
   const canSpeak="speechSynthesis" in window && "SpeechSynthesisUtterance" in window;
-  if(!canSpeak) el("countSpeech").textContent=language==="es"?"Toca un punto para ver su número.":"Tap a dot to see its number.";
+  if(!canSpeak&&!bundledAudioUrls([NUMBER_WORDS[language][0]],language,import.meta.url)) el("countSpeech").textContent=language==="es"?"Toca un punto para ver su número.":"Tap a dot to see its number.";
   for(const tap of taps){
     const number=Number(tap.dataset.count);
     const word=NUMBER_WORDS[language][number];
@@ -179,10 +186,8 @@ function bindCountingAudio(){
       el("countSpeech").textContent=complete
         ? language==="es"?`${number} — ${word}. Hay ${word} puntos.`:`${number} — ${word}. There are ${word} dots.`
         : `${number} — ${word}`;
-      if(canSpeak){
-        resetListenButton();
-        playSpeech(word,true);
-      }
+      resetListenButton();
+      playSpeech(word,true);
     };
   }
 }
@@ -211,6 +216,7 @@ function renderBuildGroup(screen){
     state.hintIndex=(state.hintIndex||0)+1;state.hintShown=true;
     persist();emit("hint",{hint:screen.hints[step]});renderBuildGroup(screen);
     el("hintBtn").focus();
+    if(shortGuidanceAudio()) playSpeech(screen.hints[step]);
   };
   el("checkGroup").onclick=()=>{
     if(finished){next();return;}
@@ -218,6 +224,11 @@ function renderBuildGroup(screen){
     state.feedback={kind:good?"success":"warning"};state.submittedCorrect=good;
     emit("submit",{correct:good,evidence:good?"constructed_group":null});
     renderBuildGroup(screen);el("checkGroup").focus();
+    if(shortGuidanceAudio()){
+      const detail=good?screen.correctFeedback:count>screen.targetCount?(screen.tooManyFeedback||screen.wrongFeedback):
+        count<screen.targetCount?(screen.tooFewFeedback||screen.wrongFeedback):screen.wrongFeedback;
+      if(detail) playSpeech(detail);
+    }
   };
 }
 function changeBuildGroup(delta){
@@ -230,13 +241,8 @@ function changeBuildGroup(delta){
   renderBuildGroup(screen);
   const control=el(delta>0?"addDot":"removeDot");
   (control.disabled?el(delta>0?"removeDot":"addDot"):control).focus();
-  if("speechSynthesis" in window&&"SpeechSynthesisUtterance" in window){
-    narration.stop();
-    window.speechSynthesis.cancel();screenUtterance=null;resetListenButton();
-    const spoken=new SpeechSynthesisUtterance(NUMBER_WORDS[language][nextCount]);
-    configureSpeech(spoken,language,window.speechSynthesis,true);
-    window.speechSynthesis.speak(spoken);
-  }
+  resetListenButton();
+  playSpeech(NUMBER_WORDS[language][nextCount],true);
 }
 
 function applyPreferences(){
@@ -419,7 +425,7 @@ function bindChoiceScreen(screen){
       const state=currentState();
       if(state.submittedCorrect) return;
       selected = Number(btn.dataset.i);
-      if(shortGuidanceAudio() && screen.speakChoices!==false && "speechSynthesis" in window && "SpeechSynthesisUtterance" in window){
+      if(shortGuidanceAudio() && screen.speakChoices!==false){
         playSpeech(screen.choices[selected].text);
       }
       state.selected=selected;
@@ -464,6 +470,7 @@ function submitChoice(screen){
     fb.innerHTML = `<strong>${copy().correct}</strong>${choice.feedback ? "<br>"+choice.feedback : ""}`;
     state.feedback={kind:"success"};
     lessonRecord.screenStates[screenStateKey()]=state; persist(); setCorrectControls();
+    if(shortGuidanceAudio()&&choice.feedback) playSpeech(choice.feedback);
   } else {
     const h = screen.hints?.[Math.min(hintIndex, screen.hints.length-1)] || copy().fallbackHint;
     const diagnostic=choice.feedback || h;
@@ -477,6 +484,7 @@ function submitChoice(screen){
     document.querySelectorAll(".choice").forEach(btn=>{ btn.disabled = false; btn.classList.remove("selected","correct"); btn.setAttribute("aria-checked","false"); });
     selected = null; state.selected=null; el("submit").disabled = true;
     lessonRecord.screenStates[screenStateKey()]=state; persist(); emit("guided_retry",{hint:h});
+    if(shortGuidanceAudio()) playSpeech(diagnostic);
   }
 }
 
@@ -493,6 +501,7 @@ function hint(screen){
   state.hintStep=usedIndex;
   state.hintHtml="";
   lessonRecord.screenStates[screenStateKey()]=state; persist(); emit("hint",{hint:h});
+  if(shortGuidanceAudio()) playSpeech(h);
 }
 
 function next(){
@@ -504,6 +513,7 @@ function next(){
 }
 function back(){ if(index > 0){ stopCountingAudio(); index--; lessonRecord.index=index; persist(); render(); focusLesson(); } }
 function restart(){
+  stopCountingAudio();
   lessonRecord = newLessonAttempt(lessonRecord);
   analytics = createAnalytics();
   index = 0; selected=null; hintIndex=0;
@@ -542,7 +552,7 @@ lessonSelect.onchange = () => loadLesson(lessonSelect.value);
 el("newAttemptBtn").onclick = restart;
 
 window.addEventListener("beforeunload", persist);
-document.addEventListener("visibilitychange", () => { if(document.visibilityState === "hidden") persist(); });
+document.addEventListener("visibilitychange", () => { if(document.visibilityState === "hidden"){persist();stopCountingAudio();resetListenButton();} });
 
 loadPreferences();
 const savedLessonPath = getLastLessonPath();

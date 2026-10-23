@@ -7,8 +7,9 @@
     "check:memory": "node tools/build/generate_memory_assets.mjs --check",
     "check:knowledge": "node tools/qa/validate_knowledge_graph.mjs",
     "check:research": "node tools/qa/validate_research_cards.mjs",
+    "check:audio": "python3 tools/build/generate_counting_audio.py --check",
     "audit:release": "node tools/qa/release_audit.mjs",
-    "test": "node --test tests/*.test.js && python3 tools/qa/validate_lessons.py && npm run check:knowledge && npm run check:research && npm run check:memory && npm run audit:release",
+    "test": "node --test tests/*.test.js && python3 tools/qa/validate_lessons.py && npm run check:knowledge && npm run check:research && npm run check:memory && npm run check:audio && npm run audit:release",
     "gate:novice": "node tools/qa/noviceEvidence.mjs"
   },
   "devDependencies": {

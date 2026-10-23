@@ -32,3 +32,26 @@ test("unavailable recordings report an error and remain replayable",async()=>{
   await player.play("missing",null,()=>errors++);
   assert.equal(errors,2);
 });
+
+test("a prompt and hint play in order and stopping prevents the next clip",async()=>{
+  const clips=[];let finished=0;
+  const player=createRecordedNarration(src=>{const clip={src,pause(){},play(){return Promise.resolve();}};clips.push(clip);return clip;});
+  await player.play(["prompt","hint"],()=>finished++);
+  assert.equal(clips[0].src,"prompt");
+  clips[0].onended();
+  assert.equal(clips.length,1);
+  assert.equal(clips[0].src,"hint");
+  const late=clips[0].onended;
+  player.stop();late();assert.equal(finished,0);
+  await player.play(["retry"],()=>finished++);
+  clips[1].onended();assert.equal(finished,1);
+});
+
+test("media that never starts reports failure instead of leaving Stop audio stuck",async()=>{
+  let timeout,errors=0;
+  const player=createRecordedNarration(()=>({pause(){},play(){return new Promise(()=>{});}}),
+    {schedule:callback=>{timeout=callback;return 1;},unschedule(){}});
+  void player.play("stalled",null,()=>errors++);
+  assert.equal(player.playing,true);
+  timeout();assert.equal(player.playing,false);assert.equal(errors,1);
+});
