@@ -74,6 +74,7 @@ test("every picker lesson renders and completes through actual controls in both 
         if(screen.visual?.interactive){
           for(const dot of document.querySelectorAll(".countTap")) dot.click();
           assert.ok(document.querySelectorAll(".countTap.heard").length>0);
+          if(screen.visual.count===1) assert.doesNotMatch(document.getElementById("countSpeech").textContent,/one dots|uno puntos/);
         }
         if(screen.choices){
           assert.equal(document.getElementById("submit").disabled,true);

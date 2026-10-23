@@ -99,6 +99,8 @@ function reportAudioError(){
 function playSpeech(text,numberOnly=false){
   narration.stop();
   const status=el("audioStatus");if(status) status.hidden=true;
+  const button=el("listenBtn");
+  if(button){button.textContent=`■ ${copy().stopAudio}`;button.setAttribute("aria-pressed","true");}
   const clips=bundledAudioUrls([text],language,import.meta.url);
   if(clips){speech.stop();void narration.play(clips,resetListenButton,reportAudioError);return;}
   speech.play(text,language,{numberOnly,onFinish:resetListenButton,onError:reportAudioError});
@@ -184,7 +186,8 @@ function bindCountingAudio(){
       nextNumber++;
       const complete=nextNumber>taps.length;
       el("countSpeech").textContent=complete
-        ? language==="es"?`${number} — ${word}. Hay ${word} puntos.`:`${number} — ${word}. There are ${word} dots.`
+        ? language==="es"?number===1?"1 — uno. Hay un punto.":`${number} — ${word}. Hay ${word} puntos.`
+          :number===1?"1 — one. There is one dot.":`${number} — ${word}. There are ${word} dots.`
         : `${number} — ${word}`;
       resetListenButton();
       playSpeech(word,true);

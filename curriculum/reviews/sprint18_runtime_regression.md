@@ -34,6 +34,15 @@ Physical iPhone playback, pronunciation, acceptable voice quality, mobile
 layout, and independent first-exposure comprehension remain unverified.
 Bundled audio does not itself establish standalone learning effectiveness.
 
+Published playback check: `598cb79bbd58d76960b66e68241c626a2c63470f`.
+English and Spanish introduction narration both entered Stop audio and returned
+to Listen without an audio error. Spanish prompt-plus-hint replay also finished
+without an error, with zero selected answers on the fresh question. These are
+real browser media-event checks, not a listening judgment. They supersede the
+earlier counting speech failure below. The check also exposed singular dot
+wording, now corrected; number/hint/feedback playback now consistently exposes
+Stop audio while active.
+
 ## Findings and fixes
 
 - Preview URLs on the same host reused saved answers. A `practice` query token
@@ -85,7 +94,8 @@ in that smoke-check log. No physical-device audio result is available.
 
 ## Remaining release gates
 
-- Resolve the failed browser playback check and establish working audio.
+- Counting browser playback now passes; later lessons still need separate
+  audio coverage and verification.
 - Audible playback and acceptable voice quality on physical iPhone/Safari;
   audio-dependent lessons are not cleared for independent use without this.
 - Current mobile layout, zoom, keyboard, and assistive-technology checks.
