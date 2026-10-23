@@ -43,6 +43,12 @@ earlier counting speech failure below. The check also exposed singular dot
 wording, now corrected; number/hint/feedback playback now consistently exposes
 Stop audio while active.
 
+Final runtime follow-up: `2f8dc3affde542778eefb01a0d16c529ea71238d`.
+The exact preview loaded as a fresh attempt. Spanish singular feedback showed
+"Hay un punto"; English and Spanish number playback both completed without an
+audio error, and Stop audio was visible during playback. The 876-screen DOM
+regression was rerun after these last wording/control changes and passed.
+
 ## Findings and fixes
 
 - Preview URLs on the same host reused saved answers. A `practice` query token
