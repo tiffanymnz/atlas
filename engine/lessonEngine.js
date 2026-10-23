@@ -6,7 +6,7 @@ import { nextTeachingOption } from "./recommendation-engine/lessonSequence.js";
 import { getPreferences, savePreferences, ensureLessonRecord, saveLessonRecord, getAllLessonRecords, reviewSuggested, archiveCompletedAttempt, newLessonAttempt, resolveLessonPosition, getLastLessonPath, saveLastLessonPath } from "./state-store/stateStore.js?v=1.7";
 import { loadLocalizedLesson } from "./i18n/lessonLocale.js";
 import { createRecordedNarration, recordedNarrationUrl } from "./recordedNarration.js";
-import {bundledAudioUrls,countingAudioParts} from "./countingAudio.js";
+import {bundledAudioUrls,countingAudioParts} from "./countingAudio.js?v=2";
 
 import { createSpeechPlayback } from "./speechPlayback.js";
 

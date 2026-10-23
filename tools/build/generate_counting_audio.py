@@ -11,6 +11,7 @@ import subprocess
 import tempfile
 
 ROOT = pathlib.Path(__file__).resolve().parents[2]
+VOICE_BUILD_ID = "kokoro-v1-misaki094-v2"
 WORDS = {
     "en": "zero one two three four five six seven eight nine ten eleven twelve thirteen fourteen fifteen sixteen seventeen eighteen nineteen twenty".split(),
     "es": "cero uno dos tres cuatro cinco seis siete ocho nueve diez once doce trece catorce quince dieciséis diecisiete dieciocho diecinueve veinte".split(),
@@ -34,8 +35,12 @@ def scripts():
     return result
 
 def catalog():
-    return {lang: {text: f"assets/audio/{lang}/{hashlib.sha256((lang + ':' + text).encode()).hexdigest()[:20]}.mp3"
+    entries = {lang: {text: f"assets/audio/{lang}/{hashlib.sha256((VOICE_BUILD_ID + ':' + lang + ':' + text).encode()).hexdigest()[:20]}.mp3"
                    for text in sorted(texts) if text} for lang, texts in scripts().items()}
+    # A printed numeral and its spoken name must use the same canonical clip.
+    for lang,words in WORDS.items():
+        for number,word in enumerate(words): entries[lang][str(number)]=entries[lang][word]
+    return entries
 
 def main():
     parser = argparse.ArgumentParser()
@@ -43,6 +48,7 @@ def main():
     parser.add_argument("--voices")
     parser.add_argument("--check", action="store_true")
     parser.add_argument("--decode", action="store_true", help="With --check, decode every clip through ffmpeg")
+    parser.add_argument("--numbers-only", action="store_true", help="Generate number candidates before rebuilding all narration")
     parser.add_argument("--shards", type=int, default=1)
     parser.add_argument("--shard", type=int, default=0)
     args = parser.parse_args()
@@ -59,12 +65,15 @@ def main():
                 playlist = pathlib.Path(folder) / "clips.txt"
                 playlist.write_text("".join(f"file '{ROOT / path}'\n" for texts in entries.values() for path in texts.values()))
                 subprocess.run(["ffmpeg", "-v", "error", "-xerror", "-f", "concat", "-safe", "0", "-i", str(playlist), "-f", "null", "-"], check=True)
-        print(f"Audio catalog current: {sum(map(len, entries.values()))} clips")
+        unique={path for texts in entries.values() for path in texts.values()}
+        print(f"Audio catalog current: {len(unique)} clips / {sum(map(len, entries.values()))} text entries")
         return
     import numpy as np
     import onnxruntime as rt
     import soundfile as sf
     from kokoro_onnx import Kokoro
+    from misaki.espeak import EspeakFallback,EspeakG2P
+    from types import SimpleNamespace
     options = rt.SessionOptions()
     options.intra_op_num_threads = 2
     options.inter_op_num_threads = 1
@@ -76,6 +85,8 @@ def main():
             inputs["speed"] = np.array([0.94], dtype=np.float32)
             return session.run(outputs, inputs)
     model = Kokoro.from_session(FloatSpeedSession(), args.voices)
+    english_g2p=EspeakFallback(british=False)
+    spanish_g2p=EspeakG2P(language="es")
     total = sum(map(len, entries.values()))
     index = 0
     for language, texts in entries.items():
@@ -83,11 +94,13 @@ def main():
         for text, relative in texts.items():
             index += 1
             if (index - 1) % args.shards != args.shard: continue
+            if args.numbers_only and text not in WORDS[language] and text not in [str(n) for n in range(21)]: continue
             path = ROOT / relative
             if path.exists() and path.stat().st_size > 1000: continue
             path.parent.mkdir(parents=True, exist_ok=True)
             spoken = re.sub(r"\b(\d{1,2})\b", lambda m: WORDS[language][int(m[0])] if int(m[0]) <= 20 else m[0], text)
-            samples, rate = model.create(spoken, voice=voice, speed=1, lang=locale)
+            phonemes=(english_g2p(SimpleNamespace(text=spoken))[0] if language=="en" else spanish_g2p(spoken)[0])
+            samples, rate = model.create(phonemes, voice=voice, speed=1, is_phonemes=True)
             assert len(samples) > rate * .1 and np.isfinite(samples).all(), f"Invalid audio: {text}"
             assert np.max(np.abs(samples)) > .005, f"Silent audio: {text}"
             samples = np.pad(samples, (int(rate * .08), int(rate * .12)))
@@ -98,8 +111,9 @@ def main():
                 subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", str(wav), "-af", "loudnorm=I=-19:TP=-2:LRA=7", "-ar", "24000", "-codec:a", "libmp3lame", "-b:a", "64k", str(temporary)], check=True)
                 temporary.replace(path)
             if index % 25 == 0: print(f"Generated {index}/{total}", flush=True)
-    manifest.parent.mkdir(parents=True, exist_ok=True)
-    manifest.write_text(content)
+    if not args.numbers_only:
+        manifest.parent.mkdir(parents=True, exist_ok=True)
+        manifest.write_text(content)
     print(f"Generated {total} clips", flush=True)
 
 if __name__ == "__main__": main()

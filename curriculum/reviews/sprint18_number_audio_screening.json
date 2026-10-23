@@ -1,0 +1,428 @@
+{
+  "date": "2026-10-23",
+  "recognizer": "faster-whisper 1.2.1 / multilingual small / CPU int8 / no transcript prompt",
+  "limitation": "Recognition is a screening signal, not human pronunciation or voice-quality approval. Mismatches require review.",
+  "numbers": [
+    {
+      "language": "en",
+      "number": 0,
+      "expected": "zero",
+      "recognized": "zero",
+      "recognitionMatch": true,
+      "numericChoiceSameBytes": true,
+      "file": "assets/audio/en/f294e5b69e0a112698df.mp3",
+      "sha256": "2d41e0cdf4a8f015a91aa0f8d3303db24e87289263856836719913b746964e7a"
+    },
+    {
+      "language": "en",
+      "number": 1,
+      "expected": "one",
+      "recognized": "1",
+      "recognitionMatch": true,
+      "numericChoiceSameBytes": true,
+      "file": "assets/audio/en/5b8d008c303ded88b838.mp3",
+      "sha256": "d8882c8110d225a3d3755574780f7bc1e76d97c686f3eccc50ab3218ea1b200e"
+    },
+    {
+      "language": "en",
+      "number": 2,
+      "expected": "two",
+      "recognized": "2.",
+      "recognitionMatch": true,
+      "numericChoiceSameBytes": true,
+      "file": "assets/audio/en/b306de0b307620d36355.mp3",
+      "sha256": "0d61b770d6013b3ddfc8281a5558bdbc802121419d008d69df9ba9a3759d3aa8"
+    },
+    {
+      "language": "en",
+      "number": 3,
+      "expected": "three",
+      "recognized": "3.",
+      "recognitionMatch": true,
+      "numericChoiceSameBytes": true,
+      "file": "assets/audio/en/e1f38f981c6d0d7c9c94.mp3",
+      "sha256": "65f439663f0ec0b68fb9939a40063945fb3ca3177a92c00c5df5ebb24b87ffda"
+    },
+    {
+      "language": "en",
+      "number": 4,
+      "expected": "four",
+      "recognized": "4.",
+      "recognitionMatch": true,
+      "numericChoiceSameBytes": true,
+      "file": "assets/audio/en/52373e56f044911daf99.mp3",
+      "sha256": "6ae2b826e6f3cac19d089c1b10b70affad3488f646a66b6643888799235983bd"
+    },
+    {
+      "language": "en",
+      "number": 5,
+      "expected": "five",
+      "recognized": "5",
+      "recognitionMatch": true,
+      "numericChoiceSameBytes": true,
+      "file": "assets/audio/en/db5487654fbdccec0308.mp3",
+      "sha256": "84bb695494de5c6b9f28d9c2828175ad7efa9b748be0a3d513f0da4065d39b4e"
+    },
+    {
+      "language": "en",
+      "number": 6,
+      "expected": "six",
+      "recognized": "sex",
+      "recognitionMatch": false,
+      "numericChoiceSameBytes": true,
+      "file": "assets/audio/en/d317e676beae1635e046.mp3",
+      "sha256": "a2a4195e543e3338445f75e0774a04a318b606fa8fe557ed43f7caee5a386e63"
+    },
+    {
+      "language": "en",
+      "number": 7,
+      "expected": "seven",
+      "recognized": "7",
+      "recognitionMatch": true,
+      "numericChoiceSameBytes": true,
+      "file": "assets/audio/en/6870c43c5b03d38eb3ae.mp3",
+      "sha256": "75c2c88ce12e60645d23737ac20f147fea3360d12de4c0ec5f96fc851d903212"
+    },
+    {
+      "language": "en",
+      "number": 8,
+      "expected": "eight",
+      "recognized": "8.",
+      "recognitionMatch": true,
+      "numericChoiceSameBytes": true,
+      "file": "assets/audio/en/11a65ec155ba48e734c8.mp3",
+      "sha256": "3e1ec79caff17e01645d0f47324fca586d0dc4bbdbbce1b03c6a4d213187c25e"
+    },
+    {
+      "language": "en",
+      "number": 9,
+      "expected": "nine",
+      "recognized": "9.",
+      "recognitionMatch": true,
+      "numericChoiceSameBytes": true,
+      "file": "assets/audio/en/8dddb7dcbd0f65c79c4b.mp3",
+      "sha256": "b4a0cc303b2313bdd0f12e22aaab9fc69ee502ee9550b29c26cc6f456bf498ca"
+    },
+    {
+      "language": "en",
+      "number": 10,
+      "expected": "ten",
+      "recognized": "10",
+      "recognitionMatch": true,
+      "numericChoiceSameBytes": true,
+      "file": "assets/audio/en/b8b1fc36ace322867dff.mp3",
+      "sha256": "fb2c3902a26f0b13712863e1fcf293f3d037ce40a8354f9373ac4e80cafca7b6"
+    },
+    {
+      "language": "en",
+      "number": 11,
+      "expected": "eleven",
+      "recognized": "11",
+      "recognitionMatch": true,
+      "numericChoiceSameBytes": true,
+      "file": "assets/audio/en/4c289305c31a79e4edcd.mp3",
+      "sha256": "09f58d146134451915bb297577caddb7ea1c11296483bc2b82a45f0724b973a3"
+    },
+    {
+      "language": "en",
+      "number": 12,
+      "expected": "twelve",
+      "recognized": "12.",
+      "recognitionMatch": true,
+      "numericChoiceSameBytes": true,
+      "file": "assets/audio/en/84410856545d6c33831f.mp3",
+      "sha256": "b91bb6289165f91724698606ac296550c6a4575d4aa91629e5ef363f8db92a85"
+    },
+    {
+      "language": "en",
+      "number": 13,
+      "expected": "thirteen",
+      "recognized": "13.",
+      "recognitionMatch": true,
+      "numericChoiceSameBytes": true,
+      "file": "assets/audio/en/b61374d4c30b4400573a.mp3",
+      "sha256": "6147af38b95fe4214132a83eebc1bb2a84e369c8380a15da68f150bddd2bba1a"
+    },
+    {
+      "language": "en",
+      "number": 14,
+      "expected": "fourteen",
+      "recognized": "14.",
+      "recognitionMatch": true,
+      "numericChoiceSameBytes": true,
+      "file": "assets/audio/en/3e66adce652fcfb0b9c6.mp3",
+      "sha256": "b3e78b54c86637c34f1a2e17f1e9633bf9ceb6dc54a4e4d2ed7b24b878835155"
+    },
+    {
+      "language": "en",
+      "number": 15,
+      "expected": "fifteen",
+      "recognized": "Fifteen",
+      "recognitionMatch": true,
+      "numericChoiceSameBytes": true,
+      "file": "assets/audio/en/1175937b8814d0090c89.mp3",
+      "sha256": "ed8f5731d13a9d80c5bb183dcd443a55c3609c8b03702a3ecdc57a315df54c77"
+    },
+    {
+      "language": "en",
+      "number": 16,
+      "expected": "sixteen",
+      "recognized": "16.",
+      "recognitionMatch": true,
+      "numericChoiceSameBytes": true,
+      "file": "assets/audio/en/2772de5b4cace739b0ef.mp3",
+      "sha256": "da7c11baf8afd9d6e20c4cf9ca829770d48d862977a56f7c5265f1cf14d0f624"
+    },
+    {
+      "language": "en",
+      "number": 17,
+      "expected": "seventeen",
+      "recognized": "17.",
+      "recognitionMatch": true,
+      "numericChoiceSameBytes": true,
+      "file": "assets/audio/en/d8e3479b347f0f16bedb.mp3",
+      "sha256": "ab12e276b7c1e849f86a6293113c8a67b6520cf1735065e4c1efc882433f834c"
+    },
+    {
+      "language": "en",
+      "number": 18,
+      "expected": "eighteen",
+      "recognized": "18.",
+      "recognitionMatch": true,
+      "numericChoiceSameBytes": true,
+      "file": "assets/audio/en/65c59f767eadc3c299a2.mp3",
+      "sha256": "5a9a49e9e8bfbbbaac35b7b6f033b57e3f9d505fbfd25599fcaa2531a50d3440"
+    },
+    {
+      "language": "en",
+      "number": 19,
+      "expected": "nineteen",
+      "recognized": "19.",
+      "recognitionMatch": true,
+      "numericChoiceSameBytes": true,
+      "file": "assets/audio/en/8ff05f174dc6be22ef5f.mp3",
+      "sha256": "089604e1643e330472eb64d307c3367c4209debe30f47fe9dcc5b25bd8b584a7"
+    },
+    {
+      "language": "en",
+      "number": 20,
+      "expected": "twenty",
+      "recognized": "20.",
+      "recognitionMatch": true,
+      "numericChoiceSameBytes": true,
+      "file": "assets/audio/en/d5036ea34539ab26943b.mp3",
+      "sha256": "8b829a2c6df505ea7de6d98ff135f1fea2d8e5da21d86cf88849536f94d44035"
+    },
+    {
+      "language": "es",
+      "number": 0,
+      "expected": "cero",
+      "recognized": "¡Sado!",
+      "recognitionMatch": false,
+      "numericChoiceSameBytes": true,
+      "file": "assets/audio/es/735e365596894ace51c5.mp3",
+      "sha256": "36eb4355bdc1e688a0f0a0361124bc4c20e9b4ce64d02aaa4f7ab27a5291f765"
+    },
+    {
+      "language": "es",
+      "number": 1,
+      "expected": "uno",
+      "recognized": "¡Tú no!",
+      "recognitionMatch": false,
+      "numericChoiceSameBytes": true,
+      "file": "assets/audio/es/0013133403f472282bfe.mp3",
+      "sha256": "bc66758092f9fa6d4695aa3c74674970b1328ff350d9d5e63b852a292bb2f1d2"
+    },
+    {
+      "language": "es",
+      "number": 2,
+      "expected": "dos",
+      "recognized": "Dos.",
+      "recognitionMatch": true,
+      "numericChoiceSameBytes": true,
+      "file": "assets/audio/es/77c72720ae00e0783db2.mp3",
+      "sha256": "66f3fa1733ddd9a8de7a3304a88903feb712da0d0011d9e1a2fd56d528a743bc"
+    },
+    {
+      "language": "es",
+      "number": 3,
+      "expected": "tres",
+      "recognized": "¡Dres!",
+      "recognitionMatch": false,
+      "numericChoiceSameBytes": true,
+      "file": "assets/audio/es/55dcdcec7880fadd93ca.mp3",
+      "sha256": "84f9d3b582cdb7a12a6b6a2f620a75b46b8b7797e95ebb02450ccaf0176ce455"
+    },
+    {
+      "language": "es",
+      "number": 4,
+      "expected": "cuatro",
+      "recognized": "4",
+      "recognitionMatch": true,
+      "numericChoiceSameBytes": true,
+      "file": "assets/audio/es/6ba161e0d3086503e1c2.mp3",
+      "sha256": "9b156f2ae79c96cfb87139979700fd2316cbc5e34c93e378895a0b0700a4c3d0"
+    },
+    {
+      "language": "es",
+      "number": 5,
+      "expected": "cinco",
+      "recognized": "¡Sin God!",
+      "recognitionMatch": false,
+      "numericChoiceSameBytes": true,
+      "file": "assets/audio/es/05ecb3f4afe85b45841b.mp3",
+      "sha256": "7e84e70bd78ea20a1d42caf8d5cfe34e801e11553fca961715b78da3939536de"
+    },
+    {
+      "language": "es",
+      "number": 6,
+      "expected": "seis",
+      "recognized": "Sais",
+      "recognitionMatch": false,
+      "numericChoiceSameBytes": true,
+      "file": "assets/audio/es/7f043950e86ce94d657f.mp3",
+      "sha256": "b9b3898e54a841de904ab7ee99ce8f81debcfc8950bbdc18edad8021db015a77"
+    },
+    {
+      "language": "es",
+      "number": 7,
+      "expected": "siete",
+      "recognized": "¡Siete!",
+      "recognitionMatch": true,
+      "numericChoiceSameBytes": true,
+      "file": "assets/audio/es/2a12bd74e5fa0e7576fa.mp3",
+      "sha256": "d5aec3d618fb5f613597a2d61751c58279a9f893ed2a8eb14a50f13489e23b66"
+    },
+    {
+      "language": "es",
+      "number": 8,
+      "expected": "ocho",
+      "recognized": "Mucho...",
+      "recognitionMatch": false,
+      "numericChoiceSameBytes": true,
+      "file": "assets/audio/es/40d101c5946d1d3c2be9.mp3",
+      "sha256": "b19d3637750beb9b0b96f070778637fa34932201178a4cd2c88cba54152a9a64"
+    },
+    {
+      "language": "es",
+      "number": 9,
+      "expected": "nueve",
+      "recognized": "¿Nueve?",
+      "recognitionMatch": true,
+      "numericChoiceSameBytes": true,
+      "file": "assets/audio/es/a323f4bb03b4004d6943.mp3",
+      "sha256": "b7560ffa81873f87c572139414840bbe68c3c4f86419e859520301dd69c4eefb"
+    },
+    {
+      "language": "es",
+      "number": 10,
+      "expected": "diez",
+      "recognized": "10",
+      "recognitionMatch": true,
+      "numericChoiceSameBytes": true,
+      "file": "assets/audio/es/c7a388b88d5d7914a3eb.mp3",
+      "sha256": "465243054fd72589044ce70c56f855bdde31a05b6365319e23594f8404691b0b"
+    },
+    {
+      "language": "es",
+      "number": 11,
+      "expected": "once",
+      "recognized": "¡Gonze!",
+      "recognitionMatch": false,
+      "numericChoiceSameBytes": true,
+      "file": "assets/audio/es/28b22ee4ab153d5921f6.mp3",
+      "sha256": "5b1b7da4e97be175f0271de6aa7229384c38d25dfb729a00bf1f29484f86608e"
+    },
+    {
+      "language": "es",
+      "number": 12,
+      "expected": "doce",
+      "recognized": "¡Dose!",
+      "recognitionMatch": false,
+      "numericChoiceSameBytes": true,
+      "file": "assets/audio/es/34f91de5683f919f6193.mp3",
+      "sha256": "9d38b8408054ea82729db78df62ff3adcc58d374441c5211717b571ba51f1cf3"
+    },
+    {
+      "language": "es",
+      "number": 13,
+      "expected": "trece",
+      "recognized": "¡Tres E!",
+      "recognitionMatch": false,
+      "numericChoiceSameBytes": true,
+      "file": "assets/audio/es/4a6a1a6b8189d442b2b2.mp3",
+      "sha256": "c8a71851e2681f068681df2cc1e682e7528e87f66d2a6ab6d0067e434c33b168"
+    },
+    {
+      "language": "es",
+      "number": 14,
+      "expected": "catorce",
+      "recognized": "¡Catorce!",
+      "recognitionMatch": true,
+      "numericChoiceSameBytes": true,
+      "file": "assets/audio/es/01a51bc80ac551caa732.mp3",
+      "sha256": "b9a9140ca624d713d0011daeaff8f1dbd50c84cb86217f01043d866c52338621"
+    },
+    {
+      "language": "es",
+      "number": 15,
+      "expected": "quince",
+      "recognized": "Quince",
+      "recognitionMatch": true,
+      "numericChoiceSameBytes": true,
+      "file": "assets/audio/es/7dad2cc127ab2e70589f.mp3",
+      "sha256": "34dee28f2a2e9818dde71be4c2da8cb8548829fa482d0043ceb97c74e9e7a83f"
+    },
+    {
+      "language": "es",
+      "number": 16,
+      "expected": "dieciséis",
+      "recognized": "¿De qué se dice?",
+      "recognitionMatch": false,
+      "numericChoiceSameBytes": true,
+      "file": "assets/audio/es/a7c75aa99abdea2718a7.mp3",
+      "sha256": "77bb9f4b8720d378178b5b31afba300ad4e936834754a167487682c52e554605"
+    },
+    {
+      "language": "es",
+      "number": 17,
+      "expected": "diecisiete",
+      "recognized": "17",
+      "recognitionMatch": true,
+      "numericChoiceSameBytes": true,
+      "file": "assets/audio/es/c579430e53f6ef8f3085.mp3",
+      "sha256": "10e66bf68f32840a3477130fe48f745d1bc309c72fa0063bea2137d638ec86d2"
+    },
+    {
+      "language": "es",
+      "number": 18,
+      "expected": "dieciocho",
+      "recognized": "18",
+      "recognitionMatch": true,
+      "numericChoiceSameBytes": true,
+      "file": "assets/audio/es/9e35415c4a6ca5e82fdf.mp3",
+      "sha256": "b4540e57bbe2c7753286329faf45a1960fd484dce5f5fb8d73ec611fe3bfd78a"
+    },
+    {
+      "language": "es",
+      "number": 19,
+      "expected": "diecinueve",
+      "recognized": "Diecinueve.",
+      "recognitionMatch": true,
+      "numericChoiceSameBytes": true,
+      "file": "assets/audio/es/f53ea8bf944461b752f2.mp3",
+      "sha256": "d37f82676d41ff7c6e7fe5a138c8ef9ba266e8ed95b6b9ef949a9b71583f7638"
+    },
+    {
+      "language": "es",
+      "number": 20,
+      "expected": "veinte",
+      "recognized": "¡BENTIR!",
+      "recognitionMatch": false,
+      "numericChoiceSameBytes": true,
+      "file": "assets/audio/es/1e94a416285b1b7eacad.mp3",
+      "sha256": "3a273aa76367776bdda5e118e97876351f0c52a03dac0769699076aa5f429105"
+    }
+  ],
+  "audioBuild": "kokoro-v1-misaki094-v2"
+}

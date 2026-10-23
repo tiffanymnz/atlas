@@ -32,3 +32,10 @@ test("screen audio uses the active hint and diagnostic rather than HTML labels o
   const builder={audio:"Make dots",type:"buildGroup",targetCount:2,wrongFeedback:"Count again",tooManyFeedback:"Remove a dot",correctFeedback:"Two dots"};
   assert.deepEqual(countingAudioParts(builder,{builtCount:3,feedback:{}}),["Make dots","Remove a dot"]);
 });
+
+test("numeric choices and number names share the exact same recording",()=>{
+  const names={en:"zero one two three four five six seven eight nine ten eleven twelve thirteen fourteen fifteen sixteen seventeen eighteen nineteen twenty".split(" "),
+    es:"cero uno dos tres cuatro cinco seis siete ocho nueve diez once doce trece catorce quince dieciséis diecisiete dieciocho diecinueve veinte".split(" ")};
+  for(const [language,words] of Object.entries(names)) for(let n=0;n<words.length;n++)
+    assert.deepEqual(bundledAudioUrls([String(n)],language,root),bundledAudioUrls([words[n]],language,root));
+});

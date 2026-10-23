@@ -3,6 +3,10 @@
 Date: October 23, 2026. Scope: the existing learner, all 34 picker entries,
 English and Spanish. This is engineering evidence, not learner approval.
 
+Latest follow-up: `sprint18_audio_layout_review.md` supersedes the initial
+audio-build conclusions below. It records the phoneme-conversion correction,
+canonical number clips, recognition flags, and representative narrow-layout checks.
+
 ## Follow-up: bundled counting audio
 
 The earlier speech failure below prompted a bundled-audio implementation.

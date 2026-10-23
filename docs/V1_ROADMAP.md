@@ -39,7 +39,7 @@ sign-off below applies to earlier releases only.
 - Recovery testing for malformed and versioned saved data.
 - Full end-to-end completion and restart checks in both languages.
 
-The current local suite passes 134 tests plus curriculum, knowledge, research,
+The current local suite passes 136 tests plus curriculum, knowledge, research,
 memory, and release audits. Production deployment and smoke verification remain
 required for each release commit. Automated checks do not prove novice comprehension.
 
@@ -57,6 +57,9 @@ required for each release commit. Automated checks do not prove novice comprehen
 - Short counting lessons use bundled English/Spanish synthetic audio. Voice
   quality and physical iPhone playback remain unverified. Later lessons still
   depend on device speech; approved human narration is not included.
+- The initial audio generator's phoneme conversion was corrected. Current
+  pronunciation flags and 56 narrow-layout checks are recorded in
+  `../curriculum/reviews/sprint18_audio_layout_review.md`; this is not voice approval.
 - Route tests cover optional-review skipping, stopping before pairing, readiness,
   lesson switching, reopening, and preservation of previous full-lesson completion.
 - No new features are needed to reach the next review checkpoint.

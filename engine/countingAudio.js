@@ -1,4 +1,4 @@
-import {countingAudio} from "../assets/audio/catalog.js";
+import {countingAudio} from "../assets/audio/catalog.js?v=2";
 
 export function bundledAudioUrls(parts,language,engineUrl){
   if(!parts.length) return null;
