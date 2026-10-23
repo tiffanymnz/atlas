@@ -3,13 +3,15 @@ import { createAnalytics, showAnalytics } from "./analytics-engine/analyticsEngi
 import { recommendNext } from "./recommendation-engine/recommendationEngine.js";
 import { assessNextLessonReadiness } from "./recommendation-engine/readiness.js";
 import { nextTeachingOption } from "./recommendation-engine/lessonSequence.js";
-import { getPreferences, savePreferences, ensureLessonRecord, saveLessonRecord, getAllLessonRecords, reviewSuggested, archiveCompletedAttempt, newLessonAttempt, resolveLessonPosition, getLastLessonPath, saveLastLessonPath } from "./state-store/stateStore.js?v=1.6";
+import { getPreferences, savePreferences, ensureLessonRecord, saveLessonRecord, getAllLessonRecords, reviewSuggested, archiveCompletedAttempt, newLessonAttempt, resolveLessonPosition, getLastLessonPath, saveLastLessonPath } from "./state-store/stateStore.js?v=1.7";
 import { loadLocalizedLesson } from "./i18n/lessonLocale.js";
 import { createRecordedNarration, recordedNarrationUrl } from "./recordedNarration.js";
 
-import { configureSpeech } from "./speechVoice.js";
+import { createSpeechPlayback } from "./speechPlayback.js";
 
 const narration=createRecordedNarration();
+const speech=createSpeechPlayback({synthesis:window.speechSynthesis,
+  makeUtterance:typeof window.SpeechSynthesisUtterance==="function"?text=>new window.SpeechSynthesisUtterance(text):null});
 
 let lesson = null, lessonPath = null, index = 0, selected = null, hintIndex = 0;
 let dark = false, big = false, reduce = false, language = "en";
@@ -81,9 +83,22 @@ function audioButton(screen){
   const label=numberOnlyAudio() && isNumberModel(screen)?copy().hearNumber:copy().listen;
   return `<button class="btn listenBtn" type="button" id="listenBtn" aria-pressed="false">🔊 ${label}</button>`;
 }
-function base(screen){ const progress=pct(); return `<div class="screenTools"><span class="badge">${screen.label || screen.stage || copy().lesson}</span>${audioButton(screen)}</div><div class="progress" role="progressbar" aria-label="${copy().progressBar}" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${progress}"><span style="width:${progress}%"></span></div><h1 id="screenTitle">${screen.title}</h1>`; }
+function base(screen){ const progress=pct(); return `<div class="screenTools"><span class="badge">${screen.label || screen.stage || copy().lesson}</span>${audioButton(screen)}</div><p id="audioStatus" role="status" hidden></p><div class="progress" role="progressbar" aria-label="${copy().progressBar}" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${progress}"><span style="width:${progress}%"></span></div><h1 id="screenTitle">${screen.title}</h1>`; }
 const NUMBER_WORDS={en:["zero","one","two","three","four","five","six","seven","eight","nine","ten","eleven","twelve","thirteen","fourteen","fifteen","sixteen","seventeen","eighteen","nineteen","twenty"],es:["cero","uno","dos","tres","cuatro","cinco","seis","siete","ocho","nueve","diez","once","doce","trece","catorce","quince","dieciséis","diecisiete","dieciocho","diecinueve","veinte"]};
-let screenUtterance=null;
+function reportAudioError(){
+  resetListenButton();
+  const status=el("audioStatus");
+  if(status){status.hidden=false;status.textContent=language==="es"
+    ?"No se pudo reproducir el audio. Toca Escuchar para intentarlo de nuevo."
+    :"Audio could not play. Tap Listen to try again.";}
+  const countStatus=el("countSpeech");
+  if(countStatus) countStatus.textContent=language==="es"?"No se pudo reproducir el audio.":"Audio could not play.";
+}
+function playSpeech(text,numberOnly=false){
+  narration.stop();
+  const status=el("audioStatus");if(status) status.hidden=true;
+  speech.play(text,language,{numberOnly,onFinish:resetListenButton,onError:reportAudioError});
+}
 function screenSpeechText(screen){
   if(numberOnlyAudio() && isNumberModel(screen)) return NUMBER_WORDS[language][screen.visual.count];
   if(shortGuidanceAudio()){
@@ -112,7 +127,7 @@ function bindScreenAudio(screen){
       button.textContent=`■ ${copy().stopAudio}`;
       button.setAttribute("aria-pressed","true");
       narration.play(recording,resetListenButton,()=>{
-        resetListenButton();
+        reportAudioError();
         button.textContent=copy().audioUnavailable;
       });
     };
@@ -122,25 +137,20 @@ function bindScreenAudio(screen){
   if(!canSpeak){
     button.disabled=true;
     button.textContent=copy().audioUnavailable;
+    reportAudioError();
+    button.textContent=copy().audioUnavailable;
     return;
   }
   button.onclick=()=>{
-    if(screenUtterance && window.speechSynthesis.speaking){
+    if(speech.playing){
       narration.stop();
-      window.speechSynthesis.cancel();
-      screenUtterance=null;
+      speech.stop();
       resetListenButton();
       return;
     }
-    narration.stop();
-    window.speechSynthesis.cancel();
-    screenUtterance=new SpeechSynthesisUtterance(screenSpeechText(screen));
-    configureSpeech(screenUtterance,language,window.speechSynthesis,numberOnlyAudio());
-    screenUtterance.onend=()=>{screenUtterance=null;resetListenButton();};
-    screenUtterance.onerror=()=>{screenUtterance=null;resetListenButton();};
     button.textContent=`■ ${copy().stopAudio}`;
     button.setAttribute("aria-pressed","true");
-    window.speechSynthesis.speak(screenUtterance);
+    playSpeech(screenSpeechText(screen),numberOnlyAudio());
   };
 }
 function bindCountingAudio(){
@@ -170,18 +180,13 @@ function bindCountingAudio(){
         ? language==="es"?`${number} — ${word}. Hay ${word} puntos.`:`${number} — ${word}. There are ${word} dots.`
         : `${number} — ${word}`;
       if(canSpeak){
-        narration.stop();
-        window.speechSynthesis.cancel();
-        screenUtterance=null;
         resetListenButton();
-        const spoken=new SpeechSynthesisUtterance(word);
-        configureSpeech(spoken,language,window.speechSynthesis,true);
-        window.speechSynthesis.speak(spoken);
+        playSpeech(word,true);
       }
     };
   }
 }
-function stopCountingAudio(){ narration.stop(); if("speechSynthesis" in window) window.speechSynthesis.cancel(); screenUtterance=null; }
+function stopCountingAudio(){ narration.stop(); speech.stop(); }
 
 function buildCount(state,limit){
   return Number.isInteger(state.builtCount)?Math.min(limit,Math.max(0,state.builtCount)):0;
@@ -397,7 +402,7 @@ function render(){
       : language==="es"
         ? "Terminaste la lección. Repasa y vuelve a intentarlo: las prácticas independiente, de recuerdo y de transferencia deben resolverse correctamente sin pistas ni intentos previos. Esto no prueba comprensión por sí solo."
         : "You finished the lesson. Review and try again: independent practice, recall, and transfer need correct first answers without hints. This alone does not prove understanding.";
-    root.innerHTML = `<div class="screenTools">${audioButton()}</div>`+renderComplete(screen,recommendation,hasNext&&readiness.ready,completionCopy);
+    root.innerHTML = `<div class="screenTools">${audioButton()}</div><p id="audioStatus" role="status" hidden></p>`+renderComplete(screen,recommendation,hasNext&&readiness.ready,completionCopy);
     bindScreenAudio(screen);
     el("restartBtn").onclick = restart;
     const reviewBtn = el("reviewBtn");
@@ -415,11 +420,7 @@ function bindChoiceScreen(screen){
       if(state.submittedCorrect) return;
       selected = Number(btn.dataset.i);
       if(shortGuidanceAudio() && screen.speakChoices!==false && "speechSynthesis" in window && "SpeechSynthesisUtterance" in window){
-        narration.stop();
-        window.speechSynthesis.cancel();
-        screenUtterance=new SpeechSynthesisUtterance(screen.choices[selected].text);
-        configureSpeech(screenUtterance,language,window.speechSynthesis);
-        window.speechSynthesis.speak(screenUtterance);
+        playSpeech(screen.choices[selected].text);
       }
       state.selected=selected;
       if(state.feedback?.kind==="warning"){state.feedback=null;el("feedback").style.display="none";}

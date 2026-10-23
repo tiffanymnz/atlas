@@ -4,8 +4,13 @@ const LEARNING_KEY = "atlas.learning.v1";
 const LAST_LESSON_KEY = "atlas.lastLesson.v1";
 
 function storage() { try { return globalThis.localStorage; } catch { return null; } }
-function read(key, fallback) { try { const value=storage()?.getItem(key); return value?JSON.parse(value):fallback; } catch { return fallback; } }
-function write(key, value) { try { storage()?.setItem(key,JSON.stringify(value)); return true; } catch { return false; } }
+export function learningStorageKey(key,search=globalThis.location?.search||""){
+  const practice=new URLSearchParams(search).get("practice");
+  return key!==PREFERENCES_KEY && practice && /^[A-Za-z0-9_-]{1,64}$/.test(practice)
+    ? `atlas.practice.${practice}.${key}` : key;
+}
+function read(key, fallback) { try { const value=storage()?.getItem(learningStorageKey(key)); return value?JSON.parse(value):fallback; } catch { return fallback; } }
+function write(key, value) { try { storage()?.setItem(learningStorageKey(key),JSON.stringify(value)); return true; } catch { return false; } }
 function attempt(){ return {id:globalThis.crypto?.randomUUID?.()||`attempt-${Date.now()}-${Math.random().toString(16).slice(2)}`,startedAt:new Date().toISOString(),completedAt:null,completed:false,events:[],summary:null}; }
 function object(value){ return value&&typeof value==="object"&&!Array.isArray(value); }
 function clone(value){ try { return structuredClone(value); } catch { return JSON.parse(JSON.stringify(value)); } }
@@ -107,5 +112,5 @@ export function resolveLessonPosition(record,lesson){
   record.screenId=typeof screens[resolved]?.id==="string"?screens[resolved].id:null;
   return resolved;
 }
-export function saveLastLessonPath(path){ try { storage()?.setItem(LAST_LESSON_KEY,path); return true; } catch { return false; } }
-export function getLastLessonPath(){ try { return storage()?.getItem(LAST_LESSON_KEY); } catch { return null; } }
+export function saveLastLessonPath(path){ try { storage()?.setItem(learningStorageKey(LAST_LESSON_KEY),path); return true; } catch { return false; } }
+export function getLastLessonPath(){ try { return storage()?.getItem(learningStorageKey(LAST_LESSON_KEY)); } catch { return null; } }

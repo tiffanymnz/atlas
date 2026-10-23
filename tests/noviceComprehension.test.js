@@ -80,7 +80,7 @@ test("counting model speaks number words without using robotic full-screen narra
   assert.match(html,/id="countSpeech" role="status" aria-live="polite"/);
   const engine=fs.readFileSync(new URL("../engine/lessonEngine.js",import.meta.url),"utf8");
   assert.match(engine,/SpeechSynthesisUtterance/);
-  assert.match(engine,/speechSynthesis\.cancel/);
+  assert.match(engine,/speech\.stop/);
   assert.match(engine,/id="listenBtn"/);
   assert.match(engine,/if\(numberOnlyAudio\(\) && !isNumberModel\(screen\) && !recordedNarrationUrl\(screen,language,import.meta.url\)\) return ""/);
   assert.match(engine,/NUMBER_WORDS\[language\]\[screen\.visual\.count\]/);

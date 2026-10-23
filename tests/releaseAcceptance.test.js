@@ -18,7 +18,7 @@ class MemoryStorage{
 }
 
 for(const language of ["en","es"]){
-  test(`all lessons complete and restart end to end in ${language}`,async()=>{
+  test(`baseline lesson data archives completion and restarts in ${language}`,async()=>{
     globalThis.localStorage=new MemoryStorage();
     const completed=[];
     for(const name of lessonNames){

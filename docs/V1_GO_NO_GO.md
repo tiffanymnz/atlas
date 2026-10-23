@@ -1,5 +1,11 @@
 # Atlas V1 Go/No-Go Checklist
 
+This is the historical September 16 sign-off, not approval for Sprint 18.
+The October 23 Sprint 18 regression review is recorded in
+`../curriculum/reviews/sprint18_runtime_regression.md`. Current device audio,
+mobile layout, and first-time learner evidence are still pending; the earlier
+checked boxes below do not satisfy those gates for changed builds.
+
 ## Automated and repository gates
 
 - [x] `release.json` identifies `1.0.0`, its September 16 release date, and the October 18 target.

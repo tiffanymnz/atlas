@@ -6,6 +6,7 @@ import {
   getAllLessonRecords,
   getLastLessonPath,
   getPreferences,
+  learningStorageKey,
   newLessonAttempt,
   recoverLearningState,
   reviewSuggested,
@@ -25,6 +26,27 @@ class MemoryStorage {
 const lesson=id=>({metadata:{id,title:`Lesson ${id}`}});
 
 test.beforeEach(()=>{ globalThis.localStorage=new MemoryStorage(); });
+
+test("fresh preview runs isolate saved answers and last lesson without erasing normal history",()=>{
+  const previous=globalThis.location;
+  try{
+    globalThis.location={search:""};
+    const saved=ensureLessonRecord(lesson("one"),"one.json");
+    saved.screenStates.question={selected:1,submittedCorrect:true};
+    saved.index=2;saveLessonRecord("one",saved);saveLastLessonPath("one.json");
+    globalThis.location={search:"?practice=regression2"};
+    const fresh=ensureLessonRecord(lesson("one"),"one.json");
+    assert.deepEqual(fresh.screenStates,{});assert.equal(fresh.index,0);
+    assert.equal(getLastLessonPath(),null);
+    fresh.screenStates.question={selected:0};saveLessonRecord("one",fresh);saveLastLessonPath("fresh.json");
+    assert.equal(ensureLessonRecord(lesson("one"),"one.json").screenStates.question.selected,0);
+    assert.equal(getLastLessonPath(),"fresh.json");
+    assert.equal(learningStorageKey("atlas.preferences.v1"),"atlas.preferences.v1");
+    globalThis.location={search:""};
+    assert.equal(ensureLessonRecord(lesson("one"),"one.json").screenStates.question.submittedCorrect,true);
+    assert.equal(getLastLessonPath(),"one.json");
+  }finally{if(previous===undefined) delete globalThis.location;else globalThis.location=previous;}
+});
 
 test("accessibility preferences survive a reload",()=>{
   savePreferences({dark:true,big:true,reduce:true,language:"es"});

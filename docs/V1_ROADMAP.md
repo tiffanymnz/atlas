@@ -4,10 +4,11 @@ Target release: October 18, 2026.
 
 Atlas V1 is a focused, memory-first bilingual GED comparison-learning release. The broader product vision remains valid, but approximately 150 concept pages, mobile apps, Atlas Studio, and a teacher dashboard are outside this V1 deadline.
 
-Current checkpoint (October 1, 2026 UTC): the novice counting foundation is
-being prepared on `sprint-18-small-number-foundation`. It adds a prerequisite
+Current checkpoint (October 23, 2026 UTC): the novice counting foundation is
+published for testing on `sprint-18-small-number-foundation`. It adds a prerequisite
 route before comparison; it does not expand V1 into a complete early-childhood
-curriculum. These local changes are not yet published. Earlier production
+curriculum. Audio and saved-answer issues prompted another regression review.
+See `../curriculum/reviews/sprint18_runtime_regression.md`. Earlier production
 sign-off below applies to earlier releases only.
 
 ## Release scope
@@ -38,7 +39,7 @@ sign-off below applies to earlier releases only.
 - Recovery testing for malformed and versioned saved data.
 - Full end-to-end completion and restart checks in both languages.
 
-The current local suite passes 120 tests plus curriculum, knowledge, research,
+The current local suite passes 128 tests plus curriculum, knowledge, research,
 memory, and release audits. Production deployment and smoke verification remain
 required for each release commit. Automated checks do not prove novice comprehension.
 
@@ -48,7 +49,7 @@ required for each release commit. Automated checks do not prove novice comprehen
 - Release notes, known limitations, go/no-go gates, and rollback instructions.
 - Production Chromium and physical iPhone/Safari sign-off completed. Unavailable Firefox desktop and Chrome/Android checks were explicitly accepted as release risks.
 
-### Counting checkpoint — local review complete; release pending
+### Counting checkpoint — branch published; release pending
 
 - Short teaching route: 1–3, zero, 4–6, 7–8, 9–10, 11–12, 13–15, 16–17, 18–20.
 - Original full counting lessons and saved attempts remain intact as optional reviews.
@@ -61,9 +62,8 @@ required for each release commit. Automated checks do not prove novice comprehen
 
 Remaining release work, in order:
 
-1. Publish the preserved branch through an authorized working GitHub path.
-   The cloud-browser commit action was blocked and Git credentials are unavailable;
-   no merge or deployment is implied by local commits.
+1. Publish the regression fixes to the existing test branch. GitHub CLI access
+   now works; publication does not imply a merge or production deployment.
 2. Smoke-test the published counting route, mobile layouts, interim voice,
    refresh/reopen, language switching, and completion on the actual build.
 3. Review Spanish independently and revise specific findings.
