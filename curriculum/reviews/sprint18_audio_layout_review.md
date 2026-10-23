@@ -75,3 +75,12 @@ iPhone playback. Spanish is not signed off. Pairing and later lessons still
 depend on device speech; their audio coverage is separate remaining work.
 First-exposure learning effectiveness also remains unverified. Keep the branch
 separate from main and retain all branches.
+
+`tools/qa/audio-review.html` provides direct number and direction playback for
+adult listening review, initially in English. It does not display recognizer
+guesses or record approval. It avoids requiring another complete lesson run.
+
+Post-publish runtime smoke check: `3da42f7a3839f489415e64dfeb26428b453b643c`
+loaded the fresh introduction; English and Spanish narration both started
+and finished without an audio error. This verifies media events, not audibility
+or pronunciation quality on a physical device.

@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Atlas voice review</title>
+<style>
+body{max-width:760px;margin:auto;padding:24px;background:#f7f6f1;color:#183344;font:18px/1.5 system-ui}
+h1{font-size:30px}p{max-width:640px}.toolbar{display:flex;gap:12px;flex-wrap:wrap;margin:20px 0}
+select,button{font:inherit;min-height:48px;padding:10px 16px;border:1px solid #315c7c;border-radius:12px;background:white;color:inherit}
+button:focus-visible,select:focus-visible{outline:3px solid #315c7c;outline-offset:3px}
+#numbers{display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:12px}
+audio{width:100%;margin:16px 0}#status{min-height:2em}
+</style>
+<h1>Atlas voice review</h1>
+<p>For adult listening review. Hear the numbers without working through a lesson. Check whether each word is clear and the directions sound natural. This page does not approve the voice or replace device testing.</p>
+<label for="language">Language</label>
+<select id="language"><option value="en">English</option><option value="es">Español</option></select>
+<div class="toolbar"><button id="directions" type="button" disabled>Hear directions</button></div>
+<audio id="player" controls preload="none"></audio>
+<p id="status" role="status">Loading voice samples…</p>
+<div id="numbers" aria-label="Number voice samples"></div>
+<script type="module">
+import {countingAudio} from '../../assets/audio/catalog.js?v=2';
+const select=document.getElementById('language'),player=document.getElementById('player'),status=document.getElementById('status');
+const words={en:'zero one two three four five six seven eight nine ten eleven twelve thirteen fourteen fifteen sixteen seventeen eighteen nineteen twenty'.split(' '),es:'cero uno dos tres cuatro cinco seis siete ocho nueve diez once doce trece catorce quince dieciséis diecisiete dieciocho diecinueve veinte'.split(' ')};
+const lessons={};
+async function play(text,label){
+  player.pause();
+  const path=countingAudio[select.value]?.[text];
+  if(!path){status.textContent='This sample is unavailable.';return;}
+  player.src=new URL('../../'+path,location.href).href;
+  status.textContent='Playing: '+label;
+  try{await player.play();}catch{status.textContent='Audio could not play. Tap the sample to try again.';}
+}
+function render(){
+  player.pause();status.textContent='Choose a number or hear the directions.';
+  const list=document.getElementById('numbers');list.replaceChildren();
+  words[select.value].forEach((word,number)=>{
+    const button=document.createElement('button');button.type='button';button.textContent=number+' — '+word;
+    button.onclick=()=>play(word,button.textContent);list.append(button);
+  });
+}
+select.onchange=render;
+player.onerror=()=>{status.textContent='Audio could not load. Tap the sample to try again.';};
+player.onended=()=>{status.textContent='Finished. You can replay this sample.';};
+try{
+  for(const [language,folder] of [['en','lessons'],['es','translations/es']]){
+    const response=await fetch('../../curriculum/'+folder+'/lesson000p.json');
+    if(!response.ok)throw new Error('Missing directions');lessons[language]=await response.json();
+  }
+  document.getElementById('directions').disabled=false;
+  document.getElementById('directions').onclick=()=>play(lessons[select.value].screens[0].audio,'directions');
+  render();
+}catch{status.textContent='Voice samples could not load. Reload this page to retry.';}
+</script>
+</html>
