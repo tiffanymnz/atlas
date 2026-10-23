@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Atlas layout inspection</title>
+<style>
+  body{margin:20px;background:#f6f5f0;color:#223d4b;font:16px system-ui}
+  h1{font-size:24px}p{max-width:760px;line-height:1.5}
+  nav{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:20px}
+  button{font:inherit;padding:12px;border:1px solid #315c7c;border-radius:10px;background:white;color:inherit}
+  button[aria-pressed="true"]{background:#315c7c;color:white}
+  iframe{display:block;box-sizing:content-box;width:375px;height:780px;border:2px solid #315c7c;background:white}
+</style>
+<h1>Atlas layout inspection</h1>
+<p>This developer page loads the real learner at a narrow CSS viewport. It checks responsive layout; it does not emulate Safari, a touchscreen, or device audio.</p>
+<nav aria-label="Learner viewport width">
+  <button type="button" data-width="320" aria-pressed="false">320 px</button>
+  <button type="button" data-width="375" aria-pressed="true">375 px</button>
+  <button type="button" data-width="390" aria-pressed="false">390 px</button>
+  <button type="button" data-width="430" aria-pressed="false">430 px</button>
+</nav>
+<iframe id="learner" title="Atlas learner viewport" src="../../apps/learner/?practice=mobile-layout-20261023"></iframe>
+<script>
+  for(const button of document.querySelectorAll('[data-width]')) button.onclick=()=>{
+    document.getElementById('learner').style.width=`${button.dataset.width}px`;
+    for(const item of document.querySelectorAll('[data-width]')) item.setAttribute('aria-pressed',String(item===button));
+  };
+</script>
+</html>
