@@ -3,12 +3,15 @@
 Models and Python dependencies are build-only and never shipped to learners.
 """
 import argparse
+import os
 import hashlib
 import json
 import pathlib
 import re
 import subprocess
 import tempfile
+
+os.environ["ORT_DISABLE_TELEMETRY"]="1"
 
 ROOT = pathlib.Path(__file__).resolve().parents[2]
 VOICE_BUILD_ID = "kokoro-v1-misaki094-v2"
@@ -70,6 +73,7 @@ def main():
         return
     import numpy as np
     import onnxruntime as rt
+    rt.disable_telemetry_events()
     import soundfile as sf
     from kokoro_onnx import Kokoro
     from misaki.espeak import EspeakFallback,EspeakG2P

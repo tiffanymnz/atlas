@@ -1,0 +1,404 @@
+{
+  "version": "sequence-number-candidate-v1",
+  "status": "unapproved candidate",
+  "method": "One continuous 0–20 render per language; split at model phoneme-duration boundaries; normalize the full render once.",
+  "limitation": "Phoneme timing is not a human pronunciation or naturalness judgment. Review for cut sounds and unwanted carryover.",
+  "languages": {
+    "en": {
+      "voice": "af_heart",
+      "fullSequence": "assets/audio/candidates/en/count-0-20.mp3",
+      "fullSampleCount": 254400,
+      "sampleRate": 24000,
+      "fullSha256": "0c6e39f0b0d1edd84eeb6e5b76d1eee64e2cdf4e89faadcc7b8badbcd397732e",
+      "numbers": [
+        {
+          "number": 0,
+          "word": "zero",
+          "file": "assets/audio/candidates/en/number-00.mp3",
+          "sha256": "36740a2787fbe4819e764159692d08ebe289c13d59b99a1b2c92cc4c2b89fd4f",
+          "startSample": 10800,
+          "endSample": 23400,
+          "sampleRate": 24000
+        },
+        {
+          "number": 1,
+          "word": "one",
+          "file": "assets/audio/candidates/en/number-01.mp3",
+          "sha256": "646f8405431a9fab9d68556e7994ca30990b69d0d7221493d9a2e6e6463810c7",
+          "startSample": 23400,
+          "endSample": 30000,
+          "sampleRate": 24000
+        },
+        {
+          "number": 2,
+          "word": "two",
+          "file": "assets/audio/candidates/en/number-02.mp3",
+          "sha256": "b232ad3a43dd4cbeb15e4c7d4a183ed6672ca636517e07ae0c58423619f65777",
+          "startSample": 30000,
+          "endSample": 38400,
+          "sampleRate": 24000
+        },
+        {
+          "number": 3,
+          "word": "three",
+          "file": "assets/audio/candidates/en/number-03.mp3",
+          "sha256": "3d6553c75847baec8a5b3fd04955468c8f3fca1915a9702cfe01ae72e07f9c5f",
+          "startSample": 38400,
+          "endSample": 46800,
+          "sampleRate": 24000
+        },
+        {
+          "number": 4,
+          "word": "four",
+          "file": "assets/audio/candidates/en/number-04.mp3",
+          "sha256": "9e3e3464c9c8359737cebbb5abfc43b7a1ce17fca7b1cceb9c340d15b280582f",
+          "startSample": 46800,
+          "endSample": 54000,
+          "sampleRate": 24000
+        },
+        {
+          "number": 5,
+          "word": "five",
+          "file": "assets/audio/candidates/en/number-05.mp3",
+          "sha256": "c737904b4b193db31699a850aff0878637045c3dc89dd62ec72b5639082770cb",
+          "startSample": 54000,
+          "endSample": 63000,
+          "sampleRate": 24000
+        },
+        {
+          "number": 6,
+          "word": "six",
+          "file": "assets/audio/candidates/en/number-06.mp3",
+          "sha256": "0bd2b4910c6021d2164fc4450863daaf45c2c491145fb3c807544c65757b50d7",
+          "startSample": 63000,
+          "endSample": 76200,
+          "sampleRate": 24000
+        },
+        {
+          "number": 7,
+          "word": "seven",
+          "file": "assets/audio/candidates/en/number-07.mp3",
+          "sha256": "dc5aeff6ed8768d107e9c568f3bba6dce800b1248b6260ef5a4d45d7dac4858b",
+          "startSample": 76200,
+          "endSample": 85800,
+          "sampleRate": 24000
+        },
+        {
+          "number": 8,
+          "word": "eight",
+          "file": "assets/audio/candidates/en/number-08.mp3",
+          "sha256": "794b9a54778bf921378e943ff53bc431e658f0290bee2ace4077acc05ae15f27",
+          "startSample": 85800,
+          "endSample": 92400,
+          "sampleRate": 24000
+        },
+        {
+          "number": 9,
+          "word": "nine",
+          "file": "assets/audio/candidates/en/number-09.mp3",
+          "sha256": "49ef01786afed9962c6cefc8522005a0e7d6b2d91706f170a0071a1ac9e66272",
+          "startSample": 92400,
+          "endSample": 102600,
+          "sampleRate": 24000
+        },
+        {
+          "number": 10,
+          "word": "ten",
+          "file": "assets/audio/candidates/en/number-10.mp3",
+          "sha256": "523f299b307230c5466af9730ee882c2828360f78e70231588423046c46aa4f5",
+          "startSample": 102600,
+          "endSample": 111600,
+          "sampleRate": 24000
+        },
+        {
+          "number": 11,
+          "word": "eleven",
+          "file": "assets/audio/candidates/en/number-11.mp3",
+          "sha256": "f504812510ed656b804a2d81262114dc98dce9a5a0234ec993bd9356f11e4293",
+          "startSample": 111600,
+          "endSample": 122400,
+          "sampleRate": 24000
+        },
+        {
+          "number": 12,
+          "word": "twelve",
+          "file": "assets/audio/candidates/en/number-12.mp3",
+          "sha256": "600c06c79b7e5e9067fddce3c6772bd522df1dbc72617837c6ecacd5c1674b78",
+          "startSample": 122400,
+          "endSample": 133200,
+          "sampleRate": 24000
+        },
+        {
+          "number": 13,
+          "word": "thirteen",
+          "file": "assets/audio/candidates/en/number-13.mp3",
+          "sha256": "c847219877f2626c111f6e815e61f9b58457f649ef79eebaf568631f807968dc",
+          "startSample": 133200,
+          "endSample": 146400,
+          "sampleRate": 24000
+        },
+        {
+          "number": 14,
+          "word": "fourteen",
+          "file": "assets/audio/candidates/en/number-14.mp3",
+          "sha256": "2e82f1dbd23e853e3a030e5db2f0e7a0fe4e7f4b90fab64adad488d84924471a",
+          "startSample": 146400,
+          "endSample": 157800,
+          "sampleRate": 24000
+        },
+        {
+          "number": 15,
+          "word": "fifteen",
+          "file": "assets/audio/candidates/en/number-15.mp3",
+          "sha256": "eff3a2ee7f4001d9c8ba2455c5c0fefe629e60ca1901e156cc34750494a9a332",
+          "startSample": 157800,
+          "endSample": 171600,
+          "sampleRate": 24000
+        },
+        {
+          "number": 16,
+          "word": "sixteen",
+          "file": "assets/audio/candidates/en/number-16.mp3",
+          "sha256": "99ae30c9b7eef6a5c4b58caeb121907f14a489c6fe4b793d48c6ada59e4aedc0",
+          "startSample": 171600,
+          "endSample": 186600,
+          "sampleRate": 24000
+        },
+        {
+          "number": 17,
+          "word": "seventeen",
+          "file": "assets/audio/candidates/en/number-17.mp3",
+          "sha256": "051460c12aa1c8c59f65df05683ff15d08ee08c93ebe2f16dbc2d8398abc6e76",
+          "startSample": 186600,
+          "endSample": 204600,
+          "sampleRate": 24000
+        },
+        {
+          "number": 18,
+          "word": "eighteen",
+          "file": "assets/audio/candidates/en/number-18.mp3",
+          "sha256": "75c317e07cec82cafab7c9840b57e3350befed13e55a8562060863f359baf186",
+          "startSample": 204600,
+          "endSample": 218400,
+          "sampleRate": 24000
+        },
+        {
+          "number": 19,
+          "word": "nineteen",
+          "file": "assets/audio/candidates/en/number-19.mp3",
+          "sha256": "97f3b86960f81a3c9677f56aeaa4545eef171f33bcd34bf2023d3dbcd24c1b41",
+          "startSample": 218400,
+          "endSample": 232800,
+          "sampleRate": 24000
+        },
+        {
+          "number": 20,
+          "word": "twenty",
+          "file": "assets/audio/candidates/en/number-20.mp3",
+          "sha256": "c779f3261302b42b32c6a44c2ce67fdd9f60e7c846471e51800526ca07a7dab1",
+          "startSample": 232800,
+          "endSample": 253800,
+          "sampleRate": 24000
+        }
+      ]
+    },
+    "es": {
+      "voice": "ef_dora",
+      "fullSequence": "assets/audio/candidates/es/count-0-20.mp3",
+      "fullSampleCount": 227400,
+      "sampleRate": 24000,
+      "fullSha256": "0684907479e0c132b5199e83b059b6988d17bbbcf2fe78f60856a39617ab22b4",
+      "numbers": [
+        {
+          "number": 0,
+          "word": "cero",
+          "file": "assets/audio/candidates/es/number-00.mp3",
+          "sha256": "a50e4135acc67e5a94669f644d324aeb2ff57daa95acfc8c365e13e3ddddf77d",
+          "startSample": 6000,
+          "endSample": 14400,
+          "sampleRate": 24000
+        },
+        {
+          "number": 1,
+          "word": "uno",
+          "file": "assets/audio/candidates/es/number-01.mp3",
+          "sha256": "c1341af1eea47b05fdde8d78050753a42283e7c0de9c9033388851a8499afe42",
+          "startSample": 14400,
+          "endSample": 24600,
+          "sampleRate": 24000
+        },
+        {
+          "number": 2,
+          "word": "dos",
+          "file": "assets/audio/candidates/es/number-02.mp3",
+          "sha256": "5ec9d115479f6f60279ea6efeae8295788f855daffe02fa0e02a533244cdcb62",
+          "startSample": 24600,
+          "endSample": 32400,
+          "sampleRate": 24000
+        },
+        {
+          "number": 3,
+          "word": "tres",
+          "file": "assets/audio/candidates/es/number-03.mp3",
+          "sha256": "40d87e94dbfb90c7b375424bf1355ffaa185967bfef0a0b234e658a7e2570783",
+          "startSample": 32400,
+          "endSample": 40200,
+          "sampleRate": 24000
+        },
+        {
+          "number": 4,
+          "word": "cuatro",
+          "file": "assets/audio/candidates/es/number-04.mp3",
+          "sha256": "32d833948f6ecfac7b6ba30ef08edde2ab59c9de28e1e79aac10ccb467fb68b7",
+          "startSample": 40200,
+          "endSample": 49800,
+          "sampleRate": 24000
+        },
+        {
+          "number": 5,
+          "word": "cinco",
+          "file": "assets/audio/candidates/es/number-05.mp3",
+          "sha256": "32bb0962ba180edd448b51882fda50ed6ea22086d03c55b794badea67174243d",
+          "startSample": 49800,
+          "endSample": 58800,
+          "sampleRate": 24000
+        },
+        {
+          "number": 6,
+          "word": "seis",
+          "file": "assets/audio/candidates/es/number-06.mp3",
+          "sha256": "632f98d6743464d0f9fa054108f230fa358596df6bf0915d878506f9419f1fb3",
+          "startSample": 58800,
+          "endSample": 67200,
+          "sampleRate": 24000
+        },
+        {
+          "number": 7,
+          "word": "siete",
+          "file": "assets/audio/candidates/es/number-07.mp3",
+          "sha256": "f9e8f5796c0282079a33d4a67c3a4c708918a4e905b5bd1a91a897a0d3c06caf",
+          "startSample": 67200,
+          "endSample": 78000,
+          "sampleRate": 24000
+        },
+        {
+          "number": 8,
+          "word": "ocho",
+          "file": "assets/audio/candidates/es/number-08.mp3",
+          "sha256": "7a732222d84512bf3bc5bd195224d49d549a2de13d4704ce5b46748b619caa43",
+          "startSample": 78000,
+          "endSample": 85800,
+          "sampleRate": 24000
+        },
+        {
+          "number": 9,
+          "word": "nueve",
+          "file": "assets/audio/candidates/es/number-09.mp3",
+          "sha256": "231856783562959949c695d9ab7dcda7feb0e6af7996c9ba738b26698756d642",
+          "startSample": 85800,
+          "endSample": 93000,
+          "sampleRate": 24000
+        },
+        {
+          "number": 10,
+          "word": "diez",
+          "file": "assets/audio/candidates/es/number-10.mp3",
+          "sha256": "a6e858afbc63bac6ee5ff4857c94ab3134e9e2b5954ffb88431004cc8c26e45c",
+          "startSample": 93000,
+          "endSample": 100800,
+          "sampleRate": 24000
+        },
+        {
+          "number": 11,
+          "word": "once",
+          "file": "assets/audio/candidates/es/number-11.mp3",
+          "sha256": "70ff452b1b2dad33e10edf964531018ed4600d160ef7ea788eca8e2a4d0c3829",
+          "startSample": 100800,
+          "endSample": 109800,
+          "sampleRate": 24000
+        },
+        {
+          "number": 12,
+          "word": "doce",
+          "file": "assets/audio/candidates/es/number-12.mp3",
+          "sha256": "79c05b19d5ec7519b4bc0f1f673eee18aff194b5183c9ba374373ab1b0a62816",
+          "startSample": 109800,
+          "endSample": 119400,
+          "sampleRate": 24000
+        },
+        {
+          "number": 13,
+          "word": "trece",
+          "file": "assets/audio/candidates/es/number-13.mp3",
+          "sha256": "e27f897054a1edfe64197aa9a515906ecece140617198dff27f89b6d9faa23a9",
+          "startSample": 119400,
+          "endSample": 129000,
+          "sampleRate": 24000
+        },
+        {
+          "number": 14,
+          "word": "catorce",
+          "file": "assets/audio/candidates/es/number-14.mp3",
+          "sha256": "d25729d76abefe1e42b96a376c5e78e9c6de7923e98bda0175e4e2879a79aad7",
+          "startSample": 129000,
+          "endSample": 142800,
+          "sampleRate": 24000
+        },
+        {
+          "number": 15,
+          "word": "quince",
+          "file": "assets/audio/candidates/es/number-15.mp3",
+          "sha256": "38fc0a54cf00f1b92b377b853e3f204c7b896ce33c67e4f9e3eff6a29ce3f18a",
+          "startSample": 142800,
+          "endSample": 153600,
+          "sampleRate": 24000
+        },
+        {
+          "number": 16,
+          "word": "dieciséis",
+          "file": "assets/audio/candidates/es/number-16.mp3",
+          "sha256": "fa5219334a1eb760be1da6b0e417ff8a6411012c75c7ab322e35d468e0901ae9",
+          "startSample": 153600,
+          "endSample": 169200,
+          "sampleRate": 24000
+        },
+        {
+          "number": 17,
+          "word": "diecisiete",
+          "file": "assets/audio/candidates/es/number-17.mp3",
+          "sha256": "827db3ddda5b862dca5489c9211e90b09b58e781d3e66c63412ae24950e79911",
+          "startSample": 169200,
+          "endSample": 186600,
+          "sampleRate": 24000
+        },
+        {
+          "number": 18,
+          "word": "dieciocho",
+          "file": "assets/audio/candidates/es/number-18.mp3",
+          "sha256": "0f688f546622202f9feebe14c96c284cfaa7eb986ba1559b7aed2e90961a9216",
+          "startSample": 186600,
+          "endSample": 201000,
+          "sampleRate": 24000
+        },
+        {
+          "number": 19,
+          "word": "diecinueve",
+          "file": "assets/audio/candidates/es/number-19.mp3",
+          "sha256": "1e205d0d98a0262504974889c8ee4aedb8f8599a88af7de23c5c4b47a796b38f",
+          "startSample": 201000,
+          "endSample": 214800,
+          "sampleRate": 24000
+        },
+        {
+          "number": 20,
+          "word": "veinte",
+          "file": "assets/audio/candidates/es/number-20.mp3",
+          "sha256": "9dc77cd4bfca1cee221bb99a45acf90c4e4dcb8f8d25a6afc7ccb8b807b0c777",
+          "startSample": 214800,
+          "endSample": 226800,
+          "sampleRate": 24000
+        }
+      ]
+    }
+  }
+}

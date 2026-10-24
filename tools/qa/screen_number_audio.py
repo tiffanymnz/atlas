@@ -4,6 +4,7 @@ Build-only dependencies: faster-whisper==1.2.1, numpy, ffmpeg. A multilingual
 Whisper base model is downloaded to the supplied cache directory, not the repo.
 """
 import argparse
+import os
 import json
 import pathlib
 import re
@@ -11,6 +12,8 @@ import runpy
 import subprocess
 import unicodedata
 import hashlib
+
+os.environ["ORT_DISABLE_TELEMETRY"]="1"
 
 ROOT=pathlib.Path(__file__).resolve().parents[2]
 

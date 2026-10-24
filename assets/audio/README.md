@@ -57,3 +57,37 @@ records recognition mismatches for review and cannot approve naturalness,
 pronunciation, device playback, or independent learning. Short single words
 can yield recognizer errors. The current screening includes unresolved flags;
 these voices are not cleared for learner testing.
+
+## Continuous-count comparison candidate
+
+On October 24 the user reported inconsistent naturalness in both languages.
+`candidates/` therefore contains a separate experiment, not an approved fix.
+Each language is rendered once as a continuous count from zero to twenty,
+then split using the model's returned phoneme durations. The entire render
+is normalized once, rather than independently adjusting every number's gain.
+Each split includes a 15 ms leading margin, a 3 ms edge fade, and 80/120 ms
+silence before/after it. Check for cut sounds or carryover when listening.
+
+The same English and Spanish preset voices are used. This experiment tests
+context and consistency; it does not establish naturalness. All active learner
+clips remain unchanged. Use the version selector in `tools/qa/audio-review.html`
+to compare the same number, or play the candidate's full count.
+
+```sh
+python tools/build/generate_sequence_number_candidates.py --model /path/to/kokoro-v1.0.onnx --voices /path/to/voices-v1.0.bin
+```
+
+The candidate manifest records hashes and model-derived sample ranges for all
+42 number clips. Promotion into the learner requires an actual listening decision.
+
+## Build-runtime telemetry
+
+An October 24 build attempted unexpected Microsoft telemetry, and automatic
+approval review blocked further interaction with that process. The builders
+now set `ORT_DISABLE_TELEMETRY=1` before importing ONNX Runtime and call its
+disable API after import. The recognition helper sets the same opt-out before
+loading its dependencies. These are build-time scripts; the learner downloads
+audio files and does not load this model runtime. Validation after the incident
+used existing audio and did not rerun model inference.
+
+Opt-out reference: https://github.com/microsoft/onnxruntime/blob/main/docs/Privacy.md

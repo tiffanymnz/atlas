@@ -2,6 +2,30 @@
 
 Date: October 23, 2026. Test branch only; no production approval.
 
+## October 24 listening feedback
+
+The user reports that some numbers sound natural and others do not in both
+languages. This is a failed consistency/naturalness review, not voice approval.
+Pairing work is paused while number audio is addressed.
+
+A continuous-count comparison candidate is available separately from the
+active lesson clips. Model timing splits each full count into individual
+numbers, and one loudness adjustment is applied across the full recording.
+The review page offers both versions for the same number, plus the full count.
+It remains an unapproved experiment: splitting may introduce cut sounds or
+carryover, and consistent generation does not prove a better voice.
+
+Engineering checks: 137 tests pass, including candidate coverage, clip hashes,
+model timing ranges, and confirmation that active learner clips remain unchanged.
+All 42 candidate clips and both complete counts decode successfully. These
+checks do not override the user's failed naturalness review.
+
+Automatic review blocked further interaction with the build process after an
+unexpected Microsoft telemetry attempt. Build scripts now set the documented
+ONNX Runtime opt-out before dependency initialization. Remaining validation used
+existing outputs and did not rerun model inference. Payload contents were not
+established; no claim is made that the attempted disclosure was harmless.
+
 ## Confirmed generator defect and correction
 
 The initial bundled-audio build fed generic eSpeak phonemes directly into the
