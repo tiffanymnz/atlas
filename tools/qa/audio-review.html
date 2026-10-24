@@ -28,18 +28,22 @@ const version=document.getElementById('version');
 const words={en:'zero one two three four five six seven eight nine ten eleven twelve thirteen fourteen fifteen sixteen seventeen eighteen nineteen twenty'.split(' '),es:'cero uno dos tres cuatro cinco seis siete ocho nueve diez once doce trece catorce quince dieciséis diecisiete dieciocho diecinueve veinte'.split(' ')};
 const lessons={};
 let candidates=null;
+let playbackRun=0,active=false;
 async function playPath(path,label){
+  const run=++playbackRun;active=false;
   player.pause();
   if(!path){status.textContent='This sample is unavailable.';return;}
   player.src=new URL('../../'+path,location.href).href;
+  active=true;
   status.textContent='Playing: '+label;
-  try{await player.play();}catch{status.textContent='Audio could not play. Tap the sample to try again.';}
+  try{await player.play();}catch{if(run===playbackRun&&active)status.textContent='Audio could not play. Tap the sample to try again.';}
 }
 async function play(text,label){
   const path=countingAudio[select.value]?.[text];
   await playPath(path,label);
 }
 function render(){
+  playbackRun++;active=false;
   player.pause();status.textContent='Choose a number or hear the directions.';
   const list=document.getElementById('numbers');list.replaceChildren();
   words[select.value].forEach((word,number)=>{
@@ -51,8 +55,8 @@ function render(){
 }
 select.onchange=render;
 version.onchange=render;
-player.onerror=()=>{status.textContent='Audio could not load. Tap the sample to try again.';};
-player.onended=()=>{status.textContent='Finished. You can replay this sample.';};
+player.onerror=()=>{if(active)status.textContent='Audio could not load. Tap the sample to try again.';};
+player.onended=()=>{if(active){active=false;status.textContent='Finished. You can replay this sample.';}};
 try{
   const candidateResponse=await fetch('../../assets/audio/candidates/manifest.json');
   if(!candidateResponse.ok)throw new Error('Missing candidates');candidates=await candidateResponse.json();
