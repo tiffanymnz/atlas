@@ -70,8 +70,14 @@ silence before/after it. Check for cut sounds or carryover when listening.
 
 The same English and Spanish preset voices are used. This experiment tests
 context and consistency; it does not establish naturalness. All active learner
-clips remain unchanged. Use the version selector in `tools/qa/audio-review.html`
-to compare the same number, or play the candidate's full count.
+clips remain unchanged. On October 30 the user reported extra number sounds
+and partial next words in the English candidate. It is rejected and removed
+from the listening page; Spanish was not reviewed. The files remain solely
+as evidence of the failed segmentation experiment.
+
+`tools/qa/audio-review.html` now auditions the original full-word clips at
+80% speed by default, with 65% and 100% alternatives. It requests preserved
+pitch. This does not repair English zero or approve either language.
 
 ```sh
 python tools/build/generate_sequence_number_candidates.py --model /path/to/kokoro-v1.0.onnx --voices /path/to/voices-v1.0.bin

@@ -1,6 +1,6 @@
 {
   "version": "sequence-number-candidate-v1",
-  "status": "unapproved candidate",
+  "status": "rejected: reported extra number sounds and partial next words in English; Spanish unreviewed",
   "method": "One continuous 0–20 render per language; split at model phoneme-duration boundaries; normalize the full render once.",
   "limitation": "Phoneme timing is not a human pronunciation or naturalness judgment. Review for cut sounds and unwanted carryover.",
   "languages": {

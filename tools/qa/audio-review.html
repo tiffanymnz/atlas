@@ -15,25 +15,29 @@ audio{width:100%;margin:16px 0}#status{min-height:2em}
 <p>For adult listening review. Hear the numbers without working through a lesson. Check whether each word is clear and the directions sound natural. This page does not approve the voice or replace device testing.</p>
 <label for="language">Language</label>
 <select id="language"><option value="en">English</option><option value="es">Español</option></select>
-<label for="version">Number version</label>
-<select id="version"><option value="current">Current clips</option><option value="sequence">Counting sequence candidate</option></select>
-<div class="toolbar"><button id="directions" type="button" disabled>Hear current directions</button><button id="sequence" type="button" disabled>Hear candidate count</button></div>
+<p>The sequence candidate was withdrawn after reported extra sounds and partial next words. These are the original complete clips at an adjustable speed. Slowing playback does not repair pronunciation; English “zero” still needs replacement review. Spanish has not been reviewed.</p>
+<label for="speed">Playback speed</label>
+<select id="speed"><option value="0.65">Much slower — 65%</option><option value="0.8" selected>Slower — 80%</option><option value="1">Original speed — 100%</option></select>
+<div class="toolbar"><button id="directions" type="button" disabled>Hear directions at selected speed</button></div>
 <audio id="player" controls preload="none"></audio>
 <p id="status" role="status">Loading voice samples…</p>
 <div id="numbers" aria-label="Number voice samples"></div>
 <script type="module">
 import {countingAudio} from '../../assets/audio/catalog.js?v=2';
 const select=document.getElementById('language'),player=document.getElementById('player'),status=document.getElementById('status');
-const version=document.getElementById('version');
+const speed=document.getElementById('speed');
+function applySpeed(){player.defaultPlaybackRate=Number(speed.value);player.playbackRate=Number(speed.value);player.preservesPitch=true;}
+speed.onchange=applySpeed;
+player.onloadedmetadata=applySpeed;
 const words={en:'zero one two three four five six seven eight nine ten eleven twelve thirteen fourteen fifteen sixteen seventeen eighteen nineteen twenty'.split(' '),es:'cero uno dos tres cuatro cinco seis siete ocho nueve diez once doce trece catorce quince dieciséis diecisiete dieciocho diecinueve veinte'.split(' ')};
 const lessons={};
-let candidates=null;
 let playbackRun=0,active=false;
 async function playPath(path,label){
   const run=++playbackRun;active=false;
   player.pause();
   if(!path){status.textContent='This sample is unavailable.';return;}
   player.src=new URL('../../'+path,location.href).href;
+  applySpeed();
   active=true;
   status.textContent='Playing: '+label;
   try{await player.play();}catch{if(run===playbackRun&&active)status.textContent='Audio could not play. Tap the sample to try again.';}
@@ -48,20 +52,13 @@ function render(){
   const list=document.getElementById('numbers');list.replaceChildren();
   words[select.value].forEach((word,number)=>{
     const button=document.createElement('button');button.type='button';button.textContent=number+' — '+word;
-    button.onclick=()=>version.value==='sequence'
-      ?playPath(candidates?.languages[select.value].numbers[number].file,button.textContent+' (candidate)')
-      :play(word,button.textContent);list.append(button);
+    button.onclick=()=>play(word,button.textContent);list.append(button);
   });
 }
 select.onchange=render;
-version.onchange=render;
 player.onerror=()=>{if(active)status.textContent='Audio could not load. Tap the sample to try again.';};
 player.onended=()=>{if(active){active=false;status.textContent='Finished. You can replay this sample.';}};
 try{
-  const candidateResponse=await fetch('../../assets/audio/candidates/manifest.json');
-  if(!candidateResponse.ok)throw new Error('Missing candidates');candidates=await candidateResponse.json();
-  document.getElementById('sequence').disabled=false;
-  document.getElementById('sequence').onclick=()=>playPath(candidates.languages[select.value].fullSequence,'full counting sequence');
   for(const [language,folder] of [['en','lessons'],['es','translations/es']]){
     const response=await fetch('../../curriculum/'+folder+'/lesson000p.json');
     if(!response.ok)throw new Error('Missing directions');lessons[language]=await response.json();

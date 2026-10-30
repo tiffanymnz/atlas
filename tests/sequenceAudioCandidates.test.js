@@ -7,7 +7,7 @@ import {bundledAudioUrls} from "../engine/countingAudio.js";
 test("sequence candidates cover every number without replacing active learner clips",()=>{
   const root=new URL("../",import.meta.url);
   const manifest=JSON.parse(readFileSync(new URL("assets/audio/candidates/manifest.json",root)));
-  assert.equal(manifest.status,"unapproved candidate");
+  assert.match(manifest.status,/^rejected:/);
   for(const language of ["en","es"]){
     const entry=manifest.languages[language];
     assert.equal(entry.numbers.length,21);

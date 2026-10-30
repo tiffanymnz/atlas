@@ -132,3 +132,18 @@ in energy. Do not infer that the current set sounds natural from its smaller
 range. The user's naturalness objection remains unresolved. Keep candidate
 audio out of the learner until listening review covers each number, its ending,
 and its level alongside adjacent numbers and lesson directions.
+
+## Listening findings — October 30, 2026
+
+User reports English playback is too fast, “zero” sounds unusual, and isolated
+sequence candidates contain two numbers or a number followed by the start of
+the next word. Spanish was not tested. This is a segmentation failure despite
+valid decoding, quiet edges, model timing, and passing technical tests.
+
+Reject the sequence candidate as a replacement; do not attempt to certify word
+boundaries from signal thresholds. The review page now serves only original
+complete clips, defaults to 80% playback, and offers 65% and 100% comparisons
+with pitch preservation requested from the browser. Directions use the same
+selected rate. This is an audition control, not regenerated slower narration
+or a pronunciation fix. English zero remains unresolved. Learner audio and
+production are unchanged. Spanish remains unreviewed.
