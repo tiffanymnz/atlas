@@ -108,3 +108,27 @@ Post-publish runtime smoke check: `3da42f7a3839f489415e64dfeb26428b453b643c`
 loaded the fresh introduction; English and Spanish narration both started
 and finished without an audio error. This verifies media events, not audibility
 or pronunciation quality on a physical device.
+
+## Offline number-signal comparison — October 29, 2026
+
+`python3 tools/qa/check_number_audio_signal.py` measures existing recordings
+without loading a model or generating audio. Exact file hashes and measurements
+are in `sprint18_number_audio_signal.json`.
+
+All 84 isolated clips (42 current and 42 candidate) decoded, contained signal
+above the screening threshold, and had no samples at or above digital full scale.
+All had at least 20 ms of quiet at the end at the stated threshold. This does
+not establish that a consonant or word ending survived segmentation.
+
+| Set | English active RMS range | Spanish active RMS range |
+| --- | --- | --- |
+| Current | −18.32 to −16.22 dBFS | −19.76 to −16.43 dBFS |
+| Sequence candidate | −25.28 to −15.00 dBFS | −23.54 to −13.96 dBFS |
+
+The candidate has a wider signal-level spread despite normalization of each
+continuous count. It is not ready to replace the current set as a consistency
+fix. Active RMS is a screening measure, not perceived loudness; phonemes differ
+in energy. Do not infer that the current set sounds natural from its smaller
+range. The user's naturalness objection remains unresolved. Keep candidate
+audio out of the learner until listening review covers each number, its ending,
+and its level alongside adjacent numbers and lesson directions.
