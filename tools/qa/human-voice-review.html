@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Atlas — recorded voice samples</title>
+<style>
+body{max-width:680px;margin:auto;padding:24px;background:#f7f6f1;color:#183344;font:18px/1.5 system-ui}
+h1{font-size:28px}h2{font-size:22px;margin-top:32px}audio{width:100%;margin:8px 0}a{color:#254e6c}a:focus-visible{outline:3px solid #315c7c;outline-offset:4px}
+</style>
+<h1>Recorded voice samples</h1>
+<p>Adult listening review. These are whole source recordings at their original speed. Neither voice has been approved for Atlas.</p>
+<h2>English — 1 to 20</h2>
+<p>EnjoyPA recorded himself counting. His source page releases the recording under CC0.</p>
+<audio controls preload="none" aria-label="English human voice, counting one to twenty" src="../../assets/audio/human-review/en-enjoypa-count-1-20.mp3"></audio>
+<p><a href="https://freesound.org/people/EnjoyPA/sounds/203066/">Recording and CC0 terms</a></p>
+<h2>Spanish — 1 to 20</h2>
+<p>Recording attributed to ThomasStrohmann on Wikimedia Commons, with a public-domain dedication.</p>
+<audio controls preload="none" aria-label="Spanish recorded voice, counting one to twenty" src="../../assets/audio/human-review/es-thomasstrohmann-count-1-20.ogg"></audio>
+<p><a href="https://commons.wikimedia.org/wiki/File:SpanishNumbers.ogg">Recording and public-domain statement</a></p>
+<h2>What remains</h2>
+<p>These sources list 1–20. Matching recordings of zero, lesson directions, hints, and feedback have not been found. Spanish pronunciation and accent still need review. No audio has been cut into separate numbers or added to the lessons.</p>
+<p>For now, assess only whether either voice sounds clear, natural, and suitable for a new learner. You do not need to repeat a lesson.</p>
+<script>
+const players=[...document.querySelectorAll('audio')];
+players.forEach(player=>player.addEventListener('play',()=>players.forEach(other=>{if(other!==player)other.pause();})));
+document.addEventListener('visibilitychange',()=>{if(document.hidden)players.forEach(player=>player.pause());});
+</script>
+</html>
